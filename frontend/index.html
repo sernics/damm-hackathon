@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Damm Smart Truck</title>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.11.0/mapbox-gl.css" rel="stylesheet" />
+    <link href="https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <nav class="rail" aria-label="Main navigation">
+        <div class="brand-mark">
+          <svg viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M20 3 34 11v18L20 37 6 29V11L20 3Z" fill="#07945e" />
+            <path d="M20 3v34M6 11l14 8 14-8M20 19v18" fill="none" stroke="#fff" stroke-width="2" />
+          </svg>
+        </div>
+        <button class="nav-item active" data-view="overview" title="Overview">
+          <span class="nav-icon overview-icon" aria-hidden="true">
+            <svg viewBox="0 0 28 28">
+              <path d="M7 8h7v7H7V8Zm7 7h7v5a2 2 0 0 1-2 2h-5v-7Z" />
+              <path d="M7 20 20 7m0 0v7m0-7h-7" />
+            </svg>
+          </span>
+          <small>Overview</small>
+        </button>
+        <button class="nav-item" data-view="routes" title="Routes">
+          <span class="nav-icon routes-icon" aria-hidden="true">
+            <svg viewBox="0 0 28 28">
+              <circle cx="7" cy="8" r="3" />
+              <circle cx="21" cy="20" r="3" />
+              <circle cx="20" cy="7" r="2.3" />
+              <path d="M9.7 9.4c4.2 1.1 6.5 2.9 6.9 5.3.3 1.5-.2 2.8-1.4 3.9M17.8 8.4c-2.7 1.5-4.1 3.2-4.1 5.1" />
+            </svg>
+          </span>
+          <small>Routes</small>
+        </button>
+        <button class="nav-item" data-view="trucks" title="Trucks">
+          <span class="nav-icon trucks-icon" aria-hidden="true">
+            <svg viewBox="0 0 28 28">
+              <path d="M5 10h11v8H5v-8Zm11 3h4l3 3v2h-7v-5Z" />
+              <circle cx="9" cy="20" r="2.2" />
+              <circle cx="20" cy="20" r="2.2" />
+            </svg>
+          </span>
+          <small>Trucks</small>
+        </button>
+        <button class="nav-item" data-view="loads" title="Loads">
+          <span class="nav-icon loads-icon" aria-hidden="true">
+            <svg viewBox="0 0 28 28">
+              <path d="M14 4 23 9v10l-9 5-9-5V9l9-5Z" />
+              <path d="m5 9 9 5 9-5M14 14v10" />
+            </svg>
+          </span>
+          <small>Loads</small>
+        </button>
+        <button class="nav-item analytics-nav" data-view="analytics" title="Analytics">
+          <span class="analytics-icon" aria-hidden="true">
+            <svg viewBox="0 0 28 28">
+              <rect x="5" y="15" width="4" height="7" rx="2" />
+              <rect x="12" y="10" width="4" height="12" rx="2" />
+              <rect x="19" y="6" width="4" height="16" rx="2" />
+              <path d="M5 10.5 10.8 13l5.2-6 7 2.8" />
+              <circle cx="16" cy="7" r="2.2" />
+            </svg>
+          </span>
+          <small>Analytics</small>
+        </button>
+        <button class="nav-item bottom" title="Settings">
+          <span class="nav-icon settings-icon" aria-hidden="true">
+            <svg viewBox="0 0 28 28">
+              <path d="M14 10a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
+              <path d="M14 4v3m0 14v3M5.3 9l2.6 1.5m12.2 7 2.6 1.5M5.3 19l2.6-1.5m12.2-7L22.7 9" />
+            </svg>
+          </span>
+          <small>Settings</small>
+        </button>
+      </nav>
+
+      <section class="workspace">
+        <header class="header">
+          <div>
+            <h1>Damm Smart Truck</h1>
+            <p>Route and load optimization for DDI Mollet</p>
+          </div>
+          <div class="header-actions">
+            <div class="date-switcher">
+              <button id="prevDayBtn" title="Previous delivery day">‹</button>
+              <div>
+                <span>Delivery day</span>
+                <strong id="dateLabel">Loading</strong>
+              </div>
+              <button id="nextDayBtn" title="Next delivery day">›</button>
+            </div>
+            <button class="depot-filter">All depots</button>
+            <div class="avatar">SN</div>
+          </div>
+        </header>
+
+        <div class="content-grid">
+          <section class="map-card">
+            <div id="map"></div>
+            <div class="map-toolbar">
+              <button id="layersBtn" class="tool-btn" title="Layers">▰</button>
+              <button id="focusBtn" class="tool-btn" title="Focus routes">⛶</button>
+              <div id="layersPanel" class="layers-panel hidden">
+                <label><input id="areasLayer" type="checkbox" /> Route areas</label>
+                <label><input id="trucksLayer" type="checkbox" checked /> Trucks</label>
+                <label><input id="stopsLayer" type="checkbox" checked /> Stops</label>
+                <label><input id="pathLayer" type="checkbox" checked /> Selected path</label>
+              </div>
+            </div>
+            <div class="scenario-toggle">
+              <button id="baselineBtn">Baseline</button>
+              <button id="optimizedBtn" class="active">Optimized</button>
+            </div>
+            <div class="legend">
+              <span><i class="legend-depot"></i>Depot</span>
+              <span><i class="legend-stop"></i>Stop</span>
+              <span><i class="legend-truck"></i>Truck</span>
+              <span><i class="legend-route"></i>Optimized route</span>
+              <span><i class="legend-base"></i>Baseline route</span>
+            </div>
+            <section id="viewPanel" class="view-panel hidden"></section>
+          </section>
+
+          <aside class="insights">
+            <div id="kpis" class="kpis"></div>
+            <section class="chart-card">
+              <div class="panel-heading">
+                <h2>Kilometers comparison</h2>
+                <span>Baseline vs optimized</span>
+              </div>
+              <canvas id="comparisonChart"></canvas>
+            </section>
+            <section class="truck-card">
+              <div class="panel-heading">
+                <h2 id="clusterTitle">Select a route</h2>
+                <span id="clusterMeta"></span>
+              </div>
+              <div class="route-detail">
+                <div id="truck3d"></div>
+                <div class="products-panel">
+                  <div class="products-head">
+                    <span>Product</span>
+                    <span>Pallets</span>
+                  </div>
+                  <div id="loadList" class="load-list"></div>
+                </div>
+              </div>
+              <button class="full-route-btn">View full route <span>›</span></button>
+            </section>
+          </aside>
+        </div>
+
+        <section class="bottom-strip">
+          <div><span>Deliveries</span><strong id="deliveriesMetric">0</strong><small>Completed</small></div>
+          <div><span>On time</span><strong>96%</strong><small>Estimated</small></div>
+          <div><span>Distance optimized</span><strong id="distanceMetric">0%</strong><small>vs baseline</small></div>
+          <div><span>CO2 impact</span><strong id="co2Metric">0 kg</strong><small>Saved</small></div>
+          <div><span>Cost impact</span><strong id="costMetric">€0</strong><small>Est. savings</small></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.11.0/mapbox-gl.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.176.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.176.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

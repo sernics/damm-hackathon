@@ -1,0 +1,23 @@
+{
+  "defaultDate": "2026-02-27",
+  "dates": [
+    {
+      "date": "2026-02-26",
+      "label": "Feb 26, 2026",
+      "baseline": "scenario_20260226_baseline.json",
+      "optimized": "scenario_20260226_optimized.json"
+    },
+    {
+      "date": "2026-02-27",
+      "label": "Feb 27, 2026",
+      "baseline": "scenario_20260227_baseline.json",
+      "optimized": "scenario_20260227_optimized.json"
+    },
+    {
+      "date": "2026-03-02",
+      "label": "Mar 02, 2026",
+      "baseline": "scenario_20260302_baseline.json",
+      "optimized": "scenario_20260302_optimized.json"
+    }
+  ]
+}

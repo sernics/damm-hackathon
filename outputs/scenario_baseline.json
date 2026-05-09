@@ -1,0 +1,2411 @@
+{
+  "metadata": {
+    "date": "2026-02-27",
+    "label": "baseline",
+    "n_transports": 30,
+    "n_clients": 122
+  },
+  "depot": {
+    "lat": 41.5417,
+    "lon": 2.2126,
+    "name": "DDI Mollet"
+  },
+  "clusters": [
+    {
+      "id": "11518036",
+      "truck_size": 6,
+      "color": "#1f77b4",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100673284,
+          "name": "BAR DOBLE Z",
+          "lat": 42.0450403,
+          "lon": 2.2677302,
+          "pallets": 0.082
+        },
+        {
+          "seq": 2,
+          "cliente": 9100669176,
+          "name": "LA CABANYA CAFETERIA",
+          "lat": 42.052974999999996,
+          "lon": 2.290175,
+          "pallets": 0.416
+        },
+        {
+          "seq": 3,
+          "cliente": 9100648393,
+          "name": "BAR TREBOL",
+          "lat": 41.54115,
+          "lon": 2.21508,
+          "pallets": 0.441
+        },
+        {
+          "seq": 4,
+          "cliente": 9100517311,
+          "name": "CASAL GENT GRAN ST.VICENÇ TORELLO",
+          "lat": 41.541725,
+          "lon": 2.21315,
+          "pallets": 0.181
+        },
+        {
+          "seq": 5,
+          "cliente": 9100515642,
+          "name": "BAR MONTSERRAT",
+          "lat": 42.05334,
+          "lon": 2.29409,
+          "pallets": 0.507
+        },
+        {
+          "seq": 6,
+          "cliente": 9100252094,
+          "name": "BAR RACO JUVENIL",
+          "lat": 42.053425,
+          "lon": 2.2909650000000004,
+          "pallets": 0.729
+        },
+        {
+          "seq": 7,
+          "cliente": 9100136123,
+          "name": "BAR XANIA",
+          "lat": 42.053055,
+          "lon": 2.29016,
+          "pallets": 0.313
+        },
+        {
+          "seq": 8,
+          "cliente": 9100110641,
+          "name": "FONDA VILASECA",
+          "lat": 41.54396,
+          "lon": 2.2118450000000003,
+          "pallets": 0.129
+        },
+        {
+          "seq": 9,
+          "cliente": 9100057038,
+          "name": "PRIMER EXPRESS",
+          "lat": 42.05446,
+          "lon": 2.290465,
+          "pallets": 0.492
+        },
+        {
+          "seq": 10,
+          "cliente": 9100057483,
+          "name": "CA L'ANGEL BAR",
+          "lat": 42.053439999999995,
+          "lon": 2.2904500000000003,
+          "pallets": 0.074
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2677302,
+          42.0450403
+        ],
+        [
+          2.290175,
+          42.052974999999996
+        ],
+        [
+          2.21508,
+          41.54115
+        ],
+        [
+          2.21315,
+          41.541725
+        ],
+        [
+          2.29409,
+          42.05334
+        ],
+        [
+          2.2909650000000004,
+          42.053425
+        ],
+        [
+          2.29016,
+          42.053055
+        ],
+        [
+          2.2118450000000003,
+          41.54396
+        ],
+        [
+          2.290465,
+          42.05446
+        ],
+        [
+          2.2904500000000003,
+          42.053439999999995
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 344.75,
+      "time_min": 689.5,
+      "occupation_pct": 56.0,
+      "load_plan": {
+        "truck_size": 6,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11517025",
+      "truck_size": 3,
+      "color": "#ff7f0e",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100264285,
+          "name": "PITAPES CALDERI 3 BRANQUES VALLES ,",
+          "lat": 41.5334439,
+          "lon": 2.2091303,
+          "pallets": 0.009
+        },
+        {
+          "seq": 2,
+          "cliente": 9100044366,
+          "name": "BAR LOS HERMANOS.",
+          "lat": 41.554751,
+          "lon": 2.268392,
+          "pallets": 0.02
+        },
+        {
+          "seq": 3,
+          "cliente": 100423,
+          "name": "DISTRIDAM",
+          "lat": 41.328468,
+          "lon": 2.030136,
+          "pallets": 0.926
+        },
+        {
+          "seq": 4,
+          "cliente": 100423,
+          "name": "DISTRIDAM",
+          "lat": 41.328468,
+          "lon": 2.030136,
+          "pallets": 0.009
+        },
+        {
+          "seq": 5,
+          "cliente": 9100536466,
+          "name": "RAUL MOLIST SANZ",
+          "lat": 41.543704999999996,
+          "lon": 2.210845,
+          "pallets": 0.02
+        },
+        {
+          "seq": 6,
+          "cliente": 9100717724,
+          "name": "BAR TENNIS VIC",
+          "lat": 41.930585,
+          "lon": 2.252215,
+          "pallets": 0.002
+        },
+        {
+          "seq": 7,
+          "cliente": 9100739591,
+          "name": "IZAKAYA",
+          "lat": 41.9294084,
+          "lon": 2.2535593,
+          "pallets": 0.009
+        },
+        {
+          "seq": 8,
+          "cliente": 9100703436,
+          "name": "TAJ MAHAL",
+          "lat": 41.9300495,
+          "lon": 2.255549,
+          "pallets": 0.009
+        },
+        {
+          "seq": 9,
+          "cliente": 9100540322,
+          "name": "COFFEE & BAKERY CAN PAU",
+          "lat": 41.930735,
+          "lon": 2.264134,
+          "pallets": 0.009
+        },
+        {
+          "seq": 10,
+          "cliente": 9100445926,
+          "name": "BAR CAFETERIA RICOMA",
+          "lat": 41.605052,
+          "lon": 2.286256,
+          "pallets": 0.073
+        },
+        {
+          "seq": 11,
+          "cliente": 9100081422,
+          "name": "PIZZERIA BRASERIA LA FLAMA",
+          "lat": 41.929871,
+          "lon": 2.253769,
+          "pallets": 0.009
+        },
+        {
+          "seq": 12,
+          "cliente": 9100058749,
+          "name": "MINI BRINDIS, BAR",
+          "lat": 41.9318435,
+          "lon": 2.2631612,
+          "pallets": 0.009
+        },
+        {
+          "seq": 13,
+          "cliente": 9100717724,
+          "name": "BAR TENNIS VIC",
+          "lat": 41.930585,
+          "lon": 2.252215,
+          "pallets": 1.0
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2091303,
+          41.5334439
+        ],
+        [
+          2.268392,
+          41.554751
+        ],
+        [
+          2.030136,
+          41.328468
+        ],
+        [
+          2.030136,
+          41.328468
+        ],
+        [
+          2.210845,
+          41.543704999999996
+        ],
+        [
+          2.252215,
+          41.930585
+        ],
+        [
+          2.2535593,
+          41.9294084
+        ],
+        [
+          2.255549,
+          41.9300495
+        ],
+        [
+          2.264134,
+          41.930735
+        ],
+        [
+          2.286256,
+          41.605052
+        ],
+        [
+          2.253769,
+          41.929871
+        ],
+        [
+          2.2631612,
+          41.9318435
+        ],
+        [
+          2.252215,
+          41.930585
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 228.56,
+      "time_min": 457.1,
+      "occupation_pct": 70.2,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518262",
+      "truck_size": 3,
+      "color": "#2ca02c",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100227177,
+          "name": "BAR FRANKFURT INSBRUCK",
+          "lat": 41.5601641,
+          "lon": 2.2216661,
+          "pallets": 0.028
+        },
+        {
+          "seq": 2,
+          "cliente": 9100512192,
+          "name": "JOSE PEREZ FERNANDEZ",
+          "lat": 41.5265,
+          "lon": 2.249124,
+          "pallets": 0.22
+        },
+        {
+          "seq": 3,
+          "cliente": 9100738774,
+          "name": "CAN MARIO",
+          "lat": 42.007905,
+          "lon": 2.2869598,
+          "pallets": 0.735
+        },
+        {
+          "seq": 4,
+          "cliente": 9100503495,
+          "name": "80'S SPIRIT",
+          "lat": 41.9290103,
+          "lon": 2.2568623,
+          "pallets": 0.009
+        },
+        {
+          "seq": 5,
+          "cliente": 9100227177,
+          "name": "BAR FRANKFURT INSBRUCK",
+          "lat": 41.5601641,
+          "lon": 2.2216661,
+          "pallets": 0.012
+        },
+        {
+          "seq": 6,
+          "cliente": 9100738774,
+          "name": "CAN MARIO",
+          "lat": 42.007905,
+          "lon": 2.2869598,
+          "pallets": 0.457
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2216661,
+          41.5601641
+        ],
+        [
+          2.249124,
+          41.5265
+        ],
+        [
+          2.2869598,
+          42.007905
+        ],
+        [
+          2.2568623,
+          41.9290103
+        ],
+        [
+          2.2216661,
+          41.5601641
+        ],
+        [
+          2.2869598,
+          42.007905
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 212.72,
+      "time_min": 425.4,
+      "occupation_pct": 48.7,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518035",
+      "truck_size": 3,
+      "color": "#d62728",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100747929,
+          "name": "Restaurant bar Mundial",
+          "lat": 41.99979,
+          "lon": 2.276095,
+          "pallets": 0.089
+        },
+        {
+          "seq": 2,
+          "cliente": 9100742290,
+          "name": "BAR DE LA BENZINERA HIGIENE",
+          "lat": 41.9257651,
+          "lon": 2.2834318,
+          "pallets": 0.009
+        },
+        {
+          "seq": 3,
+          "cliente": 9100582098,
+          "name": "HOSPITAL DE MANLLEU CUINA",
+          "lat": 42.0016502,
+          "lon": 2.2872329,
+          "pallets": 0.75
+        },
+        {
+          "seq": 4,
+          "cliente": 9100374147,
+          "name": "BAR OLIVEDA",
+          "lat": 42.0021369,
+          "lon": 2.2941505,
+          "pallets": 0.141
+        },
+        {
+          "seq": 5,
+          "cliente": 9100374147,
+          "name": "BAR OLIVEDA",
+          "lat": 42.0021369,
+          "lon": 2.2941505,
+          "pallets": 0.104
+        },
+        {
+          "seq": 6,
+          "cliente": 9100159254,
+          "name": "COMERCIAL F.LEIVA",
+          "lat": 42.007502,
+          "lon": 2.290725,
+          "pallets": 1.037
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.276095,
+          41.99979
+        ],
+        [
+          2.2834318,
+          41.9257651
+        ],
+        [
+          2.2872329,
+          42.0016502
+        ],
+        [
+          2.2941505,
+          42.0021369
+        ],
+        [
+          2.2941505,
+          42.0021369
+        ],
+        [
+          2.290725,
+          42.007502
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 121.34,
+      "time_min": 242.7,
+      "occupation_pct": 71.0,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518037",
+      "truck_size": 6,
+      "color": "#9467bd",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100755818,
+          "name": "El Celler d'en Miquel",
+          "lat": 41.9311315,
+          "lon": 2.2495527,
+          "pallets": 0.04
+        },
+        {
+          "seq": 2,
+          "cliente": 9100746832,
+          "name": "EL 9 TONI PETIT",
+          "lat": 41.9462891,
+          "lon": 2.255043,
+          "pallets": 0.003
+        },
+        {
+          "seq": 3,
+          "cliente": 9100742873,
+          "name": "EL PERNILER",
+          "lat": 41.928827,
+          "lon": 2.25724,
+          "pallets": 0.19
+        },
+        {
+          "seq": 4,
+          "cliente": 9100699144,
+          "name": "BAR GRACE",
+          "lat": 41.918615,
+          "lon": 2.25854,
+          "pallets": 0.181
+        },
+        {
+          "seq": 5,
+          "cliente": 9100678069,
+          "name": "Bagel Coffee",
+          "lat": 41.933428,
+          "lon": 2.245481,
+          "pallets": 0.326
+        },
+        {
+          "seq": 6,
+          "cliente": 9100673632,
+          "name": "AREA VIC BP",
+          "lat": 41.9339248,
+          "lon": 2.2664487,
+          "pallets": 0.03
+        },
+        {
+          "seq": 7,
+          "cliente": 9100664901,
+          "name": "CANTINA IES VIC ST TOMAS",
+          "lat": 41.930054999999996,
+          "lon": 2.254855,
+          "pallets": 0.144
+        },
+        {
+          "seq": 8,
+          "cliente": 9100634160,
+          "name": "TKBNA",
+          "lat": 41.9524615,
+          "lon": 2.2812451,
+          "pallets": 0.139
+        },
+        {
+          "seq": 9,
+          "cliente": 9100618226,
+          "name": "CAFETERIA SANT TOMÀS",
+          "lat": 41.948984,
+          "lon": 2.250482,
+          "pallets": 0.231
+        },
+        {
+          "seq": 10,
+          "cliente": 9100581337,
+          "name": "BAR L'OLLA",
+          "lat": 41.930355,
+          "lon": 2.253815,
+          "pallets": 0.527
+        },
+        {
+          "seq": 11,
+          "cliente": 9100573746,
+          "name": "PANADERIA GRANIER",
+          "lat": 41.930778,
+          "lon": 2.255954,
+          "pallets": 0.201
+        },
+        {
+          "seq": 12,
+          "cliente": 9100563642,
+          "name": "FORN SANT ALBERT",
+          "lat": 41.932088,
+          "lon": 2.2527112,
+          "pallets": 0.056
+        },
+        {
+          "seq": 13,
+          "cliente": 9100541821,
+          "name": "PRAGMA PROFESSIONAL",
+          "lat": 41.9302339,
+          "lon": 2.2465476,
+          "pallets": 0.321
+        },
+        {
+          "seq": 14,
+          "cliente": 9100436371,
+          "name": "GRANGES LA CATALANA",
+          "lat": 41.93233725852713,
+          "lon": 2.248581807105943,
+          "pallets": 0.075
+        },
+        {
+          "seq": 15,
+          "cliente": 9100294054,
+          "name": "BAR LA PLACETA",
+          "lat": 41.925614,
+          "lon": 2.256292,
+          "pallets": 0.247
+        },
+        {
+          "seq": 16,
+          "cliente": 9100158828,
+          "name": "FORN PUJOLS",
+          "lat": 41.931448,
+          "lon": 2.255183,
+          "pallets": 0.059
+        },
+        {
+          "seq": 17,
+          "cliente": 9100058749,
+          "name": "MINI BRINDIS, BAR",
+          "lat": 41.9318435,
+          "lon": 2.2631612,
+          "pallets": 0.311
+        },
+        {
+          "seq": 18,
+          "cliente": 9100058299,
+          "name": "CANTABRIA RESTAURANT",
+          "lat": 41.9409869,
+          "lon": 2.2433019,
+          "pallets": 1.367
+        },
+        {
+          "seq": 19,
+          "cliente": 9100057963,
+          "name": "FETNOSTREVIC",
+          "lat": 41.9327785,
+          "lon": 2.2480296,
+          "pallets": 0.183
+        },
+        {
+          "seq": 20,
+          "cliente": 9100057936,
+          "name": "EL CAPUTXI",
+          "lat": 41.9308577,
+          "lon": 2.2592526,
+          "pallets": 0.139
+        },
+        {
+          "seq": 21,
+          "cliente": 9100056689,
+          "name": "RESTAURANT NOU PAMPLONA",
+          "lat": 41.9274056,
+          "lon": 2.2448121,
+          "pallets": 0.009
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2495527,
+          41.9311315
+        ],
+        [
+          2.255043,
+          41.9462891
+        ],
+        [
+          2.25724,
+          41.928827
+        ],
+        [
+          2.25854,
+          41.918615
+        ],
+        [
+          2.245481,
+          41.933428
+        ],
+        [
+          2.2664487,
+          41.9339248
+        ],
+        [
+          2.254855,
+          41.930054999999996
+        ],
+        [
+          2.2812451,
+          41.9524615
+        ],
+        [
+          2.250482,
+          41.948984
+        ],
+        [
+          2.253815,
+          41.930355
+        ],
+        [
+          2.255954,
+          41.930778
+        ],
+        [
+          2.2527112,
+          41.932088
+        ],
+        [
+          2.2465476,
+          41.9302339
+        ],
+        [
+          2.248581807105943,
+          41.93233725852713
+        ],
+        [
+          2.256292,
+          41.925614
+        ],
+        [
+          2.255183,
+          41.931448
+        ],
+        [
+          2.2631612,
+          41.9318435
+        ],
+        [
+          2.2433019,
+          41.9409869
+        ],
+        [
+          2.2480296,
+          41.9327785
+        ],
+        [
+          2.2592526,
+          41.9308577
+        ],
+        [
+          2.2448121,
+          41.9274056
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 112.71,
+      "time_min": 225.4,
+      "occupation_pct": 79.7,
+      "load_plan": {
+        "truck_size": 6,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518033",
+      "truck_size": 6,
+      "color": "#8c564b",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100582097,
+          "name": "HOSPITAL DE VIC CUINA",
+          "lat": 41.931915,
+          "lon": 2.254345,
+          "pallets": 0.637
+        },
+        {
+          "seq": 2,
+          "cliente": 9100582033,
+          "name": "HOSPITAL DE VIC CAFETERIA",
+          "lat": 41.927825,
+          "lon": 2.25699,
+          "pallets": 1.321
+        },
+        {
+          "seq": 3,
+          "cliente": 9100527964,
+          "name": "DROGUERIA JUNYENT",
+          "lat": 41.940776,
+          "lon": 2.246838,
+          "pallets": 2.467
+        },
+        {
+          "seq": 4,
+          "cliente": 9100527964,
+          "name": "DROGUERIA JUNYENT",
+          "lat": 41.940776,
+          "lon": 2.246838,
+          "pallets": 0.019
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.254345,
+          41.931915
+        ],
+        [
+          2.25699,
+          41.927825
+        ],
+        [
+          2.246838,
+          41.940776
+        ],
+        [
+          2.246838,
+          41.940776
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 90.17,
+      "time_min": 180.3,
+      "occupation_pct": 74.1,
+      "load_plan": {
+        "truck_size": 6,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11517497",
+      "truck_size": 3,
+      "color": "#e377c2",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100523486,
+          "name": "BAR RESTAURANT GIRASOL",
+          "lat": 41.9350958,
+          "lon": 2.2636353,
+          "pallets": 0.415
+        },
+        {
+          "seq": 2,
+          "cliente": 9100523486,
+          "name": "BAR RESTAURANT GIRASOL",
+          "lat": 41.9350958,
+          "lon": 2.2636353,
+          "pallets": 0.207
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2636353,
+          41.9350958
+        ],
+        [
+          2.2636353,
+          41.9350958
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 87.9,
+      "time_min": 175.8,
+      "occupation_pct": 20.7,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518055",
+      "truck_size": 6,
+      "color": "#7f7f7f",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100158696,
+          "name": "LLAVORS I CEREALS FONT",
+          "lat": 41.9278558,
+          "lon": 2.2444589,
+          "pallets": 5.59
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2444589,
+          41.9278558
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 86.04,
+      "time_min": 172.1,
+      "occupation_pct": 93.2,
+      "load_plan": {
+        "truck_size": 6,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518176",
+      "truck_size": 3,
+      "color": "#bcbd22",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100737400,
+          "name": "Bar Gat Negre",
+          "lat": 41.5742054,
+          "lon": 2.0038024,
+          "pallets": 0.025
+        },
+        {
+          "seq": 2,
+          "cliente": 9100736476,
+          "name": "AUTENTIK’S CAMPO DE FUTBOL",
+          "lat": 41.3707998,
+          "lon": 2.0762494,
+          "pallets": 0.202
+        },
+        {
+          "seq": 3,
+          "cliente": 9100687896,
+          "name": "IBERICUS CENTRAL",
+          "lat": 41.58278,
+          "lon": 2.023791,
+          "pallets": 0.06
+        },
+        {
+          "seq": 4,
+          "cliente": 9100661607,
+          "name": "DIR SANT CUGAT",
+          "lat": 41.540749999999996,
+          "lon": 2.213025,
+          "pallets": 0.088
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.0038024,
+          41.5742054
+        ],
+        [
+          2.0762494,
+          41.3707998
+        ],
+        [
+          2.023791,
+          41.58278
+        ],
+        [
+          2.213025,
+          41.540749999999996
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 81.66,
+      "time_min": 163.3,
+      "occupation_pct": 12.5,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518230",
+      "truck_size": 3,
+      "color": "#17becf",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 100423,
+          "name": "DISTRIDAM",
+          "lat": 41.328468,
+          "lon": 2.030136,
+          "pallets": 1.0
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.030136,
+          41.328468
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 56.34,
+      "time_min": 112.7,
+      "occupation_pct": 33.3,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518120",
+      "truck_size": 3,
+      "color": "#1f77b4",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100742644,
+          "name": "EPICUS BAR",
+          "lat": 41.602239,
+          "lon": 2.295067,
+          "pallets": 0.038
+        },
+        {
+          "seq": 2,
+          "cliente": 9100509767,
+          "name": "HOLLY'S",
+          "lat": 41.608057,
+          "lon": 2.2880953,
+          "pallets": 0.356
+        },
+        {
+          "seq": 3,
+          "cliente": 9100340260,
+          "name": "BAR RESTAURANTE MERLY´S",
+          "lat": 41.597012,
+          "lon": 2.289864,
+          "pallets": 0.163
+        },
+        {
+          "seq": 4,
+          "cliente": 9100094835,
+          "name": "FRANKFURT JAVIS II",
+          "lat": 41.610406,
+          "lon": 2.291018,
+          "pallets": 0.33
+        },
+        {
+          "seq": 5,
+          "cliente": 9100044418,
+          "name": "BAR LA GRALLA",
+          "lat": 41.602239,
+          "lon": 2.295067,
+          "pallets": 0.195
+        },
+        {
+          "seq": 6,
+          "cliente": 9100042037,
+          "name": "ALORA",
+          "lat": 41.607416,
+          "lon": 2.290591,
+          "pallets": 0.064
+        },
+        {
+          "seq": 7,
+          "cliente": 9100041059,
+          "name": "L,ESTACIO DE SERVEI",
+          "lat": 41.539625,
+          "lon": 2.21043,
+          "pallets": 0.321
+        },
+        {
+          "seq": 8,
+          "cliente": 118135,
+          "name": "BK GRANOLLERS",
+          "lat": 41.604879786666665,
+          "lon": 2.290994731111111,
+          "pallets": 0.188
+        },
+        {
+          "seq": 9,
+          "cliente": 9100094835,
+          "name": "FRANKFURT JAVIS II",
+          "lat": 41.610406,
+          "lon": 2.291018,
+          "pallets": 0.046
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.295067,
+          41.602239
+        ],
+        [
+          2.2880953,
+          41.608057
+        ],
+        [
+          2.289864,
+          41.597012
+        ],
+        [
+          2.291018,
+          41.610406
+        ],
+        [
+          2.295067,
+          41.602239
+        ],
+        [
+          2.290591,
+          41.607416
+        ],
+        [
+          2.21043,
+          41.539625
+        ],
+        [
+          2.290994731111111,
+          41.604879786666665
+        ],
+        [
+          2.291018,
+          41.610406
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 45.47,
+      "time_min": 90.9,
+      "occupation_pct": 56.7,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518119",
+      "truck_size": 6,
+      "color": "#ff7f0e",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100681160,
+          "name": "RESTAURANT NOU CAP MANY",
+          "lat": 41.594034,
+          "lon": 2.265173,
+          "pallets": 0.293
+        },
+        {
+          "seq": 2,
+          "cliente": 9100653355,
+          "name": "EL TIRO DE GRANOLLERS",
+          "lat": 41.6172558,
+          "lon": 2.26983,
+          "pallets": 0.11
+        },
+        {
+          "seq": 3,
+          "cliente": 9100652617,
+          "name": "PADEL INDOOR GRANOLLERS",
+          "lat": 41.581938,
+          "lon": 2.273835,
+          "pallets": 0.363
+        },
+        {
+          "seq": 4,
+          "cliente": 9100629126,
+          "name": "DONNER POMPEU FABRA",
+          "lat": 41.6092088,
+          "lon": 2.2844133,
+          "pallets": 0.207
+        },
+        {
+          "seq": 5,
+          "cliente": 9100420785,
+          "name": "RESTAURANTE PALOU",
+          "lat": 41.582348,
+          "lon": 2.27289,
+          "pallets": 0.314
+        },
+        {
+          "seq": 6,
+          "cliente": 9100229514,
+          "name": "RESTAURANTE MINT",
+          "lat": 41.60767,
+          "lon": 2.284359,
+          "pallets": 0.128
+        },
+        {
+          "seq": 7,
+          "cliente": 9100043170,
+          "name": "CA LA SETE",
+          "lat": 41.58018,
+          "lon": 2.273607,
+          "pallets": 1.364
+        },
+        {
+          "seq": 8,
+          "cliente": 9100042612,
+          "name": "BAR MALENO II",
+          "lat": 41.613915,
+          "lon": 2.288827,
+          "pallets": 0.35
+        },
+        {
+          "seq": 9,
+          "cliente": 9100681231,
+          "name": "BAR LA GRANJA",
+          "lat": 41.6048713,
+          "lon": 2.2832281,
+          "pallets": 0.093
+        },
+        {
+          "seq": 10,
+          "cliente": 9100525754,
+          "name": "BAR NEVADA II",
+          "lat": 41.598184,
+          "lon": 2.284605,
+          "pallets": 0.139
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.265173,
+          41.594034
+        ],
+        [
+          2.26983,
+          41.6172558
+        ],
+        [
+          2.273835,
+          41.581938
+        ],
+        [
+          2.2844133,
+          41.6092088
+        ],
+        [
+          2.27289,
+          41.582348
+        ],
+        [
+          2.284359,
+          41.60767
+        ],
+        [
+          2.273607,
+          41.58018
+        ],
+        [
+          2.288827,
+          41.613915
+        ],
+        [
+          2.2832281,
+          41.6048713
+        ],
+        [
+          2.284605,
+          41.598184
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 40.78,
+      "time_min": 81.6,
+      "occupation_pct": 56.0,
+      "load_plan": {
+        "truck_size": 6,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518040",
+      "truck_size": 3,
+      "color": "#2ca02c",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100687896,
+          "name": "IBERICUS CENTRAL",
+          "lat": 41.58278,
+          "lon": 2.023791,
+          "pallets": 1.769
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.023791,
+          41.58278
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 32.72,
+      "time_min": 65.4,
+      "occupation_pct": 59.0,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518039",
+      "truck_size": 3,
+      "color": "#d62728",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100646871,
+          "name": "IBERICUS CENTRAL",
+          "lat": 41.58278,
+          "lon": 2.023791,
+          "pallets": 1.042
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.023791,
+          41.58278
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 32.72,
+      "time_min": 65.4,
+      "occupation_pct": 34.7,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11516898",
+      "truck_size": 3,
+      "color": "#9467bd",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100646871,
+          "name": "IBERICUS CENTRAL",
+          "lat": 41.58278,
+          "lon": 2.023791,
+          "pallets": 0.057
+        },
+        {
+          "seq": 2,
+          "cliente": 9100646871,
+          "name": "IBERICUS CENTRAL",
+          "lat": 41.58278,
+          "lon": 2.023791,
+          "pallets": 0.026
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.023791,
+          41.58278
+        ],
+        [
+          2.023791,
+          41.58278
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 32.72,
+      "time_min": 65.4,
+      "occupation_pct": 2.8,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518112",
+      "truck_size": 6,
+      "color": "#8c564b",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100742280,
+          "name": "BAR LA PETRA II",
+          "lat": 41.539835,
+          "lon": 2.21081,
+          "pallets": 1.194
+        },
+        {
+          "seq": 2,
+          "cliente": 9100677459,
+          "name": "PADELIN",
+          "lat": 41.589265,
+          "lon": 2.247475,
+          "pallets": 0.155
+        },
+        {
+          "seq": 3,
+          "cliente": 9100044483,
+          "name": "RINCON DEL DUENDE",
+          "lat": 41.540335,
+          "lon": 2.2139,
+          "pallets": 0.111
+        },
+        {
+          "seq": 4,
+          "cliente": 9100044089,
+          "name": "RESTAURANTE MERITXELL",
+          "lat": 41.58677,
+          "lon": 2.2460050000000003,
+          "pallets": 0.968
+        },
+        {
+          "seq": 5,
+          "cliente": 9100044002,
+          "name": "RSTE. LA PAGESA",
+          "lat": 41.58696,
+          "lon": 2.2462500000000003,
+          "pallets": 1.455
+        },
+        {
+          "seq": 6,
+          "cliente": 9100040967,
+          "name": "RSTE. BONA TAULA",
+          "lat": 41.591025,
+          "lon": 2.24493,
+          "pallets": 0.115
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.21081,
+          41.539835
+        ],
+        [
+          2.247475,
+          41.589265
+        ],
+        [
+          2.2139,
+          41.540335
+        ],
+        [
+          2.2460050000000003,
+          41.58677
+        ],
+        [
+          2.2462500000000003,
+          41.58696
+        ],
+        [
+          2.24493,
+          41.591025
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 25.07,
+      "time_min": 50.1,
+      "occupation_pct": 66.6,
+      "load_plan": {
+        "truck_size": 6,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11517691",
+      "truck_size": 3,
+      "color": "#e377c2",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100758269,
+          "name": "CASA TOI",
+          "lat": 41.614473,
+          "lon": 2.291737,
+          "pallets": 0.27
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.291737,
+          41.614473
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 20.86,
+      "time_min": 41.7,
+      "occupation_pct": 9.0,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518052",
+      "truck_size": 3,
+      "color": "#7f7f7f",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100568067,
+          "name": "SUSHI HE GRANOLLERS",
+          "lat": 41.6099253,
+          "lon": 2.2781179,
+          "pallets": 1.119
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2781179,
+          41.6099253
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 18.68,
+      "time_min": 37.4,
+      "occupation_pct": 37.3,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518056",
+      "truck_size": 3,
+      "color": "#bcbd22",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100238822,
+          "name": "CRISTINA BAR",
+          "lat": 41.527819,
+          "lon": 2.231752,
+          "pallets": 0.411
+        },
+        {
+          "seq": 2,
+          "cliente": 9100238822,
+          "name": "CRISTINA BAR",
+          "lat": 41.527819,
+          "lon": 2.231752,
+          "pallets": 0.014
+        },
+        {
+          "seq": 3,
+          "cliente": 9100161621,
+          "name": "FORN VALERO",
+          "lat": 41.54810500000001,
+          "lon": 2.24787,
+          "pallets": 0.361
+        },
+        {
+          "seq": 4,
+          "cliente": 9100055329,
+          "name": "SANLUQUEÑOS BAR",
+          "lat": 41.551699,
+          "lon": 2.266833,
+          "pallets": 0.508
+        },
+        {
+          "seq": 5,
+          "cliente": 9100044116,
+          "name": "BAR LA TACITA",
+          "lat": 41.551822,
+          "lon": 2.246819,
+          "pallets": 0.608
+        },
+        {
+          "seq": 6,
+          "cliente": 9100043839,
+          "name": "BAR PLAZA GRAN",
+          "lat": 41.551659,
+          "lon": 2.249341,
+          "pallets": 0.483
+        },
+        {
+          "seq": 7,
+          "cliente": 9100041886,
+          "name": "RESTAURANTE MARCOS",
+          "lat": 41.553775,
+          "lon": 2.284939,
+          "pallets": 0.447
+        },
+        {
+          "seq": 8,
+          "cliente": 9100041363,
+          "name": "CIRCUITO DE CATALUNYA",
+          "lat": 41.5515189,
+          "lon": 2.2480812,
+          "pallets": 0.023
+        },
+        {
+          "seq": 9,
+          "cliente": 9100041363,
+          "name": "CIRCUITO DE CATALUNYA",
+          "lat": 41.5515189,
+          "lon": 2.2480812,
+          "pallets": 0.039
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.231752,
+          41.527819
+        ],
+        [
+          2.231752,
+          41.527819
+        ],
+        [
+          2.24787,
+          41.54810500000001
+        ],
+        [
+          2.266833,
+          41.551699
+        ],
+        [
+          2.246819,
+          41.551822
+        ],
+        [
+          2.249341,
+          41.551659
+        ],
+        [
+          2.284939,
+          41.553775
+        ],
+        [
+          2.2480812,
+          41.5515189
+        ],
+        [
+          2.2480812,
+          41.5515189
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 17.54,
+      "time_min": 35.1,
+      "occupation_pct": 96.4,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11517084",
+      "truck_size": 3,
+      "color": "#17becf",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100662674,
+          "name": "Comercial  Bebidas Burj SL",
+          "lat": 41.603069,
+          "lon": 2.278425,
+          "pallets": 0.722
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.278425,
+          41.603069
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 17.5,
+      "time_min": 35.0,
+      "occupation_pct": 24.1,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518111",
+      "truck_size": 6,
+      "color": "#1f77b4",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100746992,
+          "name": "RESTAURANTE EUROPEO CONGOST",
+          "lat": 41.547552,
+          "lon": 2.252128,
+          "pallets": 0.503
+        },
+        {
+          "seq": 2,
+          "cliente": 9100701291,
+          "name": "BAR BRICOLAJE DEPOT",
+          "lat": 41.580306,
+          "lon": 2.2528629,
+          "pallets": 0.362
+        },
+        {
+          "seq": 3,
+          "cliente": 9100054649,
+          "name": "LLEVANTPARK SL",
+          "lat": 41.5729887,
+          "lon": 2.2329289,
+          "pallets": 1.963
+        },
+        {
+          "seq": 4,
+          "cliente": 9100041840,
+          "name": "BAR SAGITARIO",
+          "lat": 41.5745547,
+          "lon": 2.2368521,
+          "pallets": 0.338
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.252128,
+          41.547552
+        ],
+        [
+          2.2528629,
+          41.580306
+        ],
+        [
+          2.2329289,
+          41.5729887
+        ],
+        [
+          2.2368521,
+          41.5745547
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 13.39,
+      "time_min": 26.8,
+      "occupation_pct": 52.8,
+      "load_plan": {
+        "truck_size": 6,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11517249",
+      "truck_size": 3,
+      "color": "#ff7f0e",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100054949,
+          "name": "XARRUP BAR",
+          "lat": 41.5467073,
+          "lon": 2.20806,
+          "pallets": 0.243
+        },
+        {
+          "seq": 2,
+          "cliente": 9100503009,
+          "name": "JUAN JAVIER PONCE",
+          "lat": 41.509611,
+          "lon": 2.195485,
+          "pallets": 0.019
+        },
+        {
+          "seq": 3,
+          "cliente": 9100054949,
+          "name": "XARRUP BAR",
+          "lat": 41.5467073,
+          "lon": 2.20806,
+          "pallets": 0.122
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.20806,
+          41.5467073
+        ],
+        [
+          2.195485,
+          41.509611
+        ],
+        [
+          2.20806,
+          41.5467073
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 9.86,
+      "time_min": 19.7,
+      "occupation_pct": 12.8,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11516762",
+      "truck_size": 3,
+      "color": "#2ca02c",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100541197,
+          "name": "CLUB DE FUTBOL MARTORELLES",
+          "lat": 41.5309319,
+          "lon": 2.2348744,
+          "pallets": 0.88
+        },
+        {
+          "seq": 2,
+          "cliente": 9100055559,
+          "name": "LA FLOR MARISQUERIA",
+          "lat": 41.519817,
+          "lon": 2.254387,
+          "pallets": 0.176
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2348744,
+          41.5309319
+        ],
+        [
+          2.254387,
+          41.519817
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 8.49,
+      "time_min": 17.0,
+      "occupation_pct": 35.2,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518051",
+      "truck_size": 6,
+      "color": "#d62728",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100684101,
+          "name": "BAR NOMAD",
+          "lat": 41.543355,
+          "lon": 2.214475,
+          "pallets": 0.13
+        },
+        {
+          "seq": 2,
+          "cliente": 9100684101,
+          "name": "BAR NOMAD",
+          "lat": 41.543355,
+          "lon": 2.214475,
+          "pallets": 0.052
+        },
+        {
+          "seq": 3,
+          "cliente": 9100583212,
+          "name": "RACO DEL SEMI CACHOPO",
+          "lat": 41.5480364,
+          "lon": 2.2198141,
+          "pallets": 0.245
+        },
+        {
+          "seq": 4,
+          "cliente": 9100568310,
+          "name": "BAR CHAMPANILLO",
+          "lat": 41.5358796,
+          "lon": 2.2107797,
+          "pallets": 0.88
+        },
+        {
+          "seq": 5,
+          "cliente": 9100522267,
+          "name": "FORN L'ANTIC",
+          "lat": 41.543225,
+          "lon": 2.2136,
+          "pallets": 0.053
+        },
+        {
+          "seq": 6,
+          "cliente": 9100338332,
+          "name": "BAR GRANADA",
+          "lat": 41.5334748,
+          "lon": 2.2175419,
+          "pallets": 0.34
+        },
+        {
+          "seq": 7,
+          "cliente": 9100190779,
+          "name": "PALENTINO BAR",
+          "lat": 41.5355148,
+          "lon": 2.2114478,
+          "pallets": 0.267
+        },
+        {
+          "seq": 8,
+          "cliente": 9100178455,
+          "name": "PLAZA DONER KEBAB",
+          "lat": 41.533902,
+          "lon": 2.213819,
+          "pallets": 0.112
+        },
+        {
+          "seq": 9,
+          "cliente": 9100056124,
+          "name": "GRANJA CORAL",
+          "lat": 41.536442,
+          "lon": 2.213238,
+          "pallets": 0.071
+        },
+        {
+          "seq": 10,
+          "cliente": 9100055497,
+          "name": "EL GARBI BAR",
+          "lat": 41.5394682,
+          "lon": 2.2181763,
+          "pallets": 0.183
+        },
+        {
+          "seq": 11,
+          "cliente": 9100054896,
+          "name": "CAFÉ PLAÇA",
+          "lat": 41.5388501,
+          "lon": 2.2135294,
+          "pallets": 0.502
+        },
+        {
+          "seq": 12,
+          "cliente": 9100054744,
+          "name": "VENECIA BAR",
+          "lat": 41.5335118,
+          "lon": 2.2173343,
+          "pallets": 0.31
+        },
+        {
+          "seq": 13,
+          "cliente": 9100054708,
+          "name": "BCC LOUNGE",
+          "lat": 41.5393484,
+          "lon": 2.2130934,
+          "pallets": 0.233
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.214475,
+          41.543355
+        ],
+        [
+          2.214475,
+          41.543355
+        ],
+        [
+          2.2198141,
+          41.5480364
+        ],
+        [
+          2.2107797,
+          41.5358796
+        ],
+        [
+          2.2136,
+          41.543225
+        ],
+        [
+          2.2175419,
+          41.5334748
+        ],
+        [
+          2.2114478,
+          41.5355148
+        ],
+        [
+          2.213819,
+          41.533902
+        ],
+        [
+          2.213238,
+          41.536442
+        ],
+        [
+          2.2181763,
+          41.5394682
+        ],
+        [
+          2.2135294,
+          41.5388501
+        ],
+        [
+          2.2173343,
+          41.5335118
+        ],
+        [
+          2.2130934,
+          41.5393484
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 8.16,
+      "time_min": 16.3,
+      "occupation_pct": 56.3,
+      "load_plan": {
+        "truck_size": 6,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11517548",
+      "truck_size": 3,
+      "color": "#9467bd",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100645053,
+          "name": "RESTAURANTE EL CAU",
+          "lat": 41.514619366535435,
+          "lon": 2.2399775700787403,
+          "pallets": 0.176
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2399775700787403,
+          41.514619366535435
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 7.55,
+      "time_min": 15.1,
+      "occupation_pct": 5.9,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11517919",
+      "truck_size": 3,
+      "color": "#8c564b",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100558085,
+          "name": "BAR CAMPO FUTBOL MONTMELO",
+          "lat": 41.54927,
+          "lon": 2.25139,
+          "pallets": 1.111
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.25139,
+          41.54927
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 6.67,
+      "time_min": 13.3,
+      "occupation_pct": 37.0,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518113",
+      "truck_size": 3,
+      "color": "#e377c2",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100544203,
+          "name": "EXTREMEÑOS BAR",
+          "lat": 41.5435383,
+          "lon": 2.209294,
+          "pallets": 0.297
+        },
+        {
+          "seq": 2,
+          "cliente": 9100056113,
+          "name": "CAN RAJOLER",
+          "lat": 41.555525,
+          "lon": 2.227652,
+          "pallets": 1.475
+        },
+        {
+          "seq": 3,
+          "cliente": 9100054873,
+          "name": "LA GAMBA BAR",
+          "lat": 41.5439659,
+          "lon": 2.2091274,
+          "pallets": 0.99
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.209294,
+          41.5435383
+        ],
+        [
+          2.227652,
+          41.555525
+        ],
+        [
+          2.2091274,
+          41.5439659
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 4.76,
+      "time_min": 9.5,
+      "occupation_pct": 92.1,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518177",
+      "truck_size": 3,
+      "color": "#7f7f7f",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100765744,
+          "name": "BAR BY DUNAS MOLLET",
+          "lat": 41.5335078,
+          "lon": 2.2176302,
+          "pallets": 0.435
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2176302,
+          41.5335078
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 2.01,
+      "time_min": 4.0,
+      "occupation_pct": 14.5,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11516767",
+      "truck_size": 3,
+      "color": "#bcbd22",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100121732,
+          "name": "BAR EBANO",
+          "lat": 41.5401113,
+          "lon": 2.2166876,
+          "pallets": 0.285
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2166876,
+          41.5401113
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 0.77,
+      "time_min": 1.5,
+      "occupation_pct": 9.5,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    },
+    {
+      "id": "11518038",
+      "truck_size": 3,
+      "color": "#17becf",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100627990,
+          "name": "FELIUBADALO",
+          "lat": 41.541845,
+          "lon": 2.21496,
+          "pallets": 0.219
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.21496,
+          41.541845
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 0.39,
+      "time_min": 0.8,
+      "occupation_pct": 7.3,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": []
+      }
+    }
+  ],
+  "kpis": {
+    "total_km": 1768.3,
+    "avg_route_km": 58.9,
+    "avg_occupation_pct": 44.2,
+    "trucks_used": 30,
+    "total_pallets": 55.8,
+    "total_time_min": 3536.6
+  }
+}
