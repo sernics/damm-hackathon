@@ -1,80 +1,61 @@
+import { CHART, KPI_CONFIG, iconSvg } from "./config.js";
+import { escapeHtml, formatHours, formatKpi, formatPct } from "./format.js";
+
 let chart;
 
-const KPI_CONFIG = [
-  ["km_saved", "Km saved", "km", "route"],
-  ["total_km", "Total km", "km", "road"],
-  ["avg_occupation_pct", "Occupation", "%", "pie"],
-  ["co2_saved_kg", "CO2 saved", "kg", "leaf"],
-  ["time_saved_min", "Time saved", "min", "clock"],
-  ["trucks_used", "Trucks", "", "truck"],
-];
-
-function iconFor(type) {
-  const icons = {
-    route: "↗",
-    road: "▥",
-    pie: "◔",
-    leaf: "♧",
-    clock: "◷",
-    truck: "▤",
-  };
-  return icons[type] || "•";
-}
-
-function formatValue(value, unit) {
-  if (value === undefined || value === null || Number.isNaN(Number(value))) {
-    return "Baseline";
+function secondaryFor(key, kpis) {
+  if (key === "km_saved" && kpis.km_saved_pct !== undefined) {
+    return `${formatPct(kpis.km_saved_pct)} vs baseline`;
   }
-  const numeric = Number(value);
-  if (!unit) {
-    return numeric.toLocaleString("en-US", { maximumFractionDigits: 0 });
+  if (key === "time_saved_min" && kpis.time_saved_min !== undefined) {
+    return formatHours(kpis.time_saved_min);
   }
-  return `${numeric.toLocaleString("en-US", { maximumFractionDigits: 1 })} ${unit}`;
+  return "";
 }
 
 export function renderKpis(container, scenario) {
   const kpis = scenario.kpis;
-  container.innerHTML = KPI_CONFIG.map(([key, label, unit, icon]) => {
-    const secondary =
-      key === "km_saved" && kpis.km_saved_pct !== undefined
-        ? `${Number(kpis.km_saved_pct).toFixed(1)}% vs baseline`
-        : key === "time_saved_min" && kpis.time_saved_min !== undefined
-          ? `${(Number(kpis.time_saved_min) / 60).toFixed(1)} h`
-          : "";
+  container.innerHTML = KPI_CONFIG.map(({ key, label, unit, icon }) => {
+    const secondary = secondaryFor(key, kpis);
     return `<div class="kpi">
-      <span class="kpi-icon ${icon}">${iconFor(icon)}</span>
+      <span class="kpi-icon ${escapeHtml(icon)}" aria-hidden="true">${iconSvg(icon)}</span>
       <div>
-        <span>${label}</span>
-        <strong>${formatValue(kpis[key], unit)}</strong>
-        ${secondary ? `<small>${secondary}</small>` : ""}
+        <span>${escapeHtml(label)}</span>
+        <strong>${escapeHtml(formatKpi(kpis[key], unit))}</strong>
+        ${secondary ? `<small>${escapeHtml(secondary)}</small>` : ""}
       </div>
     </div>`;
   }).join("");
 }
 
-export function renderChart(canvas, baseline, optimized) {
-  const baselineRoutes = baseline.clusters.slice(0, 8);
-  const optimizedRoutes = optimized.clusters.slice(0, 8);
-  const labels = baselineRoutes.map((cluster) => `R ${cluster.id}`);
-  const data = {
-    labels,
+function buildChartData(baseline, optimized) {
+  const baselineRoutes = baseline.clusters.slice(0, CHART.maxRoutes);
+  const optimizedRoutes = optimized.clusters.slice(0, CHART.maxRoutes);
+  return {
+    labels: baselineRoutes.map((cluster) => `R ${cluster.id}`),
     datasets: [
       {
         label: "Baseline",
         data: baselineRoutes.map((cluster) => cluster.distance_km),
-        backgroundColor: "#d7dadd",
+        backgroundColor: CHART.baselineColor,
         borderRadius: 4,
       },
       {
         label: "Optimized",
         data: optimizedRoutes.map((cluster) => cluster.distance_km),
-        backgroundColor: "#07945e",
+        backgroundColor: CHART.optimizedColor,
         borderRadius: 4,
       },
     ],
   };
+}
+
+export function renderChart(canvas, baseline, optimized) {
+  const data = buildChartData(baseline, optimized);
   if (chart) {
-    chart.destroy();
+    chart.data = data;
+    chart.update();
+    return;
   }
   chart = new Chart(canvas, {
     type: "bar",

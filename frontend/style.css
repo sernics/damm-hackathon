@@ -1162,3 +1162,43 @@ h2 {
     overflow: visible;
   }
 }
+
+.toasts {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #202a24;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  max-width: 360px;
+}
+
+.toast.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-error {
+  background: #b3261e;
+}
+
+.kpi-icon svg {
+  width: 22px;
+  height: 22px;
+}

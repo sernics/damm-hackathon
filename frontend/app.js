@@ -1,7 +1,10 @@
 import { renderKpis, renderChart } from "./dashboard.js";
 import { renderTruck } from "./truck3d.js";
+import { BUSINESS, MAP } from "./config.js";
+import { escapeHtml, formatCo2, formatCostFromKm, formatKpi, formatPct } from "./format.js";
 
-const token = new URLSearchParams(window.location.search).get("token") || window.MAPBOX_TOKEN || "";
+const urlParams = new URLSearchParams(window.location.search);
+const token = urlParams.get("token") || window.MAPBOX_TOKEN || "";
 const MapGL = token ? mapboxgl : maplibregl;
 if (token) {
   mapboxgl.accessToken = token;
@@ -30,6 +33,42 @@ async function loadJson(path) {
   const response = await fetch(path);
   if (!response.ok) throw new Error(`Cannot load ${path}`);
   return response.json();
+}
+
+function showToast(message, { tone = "error" } = {}) {
+  const container = document.getElementById("toasts") || document.body;
+  const toast = document.createElement("div");
+  toast.className = `toast toast-${tone}`;
+  toast.setAttribute("role", "status");
+  toast.textContent = message;
+  container.appendChild(toast);
+  setTimeout(() => toast.classList.add("visible"), 10);
+  setTimeout(() => {
+    toast.classList.remove("visible");
+    setTimeout(() => toast.remove(), 250);
+  }, 4000);
+}
+
+function syncUrl() {
+  if (!state.manifest) return;
+  const params = new URLSearchParams(window.location.search);
+  const day = state.manifest.dates[state.dateIndex]?.date;
+  if (day) params.set("day", day); else params.delete("day");
+  if (state.current) params.set("scenario", state.current); else params.delete("scenario");
+  if (state.view && state.view !== "overview") params.set("view", state.view); else params.delete("view");
+  if (state.selectedCluster?.id != null) params.set("route", String(state.selectedCluster.id));
+  else params.delete("route");
+  const next = `${window.location.pathname}?${params.toString()}`;
+  window.history.replaceState(null, "", next);
+}
+
+function readUrlState() {
+  return {
+    day: urlParams.get("day"),
+    scenario: urlParams.get("scenario"),
+    view: urlParams.get("view"),
+    route: urlParams.get("route"),
+  };
 }
 
 function routeCenter(cluster) {
@@ -95,10 +134,9 @@ function truckPosition(cluster) {
 }
 
 function truckScaleForZoom(zoom) {
-  if (zoom < 8.6) return 0.28;
-  if (zoom < 9.5) return 0.36;
-  if (zoom < 10.4) return 0.54;
-  if (zoom < 11.2) return 0.78;
+  for (const step of MAP.zoomScaleSteps) {
+    if (zoom < step.max) return step.scale;
+  }
   return 1;
 }
 
@@ -106,7 +144,7 @@ function updateMapMarkerScale() {
   if (!state.map) return;
   const zoom = state.map.getZoom();
   const scale = truckScaleForZoom(zoom);
-  const compact = zoom < 10.4;
+  const compact = zoom < MAP.compactZoomBelow;
   state.clusterMarkers.forEach((marker) => {
     const element = marker.getElement();
     element.style.setProperty("--truck-scale", scale);
@@ -131,15 +169,6 @@ function clearRoute() {
 function clearClusterMarkers() {
   state.clusterMarkers.forEach((marker) => marker.remove());
   state.clusterMarkers = [];
-}
-
-function escapeHtml(value) {
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll("\"", "&quot;")
-    .replaceAll("'", "&#039;");
 }
 
 function truckSvg(color = "#07945e") {
@@ -181,11 +210,19 @@ function addClusterMarkers(scenario) {
   updateLayerVisibility();
 }
 
+function syncScenarioToggle(name) {
+  document.querySelectorAll("[data-scenario]").forEach((button) => {
+    const isActive = button.dataset.scenario === name;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
 function renderScenario(name) {
   state.current = name;
   const scenario = state[name];
-  document.getElementById("baselineBtn").classList.toggle("active", name === "baseline");
-  document.getElementById("optimizedBtn").classList.toggle("active", name === "optimized");
+  syncScenarioToggle(name);
+  syncUrl();
   renderKpis(document.getElementById("kpis"), scenario);
   updateBottomStrip();
   state.map.getSource("clusters").setData({
@@ -231,8 +268,9 @@ function selectCluster(cluster) {
       (bounds, coord) => bounds.extend(coord),
       new MapGL.LngLatBounds(cluster.polyline[0], cluster.polyline[0])
     ),
-    { padding: { top: 80, right: 80, bottom: 80, left: 80 }, duration: 700 }
+    { padding: MAP.fitPadding, duration: MAP.fitDuration }
   );
+  syncUrl();
   renderTruck(document.getElementById("truck3d"), cluster.load_plan);
   renderLoadList(cluster);
 }
@@ -281,10 +319,11 @@ function updateDateControls() {
 
 function updateBottomStrip() {
   const kpis = state.optimized?.kpis || {};
-  document.getElementById("deliveriesMetric").textContent = Math.round((state.optimized?.clusters || []).reduce((sum, cluster) => sum + cluster.stops.length, 0));
-  document.getElementById("distanceMetric").textContent = `${Number(kpis.km_saved_pct || 0).toFixed(1)}%`;
-  document.getElementById("co2Metric").textContent = `${Number(kpis.co2_saved_kg || 0).toFixed(1)} kg`;
-  document.getElementById("costMetric").textContent = `€${Math.round(Number(kpis.km_saved || 0) * 2.96).toLocaleString("en-US")}`;
+  const totalStops = (state.optimized?.clusters || []).reduce((sum, cluster) => sum + cluster.stops.length, 0);
+  document.getElementById("deliveriesMetric").textContent = Math.round(totalStops);
+  document.getElementById("distanceMetric").textContent = formatPct(kpis.km_saved_pct);
+  document.getElementById("co2Metric").textContent = formatCo2(kpis.co2_saved_kg);
+  document.getElementById("costMetric").textContent = formatCostFromKm(kpis.km_saved);
 }
 
 function updateLayerVisibility() {
@@ -308,10 +347,7 @@ function focusMap() {
     (nextBounds, coord) => nextBounds.extend(coord),
     new MapGL.LngLatBounds(coordinates[0], coordinates[0])
   );
-  state.map.fitBounds(bounds, {
-    padding: { top: 80, right: 80, bottom: 80, left: 80 },
-    duration: 700,
-  });
+  state.map.fitBounds(bounds, { padding: MAP.fitPadding, duration: MAP.fitDuration });
 }
 
 function scenarioClusters() {
@@ -321,8 +357,11 @@ function scenarioClusters() {
 function setView(view) {
   state.view = view;
   document.querySelectorAll(".nav-item[data-view]").forEach((button) => {
-    button.classList.toggle("active", button.dataset.view === view);
+    const isActive = button.dataset.view === view;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
   });
+  syncUrl();
   renderCurrentView();
 }
 
@@ -418,15 +457,16 @@ function renderLoadsView() {
 
 function renderAnalyticsView() {
   const kpis = state.optimized?.kpis || {};
+  const trucksReduced = Number(kpis.baseline_trucks || 0) - Number(kpis.optimized_trucks || 0);
   const cards = [
-    ["Distance saved", `${Number(kpis.km_saved || 0).toFixed(1)} km`],
-    ["CO2 saved", `${Number(kpis.co2_saved_kg || 0).toFixed(1)} kg`],
-    ["Truck reduction", `${Number(kpis.baseline_trucks || 0) - Number(kpis.optimized_trucks || 0)} trucks`],
-    ["Avg occupation", `${Number(kpis.avg_occupation_pct || 0).toFixed(1)}%`],
+    ["Distance saved", formatKpi(kpis.km_saved, "km")],
+    ["CO2 saved", formatCo2(kpis.co2_saved_kg)],
+    ["Truck reduction", `${trucksReduced} trucks`],
+    ["Avg occupation", formatPct(kpis.avg_occupation_pct)],
   ];
   return `${viewHeader("Analytics", "Pitch-ready impact summary for the selected delivery day.")}
-    <div class="analytics-grid">${cards.map(([label, value]) => `<div><span>${label}</span><strong>${value}</strong></div>`).join("")}</div>
-    <div class="view-note">CO2 proxy uses 0.9 kg/km. Cost impact in the footer uses a rough demo factor per km saved.</div>`;
+    <div class="analytics-grid">${cards.map(([label, value]) => `<div><span>${escapeHtml(label)}</span><strong>${escapeHtml(value)}</strong></div>`).join("")}</div>
+    <div class="view-note">CO2 proxy uses ${BUSINESS.co2KgPerKm} kg/km. Cost impact in the footer uses €${BUSINESS.costEurPerKm}/km saved.</div>`;
 }
 
 async function loadDay(index) {
@@ -461,11 +501,10 @@ function initMap() {
     container: "map",
     style: token ? "mapbox://styles/mapbox/light-v11" : fallbackStyle,
     center: [depot.lon, depot.lat],
-    zoom: 10.3,
+    zoom: MAP.initialZoom,
     attributionControl: true,
     scrollZoom: false,
   });
-  state.map.scrollZoom.disable();
   state.map.addControl(new MapGL.NavigationControl({ showCompass: true }), "bottom-right");
   state.map.on("zoom", updateMapMarkerScale);
   const depotElement = document.createElement("div");
@@ -513,17 +552,30 @@ function initMap() {
       const cluster = state[state.current].clusters.find((item) => String(item.id) === id);
       if (cluster) selectCluster(cluster);
     });
-    renderScenario("optimized");
+    const initial = readUrlState();
+    const initialScenario = initial.scenario === "baseline" ? "baseline" : "optimized";
+    renderScenario(initialScenario);
+    if (initial.route) {
+      const cluster = scenarioClusters().find((item) => String(item.id) === initial.route);
+      if (cluster) selectCluster(cluster);
+    }
+    if (initial.view && initial.view !== "overview") setView(initial.view);
   });
 }
 
 async function main() {
   state.manifest = await loadJson("../outputs/scenario_manifest.json");
-  state.dateIndex = Math.max(0, state.manifest.dates.findIndex((item) => item.date === state.manifest.defaultDate));
+  const initial = readUrlState();
+  const urlIndex = initial.day
+    ? state.manifest.dates.findIndex((item) => item.date === initial.day)
+    : -1;
+  const defaultIndex = state.manifest.dates.findIndex((item) => item.date === state.manifest.defaultDate);
+  state.dateIndex = Math.max(0, urlIndex !== -1 ? urlIndex : defaultIndex);
   await loadDay(state.dateIndex);
   initMap();
-  document.getElementById("baselineBtn").addEventListener("click", () => renderScenario("baseline"));
-  document.getElementById("optimizedBtn").addEventListener("click", () => renderScenario("optimized"));
+  document.querySelectorAll("[data-scenario]").forEach((button) => {
+    button.addEventListener("click", () => renderScenario(button.dataset.scenario));
+  });
   document.getElementById("prevDayBtn").addEventListener("click", () => {
     if (state.dateIndex > 0) loadDay(state.dateIndex - 1);
   });
@@ -555,5 +607,6 @@ async function main() {
 }
 
 main().catch((error) => {
-  document.body.innerHTML = `<pre>${error.stack}</pre>`;
+  console.error(error);
+  showToast(`Failed to load scenario: ${error.message}`, { tone: "error" });
 });

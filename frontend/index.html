@@ -17,7 +17,7 @@
             <path d="M20 3v34M6 11l14 8 14-8M20 19v18" fill="none" stroke="#fff" stroke-width="2" />
           </svg>
         </div>
-        <button class="nav-item active" data-view="overview" title="Overview">
+        <button class="nav-item active" data-view="overview" aria-label="Overview" aria-pressed="true">
           <span class="nav-icon overview-icon" aria-hidden="true">
             <svg viewBox="0 0 28 28">
               <path d="M7 8h7v7H7V8Zm7 7h7v5a2 2 0 0 1-2 2h-5v-7Z" />
@@ -26,7 +26,7 @@
           </span>
           <small>Overview</small>
         </button>
-        <button class="nav-item" data-view="routes" title="Routes">
+        <button class="nav-item" data-view="routes" aria-label="Routes" aria-pressed="false">
           <span class="nav-icon routes-icon" aria-hidden="true">
             <svg viewBox="0 0 28 28">
               <circle cx="7" cy="8" r="3" />
@@ -37,7 +37,7 @@
           </span>
           <small>Routes</small>
         </button>
-        <button class="nav-item" data-view="trucks" title="Trucks">
+        <button class="nav-item" data-view="trucks" aria-label="Trucks" aria-pressed="false">
           <span class="nav-icon trucks-icon" aria-hidden="true">
             <svg viewBox="0 0 28 28">
               <path d="M5 10h11v8H5v-8Zm11 3h4l3 3v2h-7v-5Z" />
@@ -47,7 +47,7 @@
           </span>
           <small>Trucks</small>
         </button>
-        <button class="nav-item" data-view="loads" title="Loads">
+        <button class="nav-item" data-view="loads" aria-label="Loads" aria-pressed="false">
           <span class="nav-icon loads-icon" aria-hidden="true">
             <svg viewBox="0 0 28 28">
               <path d="M14 4 23 9v10l-9 5-9-5V9l9-5Z" />
@@ -56,7 +56,7 @@
           </span>
           <small>Loads</small>
         </button>
-        <button class="nav-item analytics-nav" data-view="analytics" title="Analytics">
+        <button class="nav-item analytics-nav" data-view="analytics" aria-label="Analytics" aria-pressed="false">
           <span class="analytics-icon" aria-hidden="true">
             <svg viewBox="0 0 28 28">
               <rect x="5" y="15" width="4" height="7" rx="2" />
@@ -68,7 +68,7 @@
           </span>
           <small>Analytics</small>
         </button>
-        <button class="nav-item bottom" title="Settings">
+        <button class="nav-item bottom" aria-label="Settings">
           <span class="nav-icon settings-icon" aria-hidden="true">
             <svg viewBox="0 0 28 28">
               <path d="M14 10a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
@@ -112,9 +112,9 @@
                 <label><input id="pathLayer" type="checkbox" checked /> Selected path</label>
               </div>
             </div>
-            <div class="scenario-toggle">
-              <button id="baselineBtn">Baseline</button>
-              <button id="optimizedBtn" class="active">Optimized</button>
+            <div class="scenario-toggle" role="group" aria-label="Scenario">
+              <button id="baselineBtn" data-scenario="baseline" aria-pressed="false">Baseline</button>
+              <button id="optimizedBtn" data-scenario="optimized" class="active" aria-pressed="true">Optimized</button>
             </div>
             <div class="legend">
               <span><i class="legend-depot"></i>Depot</span>
@@ -164,6 +164,7 @@
         </section>
       </section>
     </main>
+    <div id="toasts" class="toasts" aria-live="polite" aria-atomic="true"></div>
 
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.11.0/mapbox-gl.js"></script>
     <script src="https://unpkg.com/maplibre-gl@5.3.0/dist/maplibre-gl.js"></script>
