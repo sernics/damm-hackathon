@@ -10,6 +10,11 @@ __pycache__/
 *.pyo
 .venv/
 venv/
+.venv
+venv
+cache/
+.vscode/
 
 # OS
 .DS_Store
+AGENT.md
