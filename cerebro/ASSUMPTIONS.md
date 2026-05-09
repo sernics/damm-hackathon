@@ -98,23 +98,26 @@ Decisions we've made without confirmation. Each is listed with the *why* and the
 
 ---
 
-## A11 — A driver runs one transport per day (CORRECTED — wrong)
+## A11 — A driver runs 1–2 transports per day (DOUBLE-CORRECTED, mentor-confirmed)
 
-**Original assumption (wrong).** "The truck makes one trip per day." → **Refuted by data.**
+**Original assumption (wrong).** "The truck makes one trip per day." → Refuted by raw data.
 
-**Corrected.** Distribution of (date, driver) → transports per day:
+**Data-only correction (also wrong-ish).** Saw up to 9 (date, driver) pairs in the file and concluded "30 % of drivers run multiple transports per day, max 9".
+
+**Mentor-confirmed truth (2026-05-09).** A driver does **1–2 transports per day**, with 9–20 customers per transport. If they do two, they reload the same truck. The 3+ transports we saw in the data are edge cases — likely abonos / pure-return albaranes (`841...` prefix) showing up as separate "transports" in the file, or data noise. We should re-investigate the 1 (date, driver) pair with 9 transports — almost certainly it is mixed `841` / cancelled / re-issued documents inflating the count.
+
+Distribution of (date, driver) -> transports per day in raw data (kept here for honesty):
 
 | transports/day | pairs |
 |---:|---:|
 | 1 | 474 (70 %) |
 | 2 | 133 (20 %) |
 | 3 | 28 |
-| 4 | 4 |
-| 5–9 | 7 |
+| 4–9 | 9 |
 
-So **30 % of (date, driver) pairs run multiple transports per day**, peaking at 9. Drivers return to base, refill, and head out again. Implication: our optimisation horizon is **per transport**, not per driver-day. That's actually simpler — we don't model driver fatigue or sequencing across transports of the same driver.
+Reading: 90 % of pairs match the mentor's "1–2 transports/day" rule. The remaining 10 % is the bucket we should investigate before drawing conclusions.
 
-**Risk if wrong (in the corrected version).** None — this is now empirical, not assumed.
+**Implication.** Our routing horizon is per transport. We do not model driver fatigue or sequencing within a day. Truck reuse on the second transport of the day is a separate, smaller question (does that change the truck's usable capacity for transport 2 if it still has unprocessed empties from transport 1? — probably not, since drivers offload empties at base between trips).
 
 ---
 
@@ -154,4 +157,4 @@ So **30 % of (date, driver) pairs run multiple transports per day**, peaking at 
 
 ## How to use this list
 
-When you read another module file and see `🟡 (assumption)` next to a statement, the explanation is here. When you make a decision based on these assumptions, **explicitly note which one** in your code/document so that, if the assumption changes, downstream effects are easy to find.
+When you read another module file and see `(assumption Ann)` next to a statement, the explanation is here. When you make a decision based on these assumptions, **explicitly note which one** in your code/document so that, if the assumption changes, downstream effects are easy to find.

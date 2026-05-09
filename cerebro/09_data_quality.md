@@ -10,7 +10,7 @@ The data is mostly usable but has **structural quirks** in three of the seven CS
 
 ---
 
-## 🚨 Trap 1 — Two `Destinatario mcía.` columns, opposite meanings across tables
+## Trap 1 — Two `Destinatario mcía.` columns, opposite meanings across tables
 
 In `Detalle_entrega.csv`:
 - `Destinatario mcía.` (col 5) = **driver name** (e.g. `JACINT MAS CORNET`).
@@ -24,7 +24,7 @@ The header is reused with **inverted semantics**. Always check column position +
 
 ---
 
-## 🚨 Trap 2 — `Cabecera_Transporte.csv` has named-blank columns
+## Trap 2 — `Cabecera_Transporte.csv` has named-blank columns
 
 The CSV has `Unnamed: 0` (always blank, throwaway) and `Unnamed: 5` which actually contains the **driver's full name**. Treat the column layout as:
 
@@ -58,7 +58,7 @@ Total: **18 active drivers**.
 
 ---
 
-## 🚨 Trap 3 — `ZONAS.csv` is two tables mashed into one
+## Trap 3 — `ZONAS.csv` is two tables mashed into one
 
 Looks like 14 columns. Actually it's **two unrelated tables pasted side-by-side** in Excel, then exported flat:
 
@@ -77,7 +77,7 @@ The two tables are **not row-aligned**: row 50 in Block A doesn't relate to row 
 
 ---
 
-## 🚨 Trap 4 — Two client-code formats (10-digit vs 6-digit)
+## Trap 4 — Two client-code formats (10-digit vs 6-digit)
 
 `Cliente` codes come in two lengths:
 - **10-digit `91xxxxxxxx`** (1.180 unique in deliveries) — standard SAP "Deudor" individual customer.
@@ -89,7 +89,7 @@ When joining tables, do **not** assume client codes are uniformly 10 digits. Tre
 
 ---
 
-## 🚨 Trap 5 — `Direcciones.csv` has 165 exact duplicates
+## Trap 5 — `Direcciones.csv` has 165 exact duplicates
 
 1.368 rows but only **1.203 unique clients**. Some clients appear up to 6 times with **identical** values across all columns (e.g. `BK MOLLET 119751` appears 6 times). Definitely dedupe before joining.
 
@@ -99,7 +99,7 @@ direcciones = pd.read_csv(...).drop_duplicates(subset=['Cliente'])
 
 ---
 
-## 🚨 Trap 6 — Town names with accent variants (will break grouping)
+## Trap 6 — Town names with accent variants (will break grouping)
 
 The same town appears multiple times with different spellings:
 
@@ -125,7 +125,7 @@ There's also one Latin-1 → UTF-8 encoding artefact: `CALLE FRANCESC DE MACIÃ�
 
 ---
 
-## 🚨 Trap 7 — ZM040 has dimensional gaps
+## Trap 7 — ZM040 has dimensional gaps
 
 We use 1.517 distinct (Material, UMA) combos in deliveries. Of those:
 - **45 combos have no ZM040 entry at all** — almost all retornables: `CJ13, CJ15, CJ12V, CJ13V, CJ11V, BRL30V, BRL20V, BRL18V, BT12V, BT13, 3ENV0017, 3ENV0021, …, 3ENV1295, 3ENV0576, …`
@@ -145,7 +145,7 @@ Map to their full counterpart and copy dimensions (see `06_returnables.md`):
 
 ---
 
-## ⚠️ Quirk 1 — Drivers do multiple transports per day (we got this wrong before)
+## Quirk 1 — Drivers do multiple transports per day (we got this wrong before)
 
 Distribution of **(Date, Driver) → number of transports**:
 
@@ -166,7 +166,7 @@ Implication: routing horizon is **per transport**, not per day. We optimise indi
 
 ---
 
-## ⚠️ Quirk 2 — Driver↔Route is *almost* 1:1, but not quite
+## Quirk 2 — Driver↔Route is *almost* 1:1, but not quite
 
 - 17 drivers each cover exactly 1 route.
 - **Driver 850004 (FRAN ROMERO) covers 3 routes**: DR0027, DR0038, DR0001 (over the period). Likely a flexible / cover driver.
@@ -176,7 +176,7 @@ So the model "driver → route → vehicle" has a 1:N exception we should be awa
 
 ---
 
-## ⚠️ Quirk 3 — Clients move between routes
+## Quirk 3 — Clients move between routes
 
 - 873 of 1.203 clients (73 %) appear in **more than one DR route** during the data period.
 - But every client has **exactly one** `ZonaTransp` (their home zone).
@@ -190,15 +190,15 @@ How can a client end up in multiple routes if its zone is fixed? Two hypotheses:
 
 ---
 
-## ⚠️ Quirk 4 — Multiple lines for the same (Entrega, Material)
+## Quirk 4 — Multiple lines for the same (Entrega, Material)
 
 In 9.500 rows, the same (Entrega, Material) appears 2+ times with **different quantities**, sometimes the same UMV. Example for delivery 827937487:
 
 ```
-CJ13   CAJ   2    ← line 1
-CJ13   CAJ   1    ← line 2 (same material, same UMV)
-ED13   CAJ   2
-ED13   CAJ   1
+CJ13 CAJ 2 ← line 1
+CJ13 CAJ 1 ← line 2 (same material, same UMV)
+ED13 CAJ 2
+ED13 CAJ 1
 ```
 
 Plausible reasons (any or all):
@@ -210,7 +210,7 @@ For volume planning, **sum the qty across all lines of the same (Entrega, Materi
 
 ---
 
-## ⚠️ Quirk 5 — `Horarios_Entrega.csv` reality vs. headline number
+## Quirk 5 — `Horarios_Entrega.csv` reality vs. headline number
 
 The file has **1.015 rows × 240 unique deudores**. Of those 240:
 - **120 are clients that actually show up in deliveries** (within our 43-day window).
@@ -232,13 +232,13 @@ Patterns inside Horarios:
 
 ---
 
-## ⚠️ Quirk 6 — `Materiales_zubic.csv` has 167 rows with no Almacén / UMB / Fabricante
+## Quirk 6 — `Materiales_zubic.csv` has 167 rows with no Almacén / UMB / Fabricante
 
 11 % of the materials master has missing Alm. / UMB / Fabricante / Número de un fabricante. They still have `Material`, `Denominación` (`Número de material`) and `Ubic.`, so they're not completely useless — but expect joins to lose them.
 
 ---
 
-## ⚠️ Quirk 7 — Refrigerated SKUs **do** exist (we previously assumed not)
+## Quirk 7 — Refrigerated SKUs **do** exist (we previously assumed not)
 
 A handful of materials have `Ubic. = CAMARA` in `Materiales_zubic.csv`, e.g. **0LT0021 — CACAOLAT MINIBRIK SLIM 20CL P6 24U**. Those are refrigerated.
 
@@ -246,7 +246,7 @@ Implication: we cannot blanket-state "no cold chain". The **assumption A10 in `A
 
 ---
 
-## ⚠️ Quirk 8 — Non-geometric warehouse locations are bigger than we thought
+## Quirk 8 — Non-geometric warehouse locations are bigger than we thought
 
 Of 1.489 SKUs in the warehouse:
 - Only **213 sit in a "real" rack position** (`AA01A2`-style code).
@@ -274,7 +274,7 @@ DDI distributes a much wider portfolio than just Damm beverages. **Damm-branded 
 
 ---
 
-## ⚠️ Quirk 9 — ZM040 hierarchy field encodes family + packaging
+## Quirk 9 — ZM040 hierarchy field encodes family + packaging
 
 The field `Jquía.productos` (e.g. `00CF30ZZPCA1E4`) is a structured code with 855 unique values. It can be parsed:
 
@@ -287,7 +287,7 @@ We can use this to **cluster SKUs into operational families** for warehouse pick
 
 ---
 
-## ⚠️ Quirk 10 — `_uma` codes that aren't operational packaging
+## Quirk 10 — `_uma` codes that aren't operational packaging
 
 `ZM040.UMA` includes 50+ codes; many are SAP-internal ratios, not physical units:
 
@@ -307,7 +307,7 @@ Use the operational set for our volume model.
 
 ---
 
-## ⚠️ Quirk 11 — Cantidad entrega max value (6.000 vasos)
+## Quirk 11 — Cantidad entrega max value (6.000 vasos)
 
 The largest line in our data is **6.000 vasos de papel** (UE975, paper cups) on a single albarán. This is real (paper cups are bought in big batches by busy bars) but it's outsized. The next biggest is 3.000. Make sure your models don't choke on these outliers — they aren't errors.
 
@@ -315,7 +315,7 @@ There are no negative quantities, no zeros, no decimals.
 
 ---
 
-## ✅ Things that turned out to be CLEAN
+## Things that turned out to be CLEAN
 
 To avoid premature paranoia:
 - Every `Entrega` in `Cabecera_Transporte` exists in `Detalle_entrega` (no orphan deliveries either way).
@@ -342,31 +342,31 @@ df.columns = [c.strip() for c in df.columns]
 # 3) Normalise text fields
 import unicodedata
 def norm(s):
-    return ''.join(c for c in unicodedata.normalize('NFD', s.strip())
-                   if unicodedata.category(c) != 'Mn').upper()
+ return ''.join(c for c in unicodedata.normalize('NFD', s.strip())
+ if unicodedata.category(c) != 'Mn').upper()
 
 # 4) ZONAS: split into two tables BEFORE joining
 zonas_block_a = zonas[['cliente zona', 'ZonaTransp']].rename(
-    columns={'cliente zona': 'cliente'}).dropna()
+ columns={'cliente zona': 'cliente'}).dropna()
 zonas_block_b = zonas[['ZonaTransp.1', 'Zona Entrega', 'RutReal', 'Denominación']
-                      ].drop_duplicates().dropna()
+ ].drop_duplicates().dropna()
 
 # 5) Cabecera: rename Unnamed columns
 cabecera = cabecera.rename(columns={
-    'Unnamed: 0': 'placeholder',
-    'Unnamed: 5': 'NombreRepartidor',
-    'Destinatario mcía.': 'ClienteCod',
-    'Destinatario mcía..1': 'ClienteNombre',
+ 'Unnamed: 0': 'placeholder',
+ 'Unnamed: 5': 'NombreRepartidor',
+ 'Destinatario mcía.': 'ClienteCod',
+ 'Destinatario mcía..1': 'ClienteNombre',
 })
 
 # 6) Detalle: rename for clarity
 detalle = detalle.rename(columns={
-    'Destinatario mcía.': 'NombreRepartidor',
-    'Destinatario mcía..1': 'ClienteCod',
-    'ZonaTransp': 'ZonaTranspCod',
-    'ZonaTransp.1': 'ZonaTranspNombre',
+ 'Destinatario mcía.': 'NombreRepartidor',
+ 'Destinatario mcía..1': 'ClienteCod',
+ 'ZonaTransp': 'ZonaTranspCod',
+ 'ZonaTransp.1': 'ZonaTranspNombre',
 })
-detalle = detalle.drop(columns=['Unnamed: 18'])  # 100 % empty
+detalle = detalle.drop(columns=['Unnamed: 18']) # 100 % empty
 
 # 7) Cliente as string (not int) — to preserve 6-digit codes too
 df['Cliente'] = df['Cliente'].astype(str).str.strip()
