@@ -1,0 +1,15 @@
+# Excel/Office temporary lock files
+~$*.xlsx
+~$*.xls
+~$*.docx
+~$*.pptx
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# OS
+.DS_Store
