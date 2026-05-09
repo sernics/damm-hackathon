@@ -49,7 +49,10 @@ Everything we have, in one place, with row counts and the numbers that matter.
 - 889 unique transports.
 - Median **10 deliveries / transport** (max 32).
 - Median **93 albarán lines / transport** (max 285).
-- 18 active routes (DR0001, DR0006, DR0007, DR0010, DR0011, DR0016, DR0017, DR0023, DR0027, DR0031, DR0032, DR0038, DR0040, DR0045, DR0050, DR0051, DR0052, DR0054) + 1 coffee route (DA0216).
+- 18 active routes (DR0001, DR0006, DR0010, DR0011, DR0016, DR0017, DR0023, DR0027, DR0031, DR0032, DR0038, DR0040, DR0045, DR0050, DR0051, DR0052, DR0054, DA0216). Six more routes are defined in `ZONAS.csv` but had zero activity in the data: DR0007, DR0046, DR0047, DR0048, DR0053, DR0GEN.
+- **Drivers commonly run multiple transports per day**: 70 % do 1, 20 % do 2, the rest do up to 9. So a transport ≠ a day. Routing horizon is per transport.
+- Driver↔Route is *almost* 1:1: 17 drivers cover one route each, but **driver 850004 (Fran Romero) covers 3 routes** (DR0001, DR0027, DR0038) over the period — flexible / cover driver.
+- **873 / 1.203 clients (73 %) appear on more than one DR route** across the period. Their home zone is fixed but the operative route that picks them up varies day to day.
 
 ### Per delivery (client × day)
 - Median **9 lines / delivery**, max 74.
@@ -66,16 +69,17 @@ Everything we have, in one place, with row counts and the numbers that matter.
   5. **ED15LN** — Estrella Damm 1/5 LN (8.280)
 
 ### Clients and geography
-- 1.203 unique clients in deliveries (1.368 in master).
-- 111 distinct municipalities.
-- Top: Granollers (241 clients), Vic (211), Mollet del Vallès (183), Manlleu (60), Sant Boi (55).
+- **1.203 unique clients** in deliveries: 1.180 with 10-digit codes (`91xxxxxxxx`) + 23 with 6-digit codes (chains: BK, Taco Bell, UDON, Frankfurt, CIRSA, INDOORWALL VIC, EUREST, DISTRIDAM…).
+- Master `Direcciones.csv` has 1.368 rows but only 1.203 unique clients (165 exact-duplicate rows). 165 dormant clients in master never appear in deliveries.
+- 111 distinct municipalities (with accent variants → really ~95-100 unique towns once normalised).
+- Top: Granollers (241 clients), Vic (211), Mollet del Vallès (183 + 46 with accent variant = 229), Manlleu (60), Sant Boi (55).
+- **99 % of clients are in Barcelona province** (CP 08…). 15 in Girona (17…), 1 in Lleida (25…). Effectively a single-province operation.
 
 ### Time windows
-- 240 / 1.203 clients have schedule rules (≈ 20 %).
-- Days of week present: 1–5 + 7 (Mon-Fri + Sun). Day 6 (Saturday) is implicit "closed".
-- Two shifts (`Turno`): 1 = morning, 2 = afternoon.
-- Some entries have `Cierre Si/No = X` → closed that day/shift.
-- Common pattern: 5 windows per client (one per weekday).
+- The horarios file lists 240 deudores across 1.015 rows, **but only 120 of them are active customers in our deliveries** → real coverage is 120 / 1.203 ≈ **10 %** of active clients.
+- Days present: 1–5 + 7 (Mon-Fri + Sun). Saturday implicit closed.
+- Two shifts (`Turno`): 1 = morning, 2 = afternoon. Up to 10 windows per client.
+- 82 windows flagged `Cierre Si/No = X` (closed). 80 with `00:00–00:00`. 87 windows are < 30 min (very tight). 5 windows for `JUMPING SEA` use the Excel artefact `1 day, 0:00:00`.
 
 ### Retornables
 - **31 % of all albarán lines** are retornable items (CJ*, 3ENV*, BRL*V, *V).

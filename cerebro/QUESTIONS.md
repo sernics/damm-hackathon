@@ -72,10 +72,12 @@ Practical rules in beverage HORECA logistics:
 ### Q10. Centre of gravity / weight balance rule used today
 Is there a written rule in DDI ("heavies forward, fragiles aft", "barrels at floor only", etc.) or is it tacit?
 
-### Q11. Are DR routes fixed daily or do clients reshuffle?
-- A DR route owns specific zones permanently.
-- But within those zones, do customer assignments vary day to day (only customers that ordered that day appear)?
-- Are there days when a route is split between two trucks (volume overflow)?
+### Q11. Are DR routes fixed, or do clients spill across routes? (ANSWERED PARTIALLY BY DATA AUDIT)
+Data audit shows: every client has 1 home zone, every zone has 1 home route — but **873 / 1.203 (73 %) of clients show up under 2+ different `Ruta` values** in `Detalle_entrega`. Hypotheses:
+- The `Ruta` column reflects the operating route on that day (with overflow rebalancing), not the formal home route.
+- Some chain-store clients span more than one zone in practice.
+
+Need confirmation: is `Ruta` in `Detalle_entrega` "who actually carried it" or "who is supposed to carry it"?
 
 ### Q12. Albarán prefix decoded
 Confirm: 827 = ?, 828 = ?, 841 = pure return / abono?
@@ -87,7 +89,8 @@ We use 100×120×169 cm as the bounding box. Is the 169 cm the pallet floor-to-t
 
 ## 🟡 Nice-to-know
 
-### Q14. Are there any refrigerated SKUs we missed?
+### Q14. Cold-chain SKUs — confirmed yes; how many and what are the rules?
+We found `Ubic. = CAMARA` for `0LT0021 (CACAOLAT MINIBRIK SLIM 20CL P6 24U)`. Are there more cold SKUs that ended up assigned to a different `Ubic.`? Are the trucks equipped to keep CAMARA SKUs cold (e.g. insulated bag inside the box) or is the cold chain broken between warehouse and customer?
 
 ### Q15. Confirm Mollet warehouse coordinates (lat/lng) and the depot's actual loading-dock layout.
 
@@ -122,11 +125,37 @@ Are the SAP timestamps (Register / Load start / Load end / Dispatch / Transport 
 ### Q26. The four counter fields in SAP (`Caja Est.`, `T.Barriles`, `TotCajaRet`, `CajaSnRet`)
 These are aggregates already computed by the system. Can we get them per transport? They'd be a useful sanity check on our line-level computations.
 
+### Q27. Why do some `(Entrega, Material, UMV)` rows appear multiple times in `Detalle_entrega`?
+About 9.500 lines duplicate the same (delivery, material, UMV) tuple with different quantities. Is this:
+- (a) Promotion lots (same SKU at different prices on the same albarán)?
+- (b) Different lotes / batches tracked separately?
+- (c) SAP merging multiple sales orders onto one albarán?
+
+Knowing this lets us decide whether to sum or keep separate when computing volume and order metrics.
+
+### Q28. The 14 zones defined in ZONAS but with no clients
+14 `ZonaTransp.1` zones (DD13100005, 010, 036, 037, 039, 041, 042, 044, 048, 056, 057, 064, 065, 066) are defined with a route assigned but **no clients are mapped to them**. Are these:
+- Future zones reserved for expansion?
+- Zones whose clients are temporarily idle (closed venues, seasonal)?
+- Just legacy / cleanup needed?
+
+### Q29. Decoding `Jquía.productos` (ZM040 hierarchy)
+We've inferred families from the first 4 chars (`00CZ` = cerveza, `00LM` = limpieza, …) and packaging from the last 4 (`DIE4`, `RPE4`?, …). Could DDI confirm the exact decoding? It would let us cluster SKUs into operational families (frágil, pesado, retornable, refrigerado, …) automatically.
+
+### Q30. The 6-digit chain client codes (BK, Taco Bell, etc.)
+- Are they organisationally different (different SLAs, time windows, price lists, dock equipment)?
+- Some chains have multiple locations (BK Mollet, BK Vic, BK Granollers Ronda Sud) under separate codes — should they be planned together (multi-stop dedicated trip) or interleaved with normal HORECA?
+
 ---
 
-## ✅ Resolved
+## ✅ Resolved (or partially resolved by data audit)
 
-*(empty for now — entries move here when a question is answered, with the answer)*
+- **A10 (no refrigerated cargo) → REFUTED.** SKU `0LT0021` (Cacaolat minibrik) sits in `Ubic. = CAMARA`. Cold chain exists but is small. A14 follow-up question pending.
+- **A11 (one trip per day) → REFUTED.** 30 % of (date, driver) pairs run multiple transports per day; max 9. Routing horizon stays per-transport.
+- **Time-window coverage 20 % → CORRECTED to ~10 %.** Of 240 deudores in `Horarios`, only 120 are active in our deliveries (the rest are dormant accounts with stale schedule rules).
+- **"All clients are 10-digit codes" → REFUTED.** 23 of 1.203 active clients are 6-digit chain codes (BK, Taco Bell, UDON, CIRSA, EUREST, DISTRIDAM…). Treat as string. → Q30 follow-up.
+- **`ZONAS.csv` schema → CLARIFIED.** Two unrelated tables glued side-by-side; cols 2/3/6/7/8/9 are blank spacers. See `09_data_quality.md` Trap 3.
+- **Material coverage in ZM040 → CLARIFIED.** 437 / 1.517 (Material, UMA) combos have geometric dims directly; 990 require extrapolation from PAL; 45 (returnables) need mapping to the full counterpart. See `09_data_quality.md` Trap 7.
 
 ---
 

@@ -139,23 +139,49 @@ Some drivers operate without a permanent DR assignment. Probably ad-hoc / café-
 
 ### `Cabecera_Transporte.csv`
 - One row per delivery (8.927 rows total).
-- Sub-columns: `Entrega, Nº Transporte., Creado el, Repartidor, Destinatario mcía., Destinatario mcía..1`.
-- Joinable to `Detalle_entrega.Entrega`. Contains no information not already available there.
+- Real layout (after stripping garbage column names):
+
+  ```
+  [Unnamed: 0=blank] | Entrega | Nº Transporte. | Creado el (date)
+  | Repartidor (cód 85xxxx) | Unnamed: 5 = NombreRepartidor
+  | Destinatario mcía. = ClienteCod | Destinatario mcía..1 = ClienteNombre
+  ```
+- This means `Destinatario mcía.` here is the **client code**, while in `Detalle_entrega` it's the **driver's name**. Same column name, opposite meanings — see `09_data_quality.md` Trap 1.
+- Joinable to `Detalle_entrega.Entrega`. Adds the **driver's full name** as a usable column (the only non-redundant info).
 
 ### `Direcciones.csv`
-- Master of clients with addresses. Joinable on `Cliente = Destinatario mcía..1`. 1.368 clients (vs. 1.203 in deliveries — some clients in master are dormant).
+- Master of clients with addresses. Joinable on `Cliente = Destinatario mcía..1`.
+- 1.368 rows but **only 1.203 unique clients** — 165 exact-duplicate rows (e.g. `BK MOLLET` appears 6 times). **Always dedupe first.**
+- `Cliente` codes have **two formats**: 10-digit `91xxxxxxxx` (1.180 in deliveries) for individual customers and 6-digit `1xxxxx` (23 in deliveries) for chain accounts (BK, Taco Bell, UDON, CIRSA, Eurest, DISTRIDAM, …). Treat as string.
+- Beware: town names appear with multiple accent variants (`MOLLET DEL VALLES` ↔ `MOLLET DEL VALLÈS`) — see `09_data_quality.md` Trap 6.
 
 ### `Materiales_zubic.csv`
 - Master of materials with **warehouse location** (`Ubic.`). Joinable on `Material`. 1.489 materials, every single one used in a delivery has a row.
+- **167 rows have no `Alm.` / `UMB` / `Fabricante`** (11 % of master). They still have a usable `Ubic.` and `Denominación`.
+- Most SKUs (1.131 / 76 %) live in `Ubic. = ZCG` — the Comergrup zone, not a precise rack position. Only 213 SKUs have a true rack code like `AA01A2`.
+- Top fabricantes: `COMERGRUP` (171), `S.A. DAMM` (91), `DDI PROVEA` (78), Eckes Granini (47), Premium Mix (46), Chovi (45). **Damm-branded SKUs are only 6 % of the catalogue** — DDI distributes a much wider portfolio.
+- A handful of typoed locations: `BA001A2`, `EA0701`, `AA0049`, `AA0000`, `AA0005`. Rare.
 
 ### `ZONAS.csv`
-- Mapping zone → route. Useful to confirm a client/zone belongs to a given route.
+- **Two tables glued side-by-side in Excel** — see `09_data_quality.md` Trap 3. Read each block separately:
+  - **Block A (cols 0-5)**: `cliente zona → ZonaTransp`. 1.203 rows (one per client). Tells you each client's home zone.
+  - **Block B (cols 10-13)**: `ZonaTransp.1 → Zona Entrega → RutReal → Denominación`. 70 unique rows. Tells you each zone's parent route.
+- Cols 2/3/6/7/8/9 are 100 % blank (Excel spacers).
+- The `ZonaTransp` (Block A) and `ZonaTransp.1` (Block B) domains overlap on 55 zones. 14 zones are defined but unassigned to any client; 1 zone (`DD47100029`) is assigned but undefined (probably typo).
 
 ### `Horarios_Entrega/Sheet1.csv`
-- Per-client weekly time windows. Only 240 of 1.203 clients are listed. Joinable on `Deudor = client code`.
+- Per-client weekly time windows. 1.015 rows × **240 unique deudores** in the file, but **only 120 of those are clients that actually appear in deliveries** during our 43-day window. So the *real* coverage is **120 / 1.203 ≈ 10 %** of active customers, not 20 %.
+- Days of week present: `1, 2, 3, 4, 5, 7` (Mon-Fri + Sun). Saturday is implicit "closed".
+- Two shifts (`Turno 1, 2`). Up to 10 windows per client.
+- 82 rows have `Cierre Si/No = X`; 80 have `00:00–00:00` (also closed); 5 have `1 day, 0:00:00` (Excel artefact for "until midnight next day"); 87 windows are < 30 min (very tight).
+- Joinable on `Deudor = client code`.
 
 ### `ZM040/Sheet1.csv`
-- Material master with multi-UMA dimensional data (PAL / CAJ / UN / BOT / BRL / …). 7.478 SKUs (whole Damm catalogue), of which 1.444 are present in our deliveries. The remaining 45 SKUs in deliveries are returnables not catalogued (CJ13, CJ15, BRL30V, 3ENV*…) — see `06_returnables.md`.
+- Material master with multi-UMA dimensional data (PAL / CAJ / UN / BOT / BRL / …). **7.479 SKUs** (whole Damm catalogue), of which **1.444 appear in our deliveries**.
+- **`TpMt`** (material type) has 3 values: `ZFIN` (terminado, 46.054 rows), `ZPLV` (PLV / marketing, 2.396 rows), and 7 blanks. No SKU mixes types.
+- **Hierarchy field `Jquía.productos`** has 855 unique values; first 4 chars encode family (`00AM` alimentación, `00LM` limpieza, `00LI` licores, `00CZ` cerveza, `00RF` refresco, `00CF` café, `00AG` agua, `00LT` lácteos, `00VE` vino, `00ZU` zumo, …); last 4 chars encode packaging (`DIE4`, `RPE4` retornable?, `13E4`, …). See `09_data_quality.md` Quirk 9.
+- **Coverage gap (critical)**: of the 1.517 (Material, UMA) combos used in deliveries, only **437 (29 %)** have geometric dims directly. **990 (65 %)** have a row but `Longitud=Ancho=Altura=0`; we must extrapolate from the PAL row using `Contador`. **45** combos (returnables) have no row at all and require mapping to their full counterpart.
+- Many UMA codes are **SAP-internal ratios, not physical packaging** (ZPR, ZCE, ZPE, ZOP, ZPM, ZPA, CAM, MNT, GRP, KGL, V%, Y04…Y53). For volume planning, use only PAL / CAJ / UN / BOT / BRL / PAK / EST / LAT.
 
 ### `Layout_Mollet/*.xlsx`
 - The visual warehouse map. The CSV exports lose the colour information (which encodes zones); read the `.xlsx` directly with openpyxl.

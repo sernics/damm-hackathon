@@ -89,11 +89,12 @@ For our model we can:
 
 ## What's not in ZM040
 
-The 45 SKUs from our deliveries with no `ZM040` master entry are almost all returnables:
-- `CJ13`, `CJ15`, `CJ12V`, `CJ14`
-- `BRL30V`, `BRL20V`, `BRL18V`
-- `3ENV0029`, `3ENV0021`, `3ENV0093`, `3ENV0055`, `3ENV0078`, `3ENV0236`, `3ENV0576`, `3ENV1281`
-- `PL11V`, `PL12V`
+The 45 (Material, UMA) combos in deliveries with no `ZM040` master entry are returnables:
+- `CJ11V, CJ12V, CJ13, CJ13V, CJ15` — empty cases
+- `BRL18V, BRL20V, BRL30V` — empty barrels
+- `BT12V, BT13` — empty bottles
+- `3ENV0017, 3ENV0021, 3ENV0023, 3ENV0029, 3ENV0033, 3ENV0038, 3ENV0041, 3ENV0042, 3ENV0044, 3ENV0053, 3ENV0054, 3ENV0055, 3ENV0058, 3ENV0078, 3ENV0093, 3ENV0236, 3ENV0576, 3ENV075, 3ENV1281, 3ENV1295` — individual returnable containers (cacaolat, vichy, gaseosa siphons, garrafas, etc.)
+- `PL11V, PL12V` — empty plastic crates (smaller PET)
 
 To estimate their physical volume we need a **mapping retornable → full counterpart** (CJ13 → ED13, CJ15 → ED15LN, BRL30V → ED30, …). Heuristic:
 

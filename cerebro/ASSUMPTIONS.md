@@ -86,19 +86,35 @@ Decisions we've made without confirmation. Each is listed with the *why* and the
 
 ---
 
-## A10 — There is no refrigerated cargo
+## A10 — Almost no refrigerated cargo (but not zero — corrected)
 
-**Reason.** No SKU in our data suggests refrigeration. All beverages are ambient-stable, all food items are dry/canned/preserved.
+**Original assumption (wrong).** "There is no refrigerated cargo." → **Refuted by the data audit.**
 
-**Risk if wrong.** Some refrigerated SKU we missed would impose temperature constraints on packing.
+**Corrected.** A handful of SKUs do live in `Ubic. = CAMARA` in `Materiales_zubic.csv` (e.g. `0LT0021 — CACAOLAT MINIBRIK SLIM 20CL P6 24U`). The vast majority of the catalogue is ambient, but we should:
+- Detect SKUs with `Ubic. = CAMARA` and tag them as cold-chain.
+- Treat them as a small cluster with its own constraint (don't pack on top of heat sources, possibly stop them being on the truck for too long — though for our routing horizon of < 1 day this is probably negligible).
+
+**Risk if wrong.** Low — even if we mis-tag, the cardinality of cold SKUs is tiny.
 
 ---
 
-## A11 — The truck makes one trip per day
+## A11 — A driver runs one transport per day (CORRECTED — wrong)
 
-**Reason.** Each `Transporte` is associated with a single `FECHA`. We don't see the same vehicle making multiple `Transportes` on the same day in the limited driver-vehicle mapping we have.
+**Original assumption (wrong).** "The truck makes one trip per day." → **Refuted by data.**
 
-**Risk if wrong.** Some routes might be split into morning + afternoon trips. Our routing horizon would be off.
+**Corrected.** Distribution of (date, driver) → transports per day:
+
+| transports/day | pairs |
+|---:|---:|
+| 1 | 474 (70 %) |
+| 2 | 133 (20 %) |
+| 3 | 28 |
+| 4 | 4 |
+| 5–9 | 7 |
+
+So **30 % of (date, driver) pairs run multiple transports per day**, peaking at 9. Drivers return to base, refill, and head out again. Implication: our optimisation horizon is **per transport**, not per driver-day. That's actually simpler — we don't model driver fatigue or sequencing across transports of the same driver.
+
+**Risk if wrong (in the corrected version).** None — this is now empirical, not assumed.
 
 ---
 
@@ -114,7 +130,25 @@ Decisions we've made without confirmation. Each is listed with the *why* and the
 
 **Reason.** HORECA convention: most bars/restaurants are open 08:00–02:00, but deliveries usually 08:00–13:00 + 17:00–22:00. We'll use the wider window unless told otherwise.
 
-**Risk if wrong.** Some restaurants only accept morning or only evening deliveries.
+**Risk if wrong.** Some restaurants only accept morning or only evening deliveries. Note coverage is **only ~10 %** of active clients (120 / 1.203), so this default applies to ~90 % of stops.
+
+---
+
+## A14 — In `Detalle_entrega`, multiple lines for the same `(Entrega, Material, UMV)` should be summed
+
+**Reason.** We see ~9.500 rows where the same (Entrega, Material) appears 2+ times with positive quantities — likely batch / lot / promotion splits in SAP. For volume planning, the customer ultimately receives the **sum** of these lines.
+
+**Risk if wrong.** Low — if there's a reason these stay split (e.g. different price levels are physically segregated), our space estimate is unchanged anyway.
+
+---
+
+## A15 — `Ruta` in `Detalle_entrega` is the *operating* route on that day, not the client's home route
+
+**Reason.** Each client has a single home zone, each zone has a single home route, but 873 / 1.203 clients show up in multiple `Ruta` codes across the period. That can only be reconciled if `Ruta` reflects what actually carried that delivery, not the formal assignment.
+
+**Risk if wrong.** Medium — if `Ruta` were actually the formal assignment, then ZONAS.csv has 1:N mappings we missed and our planning unit (the Ruta) is fluid. Either way we model individual transports, so our solver doesn't depend on this assumption — but our "compare against today's route" baseline would.
+
+→ Tracked as Q11.
 
 ---
 

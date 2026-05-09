@@ -102,6 +102,29 @@ Special values:
 
 ---
 
+## ZM040 hierarchy code — first-4-char families
+
+The `Jquía.productos` field starts with a 4-char family code:
+
+| Code | Family |
+|---|---|
+| `00CZ`, `01CZ` | Cerveza (parallel categories — likely contado/crédito or fresh/aged) |
+| `00AM` | Alimentación seca (snacks, conservas, especias, condimentos) |
+| `00LM` | Limpieza, menaje, papelería |
+| `00LI`, `01LI` | Licores / spirits |
+| `00VE` | Vinos |
+| `00RF` | Refrescos (Coca-Cola, Schweppes, Aquarius, Bitter Kas) |
+| `00ZU` | Zumos |
+| `00CF`, `01CF` | Café |
+| `00AG` | Aguas |
+| `00LT` | Lácteos / cacaolat / Letona |
+| `00NV` | "No Damm" beverages (third-party) |
+| `00RA` | Ratafia / licores tradicionales |
+
+Last-4-char codes (`DIE4`, `DIE3`, `RPE4`, `12E4`, `13E4`, `02E4`, `A1E4`, `09E4`, `18E4`, `RGE4`…) encode packaging type / capacity / retornable flag — exact decoding TBD with mentors.
+
+---
+
 ## Acronyms we use
 
 | Term | Meaning |
@@ -130,6 +153,20 @@ Special values:
 If you find a field, value or code not listed here, **add it**. The whole point of this glossary is to reach saturation: everything is here.
 
 Open spots (please fill if you find out):
-- `Sector` (Horarios) — code `8` is dominant, what does it mean? Likely "HORECA bars".
-- `Organización ventas` — code `235` everywhere. DDI Mollet's sales org code.
-- `Canal distribución` — code `1` everywhere (`Canal distrib. MARCA`).
+- `Sector = 8` (Horarios) — likely "HORECA bars" but unconfirmed.
+- `Organización ventas = 235` — DDI Mollet's sales org code (constant across the file).
+- `Canal distribución = 1` (`Canal distrib. MARCA`) — constant.
+- `Cl.transp. = YT04` (SAP transport class) — only one observed value; unclear if there are others.
+
+## Confirmed warehouse zones in `Materiales_zubic.csv`
+
+| Code | Count of SKUs | Meaning |
+|---|---:|---|
+| Pattern `LL##L#` (e.g. `AA01A2`) | 213 | Real rack position (Aisle, Position, Side, Level) |
+| `ZCG` | 1.131 | Comergrup zone — pick by area, no precise bay |
+| `PLV` | 49 | POS / marketing material |
+| `A0DISTRIDA` | 44 | Distridam zone |
+| `ENVASE` | 42 | Returnable empties storage |
+| `CAMARA` | 1 | **Refrigerated** (cold-chain SKUs) |
+| `AAAAAA`, `AA0000`, `AA0005` | 3 | Default / unassigned (data quality issue) |
+| `BA001A2`, `EA0701`, `AA0049`, `CACB04A1` | 4 | Typoed / non-standard codes |

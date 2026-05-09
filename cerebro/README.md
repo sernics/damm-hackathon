@@ -21,6 +21,7 @@ All relevant information has been extracted from the source materials (CSVs, PDF
 | [`06_returnables.md`](06_returnables.md) | The reverse-logistics flow that defines this challenge (CJ ↔ ED 1:1, 60% retornables) |
 | [`07_evidence.md`](07_evidence.md) | Documentary proof of the route↔load decoupling (Hoja Carga vs Hoja Ruta) + photo notes |
 | [`08_solution_sketch.md`](08_solution_sketch.md) | Architecture draft: ETL → routing → packing → visualisation |
+| [`09_data_quality.md`](09_data_quality.md) | **Read before any ETL.** Traps, quirks, dedupe rules, accent issues |
 | [`GLOSSARY.md`](GLOSSARY.md) | Every code and abbreviation we ran into |
 | [`ASSUMPTIONS.md`](ASSUMPTIONS.md) | All "🟡 we assumed this" decisions, in one place |
 | [`QUESTIONS.md`](QUESTIONS.md) | Open questions — bloqueantes / important / nice-to-know |
@@ -30,7 +31,7 @@ All relevant information has been extracted from the source materials (CSVs, PDF
 ## How to use it
 
 - **Quick onboarding for a new collaborator (or AI agent):** read `00_brief.md` → `01_context.md` → `GLOSSARY.md`. That's enough to talk sense.
-- **Before writing code:** read `02_data_model.md` and `03_data_inventory.md`.
+- **Before writing code:** read `02_data_model.md`, `03_data_inventory.md`, **and `09_data_quality.md`** (the traps section is non-negotiable).
 - **Before deciding routing strategy:** read `07_evidence.md` (you'll see why the obvious answers don't apply).
 - **Before deciding packing strategy:** read `05_fleet.md` and `06_returnables.md`.
 - **Before launching multi-agent research:** open `QUESTIONS.md` and `ASSUMPTIONS.md` — they tell you which premises to push hardest on.
