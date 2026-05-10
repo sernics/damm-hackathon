@@ -1,7 +1,10 @@
 import { renderKpis, renderChart } from "./dashboard.js";
 import { renderTruck } from "./truck3d.js";
-import { BUSINESS, MAP } from "./config.js";
+import { BUSINESS, MAP, ROUTING } from "./config.js";
 import { escapeHtml, formatCo2, formatCostFromKm, formatKpi, formatPct } from "./format.js";
+import { loadTrend, renderMixChart, renderTrendChart } from "./trend.js";
+import { roadSnap } from "./routing.js";
+import { midpoint } from "./animation.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const token = urlParams.get("token") || window.MAPBOX_TOKEN || "";
@@ -27,6 +30,15 @@ const state = {
     stops: true,
     path: true,
   },
+  chartMode: "route",
+  detailTab: "products",
+  routesQuery: "",
+  routesSort: "distance",
+  trendSeries: null,
+  snapAbort: null,
+  dashAnimation: null,
+  snappedByCluster: new Map(),
+  clusterMarkerById: new Map(),
 };
 
 async function loadJson(path) {
@@ -69,6 +81,54 @@ function readUrlState() {
     view: urlParams.get("view"),
     route: urlParams.get("route"),
   };
+}
+
+function setChartMode(mode) {
+  state.chartMode = mode;
+  document.querySelectorAll("[data-chart]").forEach((button) => {
+    const isActive = button.dataset.chart === mode;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+  });
+  document.querySelectorAll("[data-chart-panel]").forEach((panel) => {
+    panel.classList.toggle("hidden", panel.dataset.chartPanel !== mode);
+  });
+  document.getElementById("chartTitle").textContent =
+    mode === "trend" ? "Savings over time" : "Kilometers comparison";
+  if (mode === "trend") refreshTrendChart();
+}
+
+function setDetailTab(tab) {
+  state.detailTab = tab;
+  document.querySelectorAll("[data-detail]").forEach((button) => {
+    const isActive = button.dataset.detail === tab;
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-selected", String(isActive));
+  });
+  document.querySelectorAll("[data-detail-panel]").forEach((panel) => {
+    panel.classList.toggle("hidden", panel.dataset.detailPanel !== tab);
+  });
+}
+
+async function refreshTrendChart() {
+  if (!state.manifest) return;
+  if (!state.trendSeries) {
+    try {
+      state.trendSeries = await loadTrend(state.manifest);
+    } catch (error) {
+      showToast(`Trend unavailable: ${error.message}`);
+      return;
+    }
+  }
+  renderTrendChart(document.getElementById("trendChart"), state.trendSeries);
+}
+
+function flashKpis() {
+  const node = document.getElementById("kpis");
+  if (!node) return;
+  node.classList.remove("kpi-flash");
+  void node.offsetWidth;
+  node.classList.add("kpi-flash");
 }
 
 function routeCenter(cluster) {
@@ -118,6 +178,7 @@ function clusterFeature(cluster) {
 function routeFeature(cluster) {
   return {
     type: "Feature",
+    id: cluster.id,
     properties: {
       id: cluster.id,
       color: cluster.color,
@@ -129,7 +190,13 @@ function routeFeature(cluster) {
   };
 }
 
+function activePolyline(cluster) {
+  return state.snappedByCluster.get(cluster.id) || cluster.polyline || [];
+}
+
 function truckPosition(cluster) {
+  const poly = activePolyline(cluster);
+  if (poly.length >= 2) return midpoint(poly);
   return routeAnchor(cluster);
 }
 
@@ -169,6 +236,7 @@ function clearRoute() {
 function clearClusterMarkers() {
   state.clusterMarkers.forEach((marker) => marker.remove());
   state.clusterMarkers = [];
+  state.clusterMarkerById.clear();
 }
 
 function truckSvg(color = "#07945e") {
@@ -185,6 +253,94 @@ function truckSvg(color = "#07945e") {
   </svg>`;
 }
 
+function makeArrowImage(size = 24) {
+  const canvas = document.createElement("canvas");
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext("2d");
+  ctx.clearRect(0, 0, size, size);
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.moveTo(size * 0.2, size * 0.18);
+  ctx.lineTo(size * 0.86, size * 0.5);
+  ctx.lineTo(size * 0.2, size * 0.82);
+  ctx.lineTo(size * 0.34, size * 0.5);
+  ctx.closePath();
+  ctx.shadowColor = "rgba(0,0,0,0.35)";
+  ctx.shadowBlur = 2;
+  ctx.fill();
+  return ctx.getImageData(0, 0, size, size);
+}
+
+function setSelectedRouteData(coordinates, color) {
+  if (!state.map?.getSource("selectedRoute")) return;
+  state.map.getSource("selectedRoute").setData({
+    type: "Feature",
+    geometry: { type: "LineString", coordinates },
+    properties: { color: color || "#07945e" },
+  });
+}
+
+function startDashAnimation() {
+  if (!state.map?.getLayer("selected-route-line")) return;
+  if (state.dashAnimation) cancelAnimationFrame(state.dashAnimation);
+  const dashSequence = [
+    [0, 4, 3, 2], [0.5, 4, 2.5, 2], [1, 4, 2, 2], [1.5, 4, 1.5, 2],
+    [2, 4, 1, 2], [2.5, 4, 0.5, 2], [3, 4, 0, 2], [0, 0.5, 3, 5.5],
+    [0, 1, 3, 5], [0, 1.5, 3, 4.5], [0, 2, 3, 4], [0, 2.5, 3, 3.5],
+    [0, 3, 3, 3], [0, 3.5, 3, 2.5],
+  ];
+  let step = 0;
+  let last = 0;
+  const tick = (ts) => {
+    if (ts - last > 80) {
+      step = (step + 1) % dashSequence.length;
+      last = ts;
+      if (state.map?.getLayer("selected-route-line")) {
+        state.map.setPaintProperty("selected-route-line", "line-dasharray", dashSequence[step]);
+      }
+    }
+    state.dashAnimation = requestAnimationFrame(tick);
+  };
+  state.dashAnimation = requestAnimationFrame(tick);
+}
+
+async function snapSelectedToRoad(cluster) {
+  if (!ROUTING.useOsrm) return;
+  const cached = state.snappedByCluster.get(cluster.id);
+  if (cached) {
+    setSelectedRouteData(cached, cluster.color);
+    return;
+  }
+  if (state.snapAbort) state.snapAbort.abort();
+  const controller = new AbortController();
+  state.snapAbort = controller;
+  try {
+    const snapped = await roadSnap(cluster.polyline, { signal: controller.signal });
+    if (controller.signal.aborted) return;
+    if (!Array.isArray(snapped) || snapped.length < 2) return;
+    state.snappedByCluster.set(cluster.id, snapped);
+    const staticMarker = state.clusterMarkerById.get(String(cluster.id));
+    if (staticMarker) staticMarker.setLngLat(midpoint(snapped));
+    if (state.selectedCluster?.id === cluster.id) {
+      setSelectedRouteData(snapped, cluster.color);
+    }
+  } catch (error) {
+    if (error.name !== "AbortError") console.warn("road snap failed", error);
+  }
+}
+
+function buildTruckPopupHtml(cluster) {
+  return `<div class="truck-popup">
+    <strong>Route ${escapeHtml(cluster.id)}</strong>
+    <div class="popup-row"><span>Stops</span><span>${cluster.stops.length}</span></div>
+    <div class="popup-row"><span>Distance</span><span>${formatKpi(cluster.distance_km, "km")}</span></div>
+    ${cluster.time_min ? `<div class="popup-row"><span>Time</span><span>${formatKpi(cluster.time_min, "min")}</span></div>` : ""}
+    ${cluster.occupation_pct != null ? `<div class="popup-row"><span>Occupation</span><span>${formatPct(cluster.occupation_pct)}</span></div>` : ""}
+    <div class="popup-row"><span>Truck</span><span>${cluster.truck_size} pallets</span></div>
+  </div>`;
+}
+
 function addClusterMarkers(scenario) {
   clearClusterMarkers();
   scenario.clusters.forEach((cluster) => {
@@ -198,13 +354,20 @@ function addClusterMarkers(scenario) {
         ${truckSvg(cluster.color)}
         <span class="truck-badge">${cluster.stops.length}</span>
       </span>`;
-    element.title = `Route ${cluster.id}: truck on planned route, ${cluster.stops.length} stops, ${cluster.distance_km} km`;
-    element.addEventListener("click", () => selectCluster(cluster));
+    element.setAttribute("aria-label", `Route ${cluster.id}: ${cluster.stops.length} stops, ${cluster.distance_km} km`);
+    element.addEventListener("click", () => {
+      selectCluster(cluster);
+      new MapGL.Popup({ offset: 18, closeButton: true })
+        .setLngLat(truckPosition(cluster))
+        .setHTML(buildTruckPopupHtml(cluster))
+        .addTo(state.map);
+    });
     const marker = new MapGL.Marker({ element, anchor: "center" })
       .setLngLat(truckPosition(cluster))
       .addTo(state.map);
     marker.getElement().style.zIndex = "35";
     state.clusterMarkers.push(marker);
+    state.clusterMarkerById.set(String(cluster.id), marker);
   });
   updateMapMarkerScale();
   updateLayerVisibility();
@@ -224,6 +387,10 @@ function renderScenario(name) {
   syncScenarioToggle(name);
   syncUrl();
   renderKpis(document.getElementById("kpis"), scenario);
+  flashKpis();
+  renderMixChart(document.getElementById("mixChart"), scenario);
+  document.getElementById("mixMeta").textContent =
+    `${scenario.clusters.length} truck${scenario.clusters.length === 1 ? "" : "s"} on route`;
   updateBottomStrip();
   state.map.getSource("clusters").setData({
     type: "FeatureCollection",
@@ -239,25 +406,85 @@ function renderScenario(name) {
     selectCluster(scenario.clusters[0]);
   }
   renderCurrentView();
+  prefetchAllSnaps(scenario);
+}
+
+function prefetchAllSnaps(scenario) {
+  if (!ROUTING.useOsrm) return;
+  scenario.clusters.forEach((cluster, idx) => {
+    if (state.snappedByCluster.has(cluster.id)) return;
+    setTimeout(async () => {
+      try {
+        const snapped = await roadSnap(cluster.polyline);
+        if (Array.isArray(snapped) && snapped.length >= 2) {
+          state.snappedByCluster.set(cluster.id, snapped);
+          const marker = state.clusterMarkerById.get(String(cluster.id));
+          if (marker) marker.setLngLat(midpoint(snapped));
+          if (state.map?.getSource("allRoutes")) {
+            state.map.getSource("allRoutes").setData({
+              type: "FeatureCollection",
+              features: scenario.clusters.map((c) => ({
+                type: "Feature",
+                id: c.id,
+                properties: { id: c.id, color: c.color },
+                geometry: {
+                  type: "LineString",
+                  coordinates: state.snappedByCluster.get(c.id) || c.polyline || [],
+                },
+              })),
+            });
+          }
+        }
+      } catch (error) {
+        if (error.name !== "AbortError") console.warn("prefetch snap failed", error);
+      }
+    }, idx * 250);
+  });
+}
+
+function countReturnables(cluster) {
+  let count = 0;
+  (cluster.load_plan?.pallets || []).forEach((pallet) => {
+    if ((pallet.lines || []).some((line) => line.retornable)) count += 1;
+  });
+  return count;
 }
 
 function selectCluster(cluster) {
   state.selectedCluster = cluster;
   clearRoute();
   document.getElementById("clusterTitle").textContent = `Route ${cluster.id}`;
-  document.getElementById("clusterMeta").textContent = `${cluster.stops.length} stops · ${cluster.distance_km} km · ${cluster.truck_size} pallets`;
-  state.map.getSource("selectedRoute").setData({
-    type: "Feature",
-    geometry: { type: "LineString", coordinates: cluster.polyline },
-    properties: { color: cluster.color },
-  });
+  const returnables = countReturnables(cluster);
+  const meta = document.getElementById("clusterMeta");
+  meta.innerHTML = `<span class="cluster-meta-chips">
+    <span class="chip">${cluster.stops.length} stops</span>
+    <span class="chip">${escapeHtml(formatKpi(cluster.distance_km, "km"))}</span>
+    <span class="chip">${cluster.truck_size} pallets</span>
+    ${cluster.time_min ? `<span class="chip chip-time">${escapeHtml(formatKpi(cluster.time_min, "min"))}</span>` : ""}
+    ${cluster.occupation_pct != null ? `<span class="chip chip-occupation">${formatPct(cluster.occupation_pct)} full</span>` : ""}
+    ${returnables ? `<span class="chip chip-return">${returnables} returnable</span>` : ""}
+  </span>`;
+  const initial = activePolyline(cluster);
+  setSelectedRouteData(initial, cluster.color);
+  startDashAnimation();
+  snapSelectedToRoad(cluster);
   cluster.stops.forEach((stop) => {
     const element = document.createElement("div");
-    element.className = "marker";
-    element.style.background = cluster.color;
+    element.className = "stop-pin";
     element.style.setProperty("--cluster-color", cluster.color);
-    element.textContent = stop.seq;
-    const marker = new MapGL.Marker(element).setLngLat([stop.lon, stop.lat]).addTo(state.map);
+    element.innerHTML = `
+      <div class="stop-pin-inner">
+        <svg class="stop-pin-svg" viewBox="0 0 32 44" aria-hidden="true">
+          <path d="M16 1c8.3 0 15 6.5 15 14.5 0 10.5-13 26.5-15 28.5C14 42 1 26 1 15.5 1 7.5 7.7 1 16 1Z"
+                fill="${cluster.color}" stroke="#fff" stroke-width="2"/>
+          <circle cx="16" cy="15" r="9.5" fill="#fff"/>
+        </svg>
+        <span class="stop-pin-label">${escapeHtml(String(stop.seq))}</span>
+        <span class="stop-pin-tooltip">${escapeHtml(stop.name || `Client ${stop.cliente}`)}</span>
+      </div>`;
+    const marker = new MapGL.Marker({ element, anchor: "bottom" })
+      .setLngLat([stop.lon, stop.lat])
+      .addTo(state.map);
     marker.getElement().style.zIndex = "30";
     state.routeMarkers.push(marker);
   });
@@ -273,6 +500,32 @@ function selectCluster(cluster) {
   syncUrl();
   renderTruck(document.getElementById("truck3d"), cluster.load_plan);
   renderLoadList(cluster);
+  renderStopsList(cluster);
+}
+
+function renderStopsList(cluster) {
+  const palletsPerStop = new Map();
+  (cluster.load_plan?.pallets || []).forEach((pallet) => {
+    (pallet.lines || []).forEach((line) => {
+      const seq = line.stop_seq;
+      palletsPerStop.set(seq, (palletsPerStop.get(seq) || 0) + Number(line.size || 0));
+    });
+  });
+  const html = cluster.stops
+    .map((stop) => {
+      const computed = palletsPerStop.get(stop.seq);
+      const pallets = Number(stop.pallets ?? computed ?? 0).toFixed(2);
+      return `<div class="stop-row" style="--cluster-color:${cluster.color}">
+        <span class="stop-seq">${stop.seq}</span>
+        <div class="stop-info">
+          <strong>${escapeHtml(stop.name || `Client ${stop.cliente}`)}</strong>
+          <small>${escapeHtml(String(stop.cliente || ""))}</small>
+        </div>
+        <span class="stop-pallets">${pallets}</span>
+      </div>`;
+    })
+    .join("");
+  document.getElementById("stopsList").innerHTML = html || "<div class=\"empty-products\">No stops</div>";
 }
 
 function renderLoadList(cluster) {
@@ -326,17 +579,21 @@ function updateBottomStrip() {
   document.getElementById("costMetric").textContent = formatCostFromKm(kpis.km_saved);
 }
 
+function setLayerVisible(id, visible) {
+  if (state.map?.getLayer(id)) {
+    state.map.setLayoutProperty(id, "visibility", visible ? "visible" : "none");
+  }
+}
+
 function updateLayerVisibility() {
   updateMapMarkerScale();
-  if (state.map?.getLayer("cluster-circles")) {
-    state.map.setLayoutProperty("cluster-circles", "visibility", state.layers.areas ? "visible" : "none");
-  }
-  if (state.map?.getLayer("selected-route-line")) {
-    state.map.setLayoutProperty("selected-route-line", "visibility", state.layers.path ? "visible" : "none");
-  }
-  if (state.map?.getLayer("all-route-lines")) {
-    state.map.setLayoutProperty("all-route-lines", "visibility", state.layers.path ? "visible" : "none");
-  }
+  setLayerVisible("cluster-circles", state.layers.areas);
+  ["selected-route-casing", "selected-route-glow", "selected-route-line", "selected-route-arrows"].forEach((id) => {
+    setLayerVisible(id, state.layers.path);
+  });
+  ["all-route-casing", "all-route-lines"].forEach((id) => {
+    setLayerVisible(id, state.layers.path);
+  });
 }
 
 function focusMap() {
@@ -387,6 +644,22 @@ function renderCurrentView() {
       if (cluster) selectCluster(cluster);
     });
   });
+  const search = panel.querySelector("#routesSearch");
+  if (search) {
+    search.focus({ preventScroll: true });
+    search.setSelectionRange(search.value.length, search.value.length);
+    search.addEventListener("input", (event) => {
+      state.routesQuery = event.target.value;
+      renderCurrentView();
+    });
+  }
+  const sortSel = panel.querySelector("#routesSort");
+  if (sortSel) {
+    sortSel.addEventListener("change", (event) => {
+      state.routesSort = event.target.value;
+      renderCurrentView();
+    });
+  }
 }
 
 function viewHeader(title, text) {
@@ -399,20 +672,56 @@ function viewHeader(title, text) {
   </div>`;
 }
 
+function sortClusters(clusters, mode) {
+  const arr = clusters.slice();
+  switch (mode) {
+    case "stops": return arr.sort((a, b) => b.stops.length - a.stops.length);
+    case "occupation": return arr.sort((a, b) => (b.occupation_pct || 0) - (a.occupation_pct || 0));
+    case "id": return arr.sort((a, b) => String(a.id).localeCompare(String(b.id)));
+    case "distance":
+    default: return arr.sort((a, b) => b.distance_km - a.distance_km);
+  }
+}
+
+function matchesQuery(cluster, query) {
+  if (!query) return true;
+  const q = query.toLowerCase();
+  if (String(cluster.id).toLowerCase().includes(q)) return true;
+  return (cluster.stops || []).some((stop) =>
+    String(stop.name || "").toLowerCase().includes(q) ||
+    String(stop.cliente || "").toLowerCase().includes(q)
+  );
+}
+
 function renderRoutesView() {
-  const rows = scenarioClusters()
-    .slice()
-    .sort((a, b) => b.distance_km - a.distance_km)
+  const filtered = sortClusters(scenarioClusters(), state.routesSort)
+    .filter((cluster) => matchesQuery(cluster, state.routesQuery));
+  const rows = filtered
     .map((cluster) => `<button class="route-row" data-route-id="${escapeHtml(cluster.id)}">
       <span class="route-dot" style="background:${cluster.color}"></span>
       <strong>Route ${escapeHtml(cluster.id)}</strong>
       <span>${cluster.stops.length} stops</span>
-      <span>${cluster.distance_km} km</span>
+      <span>${formatKpi(cluster.distance_km, "km")}</span>
       <span>${cluster.truck_size} pallets</span>
+      <span>${formatPct(cluster.occupation_pct || 0)}</span>
     </button>`)
     .join("");
+  const empty = !filtered.length
+    ? `<div class="view-note">No routes match "${escapeHtml(state.routesQuery)}".</div>`
+    : "";
   return `${viewHeader("Routes", "Operational routes for the selected day and scenario.")}
-    <div class="route-table">${rows}</div>`;
+    <div class="routes-search">
+      <input id="routesSearch" type="search" placeholder="Search by route id, client name, or code…"
+        value="${escapeHtml(state.routesQuery)}" autocomplete="off" />
+      <select id="routesSort">
+        <option value="distance"${state.routesSort === "distance" ? " selected" : ""}>Distance</option>
+        <option value="stops"${state.routesSort === "stops" ? " selected" : ""}>Stops</option>
+        <option value="occupation"${state.routesSort === "occupation" ? " selected" : ""}>Occupation</option>
+        <option value="id"${state.routesSort === "id" ? " selected" : ""}>Route id</option>
+      </select>
+    </div>
+    <div class="route-table">${rows}</div>
+    ${empty}`;
 }
 
 function renderTrucksView() {
@@ -473,8 +782,13 @@ async function loadDay(index) {
   state.dateIndex = index;
   const current = state.manifest.dates[state.dateIndex];
   const base = "../outputs/";
+  document.getElementById("kpis")?.classList.add("loading");
+  document.querySelectorAll(".bottom-strip strong").forEach((el) => el.classList.add("skeleton"));
+  state.snappedByCluster.clear();
+  if (state.snapAbort) state.snapAbort.abort();
   state.baseline = await loadJson(`${base}${current.baseline}`);
   state.optimized = await loadJson(`${base}${current.optimized}`);
+  document.querySelectorAll(".bottom-strip strong").forEach((el) => el.classList.remove("skeleton"));
   updateDateControls();
   renderChart(document.getElementById("comparisonChart"), state.baseline, state.optimized);
   if (state.map) {
@@ -485,43 +799,64 @@ async function loadDay(index) {
 
 function initMap() {
   const depot = state.optimized.depot;
-  const fallbackStyle = {
-    version: 8,
-    sources: {
-      osm: {
-        type: "raster",
-        tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
-        tileSize: 256,
-        attribution: "OpenStreetMap",
-      },
-    },
-    layers: [{ id: "osm", type: "raster", source: "osm" }],
-  };
   state.map = new MapGL.Map({
     container: "map",
-    style: token ? "mapbox://styles/mapbox/light-v11" : fallbackStyle,
+    style: token ? "mapbox://styles/mapbox/light-v11" : MAP.cartoStyleUrl,
     center: [depot.lon, depot.lat],
     zoom: MAP.initialZoom,
+    pitch: MAP.initialPitch,
+    bearing: MAP.initialBearing,
     attributionControl: true,
     scrollZoom: false,
   });
-  state.map.addControl(new MapGL.NavigationControl({ showCompass: true }), "bottom-right");
+  state.map.addControl(new MapGL.NavigationControl({ showCompass: true, visualizePitch: true }), "bottom-right");
+  state.map.addControl(new MapGL.ScaleControl({ unit: "metric", maxWidth: 120 }), "bottom-left");
   state.map.on("zoom", updateMapMarkerScale);
   const depotElement = document.createElement("div");
   depotElement.className = "depot-marker";
-  depotElement.innerHTML = `<span>⌂</span>`;
-  new MapGL.Marker(depotElement).setLngLat([depot.lon, depot.lat]).addTo(state.map);
+  depotElement.innerHTML = `
+    <span class="depot-pulse"></span>
+    <span class="depot-core" aria-hidden="true">
+      <svg viewBox="0 0 32 32" fill="none">
+        <path d="M4 13 16 5l12 8v14H4V13Z" fill="#fff" fill-opacity="0.96"/>
+        <path d="M4 13 16 5l12 8" stroke="#07945e" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M11 27v-7h10v7" stroke="#07945e" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M14 20h4M14 23h4" stroke="#07945e" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </span>
+    <span class="depot-label">${escapeHtml(depot.name || "Depot")}</span>`;
+  new MapGL.Marker({ element: depotElement, anchor: "center" }).setLngLat([depot.lon, depot.lat]).addTo(state.map);
   state.map.on("load", () => {
+    if (!state.map.hasImage("route-arrow")) {
+      state.map.addImage("route-arrow", makeArrowImage(24), { pixelRatio: 2 });
+    }
     state.map.addSource("allRoutes", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
     state.map.addSource("clusters", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+    state.map.addLayer({
+      id: "all-route-casing",
+      source: "allRoutes",
+      type: "line",
+      layout: { "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": "#1d2939",
+        "line-opacity": 0.18,
+        "line-width": ["interpolate", ["linear"], ["zoom"], 8, 3, 12, 6, 15, 10],
+        "line-blur": 1,
+      },
+    });
     state.map.addLayer({
       id: "all-route-lines",
       source: "allRoutes",
       type: "line",
+      layout: { "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": ["get", "color"],
-        "line-width": 3,
-        "line-opacity": 0.56,
+        "line-width": ["interpolate", ["linear"], ["zoom"], 8, 1.5, 12, 3, 15, 5],
+        "line-opacity": [
+          "case",
+          ["boolean", ["feature-state", "hover"], false], 0.95,
+          0.6,
+        ],
       },
     });
     state.map.addLayer({
@@ -538,14 +873,77 @@ function initMap() {
     });
     state.map.addSource("selectedRoute", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
     state.map.addLayer({
+      id: "selected-route-casing",
+      source: "selectedRoute",
+      type: "line",
+      layout: { "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": "#0b1c14",
+        "line-opacity": 0.22,
+        "line-width": ["interpolate", ["linear"], ["zoom"], 8, 6, 12, 11, 15, 16],
+        "line-blur": 1.5,
+      },
+    });
+    state.map.addLayer({
+      id: "selected-route-glow",
+      source: "selectedRoute",
+      type: "line",
+      layout: { "line-cap": "round", "line-join": "round" },
+      paint: {
+        "line-color": ["coalesce", ["get", "color"], "#07945e"],
+        "line-opacity": 0.18,
+        "line-width": ["interpolate", ["linear"], ["zoom"], 8, 10, 12, 18, 15, 26],
+        "line-blur": 6,
+      },
+    });
+    state.map.addLayer({
       id: "selected-route-line",
       source: "selectedRoute",
       type: "line",
+      layout: { "line-cap": "round", "line-join": "round" },
       paint: {
         "line-color": ["coalesce", ["get", "color"], "#07945e"],
-        "line-width": 6,
-        "line-opacity": 0.92,
+        "line-width": ["interpolate", ["linear"], ["zoom"], 8, 3, 12, 6, 15, 9],
+        "line-opacity": 0.95,
       },
+    });
+    state.map.addLayer({
+      id: "selected-route-arrows",
+      source: "selectedRoute",
+      type: "symbol",
+      layout: {
+        "symbol-placement": "line",
+        "symbol-spacing": 80,
+        "icon-image": "route-arrow",
+        "icon-size": ["interpolate", ["linear"], ["zoom"], 8, 0.5, 12, 0.7, 15, 0.9],
+        "icon-allow-overlap": true,
+        "icon-rotation-alignment": "map",
+        "icon-pitch-alignment": "map",
+        "icon-ignore-placement": true,
+      },
+    });
+    let hoveredId = null;
+    state.map.on("mousemove", "all-route-lines", (event) => {
+      if (!event.features?.length) return;
+      state.map.getCanvas().style.cursor = "pointer";
+      const id = event.features[0].properties.id;
+      if (hoveredId !== null) {
+        state.map.setFeatureState({ source: "allRoutes", id: hoveredId }, { hover: false });
+      }
+      hoveredId = id;
+      state.map.setFeatureState({ source: "allRoutes", id }, { hover: true });
+    });
+    state.map.on("mouseleave", "all-route-lines", () => {
+      state.map.getCanvas().style.cursor = "";
+      if (hoveredId !== null) {
+        state.map.setFeatureState({ source: "allRoutes", id: hoveredId }, { hover: false });
+      }
+      hoveredId = null;
+    });
+    state.map.on("click", "all-route-lines", (event) => {
+      const id = String(event.features[0].properties.id);
+      const cluster = state[state.current].clusters.find((item) => String(item.id) === id);
+      if (cluster) selectCluster(cluster);
     });
     state.map.on("click", "cluster-circles", (event) => {
       const id = String(event.features[0].properties.id);
@@ -603,6 +1001,42 @@ async function main() {
   document.getElementById("viewPanel").addEventListener("click", (event) => {
     const close = event.target.closest("[data-view-id='overview']");
     if (close) setView("overview");
+  });
+  document.querySelectorAll("[data-chart]").forEach((button) => {
+    button.addEventListener("click", () => setChartMode(button.dataset.chart));
+  });
+  document.querySelectorAll("[data-detail]").forEach((button) => {
+    button.addEventListener("click", () => setDetailTab(button.dataset.detail));
+  });
+  bindKeyboardShortcuts();
+}
+
+function bindKeyboardShortcuts() {
+  const isTypingTarget = (el) => {
+    if (!el) return false;
+    const tag = el.tagName;
+    return tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || el.isContentEditable;
+  };
+  window.addEventListener("keydown", (event) => {
+    if (event.metaKey || event.ctrlKey || event.altKey) return;
+    if (isTypingTarget(event.target)) return;
+    const key = event.key;
+    const navMap = { "1": "overview", "2": "routes", "3": "trucks", "4": "loads", "5": "analytics" };
+    if (key === "ArrowLeft" && state.dateIndex > 0) {
+      event.preventDefault();
+      loadDay(state.dateIndex - 1);
+    } else if (key === "ArrowRight" && state.dateIndex < state.manifest.dates.length - 1) {
+      event.preventDefault();
+      loadDay(state.dateIndex + 1);
+    } else if (key === "b" || key === "B") {
+      renderScenario("baseline");
+    } else if (key === "o" || key === "O") {
+      renderScenario("optimized");
+    } else if (key === "Escape") {
+      setView("overview");
+    } else if (navMap[key]) {
+      setView(navMap[key]);
+    }
   });
 }
 

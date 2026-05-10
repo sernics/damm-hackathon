@@ -5,8 +5,11 @@ export const BUSINESS = {
 
 export const MAP = {
   initialZoom: 10.3,
+  initialPitch: 28,
+  initialBearing: -8,
   fitPadding: { top: 80, right: 80, bottom: 80, left: 80 },
   fitDuration: 700,
+  fitPitch: 32,
   zoomScaleSteps: [
     { max: 8.6, scale: 0.28 },
     { max: 9.5, scale: 0.36 },
@@ -15,6 +18,12 @@ export const MAP = {
     { max: Infinity, scale: 1 },
   ],
   compactZoomBelow: 10.4,
+  cartoStyleUrl: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
+  routeAnimationMs: 1200,
+};
+
+export const ROUTING = {
+  useOsrm: true,
 };
 
 export const CHART = {

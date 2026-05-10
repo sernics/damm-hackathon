@@ -130,17 +130,38 @@
             <div id="kpis" class="kpis"></div>
             <section class="chart-card">
               <div class="panel-heading">
-                <h2>Kilometers comparison</h2>
-                <span>Baseline vs optimized</span>
+                <h2 id="chartTitle">Kilometers comparison</h2>
+                <div class="chart-tabs" role="tablist" aria-label="Chart mode">
+                  <button class="chart-tab active" data-chart="route" role="tab" aria-selected="true">By route</button>
+                  <button class="chart-tab" data-chart="trend" role="tab" aria-selected="false">Over time</button>
+                </div>
               </div>
-              <canvas id="comparisonChart"></canvas>
+              <div class="chart-canvas-wrap" data-chart-panel="route">
+                <canvas id="comparisonChart"></canvas>
+              </div>
+              <div class="chart-canvas-wrap hidden" data-chart-panel="trend">
+                <canvas id="trendChart"></canvas>
+              </div>
+            </section>
+            <section class="mix-card">
+              <div class="panel-heading">
+                <h2>Fleet mix</h2>
+                <span id="mixMeta">Trucks by capacity</span>
+              </div>
+              <div class="mix-canvas-wrap">
+                <canvas id="mixChart"></canvas>
+              </div>
             </section>
             <section class="truck-card">
               <div class="panel-heading">
                 <h2 id="clusterTitle">Select a route</h2>
                 <span id="clusterMeta"></span>
               </div>
-              <div class="route-detail">
+              <div class="detail-tabs" role="tablist" aria-label="Route detail">
+                <button class="detail-tab active" data-detail="products" role="tab" aria-selected="true">Products</button>
+                <button class="detail-tab" data-detail="stops" role="tab" aria-selected="false">Stops</button>
+              </div>
+              <div class="route-detail" data-detail-panel="products">
                 <div id="truck3d"></div>
                 <div class="products-panel">
                   <div class="products-head">
@@ -149,6 +170,9 @@
                   </div>
                   <div id="loadList" class="load-list"></div>
                 </div>
+              </div>
+              <div class="stops-panel hidden" data-detail-panel="stops">
+                <div id="stopsList" class="stops-list"></div>
               </div>
               <button class="full-route-btn">View full route <span>›</span></button>
             </section>
