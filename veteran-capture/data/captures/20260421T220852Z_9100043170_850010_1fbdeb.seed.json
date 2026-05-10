@@ -1,0 +1,37 @@
+{
+  "capture": {
+    "client_id": "9100043170",
+    "driver_id": "850010",
+    "captured_at": "2026-04-21T22:08:52.864850Z",
+    "tips": [
+      {
+        "topic": "parking",
+        "text": "Aparcar en el lateral, no en la fachada principal: acera estrecha, vecinos protestan.",
+        "confidence": "high"
+      },
+      {
+        "topic": "empties",
+        "text": "Cliente con mucho retornable; revisar bien el conteo de cascos al recoger.",
+        "confidence": "medium"
+      }
+    ],
+    "raw_transcript": "En Ca la Sete, importante: aparcar en el lateral, no en la fachada principal. La acera es estrecha y se han quejado los vecinos. Suelen pedir mucho retornable, hay que bajar bastantes cascos.",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [
+      {
+        "topic": "parking",
+        "text": "Aparcar en el lateral, no en la fachada principal: acera estrecha, vecinos protestan.",
+        "confidence": "high"
+      },
+      {
+        "topic": "empties",
+        "text": "Cliente con mucho retornable; revisar bien el conteo de cascos al recoger.",
+        "confidence": "medium"
+      }
+    ],
+    "rejected": [],
+    "notes": "seed-auto-accepted"
+  }
+}

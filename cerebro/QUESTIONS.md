@@ -158,6 +158,27 @@ Knowing this lets us decide whether to sum or keep separate when computing volum
 ### Q29. Decoding `Jquia.productos` (ZM040 hierarchy) — `[NICE]`
 We've inferred families from the first 4 chars (`00CZ` = cerveza, `00LM` = limpieza, `00LI` = licor, `00VE` = vino, `00RF` = refresco, `00CF` = cafe, `00AG` = agua, `00LT` = lacteos, `00AM` = alimentacion, `00ZU` = zumos, `00NV` = no-Damm, `00RA` = ratafia, parallel `01..` series) and packaging from the last 4 (`DIE4`, `RPE4`?, `13E4`, …). Could DDI confirm the exact decoding? Would let us cluster SKUs into operational families automatically.
 
+### Q43. License-category values for drivers (level 1 / 2 / 3?) — `[IMPORTANT]` (from session 2)
+The mentor mentioned drivers have a license-category field that constrains which trucks they can drive (small-only / small+medium / any). What are the exact category values used in the SAP driver master, and which truck classes does each unlock?
+
+### Q44. Access to the driver master with license category as a column — `[IMPORTANT]` (from session 2)
+We need this field as a column in our data so the truck-driver assignment respects the constraint.
+
+### Q45. Customer interior distance (street to delivery point) — `[IMPORTANT]` (from session 2)
+The real cost driver of "case-by-case" unloading isn't case count; it's how far the driver walks inside the customer's premises. Is this captured anywhere — text notes in the customer master, route comments, anything? Or is it purely tacit driver knowledge?
+
+### Q46. Meaning of "400 son las básicas" — `[NICE]` (from session 2)
+The mentor mentioned this number near the end of the call. Possible interpretations: 400 cases is a typical "basic" transport, 400 mm is a standard dimension, 400 SKUs are the always-carried set. Quick clarification.
+
+### Q47. Levels of cases per pallet — `[NICE]` (from session 2)
+Mentor said "cuatro alturas normales", probably meaning 4 levels (rows) of cases per pallet. Confirm and check whether it varies by case format (1/3 long-neck vs 1/5 vs Veri).
+
+### Q49. Channel for the veteran-capture system — `[IMPORTANT]` (from `11_veteran_capture.md`)
+We need to send drivers short prompts that they can reply to with voice. Realistic options: WhatsApp Business API, a simple webapp linked by SMS, or Telegram Bot. **We don't know what app DDI drivers actually use day-to-day.** Single-line question for the mentor: "Para mandar a un conductor un mensajito y que nos conteste con audio, que canal usariamos — WhatsApp, Telegram, SMS, otra cosa?"
+
+### Q48. The veteran-driver heuristic, captured — `[NICE]` (from session 2)
+The mentor acknowledged that drivers are optimised for *their own* routes. If we could shadow a veteran driver on a real route for a day (or get notes from one), we'd capture micro-optimisations the data doesn't show — and that's literally the value-prop of our pitch.
+
 ### Q39. Are `3ENV0xxx` SKUs actually returnable, or were they bundled into "cases" in the mentor's mind? — `[IMPORTANT]` (new follow-up to Q3)
 The mentor said only glass cases and barrels are returnable; cans, cleaning, spirits are not. But our data shows 20 distinct `3ENV0xxx` SKUs (cacaolat 30u, garrafa 8L, sifones, vichy 1/2, etc.) being delivered AND received back, suggesting they are returnable. Two scenarios:
 - (a) The mentor simplified — `3ENV0xxx` items are returnable in the form of crates/cajas they're packed in.
@@ -203,7 +224,25 @@ Cross-check against the `0CF0054` example (PAL: 100x120x169 cm geometric, `Volum
 
 ## Resolved (or partially resolved by data audit + mentor session)
 
-### From mentor session 2026-05-09
+### From mentor session #2 (2026-05-09 second meeting)
+
+- **Whole-pallet stops per route - CAPPED at 2-4.** Beyond that the operation collapses into shuffling pallets. Hard constraint for our solver.
+- **Pallets can move inside the truck.** Internal partitions are articulated. LIFO-with-reshuffle, not fixed positions.
+- **Weight is NOT a binding constraint.** Model in cases, not kg.
+- **Driver-truck pairing is stable.** The traffic chief assigns *route* to an existing (driver, truck) pair. Driver-truck is input, not a decision variable.
+- **License category constrains assignment.** Drivers have level 1 / 2 / 3 in SAP — exact values to confirm (Q43, Q44).
+- **First truck out: 06:00 (hard).** Return cutoff: soft, varies 12:00-19:00. No hard deadline.
+- **Re-layout = SKU-to-Ubicación remapping.** Racks don't move. Logical re-layout, not civil works.
+- **Picking can split today** into "global sweep + dedicated carts for priority customers". This is exactly Q4's hybrid, and feasible with no infrastructure change.
+- **"Cases on barrels" is soft penalty.** Not forbidden.
+- **Park-and-walk pattern.** For tight customer clusters, driver parks once and walks to N clients. Empties picked up at cluster end. Our routing must treat clusters as super-stops.
+- **Joint cost function is the explicit ask.** Pitch must balance picking cost AND delivery cost — not minimise delivery alone.
+- **The case is the atomic modelling unit.** Even when selling "12 unidades", they move inside cases.
+- **A barrel ~ 4 cases volumetrically.** Quick conversion rule.
+- **Driver's only interface: the printed albarán.** Recommendations must surface there.
+- **Veteran-novice asymmetry.** Drivers are trained for *their* route. Our pitch headline: "any driver performs like a veteran on any route".
+
+### From mentor session #1 (2026-05-09 first meeting)
 
 - **Q2 (visit order / Trip Priority Number) - ANSWERED, can't reconstruct historical baseline.** The `No Prioridad VIAJE` field exists in SAP but DDI says they cannot expose it to us, and they have no record of the actual order followed by the driver either. Our baseline strategy pivots: synthetic naive-geographic baseline + transparent flagging in the pitch.
 - **Q3 (returnable empty vs full) - ANSWERED.** Empty cases and barrels occupy the same outer dimensions as the full ones (only weigh less). Important: the only returnable items are glass cases and barrels - cans, cleaning, spirits are NOT returnable. -> follow-up Q39 about `3ENV0xxx`.

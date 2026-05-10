@@ -1,0 +1,47 @@
+{
+  "capture": {
+    "client_id": "9100158696",
+    "driver_id": "855184",
+    "captured_at": "2026-04-18T22:08:52.865225Z",
+    "tips": [
+      {
+        "topic": "parking",
+        "text": "Aparcar justo delante del almacen — espacio amplio.",
+        "confidence": "high"
+      },
+      {
+        "topic": "access",
+        "text": "Rampa para la transpaleta sin obstaculos.",
+        "confidence": "high"
+      },
+      {
+        "topic": "hours",
+        "text": "Abren a las 7:00 h. Prefieren reparto temprano.",
+        "confidence": "high"
+      }
+    ],
+    "raw_transcript": "Llavors i Cereals Font en Vic, carretera de Prats de Lluçanes. Es un cliente grande de ED13 y agua Veri. Aparcas justo delante del almacen, hay rampa para la transpaleta sin problema. Abren a las siete de la mañana, prefieren reparto temprano.",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [
+      {
+        "topic": "parking",
+        "text": "Aparcar justo delante del almacen — espacio amplio.",
+        "confidence": "high"
+      },
+      {
+        "topic": "access",
+        "text": "Rampa para la transpaleta sin obstaculos.",
+        "confidence": "high"
+      },
+      {
+        "topic": "hours",
+        "text": "Abren a las 7:00 h. Prefieren reparto temprano.",
+        "confidence": "high"
+      }
+    ],
+    "rejected": [],
+    "notes": "seed-auto-accepted"
+  }
+}

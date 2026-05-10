@@ -83,25 +83,49 @@ Cons: hard to ship in 1 hackathon weekend.
 
 ---
 
-## Cost / objective function (first draft)
+## Cost / objective function (revised after mentor session 2)
+
+The **central message from the mentor** is: do not minimise delivery cost alone. Minimise the **joint** picking + delivery cost.
+
+> "Nosotros no estamos buscando lo más óptimo para repartir, sino que estamos buscando un equilibrio. Lo más óptimo posible para cargar y lo más óptimo posible para repartir."
+
+If our pitch promises "30 % faster routes" but the picking time doubles, the mentor will reject it. So the function is:
 
 ```
 total_cost(plan) =
-   α · km_driven                      ← fuel, time, emissions
- + β · time_late_per_stop              ← service quality
- + γ · sum(handling_cost(stop))        ← per-stop penalty: how many cases /
-                                          how many "out-of-place" SKUs has
-                                          the driver to move at this stop
- + δ · picker_trip_cost(load_plan)     ← cost of preparing this layout in
-                                          the warehouse (jumps in pick path)
- + ε · weight_imbalance_penalty
- + ζ · fragile_under_heavy_penalty
+   α · picker_trip_cost(load_plan)     <- warehouse side: walking distance
+                                           in the picker's sweep, plus extra
+                                           trips for "dedicated" customer carts
+ + β · km_driven                       <- fuel, time, emissions
+ + γ · sum(handling_cost(stop))        <- per-stop penalty: cases out of place,
+                                           pallet reshuffles needed, depth from
+                                           the open curtain
+ + δ · time_late_per_stop              <- service quality (only for clients
+                                           with explicit windows in Horarios)
+ + ε · cluster_split_penalty           <- penalty when our route splits a tight
+                                           customer cluster into multiple truck
+                                           stops (the "park and walk" pattern)
+ + ζ · fragile_under_heavy_penalty     <- "cases on barrels" is soft, not hard
 ```
 
+### What's NOT in the function
+
+- **No kg constraint and no kg penalty.** The mentor said "ignore weight, focus on cases". So we don't model mass at all.
+- **No hard return-time deadline.** Return-by-X is soft. We capture it inside `β · km_driven` (longer route = more km = more cost) but never as an infeasibility.
+
+### What IS now a hard constraint
+
+- **`sum(cases_on_truck) <= max_cases(truck_type)`** — the binding capacity constraint.
+- **`sum(pallets_on_truck) <= 3 / 6 / 8`** — pallet count cap by truck type.
+- **`whole_pallet_stops_per_route <= 4`** — operational cap from the mentor (2-4 max in real life).
+- **driver license category compatible with assigned truck** — level 1 / 2 / 3 from the SAP driver master must match the truck size.
+- **(driver, truck) is a fixed input pair** — the assignment is stable and is given to the solver, not solved.
+
 Where:
-- α, β, γ, δ, ε, ζ are tunable weights.
-- `handling_cost` per stop is approximated by: `(# distinct columns the driver must touch)` + `(deepness from the nearest open curtain)`.
-- `picker_trip_cost` is the **L1 distance** in warehouse-coordinate space between consecutive picks of the same client cart.
+- α, β, γ, δ, ε, ζ are tunable weights — and crucially `α` (warehouse cost) must be high enough that we don't propose plans that murder the warehouse.
+- `picker_trip_cost` is computed as: L1 distance the picker walks for the global sweep + extra walks per "dedicated cart" customer.
+- `handling_cost` per stop: combines (# distinct columns the driver must touch in the truck) + (depth from the nearest open curtain) + (estimated walking distance inside the customer's premises if known).
+- `cluster_split_penalty` triggers when our route crosses through a cluster zone twice or interleaves customers from different clusters — the driver would prefer a clean "park once, do the cluster, leave".
 
 This separates the four big interests clearly and lets us produce a Pareto front the jury can interpret.
 

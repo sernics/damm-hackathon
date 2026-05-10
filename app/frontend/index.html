@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Damm Mollet — 3D Fleet Viewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-0: #07090d;
+    --bg-1: #0d1118;
+    --bg-2: #141a24;
+    --line: rgba(255, 255, 255, 0.08);
+    --text: #e7ecf4;
+    --text-dim: #8a96a8;
+    --accent: #00e5a8;
+    --accent-2: #4cc9ff;
+    --warn: #ffb454;
+    --danger: #ff5577;
+    --damm: #d4a017;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; height: 100%; width: 100%;
+    background: radial-gradient(ellipse at top, #11161f 0%, #07090d 70%);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+    user-select: none;
+  }
+  #canvas-wrap { position: fixed; inset: 0; }
+  canvas { display: block; }
+
+  .panel {
+    position: fixed;
+    background: rgba(13, 17, 24, 0.78);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    padding: 16px 18px;
+  }
+
+  /* Top-left HUD: title + truck selector */
+  #hud-top {
+    top: 16px; left: 16px;
+    width: 320px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 10px;
+    padding-bottom: 12px; border-bottom: 1px solid var(--line); margin-bottom: 12px;
+  }
+  .brand-mark {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: linear-gradient(135deg, var(--damm), #b07d12);
+    display: grid; place-items: center;
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 14px;
+    color: #1a1305; box-shadow: 0 4px 12px rgba(212, 160, 23, 0.35);
+  }
+  .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand-text .t1 { font-weight: 700; font-size: 14px; letter-spacing: 0.2px; }
+  .brand-text .t2 { font-size: 11px; color: var(--text-dim); }
+
+  .label {
+    font-size: 10px; letter-spacing: 1.4px; text-transform: uppercase;
+    color: var(--text-dim); font-weight: 600; margin-bottom: 8px;
+  }
+
+  .truck-tabs {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;
+    margin-bottom: 14px;
+  }
+  .truck-tab {
+    padding: 10px 8px; border-radius: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: center;
+  }
+  .truck-tab:hover { background: rgba(255, 255, 255, 0.06); border-color: rgba(76, 201, 255, 0.4); }
+  .truck-tab.active {
+    background: linear-gradient(180deg, rgba(0, 229, 168, 0.18), rgba(0, 229, 168, 0.06));
+    border-color: rgba(0, 229, 168, 0.55);
+    box-shadow: 0 0 18px rgba(0, 229, 168, 0.18) inset;
+  }
+  .truck-tab .num { font-family: 'JetBrains Mono', monospace; font-size: 18px; font-weight: 700; }
+  .truck-tab .lbl { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
+  .truck-tab.active .lbl { color: var(--accent); }
+
+  .stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    font-size: 11px;
+  }
+  .stat {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+  .stat .k { color: var(--text-dim); font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; }
+  .stat .v { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 600; margin-top: 2px; }
+  .stat .v.accent { color: var(--accent); }
+  .stat .v.warn { color: var(--warn); }
+
+  /* Right panel: view + toggles */
+  #hud-right {
+    top: 16px; right: 16px;
+    width: 270px;
+  }
+  .view-modes {
+    display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px;
+    margin-bottom: 14px;
+  }
+  .view-mode {
+    padding: 9px 6px; border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--line);
+    cursor: pointer; text-align: center;
+    font-size: 11px; font-weight: 600;
+    transition: all 0.15s ease;
+  }
+  .view-mode:hover { background: rgba(255, 255, 255, 0.06); }
+  .view-mode.active {
+    background: linear-gradient(180deg, rgba(76, 201, 255, 0.18), rgba(76, 201, 255, 0.06));
+    border-color: rgba(76, 201, 255, 0.55);
+    color: var(--accent-2);
+    box-shadow: 0 0 18px rgba(76, 201, 255, 0.18) inset;
+  }
+
+  .toggle-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 7px 0;
+    font-size: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .toggle-row:first-of-type { border-top: none; padding-top: 0; }
+  .toggle-row span { color: var(--text); }
+  .toggle-row .desc { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
+  .switch {
+    position: relative; width: 36px; height: 20px;
+    background: rgba(255, 255, 255, 0.08); border-radius: 999px;
+    cursor: pointer; transition: background 0.2s ease;
+    border: 1px solid var(--line);
+  }
+  .switch::after {
+    content: ''; position: absolute; top: 2px; left: 2px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--text-dim); transition: all 0.2s ease;
+  }
+  .switch.on { background: rgba(0, 229, 168, 0.25); border-color: rgba(0, 229, 168, 0.5); }
+  .switch.on::after { left: 18px; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+
+  /* Bottom-left: hints */
+  #hud-bottom-left {
+    bottom: 16px; left: 16px;
+    width: 320px;
+    font-size: 11px;
+  }
+  .keys {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+    margin-top: 8px;
+  }
+  .key-group {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+  }
+  .key {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom-width: 2px;
+    border-radius: 5px;
+    padding: 2px 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+    margin: 1px;
+    color: var(--text);
+  }
+  .key-group .lbl { font-size: 9px; color: var(--text-dim); margin-top: 4px; letter-spacing: 0.8px; text-transform: uppercase; }
+
+  /* Bottom-right: pallet info */
+  #hud-bottom-right {
+    bottom: 16px; right: 16px;
+    width: 270px;
+    min-height: 140px;
+  }
+  .pallet-empty {
+    color: var(--text-dim);
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: center;
+    padding: 24px 8px;
+  }
+  .pallet-empty .icon {
+    font-family: 'JetBrains Mono', monospace; font-weight: 700;
+    font-size: 28px; color: rgba(76, 201, 255, 0.35);
+    margin-bottom: 8px;
+  }
+  .pallet-info { font-size: 12px; }
+  .pallet-info .stop-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .pallet-info .stop-badge .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+  }
+  .pallet-info h3 {
+    margin: 0 0 4px 0; font-size: 14px; font-weight: 600;
+  }
+  .pallet-info .client { font-size: 11px; color: var(--text-dim); margin-bottom: 12px; }
+  .pallet-info .grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+  }
+  .pallet-info .field {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid var(--line);
+    border-radius: 6px; padding: 6px 8px;
+  }
+  .pallet-info .field .k {
+    font-size: 9px; color: var(--text-dim); letter-spacing: 0.8px; text-transform: uppercase;
+  }
+  .pallet-info .field .v {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; margin-top: 2px;
+  }
+
+  .badge-row { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 8px; }
+  .badge {
+    font-size: 10px; padding: 3px 8px; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05); border: 1px solid var(--line);
+    color: var(--text-dim); letter-spacing: 0.5px;
+  }
+  .badge.fragile { background: rgba(255, 85, 119, 0.12); border-color: rgba(255, 85, 119, 0.4); color: #ff8aa3; }
+  .badge.returnable { background: rgba(76, 201, 255, 0.12); border-color: rgba(76, 201, 255, 0.4); color: #8edcff; }
+
+  /* Center crosshair (subtle, only when in follow mode) */
+  #crosshair {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 22px; height: 22px; pointer-events: none; opacity: 0; transition: opacity 0.2s ease;
+  }
+  #crosshair.visible { opacity: 0.5; }
+  #crosshair::before, #crosshair::after {
+    content: ''; position: absolute; background: var(--accent-2);
+  }
+  #crosshair::before { left: 50%; top: 0; bottom: 0; width: 1px; transform: translateX(-50%); }
+  #crosshair::after  { top: 50%; left: 0; right: 0; height: 1px; transform: translateY(-50%); }
+
+  /* Loading splash */
+  #splash {
+    position: fixed; inset: 0; display: grid; place-items: center;
+    background: var(--bg-0); z-index: 100;
+    transition: opacity 0.5s ease, visibility 0.5s;
+  }
+  #splash.hidden { opacity: 0; visibility: hidden; }
+  .spinner {
+    width: 40px; height: 40px; border-radius: 50%;
+    border: 2px solid var(--line); border-top-color: var(--accent);
+    animation: spin 0.9s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Mini stop legend (inside pallet panel) */
+  #stop-legend {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+    display: none;
+  }
+  #stop-legend.visible { display: block; }
+  .legend-row {
+    display: flex; align-items: center; gap: 8px;
+    padding: 4px 0; font-size: 11px; cursor: pointer;
+    transition: opacity 0.15s ease;
+  }
+  .legend-row:hover { opacity: 1; }
+  .legend-row.dim { opacity: 0.35; }
+  .legend-row .dot {
+    width: 10px; height: 10px; border-radius: 3px;
+    box-shadow: 0 0 6px currentColor;
+  }
+  .legend-row .name { flex: 1; color: var(--text); }
+  .legend-row .count {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    color: var(--text-dim);
+  }
+
+  /* Compass */
+  #compass {
+    position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
+    width: 78px; height: 78px;
+    background: rgba(13, 17, 24, 0.78);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+  #compass-arrow {
+    position: absolute; inset: 0;
+    transform-origin: 50% 50%;
+    transition: transform 0.06s linear;
+  }
+  #compass-arrow::before {
+    content: ''; position: absolute;
+    top: 8px; left: 50%; transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 14px solid var(--accent);
+    filter: drop-shadow(0 0 4px var(--accent));
+  }
+  #compass-arrow::after {
+    content: ''; position: absolute;
+    bottom: 12px; left: 50%; transform: translateX(-50%);
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 10px solid rgba(255, 255, 255, 0.15);
+  }
+  #compass-deg {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 11px;
+    color: var(--text); letter-spacing: 0.5px;
+    pointer-events: none;
+  }
+  #compass-cardinals {
+    position: absolute; inset: 0; pointer-events: none;
+    font-family: 'JetBrains Mono', monospace; font-size: 9px;
+    color: var(--text-dim);
+  }
+  #compass-cardinals span {
+    position: absolute;
+  }
+  #compass-cardinals .n { top: 2px;    left: 50%; transform: translateX(-50%); color: var(--accent); }
+  #compass-cardinals .s { bottom: 2px; left: 50%; transform: translateX(-50%); }
+  #compass-cardinals .e { right: 4px;  top: 50%;  transform: translateY(-50%); }
+  #compass-cardinals .w { left: 4px;   top: 50%;  transform: translateY(-50%); }
+</style>
+</head>
+<body>
+
+<div id="canvas-wrap"></div>
+<div id="crosshair"></div>
+<div id="compass">
+  <div id="compass-arrow"></div>
+  <div id="compass-deg">000&deg;</div>
+  <div id="compass-cardinals">
+    <span class="n">N</span><span class="s">S</span>
+    <span class="e">E</span><span class="w">W</span>
+  </div>
+</div>
+
+<!-- Top-left HUD -->
+<div id="hud-top" class="panel">
+  <div class="brand">
+    <div class="brand-mark">D</div>
+    <div class="brand-text">
+      <div class="t1">Damm Mollet — Fleet 3D</div>
+      <div class="t2">Centre D131 · 16 vehicles</div>
+    </div>
+  </div>
+
+  <div class="label">Truck type</div>
+  <div class="truck-tabs" id="truck-tabs">
+    <div class="truck-tab" data-truck="van">
+      <div class="num">3P</div>
+      <div class="lbl">Van</div>
+    </div>
+    <div class="truck-tab active" data-truck="std">
+      <div class="num">6P</div>
+      <div class="lbl">Standard</div>
+    </div>
+    <div class="truck-tab" data-truck="big">
+      <div class="num">8P</div>
+      <div class="lbl">Large</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="k">Capacity</div><div class="v accent" id="stat-capacity">6 pallets</div></div>
+    <div class="stat"><div class="k">Loaded</div><div class="v" id="stat-loaded">— / —</div></div>
+    <div class="stat"><div class="k">Box L × W × H</div><div class="v" id="stat-dims">—</div></div>
+    <div class="stat"><div class="k">Stops</div><div class="v" id="stat-stops">—</div></div>
+  </div>
+</div>
+
+<!-- Top-right HUD -->
+<div id="hud-right" class="panel">
+  <div class="label">View mode</div>
+  <div class="view-modes" id="view-modes">
+    <div class="view-mode active" data-mode="solid">Solid</div>
+    <div class="view-mode" data-mode="xray">X-Ray</div>
+    <div class="view-mode" data-mode="wire">Wire</div>
+  </div>
+
+  <div class="label" style="margin-top: 14px;">Display</div>
+  <div class="toggle-row">
+    <div>
+      <span>Pallets</span>
+      <div class="desc">Show cargo inside box</div>
+    </div>
+    <div class="switch on" id="t-pallets"></div>
+  </div>
+  <div class="toggle-row">
+    <div>
+      <span>Roof / curtains</span>
+      <div class="desc">Show top &amp; lateral lonas</div>
+    </div>
+    <div class="switch on" id="t-roof"></div>
+  </div>
+  <div class="toggle-row">
+    <div>
+      <span>Labels</span>
+      <div class="desc">Stop number on pallets</div>
+    </div>
+    <div class="switch on" id="t-labels"></div>
+  </div>
+  <div class="toggle-row">
+    <div>
+      <span>Follow camera</span>
+      <div class="desc">Camera tracks the truck</div>
+    </div>
+    <div class="switch" id="t-follow"></div>
+  </div>
+  <div class="toggle-row">
+    <div>
+      <span>Auto-rotate</span>
+      <div class="desc">Slow showcase spin</div>
+    </div>
+    <div class="switch" id="t-autorot"></div>
+  </div>
+</div>
+
+<!-- Bottom-left hints -->
+<div id="hud-bottom-left" class="panel">
+  <div class="label">Controls</div>
+  <div class="keys">
+    <div class="key-group">
+      <span class="key">W</span><br/>
+      <span class="key">A</span><span class="key">S</span><span class="key">D</span>
+      <div class="lbl">Drive</div>
+    </div>
+    <div class="key-group">
+      <span class="key">Q</span><span class="key">E</span>
+      <div class="lbl">Spin</div>
+    </div>
+    <div class="key-group">
+      <span class="key">R</span>
+      <div class="lbl">Reset</div>
+    </div>
+    <div class="key-group">
+      <span class="key">X</span>
+      <div class="lbl">X-Ray</div>
+    </div>
+  </div>
+  <div class="toggle-row" style="margin-top: 10px;">
+    <div>
+      <span>Mouse</span>
+      <div class="desc">Drag = orbit · Wheel = zoom · Click pallet = inspect</div>
+    </div>
+  </div>
+</div>
+
+<!-- Bottom-right pallet info -->
+<div id="hud-bottom-right" class="panel">
+  <div class="label">Pallet inspector</div>
+  <div id="pallet-content">
+    <div class="pallet-empty">
+      <div class="icon">+</div>
+      Click any pallet inside the truck to inspect its contents.<br/>
+      Toggle <b>X-Ray</b> to see through walls.
+    </div>
+  </div>
+  <div id="stop-legend"></div>
+</div>
+
+<div id="splash"><div class="spinner"></div></div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+// ---------- Truck specs (from cerebro/05_fleet.md) ----------
+const TRUCK_SPECS = {
+  van: {
+    name: 'Van 3P',
+    box: { length: 3.00, width: 1.80, height: 1.90 },
+    cab: { length: 1.80, width: 1.85, height: 1.85 },
+    palletGrid: { cols: 3, rows: 1 }, // along length, across width
+    palletRotated: true, // pallets rotated 90deg so 1.00m fits along 3 cells of 1.00m
+    wheelRadius: 0.36,
+    // Absolute Z positions (truck centered on origin, cab at -Z, rear at +Z)
+    wheels: { axles: [{ z: -1.70, count: 2 }, { z: 1.50, count: 2 }] },
+    color: '#cfd5e0',
+    maxCases: 90,
+  },
+  std: {
+    name: 'Standard 6P',
+    box: { length: 4.20, width: 2.30, height: 2.30 },
+    cab: { length: 2.10, width: 2.30, height: 2.10 },
+    palletGrid: { cols: 3, rows: 2 },
+    wheelRadius: 0.46,
+    wheels: { axles: [{ z: -2.00, count: 2 }, { z: 2.40, count: 4 }] }, // dual rear
+    color: '#e1e6ee',
+    maxCases: 220,
+  },
+  big: {
+    name: 'Large 8P',
+    box: { length: 5.80, width: 2.40, height: 2.50 },
+    cab: { length: 2.30, width: 2.40, height: 2.30 },
+    palletGrid: { cols: 4, rows: 2 },
+    wheelRadius: 0.50,
+    wheels: { axles: [{ z: -2.50, count: 2 }, { z: 1.60, count: 4 }, { z: 3.10, count: 4 }] },
+    color: '#dde3eb',
+    maxCases: 340,
+  },
+};
+
+// Pallet dimensions (Euro pallet, per cerebro doc)
+const PALLET = {
+  length: 1.20,
+  width: 1.00,
+  baseHeight: 0.15,
+};
+
+// ---------- Demo cargo: stops & products per truck type ----------
+// Per-stop palette (vivid, neon-friendly so it pops on dark scene)
+const STOP_PALETTE = [
+  '#00e5a8', '#ff5577', '#4cc9ff', '#ffb454',
+  '#a78bfa', '#ff8a3d', '#7afcff', '#ff79c6',
+];
+
+const DEMO_CARGO = {
+  van: [
+    { stop: 1, client: 'Bar Mollet Centre', city: 'Mollet', material: 'CAFE-CC', name: 'Cafe Cosset', cases: 22, fragile: false, returnable: false },
+    { stop: 1, client: 'Bar Mollet Centre', city: 'Mollet', material: 'CAFE-XX', name: 'Cafe Mix',    cases: 14, fragile: false, returnable: false },
+    { stop: 2, client: 'Cafeteria Aurora', city: 'La Llagosta', material: 'CAFE-CC', name: 'Cafe Cosset', cases: 18, fragile: false, returnable: false },
+    { stop: 3, client: 'Bar Estacio',     city: 'Granollers',  material: 'ED13',    name: 'Estrella 33cl', cases: 24, fragile: true,  returnable: true },
+  ],
+  std: [
+    { stop: 1, client: 'Restaurant La Plaza', city: 'Mollet',  material: 'ED13',  name: 'Estrella 33cl', cases: 36, fragile: true,  returnable: true },
+    { stop: 1, client: 'Restaurant La Plaza', city: 'Mollet',  material: 'CJ13',  name: 'Empties 33cl',  cases: 12, fragile: false, returnable: true },
+    { stop: 2, client: 'Bar Casino',          city: 'Sabadell', material: 'BRL30', name: 'Barrel 30L',    cases: 4,  fragile: false, returnable: true },
+    { stop: 3, client: 'Hotel Plaça Major',   city: 'Terrassa', material: 'VOLL', name: 'Voll-Damm',     cases: 28, fragile: true,  returnable: true },
+    { stop: 4, client: 'Pizzeria Roma',       city: 'Sant Cugat', material: 'INED',  name: 'Inedit 75cl',  cases: 18, fragile: true,  returnable: false },
+    { stop: 5, client: 'Restaurant Olivera',  city: 'Rubi',     material: 'BRL30', name: 'Barrel 30L',    cases: 3,  fragile: false, returnable: true },
+    { stop: 6, client: 'Cerveseria Tap',      city: 'Cerdanyola', material: 'AUSF', name: 'Affligem',     cases: 16, fragile: true,  returnable: true },
+  ],
+  big: [
+    { stop: 1, client: 'Centre Comercial La Maquinista', city: 'Barcelona', material: 'ED13',  name: 'Estrella 33cl', cases: 64, fragile: true,  returnable: true },
+    { stop: 1, client: 'Centre Comercial La Maquinista', city: 'Barcelona', material: 'CJ13',  name: 'Empties 33cl',  cases: 28, fragile: false, returnable: true },
+    { stop: 2, client: 'Hipermercat Diagonal',           city: 'Barcelona', material: 'VOLL',  name: 'Voll-Damm 33',  cases: 48, fragile: true,  returnable: true },
+    { stop: 3, client: 'Estadi Espanyol',                 city: 'Cornella',  material: 'BRL30', name: 'Barrel 30L',    cases: 12, fragile: false, returnable: true },
+    { stop: 4, client: 'Restaurant Tibidabo',            city: 'Barcelona', material: 'INED',  name: 'Inedit 75cl',   cases: 24, fragile: true,  returnable: false },
+    { stop: 5, client: 'Bar Sant Jordi',                  city: 'Sabadell',  material: 'AUSF',  name: 'Affligem',      cases: 22, fragile: true,  returnable: true },
+    { stop: 6, client: 'Centre Esportiu Lluis',          city: 'Terrassa',  material: 'ED13',  name: 'Estrella 33cl', cases: 30, fragile: true,  returnable: true },
+    { stop: 7, client: 'Hotel Costa Brava',              city: 'Mataro',    material: 'VOLL',  name: 'Voll-Damm 33',  cases: 26, fragile: true,  returnable: true },
+  ],
+};
+
+// ---------- THREE.js scene setup ----------
+const wrap = document.getElementById('canvas-wrap');
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0x07090d, 30, 70);
+
+const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 200);
+camera.position.set(8, 6, 11);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+wrap.appendChild(renderer.domElement);
+
+// Controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.minDistance = 3;
+controls.maxDistance = 40;
+controls.maxPolarAngle = Math.PI / 2 - 0.05;
+controls.target.set(0, 1.2, 0);
+
+// ---------- Lighting ----------
+const hemi = new THREE.HemisphereLight(0x9fb6d6, 0x1a1f2a, 0.55);
+scene.add(hemi);
+
+const sun = new THREE.DirectionalLight(0xfff1d0, 1.6);
+sun.position.set(8, 14, 6);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+sun.shadow.camera.near = 0.5;
+sun.shadow.camera.far = 50;
+sun.shadow.camera.left = -15;
+sun.shadow.camera.right = 15;
+sun.shadow.camera.top = 15;
+sun.shadow.camera.bottom = -15;
+sun.shadow.bias = -0.0005;
+sun.shadow.normalBias = 0.02;
+scene.add(sun);
+
+const fill = new THREE.DirectionalLight(0x4cc9ff, 0.45);
+fill.position.set(-8, 6, -4);
+scene.add(fill);
+
+const rim = new THREE.DirectionalLight(0x00e5a8, 0.35);
+rim.position.set(-2, 4, -10);
+scene.add(rim);
+
+// ---------- Ground: dark warehouse floor with subtle grid ----------
+const groundGroup = new THREE.Group();
+scene.add(groundGroup);
+
+const groundMat = new THREE.MeshStandardMaterial({
+  color: 0x10141c, roughness: 0.85, metalness: 0.1,
+});
+const ground = new THREE.Mesh(new THREE.CircleGeometry(45, 64), groundMat);
+ground.rotation.x = -Math.PI / 2;
+ground.receiveShadow = true;
+groundGroup.add(ground);
+
+// Subtle grid
+const grid = new THREE.GridHelper(60, 60, 0x1f2a3a, 0x141a24);
+grid.material.transparent = true;
+grid.material.opacity = 0.45;
+grid.position.y = 0.001;
+groundGroup.add(grid);
+
+// Painted parking slot under the truck (warehouse vibe)
+const slotGeom = new THREE.PlaneGeometry(4, 8);
+const slotMat = new THREE.MeshBasicMaterial({
+  color: 0x1f2937, transparent: true, opacity: 0.55,
+});
+const slot = new THREE.Mesh(slotGeom, slotMat);
+slot.rotation.x = -Math.PI / 2;
+slot.position.y = 0.002;
+groundGroup.add(slot);
+
+// Slot stripes (corner brackets)
+function bracketStripe(x, z, rotation) {
+  const g = new THREE.Group();
+  const stripeMat = new THREE.MeshBasicMaterial({ color: 0xd4a017, transparent: true, opacity: 0.85 });
+  const a = new THREE.Mesh(new THREE.PlaneGeometry(0.05, 1.0), stripeMat);
+  const b = new THREE.Mesh(new THREE.PlaneGeometry(1.0, 0.05), stripeMat);
+  a.rotation.x = b.rotation.x = -Math.PI / 2;
+  a.position.set(0.475, 0.003, 0);
+  b.position.set(0, 0.003, 0.475);
+  g.add(a); g.add(b);
+  g.position.set(x, 0, z);
+  g.rotation.y = rotation;
+  return g;
+}
+groundGroup.add(bracketStripe(-2.0, -4.0, 0));
+groundGroup.add(bracketStripe( 2.0, -4.0, -Math.PI / 2));
+groundGroup.add(bracketStripe(-2.0,  4.0, Math.PI / 2));
+groundGroup.add(bracketStripe( 2.0,  4.0, Math.PI));
+
+// ---------- Truck construction ----------
+const truckRoot = new THREE.Group(); // moves+rotates as a whole
+scene.add(truckRoot);
+
+let currentTruck = null; // holds references to current truck parts
+let activeTruckKey = 'std';
+
+// Materials we want to swap globally based on view mode
+const STATE = {
+  viewMode: 'solid',           // 'solid' | 'xray' | 'wire'
+  showPallets: true,
+  showRoof: true,
+  showLabels: true,
+  followCam: false,
+  autoRotate: false,
+  hiddenStops: new Set(),
+};
+
+// Build a stop -> color map (recomputed per truck)
+function buildStopColors(cargoList) {
+  const stops = [...new Set(cargoList.map(c => c.stop))].sort((a, b) => a - b);
+  const map = new Map();
+  stops.forEach((s, i) => map.set(s, STOP_PALETTE[i % STOP_PALETTE.length]));
+  return map;
+}
+
+// Pack cargo lines into pallets, one logical pallet per stop (split if cases > capacity)
+const CASES_PER_PALLET = 80; // visual heuristic
+function packPallets(cargoList) {
+  // group lines by stop
+  const byStop = new Map();
+  for (const line of cargoList) {
+    if (!byStop.has(line.stop)) byStop.set(line.stop, []);
+    byStop.get(line.stop).push(line);
+  }
+  const pallets = [];
+  const stops = [...byStop.keys()].sort((a, b) => a - b);
+  for (const stop of stops) {
+    const lines = byStop.get(stop);
+    const totalCases = lines.reduce((s, l) => s + l.cases, 0);
+    let palletCount = Math.max(1, Math.ceil(totalCases / CASES_PER_PALLET));
+    // Cap at 2 pallets per stop in demo to keep layout sensible
+    palletCount = Math.min(palletCount, 2);
+    const caseStep = Math.ceil(totalCases / palletCount);
+    let remaining = totalCases;
+    for (let p = 0; p < palletCount; p++) {
+      const slice = Math.min(caseStep, remaining);
+      remaining -= slice;
+      pallets.push({
+        stop,
+        client: lines[0].client,
+        city: lines[0].city,
+        cases: slice,
+        lines,
+        fragile: lines.some(l => l.fragile),
+        returnable: lines.some(l => l.returnable),
+      });
+    }
+  }
+  return pallets;
+}
+
+// Place pallets in the truck grid (cols along length, rows across width).
+// Order respects "stop" — first pallet of stop 1 goes in the rear (closer to door),
+// last stop goes towards the cab. This matches "load LIFO" reality.
+function assignSlots(pallets, grid) {
+  const total = grid.cols * grid.rows;
+  const placed = pallets.slice(0, total);
+  const layout = []; // {pallet, col, row}
+  // Reverse: pallet index 0 (stop 1, first to drop) goes to the rear-most col.
+  // Rear = col index 0 in our local frame (closer to door / +Z in truck local).
+  let i = 0;
+  for (let col = 0; col < grid.cols && i < placed.length; col++) {
+    for (let row = 0; row < grid.rows && i < placed.length; row++) {
+      layout.push({ pallet: placed[i], col, row });
+      i++;
+    }
+  }
+  return layout;
+}
+
+// Geometry / material helpers ----------------------------------------------
+
+function makeCabMaterial(baseColor) {
+  return new THREE.MeshStandardMaterial({
+    color: baseColor,
+    metalness: 0.55,
+    roughness: 0.4,
+    envMapIntensity: 0.8,
+  });
+}
+
+function makeBoxMaterial() {
+  // The lateral curtains (lonas) — slightly fabric-y, in Damm gold
+  return new THREE.MeshStandardMaterial({
+    color: 0xd4a017,
+    metalness: 0.15,
+    roughness: 0.65,
+    side: THREE.DoubleSide,
+  });
+}
+
+function makeRoofMaterial() {
+  return new THREE.MeshStandardMaterial({
+    color: 0xeae2d0,
+    metalness: 0.25,
+    roughness: 0.7,
+  });
+}
+
+function makeChassisMaterial() {
+  return new THREE.MeshStandardMaterial({
+    color: 0x252a33,
+    metalness: 0.7,
+    roughness: 0.45,
+  });
+}
+
+function makeTireMaterial() {
+  return new THREE.MeshStandardMaterial({
+    color: 0x1a1d22,
+    metalness: 0.05,
+    roughness: 0.95,
+  });
+}
+
+function makeRimMaterial() {
+  return new THREE.MeshStandardMaterial({
+    color: 0x88909c,
+    metalness: 0.85,
+    roughness: 0.35,
+  });
+}
+
+function makeGlassMaterial() {
+  return new THREE.MeshPhysicalMaterial({
+    color: 0x0a1620,
+    metalness: 0.9,
+    roughness: 0.05,
+    transmission: 0.0,
+    transparent: true,
+    opacity: 0.85,
+  });
+}
+
+function makeHeadlightMaterial() {
+  return new THREE.MeshBasicMaterial({ color: 0xfff5d4 });
+}
+
+function makeRedlightMaterial() {
+  return new THREE.MeshBasicMaterial({ color: 0xff3850 });
+}
+
+// --- Pallet builder ---
+function buildPallet(palletData, stopColor) {
+  const group = new THREE.Group();
+  group.userData = {
+    isPallet: true,
+    palletData,
+    stopColor,
+  };
+
+  // Pallet base: classic Euro pallet plank look
+  const baseW = PALLET.width;       // 1.00m across truck width
+  const baseL = PALLET.length;      // 1.20m along truck length
+  const baseH = PALLET.baseHeight;  // 0.15m
+
+  const woodMat = new THREE.MeshStandardMaterial({
+    color: 0x8a6a3a, roughness: 0.85, metalness: 0.05,
+  });
+
+  // Top deck: 5 planks
+  for (let i = 0; i < 5; i++) {
+    const plank = new THREE.Mesh(
+      new THREE.BoxGeometry(baseW, 0.02, baseL * 0.18),
+      woodMat
+    );
+    plank.position.set(0, baseH - 0.01, (i - 2) * (baseL * 0.21));
+    plank.castShadow = true;
+    plank.receiveShadow = true;
+    group.add(plank);
+  }
+  // Mid stringers (3 along length)
+  for (let i = -1; i <= 1; i++) {
+    const block = new THREE.Mesh(
+      new THREE.BoxGeometry(baseW * 0.18, baseH * 0.55, baseL * 0.95),
+      woodMat
+    );
+    block.position.set(i * (baseW * 0.4), baseH * 0.5 - 0.025, 0);
+    block.castShadow = true;
+    block.receiveShadow = true;
+    group.add(block);
+  }
+  // Bottom deck planks
+  for (let i = 0; i < 3; i++) {
+    const plank = new THREE.Mesh(
+      new THREE.BoxGeometry(baseW, 0.02, baseL * 0.18),
+      woodMat
+    );
+    plank.position.set(0, 0.01, (i - 1) * (baseL * 0.42));
+    plank.castShadow = true;
+    plank.receiveShadow = true;
+    group.add(plank);
+  }
+
+  // Cargo: stack of cases
+  const stackHeight = 1.4; // total cargo height above pallet
+  const stackGroup = new THREE.Group();
+  stackGroup.position.y = baseH;
+  group.add(stackGroup);
+
+  // Cargo color: tinted version of stop color
+  const c = new THREE.Color(stopColor);
+  const cargoMat = new THREE.MeshStandardMaterial({
+    color: c.clone().multiplyScalar(0.85),
+    emissive: c.clone().multiplyScalar(0.06),
+    metalness: 0.1,
+    roughness: 0.7,
+  });
+  const cargoEdgeMat = new THREE.LineBasicMaterial({
+    color: c.clone().multiplyScalar(1.4),
+    transparent: true,
+    opacity: 0.7,
+  });
+
+  // Build cases: 2x2 across base, 4 levels high (16 cases per pallet visual)
+  const layers = 4;
+  const caseW = baseW * 0.46;
+  const caseL = baseL * 0.46;
+  const caseH = stackHeight / layers - 0.01;
+  for (let lvl = 0; lvl < layers; lvl++) {
+    for (let cx = 0; cx < 2; cx++) {
+      for (let cz = 0; cz < 2; cz++) {
+        const box = new RoundedBoxGeometry(caseW, caseH, caseL, 2, 0.025);
+        const mesh = new THREE.Mesh(box, cargoMat.clone());
+        mesh.position.set(
+          (cx - 0.5) * (caseW + 0.015),
+          caseH * (lvl + 0.5),
+          (cz - 0.5) * (caseL + 0.015)
+        );
+        mesh.castShadow = true;
+        mesh.receiveShadow = true;
+        // Edges for a crisp tech-spec look
+        const edges = new THREE.LineSegments(
+          new THREE.EdgesGeometry(box, 25),
+          cargoEdgeMat
+        );
+        edges.position.copy(mesh.position);
+        mesh.userData.parentPallet = group;
+        edges.userData.parentPallet = group;
+        stackGroup.add(mesh);
+        stackGroup.add(edges);
+      }
+    }
+  }
+
+  // Stop label (canvas-based sprite)
+  const label = makeStopLabel(palletData.stop, stopColor);
+  label.position.set(0, baseH + stackHeight + 0.18, 0);
+  label.userData.isLabel = true;
+  group.add(label);
+
+  // Outline glow (initially hidden) for selection
+  const glow = new THREE.Mesh(
+    new THREE.BoxGeometry(baseW * 1.05, stackHeight + baseH + 0.05, baseL * 1.05),
+    new THREE.MeshBasicMaterial({
+      color: stopColor,
+      transparent: true,
+      opacity: 0.0,
+      depthWrite: false,
+    })
+  );
+  glow.position.y = (baseH + stackHeight) * 0.5;
+  glow.userData.isGlow = true;
+  group.add(glow);
+
+  // Tag every mesh as belonging to this pallet so click-anywhere works
+  group.traverse(o => { if (o.isMesh) o.userData.parentPallet = group; });
+
+  return group;
+}
+
+function makeStopLabel(stop, color) {
+  const canvas = document.createElement('canvas');
+  canvas.width = 256; canvas.height = 256;
+  const ctx = canvas.getContext('2d');
+  // Rounded background
+  ctx.fillStyle = 'rgba(8,10,14,0.85)';
+  roundRect(ctx, 32, 80, 192, 96, 22);
+  ctx.fill();
+  // Color dot
+  ctx.fillStyle = color;
+  ctx.beginPath(); ctx.arc(78, 128, 18, 0, Math.PI * 2); ctx.fill();
+  // Text
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 56px "JetBrains Mono", monospace';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('S' + stop, 110, 132);
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 4;
+  const mat = new THREE.SpriteMaterial({ map: tex, transparent: true, depthTest: false });
+  const sprite = new THREE.Sprite(mat);
+  sprite.scale.set(0.7, 0.7, 0.7);
+  return sprite;
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+// --- Truck builder ---
+function buildTruck(specKey) {
+  const spec = TRUCK_SPECS[specKey];
+  // Clear existing
+  while (truckRoot.children.length) {
+    const child = truckRoot.children.pop();
+    child.traverse(o => {
+      if (o.geometry) o.geometry.dispose?.();
+      if (o.material) {
+        if (Array.isArray(o.material)) o.material.forEach(m => m.dispose?.());
+        else o.material.dispose?.();
+      }
+    });
+  }
+
+  const truck = {
+    spec,
+    parts: {},        // named parts (cab, box, walls, roof, wheels, ...)
+    palletGroup: new THREE.Group(),
+    pallets: [],      // list of pallet groups
+    stopColors: null,
+    cargoLines: DEMO_CARGO[specKey],
+    bodyLength: 0,    // total along Z (cab + box)
+    facingForward: new THREE.Vector3(0, 0, -1), // truck nose direction in local +Z toward where it drives
+  };
+
+  const { box, cab } = spec;
+
+  // Total length along Z: cab front + cab + box. We'll center the whole vehicle on origin.
+  // Layout in local frame: cab in -Z (front), box in +Z (rear).
+  const wheelbaseTotal = cab.length + box.length;
+  const cabCenterZ = -wheelbaseTotal / 2 + cab.length / 2;
+  const boxCenterZ = wheelbaseTotal / 2 - box.length / 2;
+  truck.bodyLength = wheelbaseTotal;
+
+  // ---------- Chassis frame ----------
+  const chassisMat = makeChassisMaterial();
+  const chassisHeight = 0.18;
+  const wheelClearance = spec.wheelRadius * 1.15; // floor of frame above ground
+  const chassisGeom = new THREE.BoxGeometry(
+    Math.max(cab.width, box.width) * 0.55, chassisHeight, wheelbaseTotal * 0.97
+  );
+  const chassis = new THREE.Mesh(chassisGeom, chassisMat);
+  chassis.position.y = wheelClearance;
+  chassis.castShadow = true;
+  chassis.receiveShadow = true;
+  truckRoot.add(chassis);
+
+  // Frame rails (two longitudinal bars)
+  for (const sx of [-1, 1]) {
+    const rail = new THREE.Mesh(
+      new THREE.BoxGeometry(0.12, 0.18, wheelbaseTotal * 0.97),
+      chassisMat
+    );
+    rail.position.set(sx * Math.max(cab.width, box.width) * 0.32, wheelClearance - 0.05, 0);
+    rail.castShadow = true;
+    truckRoot.add(rail);
+  }
+
+  // Fuel tank under cab (deco)
+  const fuelTank = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.18, 0.18, 0.7, 16),
+    new THREE.MeshStandardMaterial({ color: 0x8a909a, metalness: 0.6, roughness: 0.4 })
+  );
+  fuelTank.rotation.z = Math.PI / 2;
+  fuelTank.position.set(
+    Math.max(cab.width, box.width) * 0.36,
+    wheelClearance - 0.05,
+    cabCenterZ + 0.4
+  );
+  fuelTank.castShadow = true;
+  truckRoot.add(fuelTank);
+
+  // ---------- Wheels ----------
+  const wheelsGroup = new THREE.Group();
+  truckRoot.add(wheelsGroup);
+  truck.parts.wheels = [];
+
+  const tireMat = makeTireMaterial();
+  const rimMat = makeRimMaterial();
+  const wheelWidth = spec.wheelRadius * 0.6;
+
+  function addWheel(x, z, isDual) {
+    const tireGeom = new THREE.CylinderGeometry(spec.wheelRadius, spec.wheelRadius, wheelWidth, 28);
+    const tire = new THREE.Mesh(tireGeom, tireMat);
+    tire.rotation.z = Math.PI / 2;
+    tire.position.set(x, spec.wheelRadius, z);
+    tire.castShadow = true;
+    wheelsGroup.add(tire);
+    truck.parts.wheels.push(tire);
+
+    // Rim
+    const rim = new THREE.Mesh(
+      new THREE.CylinderGeometry(spec.wheelRadius * 0.5, spec.wheelRadius * 0.5, wheelWidth * 1.05, 16),
+      rimMat
+    );
+    rim.rotation.z = Math.PI / 2;
+    rim.position.copy(tire.position);
+    rim.position.x += Math.sign(x) * 0.005;
+    wheelsGroup.add(rim);
+    truck.parts.wheels.push(rim);
+
+    if (isDual) {
+      // Twin tire inboard
+      const t2 = tire.clone();
+      t2.position.x = x - Math.sign(x) * (wheelWidth + 0.02);
+      wheelsGroup.add(t2);
+      truck.parts.wheels.push(t2);
+    }
+  }
+
+  for (const axle of spec.wheels.axles) {
+    const axleZ = axle.z;
+    const halfW = Math.max(cab.width, box.width) * 0.5;
+    const isDual = axle.count === 4;
+    addWheel(halfW + 0.04, axleZ, isDual);
+    addWheel(-(halfW + 0.04), axleZ, isDual);
+  }
+
+  // ---------- Cab ----------
+  const cabMat = makeCabMaterial(spec.color);
+  const cabGroup = new THREE.Group();
+  cabGroup.position.set(0, wheelClearance + chassisHeight / 2, cabCenterZ);
+  truckRoot.add(cabGroup);
+  truck.parts.cab = cabGroup;
+
+  const cabBodyGeom = new RoundedBoxGeometry(cab.width, cab.height, cab.length, 3, 0.18);
+  const cabBody = new THREE.Mesh(cabBodyGeom, cabMat);
+  cabBody.position.y = cab.height / 2;
+  cabBody.castShadow = true;
+  cabBody.receiveShadow = true;
+  cabGroup.add(cabBody);
+
+  // Damm gold accent stripe on cab
+  const stripe = new THREE.Mesh(
+    new RoundedBoxGeometry(cab.width * 1.005, 0.08, cab.length * 0.9, 2, 0.025),
+    new THREE.MeshStandardMaterial({ color: 0xd4a017, metalness: 0.7, roughness: 0.35, emissive: 0x4a3608, emissiveIntensity: 0.4 })
+  );
+  stripe.position.y = cab.height * 0.42;
+  cabGroup.add(stripe);
+
+  // Windshield (sloped)
+  const windshield = new THREE.Mesh(
+    new THREE.BoxGeometry(cab.width * 0.92, cab.height * 0.5, 0.05),
+    makeGlassMaterial()
+  );
+  windshield.position.set(0, cab.height * 0.7, -cab.length * 0.42);
+  windshield.rotation.x = -0.32;
+  cabGroup.add(windshield);
+
+  // Side windows
+  for (const sx of [-1, 1]) {
+    const sideWin = new THREE.Mesh(
+      new THREE.BoxGeometry(0.04, cab.height * 0.4, cab.length * 0.65),
+      makeGlassMaterial()
+    );
+    sideWin.position.set(sx * (cab.width / 2 + 0.005), cab.height * 0.65, -cab.length * 0.05);
+    cabGroup.add(sideWin);
+  }
+
+  // Headlights
+  for (const sx of [-1, 1]) {
+    const hl = new THREE.Mesh(
+      new RoundedBoxGeometry(0.22, 0.12, 0.06, 2, 0.02),
+      makeHeadlightMaterial()
+    );
+    hl.position.set(sx * cab.width * 0.32, cab.height * 0.25, -cab.length / 2 - 0.005);
+    cabGroup.add(hl);
+
+    const hlGlow = new THREE.PointLight(0xfff1c8, 0.4, 4, 1.5);
+    hlGlow.position.copy(hl.position);
+    hlGlow.position.z -= 0.4;
+    cabGroup.add(hlGlow);
+  }
+
+  // Mirrors
+  for (const sx of [-1, 1]) {
+    const armMat = chassisMat;
+    const arm = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.04, 0.04), armMat);
+    arm.position.set(sx * (cab.width / 2 + 0.08), cab.height * 0.85, -cab.length * 0.42);
+    cabGroup.add(arm);
+    const mirror = new THREE.Mesh(
+      new RoundedBoxGeometry(0.08, 0.22, 0.16, 2, 0.025),
+      cabMat
+    );
+    mirror.position.set(sx * (cab.width / 2 + 0.18), cab.height * 0.78, -cab.length * 0.42);
+    cabGroup.add(mirror);
+  }
+
+  // Damm logo on cab front (canvas texture)
+  const logoCanvas = document.createElement('canvas');
+  logoCanvas.width = 512; logoCanvas.height = 256;
+  const lctx = logoCanvas.getContext('2d');
+  lctx.fillStyle = 'transparent';
+  lctx.clearRect(0, 0, 512, 256);
+  lctx.fillStyle = '#d4a017';
+  lctx.font = 'bold 180px "Inter", sans-serif';
+  lctx.textBaseline = 'middle';
+  lctx.textAlign = 'center';
+  lctx.fillText('DAMM', 256, 128);
+  const logoTex = new THREE.CanvasTexture(logoCanvas);
+  logoTex.colorSpace = THREE.SRGBColorSpace;
+  const logoMat = new THREE.MeshBasicMaterial({ map: logoTex, transparent: true });
+  const logoMesh = new THREE.Mesh(new THREE.PlaneGeometry(cab.width * 0.55, cab.width * 0.18), logoMat);
+  logoMesh.position.set(0, cab.height * 0.22, -cab.length / 2 - 0.01);
+  cabGroup.add(logoMesh);
+
+  // ---------- Cargo Box ----------
+  const boxGroup = new THREE.Group();
+  boxGroup.position.set(0, wheelClearance + chassisHeight / 2, boxCenterZ);
+  truckRoot.add(boxGroup);
+  truck.parts.box = boxGroup;
+
+  const wallThickness = 0.04;
+  const innerY0 = 0.05; // slight floor lift inside box
+  const interiorH = box.height - innerY0 - 0.05;
+
+  // Floor
+  const floor = new THREE.Mesh(
+    new THREE.BoxGeometry(box.width, 0.06, box.length),
+    new THREE.MeshStandardMaterial({ color: 0x3a3024, roughness: 0.95, metalness: 0.05 })
+  );
+  floor.position.y = 0.03;
+  floor.receiveShadow = true;
+  boxGroup.add(floor);
+  truck.parts.floor = floor;
+
+  // Wall material with subtle Damm gold for lateral curtains; rear in deeper tone
+  const lonaMat = new THREE.MeshStandardMaterial({
+    color: 0xd4a017,
+    metalness: 0.2,
+    roughness: 0.6,
+    side: THREE.DoubleSide,
+  });
+  // Curtain stripe pattern via canvas
+  const stripeCanvas = document.createElement('canvas');
+  stripeCanvas.width = 512; stripeCanvas.height = 256;
+  const sctx = stripeCanvas.getContext('2d');
+  sctx.fillStyle = '#d4a017';
+  sctx.fillRect(0, 0, 512, 256);
+  sctx.fillStyle = 'rgba(140,90,8,0.6)';
+  for (let i = 0; i < 8; i++) sctx.fillRect(0, i * 32, 512, 4);
+  sctx.fillStyle = '#1a1305';
+  sctx.font = 'bold 48px "Inter", sans-serif';
+  sctx.textAlign = 'center';
+  sctx.textBaseline = 'middle';
+  sctx.fillText('DAMM', 256, 128);
+  const stripeTex = new THREE.CanvasTexture(stripeCanvas);
+  stripeTex.colorSpace = THREE.SRGBColorSpace;
+  stripeTex.wrapS = stripeTex.wrapT = THREE.RepeatWrapping;
+  stripeTex.repeat.set(Math.max(1, Math.round(box.length / 2)), 1);
+  lonaMat.map = stripeTex;
+
+  // Front wall (between cab and box, inner)
+  const frontWall = new THREE.Mesh(
+    new THREE.BoxGeometry(box.width, box.height, wallThickness),
+    new THREE.MeshStandardMaterial({ color: 0xc9c9c4, metalness: 0.3, roughness: 0.6 })
+  );
+  frontWall.position.set(0, box.height / 2, -box.length / 2);
+  frontWall.castShadow = true;
+  frontWall.receiveShadow = true;
+  boxGroup.add(frontWall);
+  truck.parts.frontWall = frontWall;
+
+  // Rear door
+  const rearDoor = new THREE.Mesh(
+    new THREE.BoxGeometry(box.width, box.height, wallThickness),
+    new THREE.MeshStandardMaterial({ color: 0xb89014, metalness: 0.3, roughness: 0.7 })
+  );
+  rearDoor.position.set(0, box.height / 2, box.length / 2);
+  rearDoor.castShadow = true;
+  boxGroup.add(rearDoor);
+  truck.parts.rearDoor = rearDoor;
+
+  // Rear handles
+  for (const sx of [-1, 1]) {
+    const handle = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.025, 0.025, box.height * 0.7, 8),
+      makeRimMaterial()
+    );
+    handle.position.set(sx * box.width * 0.35, box.height * 0.5, box.length / 2 + 0.025);
+    boxGroup.add(handle);
+  }
+
+  // Lateral curtains (lonas)
+  for (const sx of [-1, 1]) {
+    const wall = new THREE.Mesh(
+      new THREE.BoxGeometry(wallThickness, box.height, box.length),
+      lonaMat.clone()
+    );
+    wall.position.set(sx * box.width / 2, box.height / 2, 0);
+    wall.castShadow = true;
+    wall.receiveShadow = true;
+    boxGroup.add(wall);
+    if (sx < 0) truck.parts.leftWall = wall;
+    else truck.parts.rightWall = wall;
+  }
+
+  // Roof
+  const roof = new THREE.Mesh(
+    new THREE.BoxGeometry(box.width + 0.04, 0.06, box.length + 0.04),
+    makeRoofMaterial()
+  );
+  roof.position.y = box.height;
+  roof.castShadow = true;
+  roof.receiveShadow = true;
+  boxGroup.add(roof);
+  truck.parts.roof = roof;
+
+  // Damm logo on roof (canvas)
+  const roofLogo = new THREE.Mesh(
+    new THREE.PlaneGeometry(box.width * 0.7, box.width * 0.22),
+    new THREE.MeshBasicMaterial({ map: logoTex, transparent: true })
+  );
+  roofLogo.rotation.x = -Math.PI / 2;
+  roofLogo.position.set(0, box.height + 0.04, 0);
+  boxGroup.add(roofLogo);
+
+  // Edges overlay (great in xray + wireframe)
+  const boxEdgesGeom = new THREE.BoxGeometry(box.width, box.height, box.length);
+  const boxEdges = new THREE.LineSegments(
+    new THREE.EdgesGeometry(boxEdgesGeom, 1),
+    new THREE.LineBasicMaterial({ color: 0x4cc9ff, transparent: true, opacity: 0.0 })
+  );
+  boxEdges.position.y = box.height / 2;
+  boxGroup.add(boxEdges);
+  truck.parts.boxEdges = boxEdges;
+
+  // Tail lights
+  for (const sx of [-1, 1]) {
+    const tl = new THREE.Mesh(new RoundedBoxGeometry(0.18, 0.1, 0.04, 2, 0.015), makeRedlightMaterial());
+    tl.position.set(sx * box.width * 0.36, 0.4, box.length / 2 + 0.025);
+    boxGroup.add(tl);
+  }
+
+  // ---------- Pallets inside box ----------
+  truck.stopColors = buildStopColors(truck.cargoLines);
+  const palletDataList = packPallets(truck.cargoLines);
+  const layout = assignSlots(palletDataList, spec.palletGrid);
+
+  truck.palletGroup = new THREE.Group();
+  truck.palletGroup.position.copy(boxGroup.position);
+  truck.palletGroup.position.y += 0.06; // sit on box floor
+  truckRoot.add(truck.palletGroup);
+
+  // Cell width across truck width and length
+  const cellW = box.width / spec.palletGrid.rows;     // across (rows = lateral)
+  const cellL = box.length / spec.palletGrid.cols;    // along length (cols)
+
+  for (const slot of layout) {
+    const stopColor = truck.stopColors.get(slot.pallet.stop) || '#888888';
+    const pallet = buildPallet(slot.pallet, stopColor);
+
+    // For trucks with rotated pallets (van), the pallet is yawed 90deg so its
+    // 1.00m dim aligns with the truck length axis.
+    if (spec.palletRotated) pallet.rotation.y = Math.PI / 2;
+
+    // Position: col 0 is rear (+Z in local box frame), col grid-1 is front (-Z)
+    // We want slot.col == 0 -> z = +box.length/2 - cellL/2 (just inside rear door)
+    const localZ = (box.length / 2 - cellL / 2) - slot.col * cellL;
+    const localX = -(box.width / 2 - cellW / 2) + slot.row * cellW;
+
+    pallet.position.set(localX, 0, localZ);
+    pallet.userData.slot = slot;
+    truck.palletGroup.add(pallet);
+    truck.pallets.push(pallet);
+  }
+
+  return truck;
+}
+
+// ---------- View mode application ----------
+function applyViewMode() {
+  if (!currentTruck) return;
+  const mode = STATE.viewMode;
+  const showRoof = STATE.showRoof;
+  const t = currentTruck;
+
+  function setOpacity(mesh, opacity, transparent) {
+    if (!mesh) return;
+    const apply = (m) => {
+      if (!m) return;
+      m.transparent = transparent;
+      m.opacity = opacity;
+      m.depthWrite = !transparent || opacity > 0.95;
+      m.needsUpdate = true;
+    };
+    if (mesh.material) {
+      if (Array.isArray(mesh.material)) mesh.material.forEach(apply);
+      else apply(mesh.material);
+    }
+    mesh.visible = opacity > 0.001;
+  }
+
+  // Reset wireframe state for everything
+  truckRoot.traverse(o => {
+    if (o.isMesh && o.material) {
+      const mats = Array.isArray(o.material) ? o.material : [o.material];
+      mats.forEach(m => { if ('wireframe' in m) m.wireframe = false; });
+    }
+  });
+
+  if (mode === 'solid') {
+    setOpacity(t.parts.leftWall, 1.0, false);
+    setOpacity(t.parts.rightWall, 1.0, false);
+    setOpacity(t.parts.frontWall, 1.0, false);
+    setOpacity(t.parts.rearDoor, 1.0, false);
+    setOpacity(t.parts.roof, 1.0, false);
+    if (t.parts.boxEdges) t.parts.boxEdges.material.opacity = 0.0;
+  } else if (mode === 'xray') {
+    setOpacity(t.parts.leftWall, 0.18, true);
+    setOpacity(t.parts.rightWall, 0.18, true);
+    setOpacity(t.parts.frontWall, 0.22, true);
+    setOpacity(t.parts.rearDoor, 0.22, true);
+    setOpacity(t.parts.roof, 0.18, true);
+    if (t.parts.boxEdges) t.parts.boxEdges.material.opacity = 0.85;
+  } else if (mode === 'wire') {
+    [t.parts.leftWall, t.parts.rightWall, t.parts.frontWall, t.parts.rearDoor, t.parts.roof].forEach(p => {
+      if (!p) return;
+      setOpacity(p, 1.0, false);
+      const mats = Array.isArray(p.material) ? p.material : [p.material];
+      mats.forEach(m => { if ('wireframe' in m) m.wireframe = true; });
+    });
+    if (t.parts.boxEdges) t.parts.boxEdges.material.opacity = 0.6;
+  }
+
+  // Roof toggle (force hide if user wants)
+  if (!showRoof) {
+    setOpacity(t.parts.roof, 0.0, true);
+    setOpacity(t.parts.leftWall, 0.0, true);
+    setOpacity(t.parts.rightWall, 0.0, true);
+  }
+
+  // Pallet visibility
+  t.palletGroup.visible = STATE.showPallets;
+  t.pallets.forEach(p => {
+    const stop = p.userData.palletData.stop;
+    const hidden = STATE.hiddenStops.has(stop);
+    p.visible = STATE.showPallets && !hidden;
+
+    // Labels (sprites)
+    p.traverse(o => {
+      if (o.userData && o.userData.isLabel) {
+        o.visible = STATE.showLabels && !hidden && STATE.showPallets;
+      }
+    });
+  });
+}
+
+// ---------- HUD updaters ----------
+function updateHUD() {
+  if (!currentTruck) return;
+  const spec = currentTruck.spec;
+  document.getElementById('stat-capacity').textContent = `${spec.palletGrid.cols * spec.palletGrid.rows} pallets`;
+  document.getElementById('stat-dims').textContent = `${spec.box.length}×${spec.box.width}×${spec.box.height}`;
+  const stops = new Set(currentTruck.cargoLines.map(c => c.stop));
+  document.getElementById('stat-stops').textContent = `${stops.size}`;
+
+  const used = currentTruck.pallets.length;
+  const max = spec.palletGrid.cols * spec.palletGrid.rows;
+  const totalCases = currentTruck.cargoLines.reduce((s, l) => s + l.cases, 0);
+  document.getElementById('stat-loaded').textContent = `${used}/${max} (${totalCases} cs)`;
+
+  // Build stop legend
+  const legend = document.getElementById('stop-legend');
+  legend.innerHTML = '<div class="label" style="margin-bottom: 6px;">Stops (toggle to hide)</div>';
+  legend.classList.add('visible');
+  const stopList = [...stops].sort((a, b) => a - b);
+  for (const stop of stopList) {
+    const color = currentTruck.stopColors.get(stop);
+    const lines = currentTruck.cargoLines.filter(l => l.stop === stop);
+    const cases = lines.reduce((s, l) => s + l.cases, 0);
+    const client = lines[0].client;
+    const row = document.createElement('div');
+    row.className = 'legend-row' + (STATE.hiddenStops.has(stop) ? ' dim' : '');
+    row.innerHTML = `
+      <div class="dot" style="background:${color}; color:${color};"></div>
+      <div class="name">S${stop} · ${client}</div>
+      <div class="count">${cases}cs</div>
+    `;
+    row.addEventListener('click', () => {
+      if (STATE.hiddenStops.has(stop)) STATE.hiddenStops.delete(stop);
+      else STATE.hiddenStops.add(stop);
+      applyViewMode();
+      updateHUD();
+    });
+    legend.appendChild(row);
+  }
+}
+
+function showPalletInfo(palletGroup) {
+  const c = palletGroup.userData.palletData;
+  const color = palletGroup.userData.stopColor;
+  const el = document.getElementById('pallet-content');
+  const lines = c.lines.map(l => `${l.material} · ${l.name} · ${l.cases}cs`).join('<br/>');
+  const badges = [];
+  if (c.fragile) badges.push('<span class="badge fragile">FRAGILE</span>');
+  if (c.returnable) badges.push('<span class="badge returnable">RETORNABLE</span>');
+  el.innerHTML = `
+    <div class="pallet-info">
+      <div class="stop-badge" style="background: ${hexToRgba(color, 0.15)}; border: 1px solid ${hexToRgba(color, 0.5)}; color: ${color};">
+        <span class="dot" style="background:${color}; box-shadow: 0 0 8px ${color};"></span>
+        STOP ${c.stop}
+      </div>
+      <h3>${c.client}</h3>
+      <div class="client">${c.city}</div>
+      <div class="grid">
+        <div class="field"><div class="k">Cases</div><div class="v">${c.cases}</div></div>
+        <div class="field"><div class="k">Lines</div><div class="v">${c.lines.length}</div></div>
+      </div>
+      <div style="font-size: 10px; color: var(--text-dim); margin-top: 10px; line-height: 1.6;">${lines}</div>
+      <div class="badge-row">${badges.join('')}</div>
+    </div>
+  `;
+  // Highlight glow
+  for (const p of currentTruck.pallets) {
+    p.traverse(o => {
+      if (o.userData && o.userData.isGlow) {
+        o.material.opacity = (p === palletGroup) ? 0.18 : 0.0;
+      }
+    });
+  }
+}
+
+function clearPalletInfo() {
+  const el = document.getElementById('pallet-content');
+  el.innerHTML = `
+    <div class="pallet-empty">
+      <div class="icon">+</div>
+      Click any pallet inside the truck to inspect its contents.<br/>
+      Toggle <b>X-Ray</b> to see through walls.
+    </div>
+  `;
+  if (currentTruck) {
+    currentTruck.pallets.forEach(p => {
+      p.traverse(o => {
+        if (o.userData && o.userData.isGlow) o.material.opacity = 0.0;
+      });
+    });
+  }
+}
+
+function hexToRgba(hex, alpha) {
+  const c = new THREE.Color(hex);
+  return `rgba(${Math.round(c.r * 255)}, ${Math.round(c.g * 255)}, ${Math.round(c.b * 255)}, ${alpha})`;
+}
+
+// ---------- Picking ----------
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+let pointerDownAt = null;
+
+function onPointerDown(e) {
+  pointerDownAt = { x: e.clientX, y: e.clientY, t: performance.now() };
+}
+
+function onPointerUp(e) {
+  if (!pointerDownAt) return;
+  const dx = e.clientX - pointerDownAt.x;
+  const dy = e.clientY - pointerDownAt.y;
+  const dt = performance.now() - pointerDownAt.t;
+  pointerDownAt = null;
+  // Treat as click only if small movement & quick
+  if (Math.hypot(dx, dy) > 6 || dt > 300) return;
+
+  // Picking
+  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
+  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  raycaster.setFromCamera(mouse, camera);
+  if (!currentTruck) return;
+  const hits = raycaster.intersectObject(currentTruck.palletGroup, true);
+  if (hits.length === 0) return;
+  // Find nearest hit whose ancestor is a pallet
+  for (const h of hits) {
+    let p = h.object;
+    while (p && !(p.userData && p.userData.isPallet)) p = p.parent;
+    if (p) { showPalletInfo(p); return; }
+  }
+}
+
+renderer.domElement.addEventListener('pointerdown', onPointerDown);
+renderer.domElement.addEventListener('pointerup', onPointerUp);
+
+// ---------- Movement (driving) ----------
+const keys = new Set();
+window.addEventListener('keydown', e => {
+  const k = e.key.toLowerCase();
+  keys.add(k);
+  if (k === 'r') resetTruck();
+  if (k === 'x') {
+    const next = STATE.viewMode === 'xray' ? 'solid' : 'xray';
+    setViewMode(next);
+  }
+});
+window.addEventListener('keyup', e => keys.delete(e.key.toLowerCase()));
+
+const driveState = {
+  speed: 0,        // m/s along facing direction (forward = -Z local)
+  steerAngle: 0,   // radians, current steering of front wheels
+  yaw: 0,          // truck heading (Y rotation)
+};
+
+function resetTruck() {
+  driveState.speed = 0;
+  driveState.steerAngle = 0;
+  driveState.yaw = 0;
+  truckRoot.position.set(0, 0, 0);
+  truckRoot.rotation.set(0, 0, 0);
+}
+
+function updateDriving(dt) {
+  // Throttle
+  const accel = 5.0;     // m/s^2
+  const maxSpeed = 8.0;
+  const friction = 1.6;
+
+  if (keys.has('w') || keys.has('arrowup')) driveState.speed = Math.min(maxSpeed, driveState.speed + accel * dt);
+  else if (keys.has('s') || keys.has('arrowdown')) driveState.speed = Math.max(-maxSpeed * 0.5, driveState.speed - accel * dt);
+  else {
+    if (driveState.speed > 0) driveState.speed = Math.max(0, driveState.speed - friction * dt);
+    else if (driveState.speed < 0) driveState.speed = Math.min(0, driveState.speed + friction * dt);
+  }
+
+  // Steering
+  const steerSpeed = 1.5;
+  const maxSteer = 0.6;
+  const steerReturn = 2.5;
+  if (keys.has('a') || keys.has('arrowleft')) driveState.steerAngle = Math.min(maxSteer, driveState.steerAngle + steerSpeed * dt);
+  else if (keys.has('d') || keys.has('arrowright')) driveState.steerAngle = Math.max(-maxSteer, driveState.steerAngle - steerSpeed * dt);
+  else {
+    if (driveState.steerAngle > 0) driveState.steerAngle = Math.max(0, driveState.steerAngle - steerReturn * dt);
+    else if (driveState.steerAngle < 0) driveState.steerAngle = Math.min(0, driveState.steerAngle + steerReturn * dt);
+  }
+
+  // Manual yaw with Q/E
+  const manualYaw = 1.4;
+  if (keys.has('q')) driveState.yaw += manualYaw * dt;
+  if (keys.has('e')) driveState.yaw -= manualYaw * dt;
+
+  // Bicycle-model yaw integration when moving
+  const wheelbase = currentTruck ? currentTruck.bodyLength * 0.55 : 3.5;
+  if (Math.abs(driveState.speed) > 0.01) {
+    driveState.yaw += (driveState.speed / wheelbase) * Math.tan(driveState.steerAngle) * dt;
+  }
+
+  // Apply
+  truckRoot.rotation.y = driveState.yaw;
+  // Forward in local frame is -Z; in world frame, rotate by yaw
+  const cos = Math.cos(driveState.yaw);
+  const sin = Math.sin(driveState.yaw);
+  // direction vector
+  const dirX = -sin;
+  const dirZ = -cos;
+  truckRoot.position.x += dirX * driveState.speed * dt;
+  truckRoot.position.z += dirZ * driveState.speed * dt;
+
+  // Wheel spin animation. Tires were oriented with rotation.z = pi/2, so the
+  // axle now lies along the world X axis. Spinning around X rolls the tire.
+  if (currentTruck && currentTruck.parts.wheels) {
+    const angVel = driveState.speed / Math.max(0.05, currentTruck.spec.wheelRadius);
+    for (const w of currentTruck.parts.wheels) {
+      w.rotation.x += angVel * dt;
+    }
+  }
+
+  // Compass: arrow rotates with truck heading; degree text stays upright.
+  const arrow = document.getElementById('compass-arrow');
+  const degEl = document.getElementById('compass-deg');
+  const deg = ((-driveState.yaw * 180 / Math.PI) % 360 + 360) % 360;
+  arrow.style.transform = `rotate(${deg}deg)`;
+  degEl.textContent = String(Math.round(deg)).padStart(3, '0') + '°';
+}
+
+// Follow camera state
+const followOffset = new THREE.Vector3(0, 5.5, 9);
+function applyFollowCamera(dt) {
+  if (!STATE.followCam) return;
+  const truckPos = truckRoot.position.clone();
+  const yaw = driveState.yaw;
+  const offset = followOffset.clone();
+  offset.applyAxisAngle(new THREE.Vector3(0, 1, 0), yaw);
+  const target = truckPos.clone().add(offset);
+  // Smooth follow
+  camera.position.lerp(target, 1 - Math.pow(0.001, dt));
+  controls.target.lerp(truckPos.clone().setY(1.2), 1 - Math.pow(0.002, dt));
+}
+
+// ---------- UI wiring ----------
+function setViewMode(mode) {
+  STATE.viewMode = mode;
+  document.querySelectorAll('#view-modes .view-mode').forEach(el => {
+    el.classList.toggle('active', el.dataset.mode === mode);
+  });
+  applyViewMode();
+}
+
+function setTruck(key) {
+  activeTruckKey = key;
+  document.querySelectorAll('#truck-tabs .truck-tab').forEach(el => {
+    el.classList.toggle('active', el.dataset.truck === key);
+  });
+  STATE.hiddenStops.clear();
+  currentTruck = buildTruck(key);
+  applyViewMode();
+  updateHUD();
+  clearPalletInfo();
+  resetTruck();
+}
+
+document.querySelectorAll('#truck-tabs .truck-tab').forEach(el => {
+  el.addEventListener('click', () => setTruck(el.dataset.truck));
+});
+document.querySelectorAll('#view-modes .view-mode').forEach(el => {
+  el.addEventListener('click', () => setViewMode(el.dataset.mode));
+});
+
+function bindToggle(id, key, onChange) {
+  const el = document.getElementById(id);
+  el.addEventListener('click', () => {
+    STATE[key] = !STATE[key];
+    el.classList.toggle('on', STATE[key]);
+    if (onChange) onChange();
+  });
+}
+bindToggle('t-pallets', 'showPallets', applyViewMode);
+bindToggle('t-roof', 'showRoof', () => {
+  // If roof hidden but solid mode -> nudge to xray for clarity
+  if (!STATE.showRoof && STATE.viewMode === 'solid') setViewMode('xray');
+  else applyViewMode();
+});
+bindToggle('t-labels', 'showLabels', applyViewMode);
+bindToggle('t-follow', 'followCam', () => {
+  document.getElementById('crosshair').classList.toggle('visible', STATE.followCam);
+  controls.enableRotate = !STATE.followCam;
+});
+bindToggle('t-autorot', 'autoRotate', () => {
+  controls.autoRotate = STATE.autoRotate;
+  controls.autoRotateSpeed = 0.6;
+});
+
+// ---------- Resize ----------
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// ---------- Init ----------
+setTruck('std');
+document.getElementById('splash').classList.add('hidden');
+
+// ---------- Animation loop ----------
+const clock = new THREE.Clock();
+function animate() {
+  const dt = Math.min(0.05, clock.getDelta());
+  updateDriving(dt);
+  applyFollowCamera(dt);
+  controls.update();
+  renderer.render(scene, camera);
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>

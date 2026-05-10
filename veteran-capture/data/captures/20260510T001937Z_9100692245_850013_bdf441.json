@@ -1,0 +1,47 @@
+{
+  "capture": {
+    "client_id": "9100692245",
+    "driver_id": "850013",
+    "captured_at": "2026-05-10T00:19:37.456191Z",
+    "tips": [
+      {
+        "topic": "hours",
+        "text": "Llegar antes de las 9h. A partir de las 9 hay muchísimo tráfico en la zona.",
+        "confidence": "high"
+      },
+      {
+        "topic": "parking",
+        "text": "Aparcar en la esquina donde está la tienda de Margarita; ahí se pueden dejar las cajas bien.",
+        "confidence": "high"
+      },
+      {
+        "topic": "contact_person",
+        "text": "Llamar a la clienta antes de la entrega. Teléfono: 653 015 587.",
+        "confidence": "high"
+      }
+    ],
+    "raw_transcript": "Bueno, hola. Sí, la verdad que en esta run, por ejemplo, si tuviese que dar algún consejo sería llegar antes de las 9, porque claro, a partir de las 9 ya hay muchísimo tráfico, así que sí. Luego las cajas recomiendo que aparquéis en la esquina donde la tienda de Margarita, porque ahí podéis dejar algunas cajas bien. También llama a la clienta, que su teléfono es 653 015 587.",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [
+      {
+        "topic": "hours",
+        "text": "Llegar antes de las 9h. A partir de las 9 hay muchísimo tráfico en la zona.",
+        "confidence": "high"
+      },
+      {
+        "topic": "parking",
+        "text": "Aparcar en la esquina donde está la tienda de Margarita; ahí se pueden dejar las cajas bien.",
+        "confidence": "high"
+      },
+      {
+        "topic": "contact_person",
+        "text": "Llamar a la clienta antes de la entrega. Teléfono: [telefono].",
+        "confidence": "high"
+      }
+    ],
+    "rejected": [],
+    "notes": "Redactado 1 teléfono en tip de contact_person."
+  }
+}

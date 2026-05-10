@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Veteran Capture — Dashboard</title>
+  <style>
+    :root {
+      --damm-red: #e30613;
+      --bg: #0e0e10;
+      --fg: #f5f5f7;
+      --muted: #9b9ba1;
+      --card: #1a1a1f;
+      --border: #2a2a31;
+      --ok: #36b37e;
+      --warn: #ff8b00;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0;
+      background: var(--bg); color: var(--fg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      min-height: 100vh;
+    }
+    main { max-width: 1280px; margin: 0 auto; padding: 28px 24px 80px; }
+    .badge {
+      display: inline-block; background: var(--damm-red); color: #fff;
+      padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    h1 { font-size: 26px; margin: 14px 0 4px; }
+    .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 22px; }
+    .stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px; margin-bottom: 24px;
+    }
+    .stat-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 16px;
+    }
+    .stat-card .label {
+      color: var(--muted); font-size: 11px; text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .stat-card .value { font-size: 22px; font-weight: 700; }
+    .stat-card .sub { color: var(--muted); font-size: 12px; margin-top: 2px; }
+
+    .toolbar {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+      margin-bottom: 16px;
+    }
+    .filter-group { display: flex; gap: 0; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+    .filter-btn {
+      background: transparent; color: var(--fg); border: 0; padding: 8px 14px;
+      font-size: 13px; cursor: pointer; border-right: 1px solid var(--border);
+    }
+    .filter-btn:last-child { border-right: 0; }
+    .filter-btn.active { background: var(--damm-red); color: #fff; }
+    .filter-btn:hover:not(.active) { background: rgba(227, 6, 19, 0.1); }
+    input.search {
+      flex: 1; min-width: 220px; max-width: 360px;
+      background: var(--card); color: var(--fg);
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 8px 12px; font-size: 13px;
+    }
+    input.search:focus { outline: none; border-color: var(--damm-red); }
+    button.refresh {
+      background: transparent; color: var(--fg);
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 8px 14px; font-size: 13px; cursor: pointer;
+    }
+    button.refresh:hover { border-color: var(--damm-red); }
+
+    table {
+      width: 100%; border-collapse: collapse; font-size: 13px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+    }
+    th {
+      text-align: left; padding: 10px 12px; background: #15151a;
+      color: var(--muted); font-weight: 600; font-size: 11px;
+      text-transform: uppercase; letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 10px 12px; border-top: 1px solid var(--border); vertical-align: top;
+    }
+    tr.row-filled { background: rgba(54, 179, 126, 0.04); }
+    .pill {
+      display: inline-block; padding: 2px 8px; border-radius: 999px;
+      font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .pill.filled { background: rgba(54, 179, 126, 0.18); color: var(--ok); }
+    .pill.empty  { background: rgba(227, 6, 19, 0.18); color: var(--damm-red); }
+    .topics { color: var(--muted); font-size: 12px; }
+    .driver-suggested { color: var(--fg); }
+    .driver-suggested .id { color: var(--muted); font-size: 11px; }
+    .score { font-variant-numeric: tabular-nums; font-weight: 600; }
+    .actions { display: flex; gap: 6px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; background: transparent; color: var(--fg);
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 5px 9px; font-size: 12px; cursor: pointer; text-decoration: none;
+    }
+    .btn:hover { border-color: var(--damm-red); }
+    .btn.primary { background: var(--damm-red); border-color: var(--damm-red); color: #fff; }
+    .btn.primary:hover { opacity: 0.92; }
+    .btn.copied { background: var(--ok); border-color: var(--ok); color: #fff; }
+
+    .pager {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 14px; color: var(--muted); font-size: 13px;
+    }
+    .pager .nav { display: flex; gap: 6px; }
+    .pager button {
+      background: transparent; color: var(--fg); border: 1px solid var(--border);
+      border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer;
+    }
+    .pager button:disabled { opacity: 0.4; cursor: not-allowed; }
+    .pager button:hover:not(:disabled) { border-color: var(--damm-red); }
+
+    .empty-state { text-align: center; color: var(--muted); padding: 48px 0; }
+
+    .tips-row td {
+      background: #0a0a0c; padding: 14px 18px;
+      border-top: 0; border-bottom: 1px solid var(--border);
+    }
+    .tip-card { padding: 8px 0; border-bottom: 1px dashed var(--border); }
+    .tip-card:last-child { border-bottom: 0; }
+    .tip-topic {
+      display: inline-block; color: var(--ok); font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.04em; margin-right: 8px;
+    }
+    .tip-meta { color: var(--muted); font-size: 11px; margin-top: 3px; }
+
+    footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 36px; }
+    a { color: var(--damm-red); text-decoration: none; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="badge">Damm · DDI · Veteran Capture</div>
+  <h1>Operations dashboard</h1>
+  <div class="subtitle">Priority-sorted client list. Pick a row, send the capture link to the suggested driver, watch the tips arrive.</div>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="toolbar">
+    <div class="filter-group" id="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="empty">Empty</button>
+      <button class="filter-btn" data-filter="filled">Filled</button>
+    </div>
+    <input class="search" id="search" type="search" placeholder="Search by client id, name, zone or driver..." />
+    <button class="refresh" id="refresh" type="button">Refresh</button>
+  </div>
+
+  <div id="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:60px">#</th>
+          <th>Client</th>
+          <th style="width:90px">Status</th>
+          <th style="width:80px">Tips</th>
+          <th>Suggested next driver</th>
+          <th style="width:90px">Score</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+
+  <div class="pager">
+    <div id="pager-info"></div>
+    <div class="nav">
+      <button id="prev" type="button">&lsaquo; Prev</button>
+      <button id="next" type="button">Next &rsaquo;</button>
+    </div>
+  </div>
+
+  <footer>
+    veteran-capture v{{ version }} &middot; <a href="/">root</a> &middot; <a href="{{ manifest_url }}" target="_blank">raw manifest.json</a>
+  </footer>
+</main>
+
+<script>
+(() => {
+  const PAGE_SIZE = 20;
+  const tbody    = document.getElementById("tbody");
+  const stats    = document.getElementById("stats");
+  const search   = document.getElementById("search");
+  const filters  = document.getElementById("filters");
+  const refresh  = document.getElementById("refresh");
+  const prevBtn  = document.getElementById("prev");
+  const nextBtn  = document.getElementById("next");
+  const pagerInfo = document.getElementById("pager-info");
+
+  let manifest = { entries: [], total_clients: 0, filled: 0, empty: 0 };
+  let filter = "all";
+  let query = "";
+  let page = 1;
+  let expanded = new Set();
+
+  function escapeHtml(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
+    }[c]));
+  }
+  function fmtDate(iso) {
+    if (!iso) return "—";
+    return iso.slice(0, 10);
+  }
+
+  function renderStats() {
+    const m = manifest;
+    const pct = m.total_clients ? (100.0 * m.filled / m.total_clients).toFixed(1) : "0.0";
+    const generated = m.generated_at ? new Date(m.generated_at).toLocaleString() : "—";
+    stats.innerHTML = `
+      <div class="stat-card"><div class="label">Total clients</div><div class="value">${m.total_clients}</div></div>
+      <div class="stat-card"><div class="label">Filled</div><div class="value">${m.filled}</div><div class="sub">${pct}% coverage</div></div>
+      <div class="stat-card"><div class="label">Empty</div><div class="value">${m.empty}</div><div class="sub">awaiting capture</div></div>
+      <div class="stat-card"><div class="label">Generated</div><div class="value" style="font-size:14px;font-weight:600">${escapeHtml(generated)}</div></div>
+    `;
+  }
+
+  function getFiltered() {
+    const q = query.trim().toLowerCase();
+    return manifest.entries.filter((e) => {
+      if (filter !== "all" && e.status !== filter) return false;
+      if (!q) return true;
+      const hay = [
+        e.client_id, e.client_name, e.zone, e.address,
+        e.suggested_driver_id, e.suggested_driver_name,
+      ].filter(Boolean).map((s) => String(s).toLowerCase()).join(" ");
+      return hay.includes(q);
+    });
+  }
+
+  function renderTable() {
+    const filtered = getFiltered();
+    const total = filtered.length;
+    const pages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+    if (page > pages) page = pages;
+    const start = (page - 1) * PAGE_SIZE;
+    const slice = filtered.slice(start, start + PAGE_SIZE);
+
+    if (slice.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="7" class="empty-state">No clients match these filters.</td></tr>`;
+    } else {
+      tbody.innerHTML = slice.map((e) => {
+        const captureUrl = `${window.location.origin}/capture/${encodeURIComponent(e.client_id)}/${encodeURIComponent(e.suggested_driver_id || "")}`;
+        const driverCell = e.suggested_driver_id
+          ? `<div class="driver-suggested">${escapeHtml(e.suggested_driver_name || e.suggested_driver_id)}<div class="id">${escapeHtml(e.suggested_driver_id)}</div></div>`
+          : `<span class="topics">no eligible driver</span>`;
+        const tipsCell = e.status === "filled"
+          ? `<strong>${e.n_tips}</strong> · ${e.n_drivers} driver${e.n_drivers === 1 ? "" : "s"}`
+          : `<span class="topics">—</span>`;
+        const topicsLine = e.topics && e.topics.length
+          ? `<div class="topics">${escapeHtml(e.topics.join(" · "))}</div>` : "";
+        const captureBtn = e.suggested_driver_id
+          ? `<a class="btn primary" href="/capture/${encodeURIComponent(e.client_id)}/${encodeURIComponent(e.suggested_driver_id)}" target="_blank">Open capture</a>`
+          : `<span class="btn" style="opacity:0.4;cursor:not-allowed">Open capture</span>`;
+        const copyBtn = e.suggested_driver_id
+          ? `<button class="btn" data-copy="${escapeHtml(captureUrl)}">Copy link</button>` : "";
+        const viewBtn = e.status === "filled"
+          ? `<button class="btn" data-toggle="${escapeHtml(e.client_id)}">${expanded.has(e.client_id) ? "Hide tips" : "View tips"}</button>` : "";
+        const mdBtn = e.status === "filled"
+          ? `<a class="btn" href="/clients/${encodeURIComponent(e.client_id)}" target="_blank">Open MD</a>` : "";
+
+        const rowsHtml = [
+          `<tr class="row-${e.status}">
+            <td>#${e.rank}</td>
+            <td><div><strong>${escapeHtml(e.client_name)}</strong></div>
+                <div class="topics">${escapeHtml(e.client_id)} · ${escapeHtml(e.zone || "—")}</div>
+                ${topicsLine}</td>
+            <td><span class="pill ${e.status}">${e.status}</span></td>
+            <td>${tipsCell}</td>
+            <td>${driverCell}</td>
+            <td><span class="score">${e.priority_score.toFixed(3)}</span></td>
+            <td><div class="actions">${captureBtn}${copyBtn}${viewBtn}${mdBtn}</div></td>
+          </tr>`
+        ];
+
+        if (e.status === "filled" && expanded.has(e.client_id) && e.tips && e.tips.length) {
+          const tipsHtml = e.tips.map((t) => `
+            <div class="tip-card">
+              <span class="tip-topic">${escapeHtml(t.topic_label || t.topic)}</span>
+              <span>${escapeHtml(t.text)}</span>
+              <div class="tip-meta">${escapeHtml(t.driver_id)} ${escapeHtml(t.driver_name || "")} · ${fmtDate(t.captured_at)} · confidence ${escapeHtml(t.confidence)}${t.consensus ? " · consensus" : ""}</div>
+            </div>`).join("");
+          rowsHtml.push(`<tr class="tips-row"><td colspan="7">${tipsHtml}</td></tr>`);
+        }
+        return rowsHtml.join("");
+      }).join("");
+    }
+
+    pagerInfo.textContent = `${total} client${total === 1 ? "" : "s"} match · page ${page} / ${pages}`;
+    prevBtn.disabled = page <= 1;
+    nextBtn.disabled = page >= pages;
+  }
+
+  function bindRowActions() {
+    tbody.addEventListener("click", async (ev) => {
+      const copy = ev.target.closest("[data-copy]");
+      if (copy) {
+        const url = copy.getAttribute("data-copy");
+        try {
+          await navigator.clipboard.writeText(url);
+          const original = copy.textContent;
+          copy.classList.add("copied");
+          copy.textContent = "Copied";
+          setTimeout(() => { copy.classList.remove("copied"); copy.textContent = original; }, 1300);
+        } catch (err) {
+          alert("Could not copy. URL:\n" + url);
+        }
+        return;
+      }
+      const toggle = ev.target.closest("[data-toggle]");
+      if (toggle) {
+        const id = toggle.getAttribute("data-toggle");
+        if (expanded.has(id)) expanded.delete(id); else expanded.add(id);
+        renderTable();
+      }
+    });
+  }
+
+  async function load() {
+    const res = await fetch("{{ manifest_url }}", { cache: "no-store" });
+    if (!res.ok) {
+      tbody.innerHTML = `<tr><td colspan="7" class="empty-state">Could not load manifest (HTTP ${res.status}). Run <code>cli write-notes</code>.</td></tr>`;
+      return;
+    }
+    manifest = await res.json();
+    renderStats();
+    renderTable();
+  }
+
+  // wiring
+  filters.addEventListener("click", (ev) => {
+    const btn = ev.target.closest("[data-filter]");
+    if (!btn) return;
+    document.querySelectorAll("[data-filter]").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    filter = btn.getAttribute("data-filter");
+    page = 1;
+    renderTable();
+  });
+  search.addEventListener("input", (ev) => { query = ev.target.value; page = 1; renderTable(); });
+  refresh.addEventListener("click", load);
+  prevBtn.addEventListener("click", () => { if (page > 1) { page--; renderTable(); } });
+  nextBtn.addEventListener("click", () => { page++; renderTable(); });
+
+  bindRowActions();
+  load();
+})();
+</script>
+</body>
+</html>

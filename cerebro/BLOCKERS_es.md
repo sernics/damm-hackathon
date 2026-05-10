@@ -8,7 +8,32 @@ Cada pregunta está explicada en lenguaje plano, con la razón operativa, el cos
 
 ---
 
-## Respuestas del mentor (2026-05-09)
+## Sesión con mentor 2 (2026-05-09, segunda reunión) — actualizaciones grandes
+
+La segunda sesión corrigió varias asunciones y añadió estructura nueva. Log completo en [`10_mentor_session_2.md`](10_mentor_session_2.md). Deltas clave por pregunta:
+
+- **Q1 (dimensiones de camión)**: Siguen sin medidas exactas en L x A x H ni kg. Pero: los palets se pueden **arrastrar de un hueco intermedio al trasero** (las divisiones internas son articuladas), y solo **2-4 paradas con palet entero** por ruta son realistas. **El peso NO es restricción dura** — modelar en cajas, no en kg.
+- **Q3 (retornables)**: Sigue pendiente la aclaración sobre los `3ENV0xxx`.
+- **Q4 (flexibilidad de picking)**: Re-layout = cambiar el **mapeo SKU↔Ubicación**, NO mover estanterías. El picking se puede romper hoy: "barrido global alfabético + carro dedicado por cliente prioritario" es una adaptación viable, no un moonshot.
+- **Q5 (camión/ruta)**: **El binomio conductor-camión es estable** (no se reasigna a diario). El jefe de tráfico asigna ruta a un (conductor, camión) ya fijado. **Restricción de carnet** (nivel 1/2/3) sobre qué camiones puede llevar cada conductor.
+- **Q6 (tiempos)**: Primer camión sale a las 06:00 (duro). La hora de regreso es **blanda**, sin deadline fijo.
+- **Q7 (compatibilidad)**: "Cajas sobre barriles" es **penalización blanda, no prohibición dura**.
+- **Dirección del pitch**: El mentor explícitamente plantea el problema como **equilibrio entre coste de picking y coste de reparto, no minimizar solo reparto**.
+
+Nuevos compromisos arquitectónicos después de esta sesión:
+
+1. Función de coste conjunta (almacén + reparto), no solo reparto.
+2. Cajas como unidad, no kg.
+3. Paradas con palet entero limitadas a 4 por ruta.
+4. Categoría de carnet como restricción dura camión-conductor.
+5. Super-paradas por cluster de clientes en el routing (patrón "aparcar y caminar").
+6. "Que cualquier conductor rinda como un veterano en cualquier ruta" como titular del pitch.
+
+Follow-ups abiertos añadidos a QUESTIONS.md como Q43-Q48 (valores exactos del carnet, acceso al maestro de conductores, distancia interior del cliente, qué significa "400 son las básicas", confirmar 4 alturas por palet, estatus retornable de los 3ENV).
+
+---
+
+## Respuestas del mentor — sesión 1 (2026-05-09)
 
 ### Q1 — Dimensiones de camión: `[PARCIAL]`
 No nos dan medidas en metros ni kg. Pero sale una regla operativa nueva grande (ver Q4) y una regla de bolsillo: **~60 cajas por palet**. Falta seguimiento para L x A x H, kg máximo, doble altura y disposición de las lonas.

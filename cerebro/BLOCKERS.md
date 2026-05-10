@@ -8,7 +8,32 @@ Each one is explained in plain language, with the operational reason behind it, 
 
 ---
 
-## Mentor responses (2026-05-09)
+## Mentor session 2 (2026-05-09, second meeting) — major updates
+
+The second session corrected several assumptions and added structural insights. Full log in [`10_mentor_session_2.md`](10_mentor_session_2.md). Key per-question deltas:
+
+- **Q1 (truck dimensions)**: Still missing exact L x W x H and kg. But: pallets can be **dragged from middle to rear** (articulated partitions), and **only 2-4 whole-pallet stops** per route are realistic. **Weight is NOT a binding constraint** — model in cases, not kg.
+- **Q3 (returnables)**: Still pending the `3ENV0xxx` clarification.
+- **Q4 (picking flexibility)**: Re-layout means **changing the SKU-to-Ubicación mapping**, NOT moving racks. Picking can be split today: "global alphabetical sweep + dedicated cart per priority customer" is a viable adaptation, not a moonshot.
+- **Q5 (truck/route)**: **Driver-truck pairing is stable** (not reassigned daily). The traffic chief assigns route to an existing (driver, truck) pair. **License-category constraint** (level 1/2/3) on which trucks each driver can run.
+- **Q6 (times)**: First truck out 06:00 (hard). Return cutoff is **soft**, no fixed deadline.
+- **Q7 (compatibility)**: "Cases on top of barrels" is **soft penalty, not hard prohibition**.
+- **Pitch direction**: The mentor explicitly framed the problem as **balance between picking and delivery cost, not minimise delivery alone**.
+
+New architectural commitments after this session:
+
+1. Joint cost function (warehouse + delivery), not delivery-only.
+2. Cases as the unit, not kg.
+3. Whole-pallet stops capped at 4 per route.
+4. License category as hard truck-driver constraint.
+5. Customer-cluster super-stops in the routing model (park-and-walk pattern).
+6. "Make any driver perform like a veteran on any route" as the pitch headline.
+
+Open follow-ups added to QUESTIONS.md as Q43-Q48 (license values, driver master access, customer interior distance, "400 son las básicas" meaning, 4-levels-per-pallet confirmation, 3ENV returnable status).
+
+---
+
+## Mentor session 1 (2026-05-09)
 
 ### Q1 — Truck dimensions: `[PARTIAL]`
 No exact dimensions in meters or kg yet. But a big new operational rule emerged (see Q4) plus a pocket rule: **roughly 60 cases per pallet**. Follow-up still needed for L x W x H, max payload, double-stacking, lonas layout.

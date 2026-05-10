@@ -1,0 +1,37 @@
+{
+  "capture": {
+    "client_id": "9100042500",
+    "driver_id": "850009",
+    "captured_at": "2026-05-10T00:17:19.285067Z",
+    "tips": [
+      {
+        "topic": "hours",
+        "text": "Llegar antes de las 9h para realizar la entrega.",
+        "confidence": "high"
+      },
+      {
+        "topic": "contact_person",
+        "text": "Llamar al asistente cocinero para que ayude a bajar las cajas.",
+        "confidence": "high"
+      }
+    ],
+    "raw_transcript": "hola buenas pues aquí el único tip que puedo dar es llegar antes de las 9 y dejar llamar al asistente cocinero y decirle que nos ayude a bajar las cajas",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [
+      {
+        "topic": "hours",
+        "text": "Llegar antes de las 9h para realizar la entrega.",
+        "confidence": "high"
+      },
+      {
+        "topic": "contact_person",
+        "text": "Llamar al asistente cocinero para que ayude a bajar las cajas.",
+        "confidence": "high"
+      }
+    ],
+    "rejected": [],
+    "notes": "sin cambios"
+  }
+}

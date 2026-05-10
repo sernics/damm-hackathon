@@ -1,0 +1,78 @@
+{
+  "capture": {
+    "client_id": "9100042491",
+    "driver_id": "850009",
+    "captured_at": "2026-05-09T22:16:04.086467Z",
+    "tips": [
+      {
+        "topic": "parking",
+        "text": "Aparcar en la propia Plaza Corona. Hay zonas de carga y descarga disponibles durante la mañana hasta las 12h.",
+        "confidence": "high"
+      },
+      {
+        "topic": "hours",
+        "text": "El local abre puntual a las 7:30h. Si llegas antes de las 9h mejor: la plaza está tranquila y la descarga es más ágil.",
+        "confidence": "high"
+      },
+      {
+        "topic": "contact_person",
+        "text": "La dueña se llama Roser. Su móvil figura en el albarán. Es quien atiende el reparto.",
+        "confidence": "high"
+      },
+      {
+        "topic": "access",
+        "text": "Descarga a pie de calle, sin escalones ni rampa. Acceso muy fácil desde la plaza.",
+        "confidence": "high"
+      },
+      {
+        "topic": "barrels",
+        "text": "Cliente con alto volumen de retornable (~29%). Predomina Estrella tercio en barril. Revisar bien la cantidad de retornables en el albarán.",
+        "confidence": "high"
+      },
+      {
+        "topic": "empties",
+        "text": "Suele devolver bastantes cascos vacíos apilados al lado de la puerta. Revisarlos y recogerlos en cada entrega.",
+        "confidence": "high"
+      }
+    ],
+    "raw_transcript": "Pues mira, en el Café de la Corona, en la plaza, lo mejor es aparcar en la propia plaza. Hay zonas de carga y descarga durante la mañana hasta las 12. Roser es la dueña. Abre puntual a las 7 y media. La descarga es fácil, a pie de calle sin escalones. Lleva mucha cerveza retornable, sobre todo estrella un tercio. Y suele devolver bastantes cascos vacíos apilados al lado de la puerta. Si llegas antes de las 9, mejor todavía. No hay nadie en la plaza y Roser tiene su móvil en el albarán si necesitas algo.",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [
+      {
+        "topic": "parking",
+        "text": "Aparcar en la propia Plaza Corona. Hay zonas de carga y descarga disponibles durante la mañana hasta las 12h.",
+        "confidence": "high"
+      },
+      {
+        "topic": "hours",
+        "text": "El local abre puntual a las 7:30h. Si llegas antes de las 9h mejor: la plaza está tranquila y la descarga es más ágil.",
+        "confidence": "high"
+      },
+      {
+        "topic": "access",
+        "text": "Descarga a pie de calle, sin escalones ni rampa. Acceso muy fácil desde la plaza.",
+        "confidence": "high"
+      },
+      {
+        "topic": "barrels",
+        "text": "Cliente con alto volumen de retornable (~29%). Predomina Estrella tercio en barril. Revisar bien la cantidad de retornables en el albarán.",
+        "confidence": "high"
+      },
+      {
+        "topic": "empties",
+        "text": "Suele devolver bastantes cascos vacíos apilados al lado de la puerta. Revisarlos y recogerlos en cada entrega.",
+        "confidence": "high"
+      }
+    ],
+    "rejected": [
+      {
+        "topic": "contact_person",
+        "text": "La dueña se llama Roser. Su móvil figura en el albarán. Es quien atiende el reparto.",
+        "confidence": "high"
+      }
+    ],
+    "notes": "Se rechaza el tip de contact_person porque expone datos personales sensibles (nombre + referencia a número de móvil) que no son estrictamente necesarios para la operación. El albarán ya contiene esta información si es necesaria. Los demás tips son información operativa concreta y apropiada para documentación empresarial.\""
+  }
+}

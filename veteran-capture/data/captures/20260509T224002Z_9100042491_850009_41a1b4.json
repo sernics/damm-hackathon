@@ -1,0 +1,15 @@
+{
+  "capture": {
+    "client_id": "9100042491",
+    "driver_id": "850009",
+    "captured_at": "2026-05-09T22:40:02.786619Z",
+    "tips": [],
+    "raw_transcript": "¡Gracias por ver el video!",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [],
+    "rejected": [],
+    "notes": null
+  }
+}

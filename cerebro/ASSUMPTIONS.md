@@ -26,13 +26,15 @@ Decisions we've made without confirmation. Each is listed with the *why* and the
 
 ---
 
-## A3 — Each truck loads pallets in a single floor row (no palletised stacking)
+## A3 — Each truck loads pallets in a single floor row, but with internal partitions that fold (REFINED)
 
-**Reason.** Photos show flatbed trucks with closed boxes. Pallets sit on the floor; cases are loaded loose on top of pallets but pallets don't stack on pallets.
+**Confirmed by mentor session 2.** Pallets sit on the floor in a single row (no pallet-on-pallet stacking). The internal partitions between pallet slots are articulated and **fold up**, so a pallet can be dragged from a middle slot to the rear with a pallet jack — provided the path is clear.
 
-**Risk if wrong.** Capacity is roughly twice what we modelled. Routes we declared "infeasible by volume" would actually be feasible.
+**Therefore.** The unloading model is **LIFO with reshuffle**: position k can be unloaded as a whole pallet only after positions k+1..N are empty, but mid-route any cleared slot becomes a "rear" candidate for a whole-pallet extraction.
 
-**How to confirm.** Q1 (truck dimensions). Direct observation in Mollet.
+**Cap on whole-pallet stops per route: 2-4 maximum.** Beyond that, the operation collapses into "shuffle every pallet for every stop" which is too slow. So our solver should **never propose more than 4 whole-pallet customer stops on a single route**.
+
+**Risk if wrong.** Low — this is now mentor-confirmed.
 
 ---
 
@@ -70,11 +72,13 @@ Decisions we've made without confirmation. Each is listed with the *why* and the
 
 ---
 
-## A8 — Mollet operates Mon–Fri only
+## A8 — Mollet operates Mon–Fri only, 06:00 start, soft return cutoff (REFINED by mentor session 2)
 
-**Reason.** Data has zero transports on Saturday and Sunday across 43 days.
+**Reason.** Data has zero transports on Saturday and Sunday across 43 days. Mentor confirms first truck out at 06:00. Return cutoff is **soft** — varies between ~12:00 (Monday in winter) and ~19:00 (Friday in summer), demand-driven.
 
-**Risk if wrong.** A weekend route would not be modelled.
+**Implication for the model.** Don't model a hard "return by X" deadline. Treat route duration as a soft objective only.
+
+**Risk if wrong.** Low.
 
 ---
 
@@ -142,6 +146,52 @@ Reading: 90 % of pairs match the mentor's "1–2 transports/day" rule. The remai
 **Reason.** We see ~9.500 rows where the same (Entrega, Material) appears 2+ times with positive quantities — likely batch / lot / promotion splits in SAP. For volume planning, the customer ultimately receives the **sum** of these lines.
 
 **Risk if wrong.** Low — if there's a reason these stay split (e.g. different price levels are physically segregated), our space estimate is unchanged anyway.
+
+---
+
+## A16 — Weight (kg) is not a binding constraint; the model operates in cases (CONFIRMED)
+
+**Mentor session 2.** "El peso no lo hagáis caso. Hagáis caso a las cajas."
+
+**Implication.** Drop kg as a constraint or penalty. The hard physical limit is **case count and pallet count**, not mass.
+
+**Risk if wrong.** Low — the mentor is explicit.
+
+---
+
+## A17 — Driver-truck pairing is stable input, not a decision variable (CONFIRMED)
+
+**Mentor session 2.** "El repartidor nunca cambia de camión. Siempre tienes tu camión."
+
+**Implication.** Our solver does not search across (driver, truck) permutations. The pair is given. The decision is which clients go on each existing pair.
+
+**Risk if wrong.** Low — the mentor is explicit.
+
+---
+
+## A18 — Driver license category constrains truck assignment (NEW HARD CONSTRAINT)
+
+**Mentor session 2.** Drivers have a license-category field (level 1 / 2 / 3, exact values to confirm) in the SAP driver master. Level 1 can drive small trucks only; level 3 can drive any.
+
+**Implication.** Our truck-to-driver assignment cannot freely permute. License compatibility is a hard constraint.
+
+**How to confirm.** Q43 / Q44 in `QUESTIONS.md` — get the field as a column.
+
+---
+
+## A19 — "Cases on top of barrels" is a soft penalty, not a hard prohibition (CONFIRMED)
+
+**Mentor session 2.** "Las cajas las pueden poner sobre los barriles. No es lo más óptimo, pero se pueden llegar a poner."
+
+**Implication.** Our packer treats this configuration as a penalised state, not a forbidden one. Same logic likely applies to other "preferred but not required" stacking rules.
+
+---
+
+## A20 — Customer cluster pattern: "park once, walk to N nearby clients" (NEW)
+
+**Mentor session 2.** For tight clusters, the driver parks once, walks to each client in the cluster, leaves empties on the street, and collects all empties at the end of the cluster. A pure VRP/TSP cost model treats each client as a separate truck stop and overestimates cost.
+
+**Implication.** Our routing model should detect tight clusters (low Euclidean distance, shared `ZonaTransp`) and treat them as a single "super-stop" with internal customer visits.
 
 ---
 

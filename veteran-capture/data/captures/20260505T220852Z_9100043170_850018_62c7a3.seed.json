@@ -1,0 +1,67 @@
+{
+  "capture": {
+    "client_id": "9100043170",
+    "driver_id": "850018",
+    "captured_at": "2026-05-05T22:08:52.864330Z",
+    "tips": [
+      {
+        "topic": "parking",
+        "text": "Aparca en el lateral del local; hay zona de carga y descarga durante la mañana.",
+        "confidence": "high"
+      },
+      {
+        "topic": "contact_person",
+        "text": "Marta es la encargada. Llama si no abren a la primera.",
+        "confidence": "medium"
+      },
+      {
+        "topic": "hours",
+        "text": "Abre puntual a las 9:30 h.",
+        "confidence": "high"
+      },
+      {
+        "topic": "access",
+        "text": "La entrada principal tiene un escalon — no usar para barriles.",
+        "confidence": "high"
+      },
+      {
+        "topic": "barrels",
+        "text": "Marta los baja ella misma con la transpaleta del local.",
+        "confidence": "medium"
+      }
+    ],
+    "raw_transcript": "En Ca la Sete tienes que aparcar en el lateral del local, hay zona de carga y descarga durante la mañana. Marta es la encargada, abre puntual a las nueve y media. Si llevas barriles, los baja ella misma con la transpaleta porque la entrada principal tiene un escalon.",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [
+      {
+        "topic": "parking",
+        "text": "Aparca en el lateral del local; hay zona de carga y descarga durante la mañana.",
+        "confidence": "high"
+      },
+      {
+        "topic": "contact_person",
+        "text": "Marta es la encargada. Llama si no abren a la primera.",
+        "confidence": "medium"
+      },
+      {
+        "topic": "hours",
+        "text": "Abre puntual a las 9:30 h.",
+        "confidence": "high"
+      },
+      {
+        "topic": "access",
+        "text": "La entrada principal tiene un escalon — no usar para barriles.",
+        "confidence": "high"
+      },
+      {
+        "topic": "barrels",
+        "text": "Marta los baja ella misma con la transpaleta del local.",
+        "confidence": "medium"
+      }
+    ],
+    "rejected": [],
+    "notes": "seed-auto-accepted"
+  }
+}

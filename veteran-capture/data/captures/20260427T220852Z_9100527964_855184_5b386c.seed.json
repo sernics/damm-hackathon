@@ -1,0 +1,47 @@
+{
+  "capture": {
+    "client_id": "9100527964",
+    "driver_id": "855184",
+    "captured_at": "2026-04-27T22:08:52.865049Z",
+    "tips": [
+      {
+        "topic": "contact_person",
+        "text": "Joan es el encargado. Su movil esta en el albaran — llama antes de salir.",
+        "confidence": "high"
+      },
+      {
+        "topic": "hours",
+        "text": "A veces cierran a primera hora — confirmar antes.",
+        "confidence": "medium"
+      },
+      {
+        "topic": "access",
+        "text": "Descarga por la trasera del almacen, hay timbre.",
+        "confidence": "high"
+      }
+    ],
+    "raw_transcript": "Drogueria Junyent en Gurb. Llamar antes de salir porque a veces estan cerrados a primera hora. Joan es el encargado, tiene su movil en el albaran. La carga la dejas en la trasera del almacen, hay un timbre.",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [
+      {
+        "topic": "contact_person",
+        "text": "Joan es el encargado. Su movil esta en el albaran — llama antes de salir.",
+        "confidence": "high"
+      },
+      {
+        "topic": "hours",
+        "text": "A veces cierran a primera hora — confirmar antes.",
+        "confidence": "medium"
+      },
+      {
+        "topic": "access",
+        "text": "Descarga por la trasera del almacen, hay timbre.",
+        "confidence": "high"
+      }
+    ],
+    "rejected": [],
+    "notes": "seed-auto-accepted"
+  }
+}

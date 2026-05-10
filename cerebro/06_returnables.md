@@ -125,3 +125,26 @@ The right framing is a **Pickup-and-Delivery Problem (PDP)** where:
 - The packing constraint is: Pᵢ should fit in the slot freed by Dᵢ (or a nearby slot if not exact).
 
 This is well-studied — keywords for the research phase: **VRPSPD** (VRP with simultaneous pickup and delivery), **VRPSDP**, **VRPB** (with backhauls).
+
+---
+
+## The "park and walk" cluster pattern (mentor session 2, 2026-05-09)
+
+For tight customer clusters (3+ customers within walking distance — e.g. on the same plaza or street), drivers do *not* treat each customer as a separate truck stop. The actual flow is:
+
+1. Park the truck once near the cluster.
+2. Walk to client A, deliver, leave the empties **in the street**.
+3. Walk to client B, deliver, leave empties in the street.
+4. Same for client C.
+5. Collect *all the empties from the street at the end* and load them onto the truck once.
+
+A pure VRP/TSP cost model treats each customer as an independent stop with its own truck-parking time. That **overestimates** the total time and effort for clustered customers.
+
+### Implications for the model
+
+- Detect tight customer clusters (Euclidean distance below a threshold, or shared zone code).
+- Treat each cluster as **one truck stop with multiple inner customer visits** in the cost model.
+- Aggregate the empty-pickup time at the cluster end, not per customer.
+- The order of customers *within* the cluster is a sub-problem of negligible duration (walking distance, no truck repositioning).
+
+This is also why the clustering of clients within `ZonaTransp` matters operationally — zones already encode "these customers are close enough that the driver treats them as one".

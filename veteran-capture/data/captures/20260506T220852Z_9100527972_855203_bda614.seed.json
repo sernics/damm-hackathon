@@ -1,0 +1,37 @@
+{
+  "capture": {
+    "client_id": "9100527972",
+    "driver_id": "855203",
+    "captured_at": "2026-05-06T22:08:52.865310Z",
+    "tips": [
+      {
+        "topic": "warnings",
+        "text": "Calle estrecha, entrar por el norte para no quedar atrapado.",
+        "confidence": "high"
+      },
+      {
+        "topic": "contact_person",
+        "text": "El propietario sale a recibirte y ayuda con la descarga.",
+        "confidence": "high"
+      }
+    ],
+    "raw_transcript": "Valero del Valles. La calle es estrecha, mejor entrar por el norte. El propietario sale el mismo a recibirte y te ayuda con la descarga. Lleva muchos años, te conoce.",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [
+      {
+        "topic": "warnings",
+        "text": "Calle estrecha, entrar por el norte para no quedar atrapado.",
+        "confidence": "high"
+      },
+      {
+        "topic": "contact_person",
+        "text": "El propietario sale a recibirte y ayuda con la descarga.",
+        "confidence": "high"
+      }
+    ],
+    "rejected": [],
+    "notes": "seed-auto-accepted"
+  }
+}
