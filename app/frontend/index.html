@@ -291,6 +291,134 @@
     color: var(--text-dim);
   }
 
+  /* Day selector + route nav */
+  .day-select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path fill='%238a96a8' d='M2 4l4 4 4-4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+  .day-select:hover { background-color: rgba(255, 255, 255, 0.06); }
+  .day-select:focus { outline: none; border-color: rgba(0, 229, 168, 0.6); }
+  .route-nav {
+    display: grid;
+    grid-template-columns: 36px 1fr 36px;
+    gap: 6px;
+    align-items: stretch;
+  }
+  .rn-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--line);
+    color: var(--text);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 11px;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .rn-btn:hover {
+    background: rgba(76, 201, 255, 0.15);
+    border-color: rgba(76, 201, 255, 0.5);
+    color: var(--accent-2);
+  }
+  .rn-btn:active { transform: scale(0.95); }
+  .rn-count {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display: grid; place-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .rn-count #rn-current { color: var(--accent); }
+  .rn-count .sep { color: var(--text-dim); margin: 0 4px; font-weight: 400; }
+
+  /* Zoom buttons */
+  #zoom-buttons {
+    position: fixed;
+    bottom: 22px;
+    left: calc(50% - 86px);
+    display: flex; flex-direction: column; gap: 4px;
+    z-index: 5;
+  }
+  #zoom-buttons-right {
+    position: fixed;
+    bottom: 22px;
+    left: calc(50% + 56px);
+    display: flex; flex-direction: column; gap: 4px;
+    z-index: 5;
+  }
+  .zoom-btn {
+    width: 30px; height: 30px;
+    background: rgba(13, 17, 24, 0.78);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700;
+    display: grid; place-items: center;
+    transition: all 0.12s ease;
+    font-family: inherit;
+  }
+  .zoom-btn:hover {
+    border-color: rgba(0, 229, 168, 0.5);
+    color: var(--accent);
+    box-shadow: 0 0 12px rgba(0, 229, 168, 0.15);
+  }
+  .zoom-btn:active { transform: scale(0.92); }
+
+  /* Vehicle bar (in bottom-left HUD when warehouse is on) */
+  #vehicle-bar {
+    display: flex; gap: 6px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .vehicle-pill {
+    flex: 1;
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .vehicle-pill:hover { background: rgba(255, 255, 255, 0.06); }
+  .vehicle-pill.active {
+    background: linear-gradient(180deg, rgba(0, 229, 168, 0.18), rgba(0, 229, 168, 0.06));
+    border-color: rgba(0, 229, 168, 0.55);
+    box-shadow: 0 0 18px rgba(0, 229, 168, 0.18) inset;
+  }
+  .vehicle-pill .ico {
+    width: 28px; height: 28px; border-radius: 7px;
+    background: linear-gradient(135deg, var(--accent-2), #2a7fb8);
+    display: grid; place-items: center;
+    font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 14px;
+    color: #06121b;
+  }
+  .vehicle-pill .ico.fk {
+    background: linear-gradient(135deg, var(--damm), #b07d12);
+    color: #1a1305;
+  }
+  .vehicle-pill .vp-text { line-height: 1.15; }
+  .vp-t1 { font-weight: 600; font-size: 12px; }
+  .vp-t2 { font-size: 9px; color: var(--text-dim); margin-top: 2px; letter-spacing: 0.5px; }
+
   /* Compass */
   #compass {
     position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%);
@@ -354,6 +482,14 @@
     <span class="e">E</span><span class="w">W</span>
   </div>
 </div>
+<div id="zoom-buttons">
+  <button class="zoom-btn" id="zoom-in" title="Zoom in">+</button>
+  <button class="zoom-btn" id="zoom-out" title="Zoom out">&minus;</button>
+</div>
+<div id="zoom-buttons-right">
+  <button class="zoom-btn" id="zoom-top" title="Top-down view">&#x25A2;</button>
+  <button class="zoom-btn" id="zoom-fit" title="Fit to view">&#x21F2;</button>
+</div>
 
 <!-- Top-left HUD -->
 <div id="hud-top" class="panel">
@@ -361,11 +497,21 @@
     <div class="brand-mark">D</div>
     <div class="brand-text">
       <div class="t1">Damm Mollet — Fleet 3D</div>
-      <div class="t2">Centre D131 · 16 vehicles</div>
+      <div class="t2" id="brand-sub">Centre D131</div>
     </div>
   </div>
 
-  <div class="label">Truck type</div>
+  <div class="label">Day</div>
+  <select id="day-select" class="day-select"><option>Loading…</option></select>
+
+  <div class="label" style="margin-top: 10px;">Truck of day</div>
+  <div class="route-nav">
+    <button id="route-prev" class="rn-btn" title="Previous truck">&#9664;</button>
+    <div class="rn-count"><span id="rn-current">—</span><span class="sep">/</span><span id="rn-total">—</span></div>
+    <button id="route-next" class="rn-btn" title="Next truck">&#9654;</button>
+  </div>
+
+  <div class="label" style="margin-top: 10px;">Truck class <span style="color:var(--text-dim); text-transform:none; letter-spacing:0;">(auto)</span></div>
   <div class="truck-tabs" id="truck-tabs">
     <div class="truck-tab" data-truck="van">
       <div class="num">3P</div>
@@ -434,10 +580,27 @@
     </div>
     <div class="switch" id="t-autorot"></div>
   </div>
+  <div class="toggle-row">
+    <div>
+      <span>Warehouse</span>
+      <div class="desc">Show full Mollet layout (D131)</div>
+    </div>
+    <div class="switch" id="t-warehouse"></div>
+  </div>
 </div>
 
 <!-- Bottom-left hints -->
 <div id="hud-bottom-left" class="panel">
+  <div id="vehicle-bar" style="display:none;">
+    <div class="vehicle-pill active" data-vehicle="truck">
+      <span class="ico">T</span>
+      <div class="vp-text"><div class="vp-t1">Truck</div><div class="vp-t2">WASD · QE · R</div></div>
+    </div>
+    <div class="vehicle-pill" data-vehicle="forklift">
+      <span class="ico fk">F</span>
+      <div class="vp-text"><div class="vp-t1">Forklift</div><div class="vp-t2">WASD · Space/Shift</div></div>
+    </div>
+  </div>
   <div class="label">Controls</div>
   <div class="keys">
     <div class="key-group">
@@ -456,6 +619,24 @@
     <div class="key-group">
       <span class="key">X</span>
       <div class="lbl">X-Ray</div>
+    </div>
+  </div>
+  <div class="keys" style="margin-top: 6px;">
+    <div class="key-group">
+      <span class="key">F</span>
+      <div class="lbl">Switch vehicle</div>
+    </div>
+    <div class="key-group">
+      <span class="key">H</span>
+      <div class="lbl">Warehouse</div>
+    </div>
+    <div class="key-group" id="forklift-hints" style="display:none;">
+      <span class="key">Space</span>
+      <div class="lbl">Mast up</div>
+    </div>
+    <div class="key-group">
+      <span class="key">Shift</span>
+      <div class="lbl">Mast down</div>
     </div>
   </div>
   <div class="toggle-row" style="margin-top: 10px;">
@@ -577,7 +758,7 @@ const DEMO_CARGO = {
 const wrap = document.getElementById('canvas-wrap');
 
 const scene = new THREE.Scene();
-scene.fog = new THREE.Fog(0x07090d, 30, 70);
+scene.fog = new THREE.Fog(0x07090d, 60, 250);
 
 const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 200);
 camera.position.set(8, 6, 11);
@@ -596,8 +777,8 @@ wrap.appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.dampingFactor = 0.08;
-controls.minDistance = 3;
-controls.maxDistance = 40;
+controls.minDistance = 2;
+controls.maxDistance = 200;
 controls.maxPolarAngle = Math.PI / 2 - 0.05;
 controls.target.set(0, 1.2, 0);
 
@@ -690,7 +871,15 @@ const STATE = {
   showLabels: true,
   followCam: false,
   autoRotate: false,
+  showWarehouse: false,
+  activeVehicle: 'truck',      // 'truck' | 'forklift'
   hiddenStops: new Set(),
+  // Real plan data
+  fleetData: null,             // { dates: [...], by_date: {...} }
+  currentDate: null,
+  currentRouteIdx: 0,
+  currentRouteInfo: null,      // { date, idx, total, pallets, stops }
+  activeCargo: [],             // cargo lines currently driving the visualization
 };
 
 // Build a stop -> color map (recomputed per truck)
@@ -702,9 +891,8 @@ function buildStopColors(cargoList) {
 }
 
 // Pack cargo lines into pallets, one logical pallet per stop (split if cases > capacity)
-const CASES_PER_PALLET = 80; // visual heuristic
+const CASES_PER_PALLET = 80; // visual heuristic for demo cargo
 function packPallets(cargoList) {
-  // group lines by stop
   const byStop = new Map();
   for (const line of cargoList) {
     if (!byStop.has(line.stop)) byStop.set(line.stop, []);
@@ -712,12 +900,21 @@ function packPallets(cargoList) {
   }
   const pallets = [];
   const stops = [...byStop.keys()].sort((a, b) => a - b);
+  // Real data hint: per-stop pallet_equiv computed by the planner. Beats the
+  // cases/80 heuristic when present.
+  const realHints = STATE.activeStopPallets || null;
   for (const stop of stops) {
     const lines = byStop.get(stop);
     const totalCases = lines.reduce((s, l) => s + l.cases, 0);
-    let palletCount = Math.max(1, Math.ceil(totalCases / CASES_PER_PALLET));
-    // Cap at 2 pallets per stop in demo to keep layout sensible
-    palletCount = Math.min(palletCount, 2);
+    let palletCount;
+    if (realHints && typeof realHints[stop] === 'number') {
+      palletCount = Math.max(1, Math.round(realHints[stop]));
+      // Cap at 4 to keep layouts readable
+      palletCount = Math.min(palletCount, 4);
+    } else {
+      palletCount = Math.max(1, Math.ceil(totalCases / CASES_PER_PALLET));
+      palletCount = Math.min(palletCount, 2);
+    }
     const caseStep = Math.ceil(totalCases / palletCount);
     let remaining = totalCases;
     for (let p = 0; p < palletCount; p++) {
@@ -1013,7 +1210,7 @@ function buildTruck(specKey) {
     palletGroup: new THREE.Group(),
     pallets: [],      // list of pallet groups
     stopColors: null,
-    cargoLines: DEMO_CARGO[specKey],
+    cargoLines: (STATE.activeCargo && STATE.activeCargo.length) ? STATE.activeCargo : DEMO_CARGO[specKey],
     bodyLength: 0,    // total along Z (cab + box)
     facingForward: new THREE.Vector3(0, 0, -1), // truck nose direction in local +Z toward where it drives
   };
@@ -1363,6 +1560,675 @@ function buildTruck(specKey) {
   return truck;
 }
 
+// ---------- Warehouse construction ----------
+const warehouseRoot = new THREE.Group();
+warehouseRoot.visible = false;
+scene.add(warehouseRoot);
+
+function buildRack(opts) {
+  // opts: { x, z, length, height, levels, depth, orient ('x'|'z'), bays, drive_in }
+  const g = new THREE.Group();
+  const length = opts.length;
+  const depth = opts.depth ?? 1.20;     // pallet depth (single-deep)
+  const levels = opts.levels;
+  const bays = opts.bays ?? Math.max(1, Math.round(length / 2.7));
+  const levelHeight = opts.levelHeight ?? 1.7;
+  const rackHeight = levels * levelHeight + 0.2;
+
+  const uprightMat = new THREE.MeshStandardMaterial({ color: 0x2c5fa6, roughness: 0.55, metalness: 0.4 });
+  const beamMat = new THREE.MeshStandardMaterial({ color: 0xe06a14, roughness: 0.55, metalness: 0.4 });
+  const palletWoodMat = new THREE.MeshStandardMaterial({ color: 0x8a6a3a, roughness: 0.85, metalness: 0.05 });
+
+  // Generate pallet wrap colors that look like crate-stacks
+  const wrapColors = [0xb52d2d, 0xc26a1a, 0xd4a017, 0x88909c, 0x4a5b8a, 0x9aa6b6];
+
+  // Uprights (vertical posts)
+  const upCount = bays + 1;
+  const upStep = length / bays;
+  for (let i = 0; i < upCount; i++) {
+    const u = new THREE.Mesh(
+      new THREE.BoxGeometry(0.10, rackHeight, 0.10),
+      uprightMat
+    );
+    const along = -length / 2 + i * upStep;
+    if (opts.orient === 'x') u.position.set(along, rackHeight / 2, -depth / 2);
+    else u.position.set(-depth / 2, rackHeight / 2, along);
+    u.castShadow = true;
+    g.add(u);
+
+    const u2 = u.clone();
+    if (opts.orient === 'x') u2.position.z = +depth / 2;
+    else u2.position.x = +depth / 2;
+    g.add(u2);
+
+    // Cross bracing (X pattern between uprights for height)
+    if (i < upCount - 1) {
+      const braceMat = uprightMat;
+      const diag = Math.hypot(upStep, rackHeight);
+      const angle = Math.atan2(rackHeight, upStep);
+      for (const side of [-1, 1]) {
+        const b = new THREE.Mesh(
+          new THREE.BoxGeometry(0.04, diag * 0.85, 0.04),
+          braceMat
+        );
+        const cx = along + upStep / 2;
+        if (opts.orient === 'x') {
+          b.position.set(cx, rackHeight / 2, side * depth / 2);
+          b.rotation.z = angle - Math.PI / 2;
+        } else {
+          b.position.set(side * depth / 2, rackHeight / 2, cx);
+          b.rotation.x = -(angle - Math.PI / 2);
+        }
+        g.add(b);
+      }
+    }
+  }
+
+  // Horizontal beams (orange)
+  for (let lvl = 1; lvl <= levels; lvl++) {
+    const y = lvl * levelHeight;
+    for (const side of [-1, 1]) {
+      const beam = new THREE.Mesh(
+        new THREE.BoxGeometry(opts.orient === 'x' ? length : 0.08, 0.10, opts.orient === 'x' ? 0.08 : length),
+        beamMat
+      );
+      if (opts.orient === 'x') beam.position.set(0, y, side * depth / 2);
+      else beam.position.set(side * depth / 2, y, 0);
+      beam.castShadow = true;
+      g.add(beam);
+    }
+  }
+
+  // Pallets at each level
+  // Each bay = 2 pallets typically (Euro pallets 1.20 wide).
+  // We approximate 2 pallets per bay along the long axis.
+  const palletsPerBay = 2;
+  const palletWidth = (upStep - 0.2) / palletsPerBay; // along bay
+  const palletDepth = depth - 0.05; // across rack
+  for (let lvl = 0; lvl < levels; lvl++) {
+    const y = lvl * levelHeight + 0.05;
+    for (let bay = 0; bay < bays; bay++) {
+      for (let p = 0; p < palletsPerBay; p++) {
+        // Skip ~10% randomly to look realistic
+        if (Math.random() < 0.10) continue;
+
+        const along = -length / 2 + bay * upStep + 0.1 + (p + 0.5) * palletWidth;
+
+        // Pallet base (low box)
+        const pal = new THREE.Mesh(
+          new THREE.BoxGeometry(palletWidth * 0.95, 0.13, palletDepth),
+          palletWoodMat
+        );
+        // Cargo on top: 2 layers of crates
+        const stackH = 0.95;
+        const wrapColor = wrapColors[(lvl + bay + p) % wrapColors.length];
+        const wrapMat = new THREE.MeshStandardMaterial({
+          color: wrapColor, roughness: 0.7, metalness: 0.05,
+          // Translucent wrap-feel
+        });
+        const cargo = new THREE.Mesh(
+          new THREE.BoxGeometry(palletWidth * 0.92, stackH, palletDepth * 0.95),
+          wrapMat
+        );
+        cargo.position.y = stackH / 2 + 0.13;
+        cargo.castShadow = true;
+
+        const palGroup = new THREE.Group();
+        palGroup.add(pal);
+        palGroup.add(cargo);
+        if (opts.orient === 'x') palGroup.position.set(along, y, 0);
+        else { palGroup.position.set(0, y, along); }
+        pal.castShadow = true;
+        pal.receiveShadow = true;
+        g.add(palGroup);
+      }
+    }
+  }
+
+  g.position.set(opts.x, 0, opts.z);
+  if (opts.rotY) g.rotation.y = opts.rotY;
+  g.userData.isRack = true;
+  return g;
+}
+
+function buildLoadingDock(width, height) {
+  const g = new THREE.Group();
+  // Dock leveler plate (concrete with yellow bumpers)
+  const platform = new THREE.Mesh(
+    new THREE.BoxGeometry(width, 0.2, 1.4),
+    new THREE.MeshStandardMaterial({ color: 0x3a3f48, roughness: 0.9, metalness: 0.1 })
+  );
+  platform.position.y = 0.1;
+  platform.receiveShadow = true;
+  g.add(platform);
+
+  // Yellow bumpers (rubber)
+  for (const sx of [-1, 1]) {
+    const bump = new THREE.Mesh(
+      new THREE.BoxGeometry(0.25, 0.25, 0.5),
+      new THREE.MeshStandardMaterial({ color: 0xd4a017, roughness: 0.85 })
+    );
+    bump.position.set(sx * (width / 2 - 0.2), 0.4, 0.5);
+    g.add(bump);
+  }
+
+  // Dock door frame (open garage-style)
+  const frameMat = new THREE.MeshStandardMaterial({ color: 0x9aa6b6, roughness: 0.6, metalness: 0.6 });
+  for (const sx of [-1, 1]) {
+    const post = new THREE.Mesh(new THREE.BoxGeometry(0.15, height, 0.15), frameMat);
+    post.position.set(sx * width / 2, height / 2, -0.4);
+    g.add(post);
+  }
+  const lintel = new THREE.Mesh(new THREE.BoxGeometry(width + 0.3, 0.2, 0.15), frameMat);
+  lintel.position.set(0, height + 0.1, -0.4);
+  g.add(lintel);
+
+  // Sectional door rolled up (visible top section)
+  const door = new THREE.Mesh(
+    new THREE.BoxGeometry(width - 0.1, 0.4, 0.1),
+    new THREE.MeshStandardMaterial({ color: 0xc8ccd2, roughness: 0.7, metalness: 0.3 })
+  );
+  door.position.set(0, height - 0.2, -0.4);
+  g.add(door);
+
+  return g;
+}
+
+function buildWarehouse() {
+  const W = 60, L = 44, H = 12;
+  const root = new THREE.Group();
+
+  // ----- Floor (polished concrete) -----
+  const concreteMat = new THREE.MeshStandardMaterial({
+    color: 0x2a2f38, roughness: 0.55, metalness: 0.05,
+  });
+  const floor = new THREE.Mesh(new THREE.BoxGeometry(W, 0.1, L), concreteMat);
+  floor.position.y = -0.05;
+  floor.receiveShadow = true;
+  root.add(floor);
+
+  // Painted floor zones (matching the layout plan)
+  function paintZone(x, z, w, l, color, alpha = 0.6) {
+    const m = new THREE.Mesh(
+      new THREE.PlaneGeometry(w, l),
+      new THREE.MeshBasicMaterial({ color, transparent: true, opacity: alpha })
+    );
+    m.rotation.x = -Math.PI / 2;
+    m.position.set(x, 0.001, z);
+    return m;
+  }
+  // Zone A — green floor positions (lower-left of plan)
+  root.add(paintZone(-15, 14, 20, 5, 0x3da564, 0.45));
+  // Yellow strip
+  root.add(paintZone(-7, 17.5, 5, 2, 0xd4a017, 0.45));
+  // Zone B — dark grey staging
+  root.add(paintZone(-17, -4, 22, 4, 0x32384a, 0.4));
+
+  // Painted central aisle (white dashed line on the central wall side)
+  for (let i = -18; i <= 18; i += 3) {
+    const dash = new THREE.Mesh(
+      new THREE.PlaneGeometry(1.5, 0.18),
+      new THREE.MeshBasicMaterial({ color: 0xf2f2f2, transparent: true, opacity: 0.7 })
+    );
+    dash.rotation.x = -Math.PI / 2;
+    dash.rotation.z = Math.PI / 2;
+    dash.position.set(-1.0, 0.001, i);
+    root.add(dash);
+  }
+
+  // Letter labels for zones (canvas sprites placed on floor)
+  function floorLabel(text, x, z) {
+    const c = document.createElement('canvas');
+    c.width = 256; c.height = 256;
+    const cx = c.getContext('2d');
+    cx.fillStyle = 'rgba(170, 200, 230, 0.85)';
+    roundRect(cx, 32, 64, 192, 128, 18); cx.fill();
+    cx.fillStyle = '#0a0e16';
+    cx.font = 'bold 110px "Inter", sans-serif';
+    cx.textAlign = 'center'; cx.textBaseline = 'middle';
+    cx.fillText(text, 128, 128);
+    const tex = new THREE.CanvasTexture(c);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    const sp = new THREE.Mesh(
+      new THREE.PlaneGeometry(2.2, 2.2),
+      new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false })
+    );
+    sp.rotation.x = -Math.PI / 2;
+    sp.position.set(x, 0.005, z);
+    return sp;
+  }
+  root.add(floorLabel('A', -10, 12));
+  root.add(floorLabel('B',  -3, -4));
+  root.add(floorLabel('C',   6, -2));
+  root.add(floorLabel('D',  13, -2));
+  root.add(floorLabel('E',  20, -2));
+  root.add(floorLabel('F',  27, -2));
+
+  // ----- Walls -----
+  const wallMat = new THREE.MeshStandardMaterial({
+    color: 0x3d4452, roughness: 0.85, metalness: 0.1,
+    transparent: true, opacity: 0.32, side: THREE.DoubleSide,
+  });
+  // North (back) wall
+  const nWall = new THREE.Mesh(new THREE.BoxGeometry(W, H, 0.2), wallMat);
+  nWall.position.set(0, H / 2, -L / 2);
+  root.add(nWall);
+  // West wall
+  const wWall = new THREE.Mesh(new THREE.BoxGeometry(0.2, H, L), wallMat);
+  wWall.position.set(-W / 2, H / 2, 0);
+  root.add(wWall);
+  // East wall (segmented to leave the dock side open visually)
+  const eWall = new THREE.Mesh(new THREE.BoxGeometry(0.2, H, L), wallMat);
+  eWall.position.set(W / 2, H / 2, 0);
+  root.add(eWall);
+  // South wall (split into left section + dock face on the right)
+  const sWallLeft = new THREE.Mesh(new THREE.BoxGeometry(W * 0.5, H, 0.2), wallMat);
+  sWallLeft.position.set(-W * 0.25, H / 2, L / 2);
+  root.add(sWallLeft);
+
+  // South-east section: dock wall (lower portion only)
+  const dockWall = new THREE.Mesh(new THREE.BoxGeometry(W * 0.5, H * 0.3, 0.2), wallMat);
+  dockWall.position.set(W * 0.25, H * 0.85, L / 2);
+  root.add(dockWall);
+
+  // Central wall dividing left/right halves of the warehouse
+  const cWall = new THREE.Mesh(
+    new THREE.BoxGeometry(0.2, H * 0.85, L * 0.95),
+    new THREE.MeshStandardMaterial({ color: 0x4a5160, roughness: 0.8, metalness: 0.1, transparent: true, opacity: 0.4, side: THREE.DoubleSide })
+  );
+  cWall.position.set(0.5, H * 0.42, 0);
+  root.add(cWall);
+
+  // ----- Roof: steel truss aesthetic + light strips -----
+  const roofMat = new THREE.MeshStandardMaterial({
+    color: 0x1d2129, roughness: 0.9, metalness: 0.3,
+    transparent: true, opacity: 0.45, side: THREE.DoubleSide,
+  });
+  const roof = new THREE.Mesh(new THREE.BoxGeometry(W + 0.4, 0.2, L + 0.4), roofMat);
+  roof.position.y = H;
+  root.add(roof);
+
+  // Trusses (cross-beams across width every 4m)
+  const trussMat = new THREE.MeshStandardMaterial({ color: 0x141821, roughness: 0.6, metalness: 0.5 });
+  for (let z = -L / 2 + 4; z <= L / 2 - 4; z += 4) {
+    const t = new THREE.Mesh(new THREE.BoxGeometry(W - 0.5, 0.18, 0.15), trussMat);
+    t.position.set(0, H - 0.25, z);
+    root.add(t);
+    // Diagonal supports
+    for (let x = -W / 2 + 5; x <= W / 2 - 5; x += 10) {
+      const d = new THREE.Mesh(new THREE.BoxGeometry(2, 0.08, 0.08), trussMat);
+      d.position.set(x, H - 0.55, z);
+      d.rotation.z = 0.3;
+      root.add(d);
+    }
+  }
+
+  // Hanging light strips (warm)
+  for (let z = -L / 2 + 6; z <= L / 2 - 6; z += 6) {
+    for (let x = -W / 2 + 8; x <= W / 2 - 8; x += 12) {
+      const lampHousing = new THREE.Mesh(
+        new THREE.BoxGeometry(1.6, 0.12, 0.4),
+        new THREE.MeshStandardMaterial({ color: 0x222a36, roughness: 0.6, metalness: 0.5 })
+      );
+      lampHousing.position.set(x, H - 0.5, z);
+      root.add(lampHousing);
+      const lampTube = new THREE.Mesh(
+        new THREE.BoxGeometry(1.5, 0.08, 0.32),
+        new THREE.MeshBasicMaterial({ color: 0xfff1c8 })
+      );
+      lampTube.position.set(x, H - 0.6, z);
+      root.add(lampTube);
+      const pl = new THREE.PointLight(0xfff0c0, 0.45, 14, 1.6);
+      pl.position.set(x, H - 0.8, z);
+      root.add(pl);
+    }
+  }
+
+  // ----- Racking (matches plan's A/B/C/D/E/F areas) -----
+  // Left half: long west wall rack (single row, 4 levels)
+  root.add(buildRack({ x: -28.5, z: 0, length: 30, levels: 4, orient: 'z' }));
+  // Zone B: two horizontal racks
+  root.add(buildRack({ x: -16, z: -7, length: 22, levels: 3, orient: 'x' }));
+  root.add(buildRack({ x: -16, z: -1, length: 22, levels: 3, orient: 'x' }));
+
+  // Right half: 4 vertical drive-in racks (C/D/E/F) — taller, denser
+  for (const x of [6, 13, 20, 27]) {
+    root.add(buildRack({ x, z: -8, length: 24, levels: 6, orient: 'z', depth: 1.30 }));
+  }
+
+  // Small extra rack bottom-right of plan (next to docks)
+  root.add(buildRack({ x: 27, z: 13, length: 6, levels: 3, orient: 'x', depth: 1.20 }));
+
+  // ----- Loading docks (6 bays at south wall, east half) -----
+  // Each dock bay is ~3m wide. Truck stalls extend out the wall.
+  // Plan shows 2x3 grid of trucks — we'll do 6 bays inline.
+  const dockY = L / 2 - 0.7; // slightly inside the building
+  const dockOriginX = 4;
+  const dockSpacing = 3.5;
+  for (let i = 0; i < 6; i++) {
+    const dx = dockOriginX + i * dockSpacing;
+    const dock = buildLoadingDock(3.0, 3.5);
+    dock.position.set(dx, 0, dockY);
+    root.add(dock);
+    // Painted dock number on floor
+    const c = document.createElement('canvas'); c.width = 128; c.height = 128;
+    const cx = c.getContext('2d');
+    cx.fillStyle = '#d4a017';
+    cx.font = 'bold 78px "JetBrains Mono", monospace';
+    cx.textAlign = 'center'; cx.textBaseline = 'middle';
+    cx.fillText('D' + (i + 1), 64, 64);
+    const tex = new THREE.CanvasTexture(c);
+    const num = new THREE.Mesh(
+      new THREE.PlaneGeometry(1.2, 1.2),
+      new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false })
+    );
+    num.rotation.x = -Math.PI / 2;
+    num.position.set(dx, 0.005, dockY - 1.6);
+    root.add(num);
+  }
+
+  // ----- Office cabin (oficinas) -----
+  const officeMat = new THREE.MeshStandardMaterial({ color: 0x6a7388, roughness: 0.8, metalness: 0.15 });
+  const office = new THREE.Mesh(new THREE.BoxGeometry(8, 3, 4), officeMat);
+  office.position.set(W / 2 - 5, 1.5, L / 2 - 2.5);
+  office.castShadow = true;
+  office.receiveShadow = true;
+  root.add(office);
+  // Office windows (glass strip)
+  const win = new THREE.Mesh(
+    new THREE.BoxGeometry(7.5, 1.0, 0.05),
+    new THREE.MeshPhysicalMaterial({ color: 0x4cc9ff, metalness: 0.2, roughness: 0.1, transparent: true, opacity: 0.55 })
+  );
+  win.position.set(W / 2 - 5, 1.8, L / 2 - 4.5);
+  root.add(win);
+  // Office sign
+  const signCanvas = document.createElement('canvas'); signCanvas.width = 384; signCanvas.height = 96;
+  const sx = signCanvas.getContext('2d');
+  sx.fillStyle = '#0a0e16';
+  sx.fillRect(0, 0, 384, 96);
+  sx.fillStyle = '#d4a017';
+  sx.font = 'bold 56px "Inter", sans-serif';
+  sx.textAlign = 'center'; sx.textBaseline = 'middle';
+  sx.fillText('OFICINAS', 192, 48);
+  const signTex = new THREE.CanvasTexture(signCanvas);
+  const sign = new THREE.Mesh(
+    new THREE.PlaneGeometry(3.2, 0.8),
+    new THREE.MeshBasicMaterial({ map: signTex, transparent: true })
+  );
+  sign.position.set(W / 2 - 5, 2.6, L / 2 - 4.55);
+  root.add(sign);
+
+  // Outline border on the floor (red dashed restricted area, top-left of plan)
+  for (let x = -W / 2 + 1; x < 5; x += 1.5) {
+    const dash = new THREE.Mesh(
+      new THREE.PlaneGeometry(1, 0.1),
+      new THREE.MeshBasicMaterial({ color: 0xff5577, transparent: true, opacity: 0.85 })
+    );
+    dash.rotation.x = -Math.PI / 2;
+    dash.position.set(x, 0.004, -L / 2 + 8);
+    root.add(dash);
+  }
+  for (let z = -L / 2 + 8; z < -3; z += 1.5) {
+    const dash = new THREE.Mesh(
+      new THREE.PlaneGeometry(1, 0.1),
+      new THREE.MeshBasicMaterial({ color: 0xff5577, transparent: true, opacity: 0.85 })
+    );
+    dash.rotation.x = -Math.PI / 2;
+    dash.rotation.z = Math.PI / 2;
+    dash.position.set(5, 0.004, z);
+    root.add(dash);
+  }
+
+  return root;
+}
+
+const warehouseGroup = buildWarehouse();
+warehouseRoot.add(warehouseGroup);
+
+// ---------- Forklift construction ----------
+function buildForklift() {
+  const root = new THREE.Group();
+  root.userData.isForklift = true;
+
+  const yellow = new THREE.MeshStandardMaterial({ color: 0xf4c020, roughness: 0.5, metalness: 0.5 });
+  const dark = new THREE.MeshStandardMaterial({ color: 0x202225, roughness: 0.7, metalness: 0.3 });
+  const red = new THREE.MeshStandardMaterial({ color: 0xc92024, roughness: 0.5, metalness: 0.4 });
+  const steel = new THREE.MeshStandardMaterial({ color: 0x6a7080, roughness: 0.45, metalness: 0.7 });
+  const seatMat = new THREE.MeshStandardMaterial({ color: 0x1c1f24, roughness: 0.85 });
+
+  // Body chassis (lower)
+  const chassis = new THREE.Mesh(new RoundedBoxGeometry(1.2, 0.55, 1.95, 3, 0.08), yellow);
+  chassis.position.set(0, 0.55, -0.15);
+  chassis.castShadow = true;
+  chassis.receiveShadow = true;
+  root.add(chassis);
+
+  // Counterweight (rear, dark, heavy looking)
+  const counterweight = new THREE.Mesh(new RoundedBoxGeometry(1.25, 0.7, 0.7, 3, 0.05), dark);
+  counterweight.position.set(0, 0.55, -1.0);
+  counterweight.castShadow = true;
+  root.add(counterweight);
+
+  // Cabin floor (yellow plate)
+  const cabFloor = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.06, 0.8), yellow);
+  cabFloor.position.set(0, 0.85, -0.4);
+  root.add(cabFloor);
+
+  // Seat
+  const seat = new THREE.Mesh(new RoundedBoxGeometry(0.45, 0.1, 0.45, 2, 0.05), seatMat);
+  seat.position.set(0, 0.95, -0.5);
+  root.add(seat);
+  const back = new THREE.Mesh(new RoundedBoxGeometry(0.45, 0.55, 0.1, 2, 0.05), seatMat);
+  back.position.set(0, 1.25, -0.7);
+  root.add(back);
+
+  // Steering wheel
+  const sWheel = new THREE.Mesh(
+    new THREE.TorusGeometry(0.13, 0.025, 8, 24),
+    new THREE.MeshStandardMaterial({ color: 0x111317, roughness: 0.7 })
+  );
+  sWheel.rotation.x = Math.PI / 3;
+  sWheel.position.set(0, 1.2, -0.05);
+  root.add(sWheel);
+  const steerCol = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.03, 0.03, 0.45, 12),
+    dark
+  );
+  steerCol.rotation.x = Math.PI / 2.3;
+  steerCol.position.set(0, 1.0, -0.1);
+  root.add(steerCol);
+
+  // ROPS overhead cage (yellow tubes)
+  const tubeMat = yellow;
+  const tubeR = 0.045;
+  function tube(x1, y1, z1, x2, y2, z2) {
+    const dx = x2 - x1, dy = y2 - y1, dz = z2 - z1;
+    const len = Math.hypot(dx, dy, dz);
+    const t = new THREE.Mesh(new THREE.CylinderGeometry(tubeR, tubeR, len, 10), tubeMat);
+    t.position.set((x1 + x2) / 2, (y1 + y2) / 2, (z1 + z2) / 2);
+    const dir = new THREE.Vector3(dx, dy, dz).normalize();
+    const up = new THREE.Vector3(0, 1, 0);
+    const q = new THREE.Quaternion().setFromUnitVectors(up, dir);
+    t.quaternion.copy(q);
+    return t;
+  }
+  // 4 vertical posts
+  const cabH = 2.05;
+  const cabFrontZ = 0.05, cabBackZ = -1.0;
+  const cabHalfW = 0.55;
+  for (const sx of [-1, 1]) {
+    root.add(tube(sx * cabHalfW, 0.85, cabFrontZ, sx * cabHalfW, cabH, cabFrontZ));
+    root.add(tube(sx * cabHalfW, 0.85, cabBackZ,  sx * cabHalfW, cabH, cabBackZ));
+  }
+  // 4 horizontal cage tubes on top
+  root.add(tube(-cabHalfW, cabH, cabFrontZ,  cabHalfW, cabH, cabFrontZ));
+  root.add(tube(-cabHalfW, cabH, cabBackZ,   cabHalfW, cabH, cabBackZ));
+  root.add(tube(-cabHalfW, cabH, cabFrontZ, -cabHalfW, cabH, cabBackZ));
+  root.add(tube( cabHalfW, cabH, cabFrontZ,  cabHalfW, cabH, cabBackZ));
+  // Top mesh (a few cross tubes)
+  for (let i = -1; i <= 1; i++) {
+    root.add(tube(-cabHalfW, cabH, cabFrontZ + i * 0.32, cabHalfW, cabH, cabFrontZ + i * 0.32));
+  }
+
+  // Wheels (front: solid larger drive, rear: small steering)
+  const tireMat = new THREE.MeshStandardMaterial({ color: 0x141518, roughness: 0.95, metalness: 0.05 });
+  const rimMat = new THREE.MeshStandardMaterial({ color: 0x6a7080, roughness: 0.4, metalness: 0.7 });
+
+  // Each wheel is a parent group that handles steering (rotation.y), with an
+  // inner spin group that handles rolling (rotation.x). Tire+rim go inside
+  // the spin group so they stay locked together.
+  const wheelArr = [];   // spin groups (rolling)
+  function makeWheel(x, z, R, w) {
+    const steerGroup = new THREE.Group();
+    steerGroup.position.set(x, R, z);
+    root.add(steerGroup);
+
+    const spinGroup = new THREE.Group();
+    steerGroup.add(spinGroup);
+
+    const tire = new THREE.Mesh(
+      new THREE.CylinderGeometry(R, R, w, 24), tireMat
+    );
+    tire.rotation.z = Math.PI / 2;
+    tire.castShadow = true;
+    spinGroup.add(tire);
+
+    const rim = new THREE.Mesh(
+      new THREE.CylinderGeometry(R * 0.5, R * 0.5, w * 1.05, 14), rimMat
+    );
+    rim.rotation.z = Math.PI / 2;
+    spinGroup.add(rim);
+
+    wheelArr.push(spinGroup);
+    return { steerGroup, spinGroup };
+  }
+  // Front drive wheels (large, no steering)
+  makeWheel(0.55, 0.5, 0.32, 0.22);
+  makeWheel(-0.55, 0.5, 0.32, 0.22);
+  // Rear steer wheels (smaller)
+  const rearL = makeWheel(-0.45, -1.05, 0.24, 0.18);
+  const rearR = makeWheel(0.45, -1.05, 0.24, 0.18);
+  // Expose only the steer groups for rear wheels.
+  const rearSteerGroups = [rearL.steerGroup, rearR.steerGroup];
+
+  // ----- Mast (front, vertical, two red rails) -----
+  const mast = new THREE.Group();
+  mast.position.set(0, 0, 0.95);
+  root.add(mast);
+  const mastH = 2.4;
+  for (const sx of [-1, 1]) {
+    const rail = new THREE.Mesh(
+      new THREE.BoxGeometry(0.10, mastH, 0.16), red
+    );
+    rail.position.set(sx * 0.42, mastH / 2, 0);
+    rail.castShadow = true;
+    mast.add(rail);
+  }
+  // Cross-bars on mast
+  for (let h = 0.5; h <= mastH - 0.3; h += 0.6) {
+    const bar = new THREE.Mesh(
+      new THREE.BoxGeometry(1.0, 0.06, 0.06), red
+    );
+    bar.position.set(0, h, 0.05);
+    mast.add(bar);
+  }
+
+  // Carriage (slides up/down the mast) — group so we can animate
+  const carriage = new THREE.Group();
+  mast.add(carriage);
+
+  const carrPlate = new THREE.Mesh(new THREE.BoxGeometry(1.0, 0.4, 0.06), steel);
+  carrPlate.position.set(0, 0.25, 0.12);
+  carriage.add(carrPlate);
+
+  // Two forks (tines)
+  for (const sx of [-1, 1]) {
+    const tine = new THREE.Group();
+    // Vertical part attached to carriage
+    const vert = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.45, 0.06), steel);
+    vert.position.set(0, 0, 0.0);
+    tine.add(vert);
+    // Horizontal blade extending forward
+    const blade = new THREE.Mesh(new THREE.BoxGeometry(0.10, 0.05, 1.0), steel);
+    blade.position.set(0, -0.20, 0.5);
+    blade.castShadow = true;
+    tine.add(blade);
+    tine.position.set(sx * 0.30, 0.25, 0.16);
+    carriage.add(tine);
+  }
+  carriage.position.y = 0;
+
+  // Headlights and beacon
+  const beaconBase = new THREE.Mesh(new THREE.CylinderGeometry(0.07, 0.07, 0.05, 12), dark);
+  beaconBase.position.set(0, cabH + 0.04, -0.5);
+  root.add(beaconBase);
+  const beacon = new THREE.Mesh(
+    new THREE.SphereGeometry(0.09, 12, 8),
+    new THREE.MeshBasicMaterial({ color: 0xffb454 })
+  );
+  beacon.position.set(0, cabH + 0.13, -0.5);
+  root.add(beacon);
+  const beaconLight = new THREE.PointLight(0xffb454, 1.0, 6, 2);
+  beaconLight.position.copy(beacon.position);
+  root.add(beaconLight);
+
+  // Two front lights on mast
+  for (const sx of [-1, 1]) {
+    const hl = new THREE.Mesh(
+      new THREE.BoxGeometry(0.12, 0.08, 0.04),
+      new THREE.MeshBasicMaterial({ color: 0xfff5d4 })
+    );
+    hl.position.set(sx * 0.30, 0.5, 1.0);
+    root.add(hl);
+  }
+
+  // Hyster-style logo strip
+  const logoCanvas = document.createElement('canvas');
+  logoCanvas.width = 256; logoCanvas.height = 64;
+  const lc = logoCanvas.getContext('2d');
+  lc.fillStyle = '#1c1f24';
+  lc.fillRect(0, 0, 256, 64);
+  lc.fillStyle = '#f4c020';
+  lc.font = 'bold 38px "Inter", sans-serif';
+  lc.textAlign = 'center'; lc.textBaseline = 'middle';
+  lc.fillText('HYSTER', 128, 32);
+  const logoTex = new THREE.CanvasTexture(logoCanvas);
+  logoTex.colorSpace = THREE.SRGBColorSpace;
+  const logo = new THREE.Mesh(
+    new THREE.PlaneGeometry(0.9, 0.22),
+    new THREE.MeshBasicMaterial({ map: logoTex, transparent: true })
+  );
+  logo.position.set(0, 0.48, -1.36);
+  logo.rotation.y = Math.PI;
+  root.add(logo);
+
+  // Reparent everything into an "inner" group rotated 180deg around Y so the
+  // forklift's "front" (mast side) becomes local -Z, matching the truck's
+  // convention. Without this, pressing W would visually move the forklift
+  // backwards (mast pointing one way, drive vector the other).
+  const inner = new THREE.Group();
+  inner.rotation.y = Math.PI;
+  while (root.children.length) inner.add(root.children[0]);
+  root.add(inner);
+
+  return {
+    root,
+    parts: {
+      wheels: wheelArr,           // spin groups (rolling on rotation.x)
+      rearWheels: rearSteerGroups, // steer groups (steering on rotation.y)
+      mast,
+      carriage,
+      beacon, beaconLight,
+    },
+  };
+}
+
+const forklift = buildForklift();
+forklift.root.position.set(-10, 0, 4);
+forklift.root.rotation.y = Math.PI / 2;
+forklift.root.visible = false; // shown only when warehouse mode is on
+scene.add(forklift.root);
+
 // ---------- View mode application ----------
 function applyViewMode() {
   if (!currentTruck) return;
@@ -1585,98 +2451,166 @@ window.addEventListener('keydown', e => {
     const next = STATE.viewMode === 'xray' ? 'solid' : 'xray';
     setViewMode(next);
   }
+  if (k === 'f') toggleVehicle();
+  if (k === 'h') setWarehouse(!STATE.showWarehouse);
+  // Prevent space from scrolling the page when forklift is active.
+  if (k === ' ' && STATE.activeVehicle === 'forklift') e.preventDefault();
 });
 window.addEventListener('keyup', e => keys.delete(e.key.toLowerCase()));
 
-const driveState = {
-  speed: 0,        // m/s along facing direction (forward = -Z local)
-  steerAngle: 0,   // radians, current steering of front wheels
-  yaw: 0,          // truck heading (Y rotation)
+function makeDriveState() {
+  return {
+    speed: 0,        // m/s along facing direction (forward = -Z local)
+    steerAngle: 0,   // radians, current steering of front wheels
+    yaw: 0,          // heading (Y rotation)
+    mastHeight: 0,   // forklift only
+  };
+}
+const driveStates = {
+  truck: makeDriveState(),
+  forklift: makeDriveState(),
+};
+// Backwards-compat alias used by follow camera
+const driveState = driveStates.truck;
+
+const VEHICLE_PARAMS = {
+  truck: {
+    accel: 5.0, maxSpeed: 8.0, friction: 1.6,
+    steerSpeed: 1.5, maxSteer: 0.6, steerReturn: 2.5,
+    manualYaw: 1.4,
+  },
+  forklift: {
+    accel: 3.0, maxSpeed: 4.0, friction: 2.2,
+    steerSpeed: 2.5, maxSteer: 1.1, steerReturn: 3.0,
+    manualYaw: 1.8,
+  },
 };
 
 function resetTruck() {
-  driveState.speed = 0;
-  driveState.steerAngle = 0;
-  driveState.yaw = 0;
-  truckRoot.position.set(0, 0, 0);
-  truckRoot.rotation.set(0, 0, 0);
+  for (const k of ['truck', 'forklift']) {
+    driveStates[k].speed = 0;
+    driveStates[k].steerAngle = 0;
+  }
+  if (STATE.showWarehouse) {
+    // Park the truck at dock D1 (cab facing out, rear engaged with leveler).
+    const bodyLen = currentTruck ? currentTruck.bodyLength : 6.30;
+    const dockWallZ = 22, rearOverlap = 0.5;
+    driveStates.truck.yaw = Math.PI;
+    truckRoot.position.set(4, 0, dockWallZ - rearOverlap + bodyLen / 2);
+    truckRoot.rotation.set(0, Math.PI, 0);
+  } else {
+    driveStates.truck.yaw = 0;
+    truckRoot.position.set(0, 0, 0);
+    truckRoot.rotation.set(0, 0, 0);
+  }
+  // Forklift: default warehouse parking spot.
+  driveStates.forklift.yaw = Math.PI / 2;
+  driveStates.forklift.mastHeight = 0;
+  forklift.root.position.set(-10, 0, 4);
+  forklift.root.rotation.set(0, Math.PI / 2, 0);
+  if (forklift.parts.carriage) forklift.parts.carriage.position.y = 0;
 }
 
 function updateDriving(dt) {
-  // Throttle
-  const accel = 5.0;     // m/s^2
-  const maxSpeed = 8.0;
-  const friction = 1.6;
+  const activeKey = STATE.activeVehicle;
+  const ds = driveStates[activeKey];
+  const params = VEHICLE_PARAMS[activeKey];
 
-  if (keys.has('w') || keys.has('arrowup')) driveState.speed = Math.min(maxSpeed, driveState.speed + accel * dt);
-  else if (keys.has('s') || keys.has('arrowdown')) driveState.speed = Math.max(-maxSpeed * 0.5, driveState.speed - accel * dt);
+  // Throttle (only on active vehicle)
+  if (keys.has('w') || keys.has('arrowup')) ds.speed = Math.min(params.maxSpeed, ds.speed + params.accel * dt);
+  else if (keys.has('s') || keys.has('arrowdown')) ds.speed = Math.max(-params.maxSpeed * 0.5, ds.speed - params.accel * dt);
   else {
-    if (driveState.speed > 0) driveState.speed = Math.max(0, driveState.speed - friction * dt);
-    else if (driveState.speed < 0) driveState.speed = Math.min(0, driveState.speed + friction * dt);
+    if (ds.speed > 0) ds.speed = Math.max(0, ds.speed - params.friction * dt);
+    else if (ds.speed < 0) ds.speed = Math.min(0, ds.speed + params.friction * dt);
   }
 
   // Steering
-  const steerSpeed = 1.5;
-  const maxSteer = 0.6;
-  const steerReturn = 2.5;
-  if (keys.has('a') || keys.has('arrowleft')) driveState.steerAngle = Math.min(maxSteer, driveState.steerAngle + steerSpeed * dt);
-  else if (keys.has('d') || keys.has('arrowright')) driveState.steerAngle = Math.max(-maxSteer, driveState.steerAngle - steerSpeed * dt);
+  if (keys.has('a') || keys.has('arrowleft')) ds.steerAngle = Math.min(params.maxSteer, ds.steerAngle + params.steerSpeed * dt);
+  else if (keys.has('d') || keys.has('arrowright')) ds.steerAngle = Math.max(-params.maxSteer, ds.steerAngle - params.steerSpeed * dt);
   else {
-    if (driveState.steerAngle > 0) driveState.steerAngle = Math.max(0, driveState.steerAngle - steerReturn * dt);
-    else if (driveState.steerAngle < 0) driveState.steerAngle = Math.min(0, driveState.steerAngle + steerReturn * dt);
+    if (ds.steerAngle > 0) ds.steerAngle = Math.max(0, ds.steerAngle - params.steerReturn * dt);
+    else if (ds.steerAngle < 0) ds.steerAngle = Math.min(0, ds.steerAngle + params.steerReturn * dt);
   }
 
   // Manual yaw with Q/E
-  const manualYaw = 1.4;
-  if (keys.has('q')) driveState.yaw += manualYaw * dt;
-  if (keys.has('e')) driveState.yaw -= manualYaw * dt;
+  if (keys.has('q')) ds.yaw += params.manualYaw * dt;
+  if (keys.has('e')) ds.yaw -= params.manualYaw * dt;
 
   // Bicycle-model yaw integration when moving
-  const wheelbase = currentTruck ? currentTruck.bodyLength * 0.55 : 3.5;
-  if (Math.abs(driveState.speed) > 0.01) {
-    driveState.yaw += (driveState.speed / wheelbase) * Math.tan(driveState.steerAngle) * dt;
+  let wheelbase;
+  if (activeKey === 'truck') wheelbase = currentTruck ? currentTruck.bodyLength * 0.55 : 3.5;
+  else wheelbase = 1.5; // forklift short wheelbase = tight turning
+  if (Math.abs(ds.speed) > 0.01) {
+    ds.yaw += (ds.speed / wheelbase) * Math.tan(ds.steerAngle) * dt;
   }
 
-  // Apply
-  truckRoot.rotation.y = driveState.yaw;
-  // Forward in local frame is -Z; in world frame, rotate by yaw
-  const cos = Math.cos(driveState.yaw);
-  const sin = Math.sin(driveState.yaw);
-  // direction vector
+  // Apply transforms
+  const sin = Math.sin(ds.yaw);
+  const cos = Math.cos(ds.yaw);
   const dirX = -sin;
   const dirZ = -cos;
-  truckRoot.position.x += dirX * driveState.speed * dt;
-  truckRoot.position.z += dirZ * driveState.speed * dt;
 
-  // Wheel spin animation. Tires were oriented with rotation.z = pi/2, so the
-  // axle now lies along the world X axis. Spinning around X rolls the tire.
-  if (currentTruck && currentTruck.parts.wheels) {
-    const angVel = driveState.speed / Math.max(0.05, currentTruck.spec.wheelRadius);
-    for (const w of currentTruck.parts.wheels) {
-      w.rotation.x += angVel * dt;
-    }
+  if (activeKey === 'truck') {
+    truckRoot.rotation.y = ds.yaw;
+    truckRoot.position.x += dirX * ds.speed * dt;
+    truckRoot.position.z += dirZ * ds.speed * dt;
+  } else {
+    forklift.root.rotation.y = ds.yaw;
+    forklift.root.position.x += dirX * ds.speed * dt;
+    forklift.root.position.z += dirZ * ds.speed * dt;
   }
 
-  // Compass: arrow rotates with truck heading; degree text stays upright.
+  // Wheel spin animation for both vehicles (passive when speed=0)
+  if (currentTruck && currentTruck.parts.wheels) {
+    const angVel = driveStates.truck.speed / Math.max(0.05, currentTruck.spec.wheelRadius);
+    for (const w of currentTruck.parts.wheels) w.rotation.x += angVel * dt;
+  }
+  if (forklift.parts.wheels) {
+    const angVel = driveStates.forklift.speed / 0.30;
+    for (const w of forklift.parts.wheels) w.rotation.x += angVel * dt;
+  }
+
+  // Forklift-only: rear wheel steering visual + mast lift
+  if (activeKey === 'forklift') {
+    const targetSteer = driveStates.forklift.steerAngle;
+    if (forklift.parts.rearWheels) {
+      for (const w of forklift.parts.rearWheels) w.rotation.y = -targetSteer;
+    }
+    // Mast lift (Space = up, Shift = down)
+    const mastSpeed = 1.8;
+    if (keys.has(' ') || keys.has('spacebar')) ds.mastHeight = Math.min(2.2, ds.mastHeight + mastSpeed * dt);
+    if (keys.has('shift')) ds.mastHeight = Math.max(0, ds.mastHeight - mastSpeed * dt);
+    if (forklift.parts.carriage) forklift.parts.carriage.position.y = ds.mastHeight;
+  }
+
+  // Beacon spin (always)
+  if (forklift.parts.beacon) forklift.parts.beacon.rotation.y += 4 * dt;
+
+  // Compass: shows the active vehicle's heading.
   const arrow = document.getElementById('compass-arrow');
   const degEl = document.getElementById('compass-deg');
-  const deg = ((-driveState.yaw * 180 / Math.PI) % 360 + 360) % 360;
+  const yaw = ds.yaw;
+  const deg = ((-yaw * 180 / Math.PI) % 360 + 360) % 360;
   arrow.style.transform = `rotate(${deg}deg)`;
   degEl.textContent = String(Math.round(deg)).padStart(3, '0') + '°';
 }
 
-// Follow camera state
-const followOffset = new THREE.Vector3(0, 5.5, 9);
+// Follow camera state. Different offset per vehicle.
+const followOffsets = {
+  truck:    new THREE.Vector3(0, 5.5, 9),
+  forklift: new THREE.Vector3(0, 3.0, 5),
+};
 function applyFollowCamera(dt) {
   if (!STATE.followCam) return;
-  const truckPos = truckRoot.position.clone();
-  const yaw = driveState.yaw;
-  const offset = followOffset.clone();
-  offset.applyAxisAngle(new THREE.Vector3(0, 1, 0), yaw);
-  const target = truckPos.clone().add(offset);
-  // Smooth follow
+  const activeKey = STATE.activeVehicle;
+  const root = activeKey === 'truck' ? truckRoot : forklift.root;
+  const ds = driveStates[activeKey];
+  const pos = root.position.clone();
+  const offset = followOffsets[activeKey].clone();
+  offset.applyAxisAngle(new THREE.Vector3(0, 1, 0), ds.yaw);
+  const target = pos.clone().add(offset);
   camera.position.lerp(target, 1 - Math.pow(0.001, dt));
-  controls.target.lerp(truckPos.clone().setY(1.2), 1 - Math.pow(0.002, dt));
+  controls.target.lerp(pos.clone().setY(activeKey === 'truck' ? 1.2 : 0.8), 1 - Math.pow(0.002, dt));
 }
 
 // ---------- UI wiring ----------
@@ -1699,6 +2633,68 @@ function setTruck(key) {
   updateHUD();
   clearPalletInfo();
   resetTruck();
+}
+
+function setWarehouse(on) {
+  STATE.showWarehouse = on;
+  warehouseRoot.visible = on;
+  forklift.root.visible = on;
+  // Hide the showcase parking slot/grid when in warehouse mode.
+  groundGroup.visible = !on;
+  // Background tweak
+  scene.background = on ? new THREE.Color(0x05070a) : null;
+  scene.fog = on ? new THREE.Fog(0x05070a, 60, 250) : new THREE.Fog(0x07090d, 60, 250);
+  // Sync the toggle pill
+  document.getElementById('t-warehouse').classList.toggle('on', on);
+  document.getElementById('vehicle-bar').style.display = on ? 'flex' : 'none';
+  // If turning off and forklift is active, fall back to truck.
+  if (!on && STATE.activeVehicle === 'forklift') setVehicle('truck');
+  // Reposition vehicles + camera nicely on toggle
+  if (on) {
+    // Park truck at dock D1 backed-in: cab faces south (out of the building),
+    // rear is engaged with the dock leveler at the south wall (z = +22).
+    const bodyLen = currentTruck ? currentTruck.bodyLength : 6.30;
+    const dockWallZ = 22;
+    const rearOverlap = 0.5; // rear overlaps 0.5m into the dock for visual contact
+    truckRoot.position.set(4, 0, dockWallZ - rearOverlap + bodyLen / 2);
+    truckRoot.rotation.set(0, Math.PI, 0);
+    driveStates.truck.yaw = Math.PI;
+    // Forklift inside zone B / staging area. With the new -Z=front convention
+    // (after the inner flip), yaw = pi/2 makes the mast face west (-X) toward
+    // the western racks, so pressing W drives it forward visually.
+    forklift.root.position.set(-10, 0, 4);
+    forklift.root.rotation.set(0, Math.PI / 2, 0);
+    driveStates.forklift.yaw = Math.PI / 2;
+    if (forklift.parts.carriage) forklift.parts.carriage.position.y = 0;
+    driveStates.forklift.mastHeight = 0;
+    // Pull camera back to see the whole hall.
+    camera.position.set(-8, 24, 32);
+    controls.target.set(2, 1, 0);
+  } else {
+    truckRoot.position.set(0, 0, 0);
+    truckRoot.rotation.set(0, 0, 0);
+    driveStates.truck.yaw = 0;
+    camera.position.set(8, 6, 11);
+    controls.target.set(0, 1.2, 0);
+  }
+}
+
+function setVehicle(which) {
+  STATE.activeVehicle = which;
+  document.querySelectorAll('#vehicle-bar .vehicle-pill').forEach(el => {
+    el.classList.toggle('active', el.dataset.vehicle === which);
+  });
+  // Show forklift-specific hint row
+  const fkHint = document.getElementById('forklift-hints');
+  if (fkHint) fkHint.style.display = which === 'forklift' ? 'grid' : 'none';
+}
+
+function toggleVehicle() {
+  if (!STATE.showWarehouse) {
+    // Auto-enable warehouse if user tries to switch vehicle outside warehouse
+    setWarehouse(true);
+  }
+  setVehicle(STATE.activeVehicle === 'truck' ? 'forklift' : 'truck');
 }
 
 document.querySelectorAll('#truck-tabs .truck-tab').forEach(el => {
@@ -1732,6 +2728,14 @@ bindToggle('t-autorot', 'autoRotate', () => {
   controls.autoRotateSpeed = 0.6;
 });
 
+document.getElementById('t-warehouse').addEventListener('click', () => {
+  setWarehouse(!STATE.showWarehouse);
+});
+
+document.querySelectorAll('#vehicle-bar .vehicle-pill').forEach(el => {
+  el.addEventListener('click', () => setVehicle(el.dataset.vehicle));
+});
+
 // ---------- Resize ----------
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -1739,8 +2743,184 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
 
+// ---------- Real fleet plan loader ----------
+function pickTruckClassFromPallets(totalPallets) {
+  if (totalPallets <= 3) return 'van';
+  if (totalPallets <= 6) return 'std';
+  return 'big';
+}
+
+function classifyMaterial(material, name) {
+  const m = (material || '').toUpperCase();
+  const n = (name || '').toUpperCase();
+  const returnable =
+    n.includes('VACIO') || n.includes('VACIA') ||
+    m.endsWith('V') || /BARRIL/.test(n) && m.includes('30V');
+  // Glass bottles ("BOT.", "1/3 RET", "75CL") are fragile. Cans / PET are not.
+  const fragile =
+    n.includes('BOT.') ||
+    /1\/3\s*RET/.test(n) ||
+    /75\s*CL/.test(n) ||
+    n.includes('VIDRIO');
+  return { returnable, fragile };
+}
+
+function cargoLinesFromStops(stops) {
+  // Each stop is one delivery; aggregate item lines into our cargo-line shape.
+  // Stop ordering = array order in the plan.
+  const lines = [];
+  stops.forEach((stop, i) => {
+    const stopOrder = i + 1;
+    for (const it of (stop.items || [])) {
+      const cases = Math.max(1, Math.round(it.qty || 0));
+      const cls = classifyMaterial(it.material, it.name);
+      lines.push({
+        stop: stopOrder,
+        client: stop.client,
+        city: '',
+        material: it.material || '?',
+        name: (it.name || '').replace(/\s+/g, ' ').trim() || it.material || '?',
+        cases,
+        fragile: cls.fragile,
+        returnable: cls.returnable,
+      });
+    }
+    // If a stop has no items, add a placeholder line so the stop still shows.
+    if (!stop.items || stop.items.length === 0) {
+      lines.push({
+        stop: stopOrder, client: stop.client, city: '',
+        material: '?', name: 'Mixed cargo',
+        cases: Math.round((stop.qty || 1)),
+        fragile: false, returnable: false,
+      });
+    }
+  });
+  return lines;
+}
+
+async function loadFleetPlan() {
+  try {
+    const r = await fetch('data/fleet_plan.json', { cache: 'force-cache' });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const data = await r.json();
+    STATE.fleetData = data;
+
+    // Populate the day dropdown
+    const sel = document.getElementById('day-select');
+    sel.innerHTML = '';
+    for (const d of data.dates) {
+      const opt = document.createElement('option');
+      opt.value = d;
+      // Pretty format (dd Mmm yyyy)
+      const dt = new Date(d + 'T00:00:00');
+      const pretty = dt.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+      const trucks = data.by_date[d].length;
+      opt.textContent = `${pretty}  (${trucks} trucks)`;
+      sel.appendChild(opt);
+    }
+    sel.value = data.dates[0];
+    setDay(data.dates[0]);
+  } catch (err) {
+    console.warn('Could not load fleet_plan.json — falling back to demo cargo.', err);
+    document.getElementById('day-select').innerHTML = '<option>Demo data</option>';
+    document.getElementById('rn-current').textContent = 'demo';
+    document.getElementById('rn-total').textContent = '';
+  }
+}
+
+function setDay(date) {
+  if (!STATE.fleetData) return;
+  STATE.currentDate = date;
+  STATE.currentRouteIdx = 0;
+  document.getElementById('day-select').value = date;
+  loadCurrentRoute();
+}
+
+function loadCurrentRoute() {
+  if (!STATE.fleetData || !STATE.currentDate) return;
+  const trucks = STATE.fleetData.by_date[STATE.currentDate] || [];
+  const total = trucks.length;
+  if (!total) return;
+  const idx = ((STATE.currentRouteIdx % total) + total) % total;
+  STATE.currentRouteIdx = idx;
+  const truckPlan = trucks[idx];
+  const stops = truckPlan.stops || [];
+  const totalPallets = stops.reduce((s, st) => s + (st.pallets || 0), 0);
+  const klass = pickTruckClassFromPallets(totalPallets);
+
+  STATE.activeCargo = cargoLinesFromStops(stops);
+  // Per-stop pallet_equiv hint for the packer.
+  STATE.activeStopPallets = {};
+  stops.forEach((s, i) => { STATE.activeStopPallets[i + 1] = s.pallets || 1; });
+  STATE.currentRouteInfo = {
+    date: STATE.currentDate,
+    idx,
+    total,
+    pallets: totalPallets,
+    stops: stops.length,
+    autoClass: klass,
+  };
+
+  // Update UI counters
+  document.getElementById('rn-current').textContent = String(idx + 1);
+  document.getElementById('rn-total').textContent = String(total);
+  // Compact date + pallet hint in the brand subtitle.
+  const dt = new Date(STATE.currentDate + 'T00:00:00');
+  const pretty = dt.toLocaleDateString('en-GB', { day: '2-digit', month: 'short' });
+  document.getElementById('brand-sub').textContent =
+    `${pretty} · ${totalPallets.toFixed(1)} pal · ${stops.length} stops`;
+
+  // Apply auto-picked truck class (rebuilds the truck with new cargo)
+  setTruck(klass);
+}
+
+document.getElementById('day-select').addEventListener('change', e => setDay(e.target.value));
+document.getElementById('route-prev').addEventListener('click', () => {
+  if (!STATE.fleetData) return;
+  STATE.currentRouteIdx -= 1;
+  loadCurrentRoute();
+});
+document.getElementById('route-next').addEventListener('click', () => {
+  if (!STATE.fleetData) return;
+  STATE.currentRouteIdx += 1;
+  loadCurrentRoute();
+});
+
+// ---------- Zoom buttons ----------
+function zoomCamera(scale) {
+  // Multiply the camera-to-target distance by `scale` (e.g. 0.83 = zoom in).
+  const tgt = controls.target;
+  const dir = new THREE.Vector3().subVectors(camera.position, tgt);
+  let newDist = dir.length() * scale;
+  newDist = Math.max(controls.minDistance, Math.min(controls.maxDistance, newDist));
+  dir.setLength(newDist);
+  camera.position.copy(tgt).add(dir);
+}
+document.getElementById('zoom-in').addEventListener('click', () => zoomCamera(0.72));
+document.getElementById('zoom-out').addEventListener('click', () => zoomCamera(1.40));
+document.getElementById('zoom-top').addEventListener('click', () => {
+  // Top-down view useful for the warehouse layout (or focused truck overhead)
+  if (STATE.showWarehouse) {
+    camera.position.set(0, 38, 0.01);
+    controls.target.set(0, 0, 0);
+  } else {
+    camera.position.set(0, 14, 0.01);
+    controls.target.set(0, 0, 0);
+  }
+});
+document.getElementById('zoom-fit').addEventListener('click', () => {
+  if (STATE.showWarehouse) {
+    camera.position.set(-8, 24, 32);
+    controls.target.set(2, 1, 0);
+  } else {
+    camera.position.set(8, 6, 11);
+    controls.target.set(0, 1.2, 0);
+  }
+});
+
 // ---------- Init ----------
 setTruck('std');
+loadFleetPlan();
 document.getElementById('splash').classList.add('hidden');
 
 // ---------- Animation loop ----------

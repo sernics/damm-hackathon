@@ -1,34 +1,53 @@
 from __future__ import annotations
 
 import json
+import os
 from typing import Any
 
 from . import config
 
 _manifest_cache: dict[str, dict[str, Any]] | None = None
+_manifest_mtime: float | None = None
 _truck_plan_cache: dict[str, Any] | None = None
+_truck_plan_mtime: float | None = None
 
 
 def _load_manifest() -> dict[str, dict[str, Any]]:
-    global _manifest_cache
-    if _manifest_cache is not None:
+    global _manifest_cache, _manifest_mtime
+    current_mtime = os.path.getmtime(config.MANIFEST_PATH)
+    if _manifest_cache is not None and _manifest_mtime == current_mtime:
         return _manifest_cache
     with open(config.MANIFEST_PATH, encoding="utf-8") as f:
         data = json.load(f)
-    _manifest_cache = {}
+    fresh: dict[str, dict[str, Any]] = {}
     for entry in data.get("entries", []):
         name = entry.get("client_name", "").strip().upper()
-        if name:
-            _manifest_cache[name] = entry
+        if not name:
+            continue
+        # 18 trade names are shared by two different client_ids in the
+        # dataset. The truck plan only carries client_name, so we cannot
+        # disambiguate. Prefer the entry that has captured tips so the
+        # briefing still surfaces them when at least one of the collided
+        # clients is filled.
+        existing = fresh.get(name)
+        if existing is None:
+            fresh[name] = entry
+            continue
+        if entry.get("status") == "filled" and existing.get("status") != "filled":
+            fresh[name] = entry
+    _manifest_cache = fresh
+    _manifest_mtime = current_mtime
     return _manifest_cache
 
 
 def _load_truck_plan() -> dict[str, Any]:
-    global _truck_plan_cache
-    if _truck_plan_cache is not None:
+    global _truck_plan_cache, _truck_plan_mtime
+    current_mtime = os.path.getmtime(config.TRUCK_PLAN_PATH)
+    if _truck_plan_cache is not None and _truck_plan_mtime == current_mtime:
         return _truck_plan_cache
     with open(config.TRUCK_PLAN_PATH, encoding="utf-8") as f:
         _truck_plan_cache = json.load(f)
+    _truck_plan_mtime = current_mtime
     return _truck_plan_cache
 
 

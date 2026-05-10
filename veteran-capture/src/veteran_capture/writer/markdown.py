@@ -207,7 +207,10 @@ class _ManifestEntry:
     tips: list[dict[str, Any]]  # full content for filled clients, empty list otherwise
     suggested_driver_id: str | None
     suggested_driver_name: str | None
-    priority_score: float
+    suggested_driver_deliveries: int  # 0 if no suggestion
+    suggested_driver_is_fallback: bool  # True if driver has <2 deliveries
+    importance_score: float  # stable, depends only on the client profile
+    priority_score: float  # dynamic, "should we ask next?" (gap + staleness aware)
     total_cases: float
     n_deliveries: int
     pct_returnable: float
@@ -225,20 +228,32 @@ def _load_affinity_for_manifest() -> pd.DataFrame:
     return pd.read_parquet(path)
 
 
+@dataclass(slots=True)
+class _DriverSuggestion:
+    driver_id: str
+    score: float  # priority_score from the queue, or 0.0 if fallback
+    deliveries: int  # how many deliveries this driver has done to this client
+    is_fallback: bool  # True when the driver has <2 deliveries (low history)
+
+
 def _suggest_drivers_per_client(
     customers: pd.DataFrame,
     affinity: pd.DataFrame,
     bundles: dict[str, ClientNotesBundle],
-) -> dict[str, tuple[str, float]]:
-    """Best (driver_id, score) per client according to the priority queue.
+) -> dict[str, _DriverSuggestion]:
+    """Best driver per client.
 
-    Uses the same scoring as the live priority queue, but computed per
-    (client, driver) and then collapsed to one row per client (the
-    highest-scoring driver). Clients without an eligible driver (none
-    with the minimum delivery count) are absent from the dict; the
-    caller falls back to a volume-only proxy score for them.
+    Two-pass strategy:
+
+    1. Primary — pull the highest-scoring driver from the live priority
+       queue (which filters by ``min_driver_deliveries >= 2``). These
+       are confident suggestions: the driver knows the client.
+    2. Fallback — for clients that have no eligible driver in the queue,
+       pick whichever driver in `affinity` has the highest delivery count
+       (then highest volume as a tiebreaker), even if it is only 1 delivery.
+       Marked as ``is_fallback=True`` so the dashboard can surface a hint.
     """
-    suggestions: dict[str, tuple[str, float]] = {}
+    suggestions: dict[str, _DriverSuggestion] = {}
     if customers.empty or affinity.empty:
         return suggestions
 
@@ -252,26 +267,78 @@ def _suggest_drivers_per_client(
         top_n=0,
         min_driver_deliveries=2,
     )
-    if queue.empty:
-        return suggestions
-    best_per_client = queue.sort_values("score", ascending=False).drop_duplicates(
-        "client_id", keep="first"
-    )
-    for _, row in best_per_client.iterrows():
-        cid = str(row["client_id"])
-        suggestions[cid] = (str(row["driver_id"]), float(row["score"]))
+    if not queue.empty:
+        best_per_client = queue.sort_values("score", ascending=False).drop_duplicates(
+            "client_id", keep="first"
+        )
+        for _, row in best_per_client.iterrows():
+            cid = str(row["client_id"])
+            suggestions[cid] = _DriverSuggestion(
+                driver_id=str(row["driver_id"]),
+                score=float(row["score"]),
+                deliveries=int(row["n_deliveries_driver_to_client"]),
+                is_fallback=False,
+            )
+
+    # Fallback for clients missing from the queue (no driver met the
+    # min_driver_deliveries threshold). Pick best-effort from affinity.
+    all_client_ids = {str(c) for c in customers["client_id"]}
+    missing = all_client_ids - set(suggestions.keys())
+    if missing:
+        sub = affinity[affinity["client_id"].astype(str).isin(missing)]
+        if not sub.empty:
+            sub = sub.sort_values(
+                ["n_deliveries", "total_cases_equiv"],
+                ascending=[False, False],
+            ).drop_duplicates("client_id", keep="first")
+            for _, row in sub.iterrows():
+                cid = str(row["client_id"])
+                suggestions[cid] = _DriverSuggestion(
+                    driver_id=str(row["driver_id"]),
+                    score=0.0,  # no real priority score; caller uses _fallback_score
+                    deliveries=int(row["n_deliveries"]),
+                    is_fallback=True,
+                )
     return suggestions
 
 
 def _fallback_score(row: pd.Series, has_notes: bool) -> float:
-    """Cheap score for clients that have no eligible driver in the queue.
+    """Cheap priority score for clients with no eligible driver in the queue.
 
     Volume-only proxy in [0, 1], lightly penalised when notes already exist.
-    Keeps such clients sortable in the manifest without needing a driver.
+    Keeps such clients sortable on the priority axis without a driver match.
     """
     cases = float(row.get("total_cases_equiv") or 0.0)
     base = 0.0 if cases <= 0 else min(1.0, math.log1p(cases) / math.log1p(10000.0))
     return base * (0.5 if has_notes else 1.0) * 0.30
+
+
+def _has_barrels_skus(top_skus: Any) -> bool:
+    if not isinstance(top_skus, list | tuple):
+        try:
+            top_skus = list(top_skus) if top_skus is not None else []
+        except TypeError:
+            return False
+    return any(
+        str(s).startswith(("BRL", "ED30", "ED20", "TU20", "TU30", "VO20"))
+        for s in top_skus
+    )
+
+
+def _importance_score(row: pd.Series) -> float:
+    """Stable client importance: ignores capture state.
+
+    Combines log-scaled volume with a small bump for retornable-heavy and
+    barrel-handling clients (the ones where a tip pays off the most). Used
+    as the primary sort key so a client's rank does not collapse the moment
+    it gets filled.
+    """
+    cases = float(row.get("total_cases_equiv") or 0.0)
+    volume = 0.0 if cases <= 0 else min(1.0, math.log1p(cases) / math.log1p(10000.0))
+    pct_ret = float(row.get("pct_returnable_lines") or 0.0)
+    has_barrels = _has_barrels_skus(row.get("top_skus"))
+    complexity = min(1.0, 0.7 * max(0.0, pct_ret) + (0.3 if has_barrels else 0.0))
+    return round(0.7 * volume + 0.3 * complexity, 4)
 
 
 def build_manifest_entries(
@@ -294,9 +361,15 @@ def build_manifest_entries(
         match = suggestions.get(client_id)
         if match is None:
             suggested_id = None
-            score = _fallback_score(row, has_notes)
+            suggested_deliveries = 0
+            is_fallback = False
+            priority = _fallback_score(row, has_notes)
         else:
-            suggested_id, score = match
+            suggested_id = match.driver_id
+            suggested_deliveries = match.deliveries
+            is_fallback = match.is_fallback
+            priority = match.score if not match.is_fallback else _fallback_score(row, has_notes)
+        importance = _importance_score(row)
 
         topics_titles: list[str] = []
         consensus_codes: list[str] = []
@@ -338,7 +411,10 @@ def build_manifest_entries(
                     if suggested_id
                     else None
                 ),
-                priority_score=round(float(score), 4),
+                suggested_driver_deliveries=suggested_deliveries,
+                suggested_driver_is_fallback=is_fallback,
+                importance_score=importance,
+                priority_score=round(float(priority), 4),
                 total_cases=float(row.get("total_cases_equiv") or 0.0),
                 n_deliveries=int(row.get("n_deliveries") or 0),
                 pct_returnable=float(row.get("pct_returnable_lines") or 0.0),
@@ -357,7 +433,7 @@ def build_manifest_entries(
             )
         )
 
-    entries.sort(key=lambda e: (-e.priority_score, e.client_id))
+    entries.sort(key=lambda e: (-e.importance_score, e.client_id))
     for i, entry in enumerate(entries, start=1):
         entry.rank = i
     return entries
@@ -385,6 +461,9 @@ def _manifest_to_json(
                 "consensus_topics": e.consensus_topics,
                 "suggested_driver_id": e.suggested_driver_id,
                 "suggested_driver_name": e.suggested_driver_name,
+                "suggested_driver_deliveries": e.suggested_driver_deliveries,
+                "suggested_driver_is_fallback": e.suggested_driver_is_fallback,
+                "importance_score": e.importance_score,
                 "priority_score": e.priority_score,
                 "total_cases": e.total_cases,
                 "n_deliveries": e.n_deliveries,

@@ -1,0 +1,37 @@
+{
+  "capture": {
+    "client_id": "9100609846",
+    "driver_id": "855189",
+    "captured_at": "2026-05-10T02:41:25.920172Z",
+    "tips": [
+      {
+        "topic": "parking",
+        "text": "Aparcar el camión enfrente de la fuente, en la Calle Nuria.",
+        "confidence": "high"
+      },
+      {
+        "topic": "hours",
+        "text": "Llegar antes de las 12:00 h para realizar la entrega.",
+        "confidence": "high"
+      }
+    ],
+    "raw_transcript": "Bueno, el truco en este sitio es dejar el camión aparcado enfrente de la fuente y tienes que llegar antes de las 12.",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [
+      {
+        "topic": "parking",
+        "text": "Aparcar el camión enfrente de la fuente, en la Calle Nuria.",
+        "confidence": "high"
+      },
+      {
+        "topic": "hours",
+        "text": "Llegar antes de las 12:00 h para realizar la entrega.",
+        "confidence": "high"
+      }
+    ],
+    "rejected": [],
+    "notes": "sin cambios"
+  }
+}

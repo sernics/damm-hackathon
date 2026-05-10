@@ -3,165 +3,223 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Driver Briefing</title>
+  <title>Driver Briefing — Damm DDI</title>
   <style>
+    :root {
+      --damm-red: #e30613;
+      --bg: #0e0e10;
+      --fg: #f5f5f7;
+      --muted: #9b9ba1;
+      --card: #1a1a1f;
+      --card-alt: #15151a;
+      --border: #2a2a31;
+      --ok: #36b37e;
+      --warn: #ff8b00;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    body {
+    html, body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #f5f5f5;
-      color: #1a1a1a;
+      background: var(--bg);
+      color: var(--fg);
       min-height: 100vh;
     }
 
-    .header {
-      background: #1a1a1a;
+    main { max-width: 1080px; margin: 0 auto; padding: 28px 24px 80px; }
+
+    .badge-brand {
+      display: inline-block;
+      background: var(--damm-red);
       color: #fff;
-      padding: 1rem 2rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    .header h1 { font-size: 1.2rem; font-weight: 600; }
-
-    .container { max-width: 960px; margin: 1.5rem auto; padding: 0 1rem; }
+    h1 { font-size: 26px; line-height: 1.2; margin: 14px 0 4px; }
+    .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 24px; }
 
     .card {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-      padding: 1.25rem;
-      margin-bottom: 1.25rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 18px;
     }
 
     .card h2 {
-      font-size: 0.8rem;
+      font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: #888;
-      margin-bottom: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 600;
     }
 
     .controls {
       display: flex;
-      gap: 0.75rem;
+      gap: 14px;
       flex-wrap: wrap;
       align-items: flex-end;
-      margin-bottom: 1rem;
+      margin-bottom: 16px;
     }
 
     .control-group {
       display: flex;
       flex-direction: column;
-      gap: 0.25rem;
+      gap: 4px;
     }
 
     .control-group label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #666;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
     select {
-      padding: 0.45rem 0.6rem;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 0.85rem;
-      background: #fff;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 13px;
+      background: var(--card-alt);
+      color: var(--fg);
+      min-width: 180px;
+    }
+    select:focus { outline: none; border-color: var(--damm-red); }
+    select option { background: var(--card-alt); color: var(--fg); }
+
+    .table-wrap {
+      max-height: 460px;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--card-alt);
     }
 
     .route-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.82rem;
+      font-size: 13px;
     }
 
     .route-table th {
       text-align: left;
-      padding: 0.5rem 0.6rem;
-      border-bottom: 2px solid #eee;
-      font-size: 0.72rem;
+      padding: 10px 12px;
+      background: #15151a;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.04em;
-      color: #999;
-      font-weight: 500;
+      color: var(--muted);
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 1;
     }
 
     .route-table td {
-      padding: 0.55rem 0.6rem;
-      border-bottom: 1px solid #f0f0f0;
+      padding: 10px 12px;
+      border-top: 1px solid var(--border);
       vertical-align: top;
     }
 
     .route-table tr { cursor: pointer; transition: background 0.1s; }
-    .route-table tr:hover { background: #fafafa; }
-    .route-table tr.selected { background: #f0f4ff; }
-    .route-table tr.no-tips { opacity: 0.45; }
+    .route-table tr:hover { background: rgba(227, 6, 19, 0.06); }
+    .route-table tr.selected { background: rgba(227, 6, 19, 0.14); }
+    .route-table tr.no-tips { opacity: 0.55; }
 
     .route-id { font-weight: 600; font-variant-numeric: tabular-nums; }
 
-    .client-list { display: flex; flex-wrap: wrap; gap: 0.25rem; }
+    .client-list { display: flex; flex-wrap: wrap; gap: 4px; }
 
     .client-tag {
       display: inline-block;
-      font-size: 0.72rem;
-      padding: 0.12rem 0.4rem;
-      border-radius: 3px;
-      background: #f3f3f3;
-      color: #777;
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 4px;
+      background: var(--card);
+      color: var(--muted);
+      border: 1px solid var(--border);
       white-space: nowrap;
     }
 
     .client-tag.has-tips {
-      background: #e8f5e9;
-      color: #2e7d32;
-      font-weight: 500;
+      background: rgba(54, 179, 126, 0.12);
+      color: var(--ok);
+      border-color: rgba(54, 179, 126, 0.4);
+      font-weight: 600;
     }
 
     .tips-badge {
       display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.15rem 0.4rem;
-      border-radius: 3px;
-      background: #e8f5e9;
-      color: #2e7d32;
-      min-width: 1.2rem;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(54, 179, 126, 0.18);
+      color: var(--ok);
+      min-width: 22px;
       text-align: center;
     }
 
-    .tips-badge.zero { background: none; color: #ccc; font-weight: 400; }
+    .tips-badge.zero {
+      background: transparent;
+      color: var(--muted);
+      font-weight: 400;
+      border: 1px dashed var(--border);
+    }
 
     .actions {
       display: flex;
-      gap: 0.5rem;
+      gap: 10px;
       align-items: center;
-      margin-top: 0.75rem;
+      margin-top: 14px;
     }
 
     button {
-      padding: 0.5rem 1.25rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 0.82rem;
-      font-weight: 500;
+      padding: 9px 18px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
       cursor: pointer;
+      font-family: inherit;
     }
 
-    .btn-primary { background: #1a1a1a; color: #fff; }
-    .btn-primary:hover { background: #333; }
-    .btn-primary:disabled { background: #bbb; cursor: not-allowed; }
+    .btn-primary {
+      background: var(--damm-red);
+      color: #fff;
+      border-color: var(--damm-red);
+    }
+    .btn-primary:hover:not(:disabled) { opacity: 0.92; }
+    .btn-primary:disabled {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--muted);
+      cursor: not-allowed;
+    }
 
-    .btn-secondary { background: #eee; color: #444; }
-    .btn-secondary:hover { background: #ddd; }
+    .btn-secondary {
+      background: transparent;
+      color: var(--fg);
+      border-color: var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--damm-red); }
 
     .spinner {
       display: none;
       width: 16px; height: 16px;
-      border: 2px solid #ddd;
-      border-top-color: #333;
+      border: 2px solid var(--border);
+      border-top-color: var(--damm-red);
       border-radius: 50%;
       animation: spin 0.5s linear infinite;
     }
-
     @keyframes spin { to { transform: rotate(360deg); } }
 
     #result { display: none; }
@@ -170,71 +228,94 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.6rem;
-      border-bottom: 1px solid #eee;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .briefing-title { font-size: 1rem; font-weight: 600; }
+    .briefing-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
 
     .badge {
-      font-size: 0.68rem;
+      font-size: 11px;
       text-transform: uppercase;
-      background: #f0f0f0;
-      padding: 0.15rem 0.4rem;
-      border-radius: 3px;
-      color: #777;
+      background: rgba(227, 6, 19, 0.18);
+      color: var(--damm-red);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
     }
 
     .briefing-body {
-      font-size: 0.88rem;
+      font-size: 14px;
       line-height: 1.65;
       white-space: pre-wrap;
+      color: var(--fg);
     }
+    .briefing-body strong { color: var(--fg); }
+    .briefing-body hr { border: none; border-top: 1px solid var(--border); margin: 0.6rem 0; }
 
     .error-msg {
-      background: #fff0f0;
-      color: #c00;
-      padding: 0.6rem 0.85rem;
-      border-radius: 5px;
-      font-size: 0.82rem;
+      background: rgba(227, 6, 19, 0.1);
+      color: var(--damm-red);
+      border: 1px solid rgba(227, 6, 19, 0.4);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
       display: none;
-      margin-bottom: 1rem;
+      margin-bottom: 14px;
     }
 
     .empty-state {
       text-align: center;
-      padding: 1.5rem;
-      color: #aaa;
-      font-size: 0.85rem;
+      padding: 28px 12px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .table-wrap {
-      max-height: 420px;
-      overflow-y: auto;
-      border: 1px solid #eee;
-      border-radius: 6px;
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 36px;
     }
+    footer a { color: var(--damm-red); text-decoration: none; }
 
     @media print {
-      body { background: #fff; }
-      .header { background: #000; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      :root {
+        --bg: #fff;
+        --fg: #1a1a1a;
+        --muted: #555;
+        --card: #fff;
+        --card-alt: #fff;
+        --border: #ddd;
+      }
+      html, body { background: #fff; color: #1a1a1a; }
+      .badge-brand { background: #000; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       #input-section { display: none !important; }
       #result { display: block !important; }
-      .btn-secondary { display: none; }
-      .container { max-width: 100%; }
+      .btn-secondary, .actions { display: none !important; }
+      main { max-width: 100%; padding: 12px; }
+      .card { border: 1px solid #ddd; box-shadow: none; }
+      .briefing-body { color: #1a1a1a; }
+      .badge { background: #000; color: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
 </head>
 <body>
 
-<div class="header">
-  <h1>AI Driver Briefing</h1>
-</div>
+<main>
 
-<div class="container">
+  <div class="badge-brand">Damm &middot; DDI &middot; Driver Briefing</div>
+  <h1>Driver briefing</h1>
+  <div class="subtitle">Pick a date, choose a truck, and generate the compact route briefing the driver receives. Tips come from the veteran-capture knowledge base.</div>
 
   <div class="card" id="input-section">
+    <h2>Route picker</h2>
     <div class="controls">
       <div class="control-group">
         <label for="date-select">Date</label>
@@ -256,7 +337,7 @@
     </div>
 
     <div class="actions">
-      <button class="btn-primary" id="btn-generate" onclick="generateBriefing()" disabled>Generate Briefing</button>
+      <button class="btn-primary" id="btn-generate" onclick="generateBriefing()" disabled>Generate briefing</button>
       <div class="spinner" id="spinner"></div>
     </div>
   </div>
@@ -269,12 +350,16 @@
       <span class="badge" id="res-lang"></span>
     </div>
     <div class="briefing-body" id="res-briefing"></div>
-    <div style="margin-top: 1rem; text-align: right;">
+    <div class="actions" style="justify-content: flex-end;">
       <button class="btn-secondary" onclick="window.print()">Print</button>
     </div>
   </div>
 
-</div>
+  <footer>
+    Damm Smart Truck &middot; reads <a href="/dataset/veteran_notes/manifest.json" target="_blank">manifest.json</a> from veteran-capture.
+  </footer>
+
+</main>
 
 <script>
 var selectedRouteId = null;
@@ -322,7 +407,7 @@ async function onDateChange() {
   routes.sort(function(a, b) { return b.tips_count - a.tips_count; });
 
   var html = '<div class="table-wrap"><table class="route-table">';
-  html += '<thead><tr><th>Route</th><th>Stops</th><th>Tips</th><th>Clients</th></tr></thead><tbody>';
+  html += '<thead><tr><th>Truck</th><th>Stops</th><th>Tips</th><th>Clients</th></tr></thead><tbody>';
 
   routes.forEach(function(r) {
     var rowClass = r.tips_count === 0 ? 'no-tips' : '';
@@ -372,7 +457,7 @@ function hideError() { document.getElementById("error-msg").style.display = "non
 function formatBriefing(text) {
   var h = text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   h = h.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-  h = h.replace(/^---$/gm, "<hr style='border:none;border-top:1px solid #ddd;margin:0.5rem 0'>");
+  h = h.replace(/^---$/gm, "<hr>");
   h = h.replace(/^- (.+)$/gm, function(_, c) {
     return "<span style='display:block;padding-left:1em;text-indent:-1em;margin:0.1rem 0'>&bull; " + c + "</span>";
   });

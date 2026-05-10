@@ -11,22 +11,28 @@ captured tip ({{ "%.1f"|format(100.0 * filled / total_clients if total_clients e
 
 ---
 
-## Top {{ top_recommend }} priorities for the next capture cycle
+> The **rank** is the client's stable importance (volume + retornable
+> complexity). It does not change when a client gets filled. The
+> **priority** column is dynamic: high for empty / stale clients,
+> low once tips are captured. Use it as the secondary signal for the
+> next capture cycle ("biggest clients we still know nothing about").
 
-| Rank | Client | Status | Tips | Drivers | Suggested next | Score |
-|---:|---|---|---:|---:|---|---:|
+## Top {{ top_recommend }} most important clients
+
+| Rank | Client | Status | Tips | Drivers | Suggested next | Importance | Priority |
+|---:|---|---|---:|---:|---|---:|---:|
 {% for entry in entries[:top_recommend] -%}
-| {{ entry.rank }} | {% if entry.notes_path %}[{{ entry.client_id }} — {{ entry.client_name }}]({{ entry.notes_path }}){% else %}{{ entry.client_id }} — {{ entry.client_name }}{% endif %} | {{ entry.status }} | {{ entry.n_tips if entry.n_tips else "—" }} | {{ entry.n_drivers if entry.n_drivers else "—" }} | {{ entry.suggested_driver_id ~ " " ~ entry.suggested_driver_name if entry.suggested_driver_id else "—" }} | {{ "%.3f"|format(entry.priority_score) }} |
+| {{ entry.rank }} | {% if entry.notes_path %}[{{ entry.client_id }} — {{ entry.client_name }}]({{ entry.notes_path }}){% else %}{{ entry.client_id }} — {{ entry.client_name }}{% endif %} | {{ entry.status }} | {{ entry.n_tips if entry.n_tips else "—" }} | {{ entry.n_drivers if entry.n_drivers else "—" }} | {{ entry.suggested_driver_id ~ " " ~ entry.suggested_driver_name if entry.suggested_driver_id else "—" }} | {{ "%.3f"|format(entry.importance_score) }} | {{ "%.3f"|format(entry.priority_score) }} |
 {% endfor %}
 
 ---
 
 ## Full manifest
 
-| Rank | Client ID | Name | Status | Tips | Drivers | Topics | Suggested next | Score | Cases | Deliveries | % retornable | Last update | Zone | Markdown |
-|---:|---|---|---|---:|---:|---|---|---:|---:|---:|---:|---|---|---|
+| Rank | Client ID | Name | Status | Tips | Drivers | Topics | Suggested next | Importance | Priority | Cases | Deliveries | % retornable | Last update | Zone | Markdown |
+|---:|---|---|---|---:|---:|---|---|---:|---:|---:|---:|---:|---|---|---|
 {% for entry in entries -%}
-| {{ entry.rank }} | {{ entry.client_id }} | {{ entry.client_name }} | {{ entry.status }} | {{ entry.n_tips if entry.n_tips else "—" }} | {{ entry.n_drivers if entry.n_drivers else "—" }} | {{ entry.topics|join(", ") if entry.topics else "—" }} | {{ entry.suggested_driver_id ~ " " ~ entry.suggested_driver_name if entry.suggested_driver_id else "—" }} | {{ "%.3f"|format(entry.priority_score) }} | {{ "%.0f"|format(entry.total_cases) }} | {{ entry.n_deliveries }} | {{ "%.0f"|format(entry.pct_returnable * 100) }}% | {{ entry.last_updated.strftime("%Y-%m-%d") if entry.last_updated else "—" }} | {{ entry.zone or "—" }} | {% if entry.notes_path %}[{{ entry.notes_path }}]({{ entry.notes_path }}){% else %}—{% endif %} |
+| {{ entry.rank }} | {{ entry.client_id }} | {{ entry.client_name }} | {{ entry.status }} | {{ entry.n_tips if entry.n_tips else "—" }} | {{ entry.n_drivers if entry.n_drivers else "—" }} | {{ entry.topics|join(", ") if entry.topics else "—" }} | {{ entry.suggested_driver_id ~ " " ~ entry.suggested_driver_name if entry.suggested_driver_id else "—" }} | {{ "%.3f"|format(entry.importance_score) }} | {{ "%.3f"|format(entry.priority_score) }} | {{ "%.0f"|format(entry.total_cases) }} | {{ entry.n_deliveries }} | {{ "%.0f"|format(entry.pct_returnable * 100) }}% | {{ entry.last_updated.strftime("%Y-%m-%d") if entry.last_updated else "—" }} | {{ entry.zone or "—" }} | {% if entry.notes_path %}[{{ entry.notes_path }}]({{ entry.notes_path }}){% else %}—{% endif %} |
 {% endfor %}
 
 ---

@@ -452,11 +452,15 @@ Each rendered file has:
 Single source of truth for "which client is next, and who do we ask?".
 
 - One row per **active client** (every entry in `customers.parquet`).
-- Sorted by priority score descending. The score is computed by
-  `selection.build_priority_queue` against all eligible (client, driver)
-  pairs and then collapsed to one row per client (the highest-scoring
-  driver wins). Clients with no eligible driver still get a fallback
-  volume-only score so the manifest is complete.
+- Sorted by **`importance_score`** descending. Importance is stable —
+  it depends only on the client profile (log-scaled volume + retornable
+  complexity), so a client does not collapse in the ranking the moment
+  it gets filled.
+- The dynamic **`priority_score`** (gap + staleness + familiarity +
+  recency, computed by `selection.build_priority_queue`) is kept as a
+  separate field. It is the secondary signal — *"of the important
+  clients, which one is most urgent to ask next?"* — useful for the
+  cron when filtering on `status="empty"`.
 - Status is `filled` (has at least one captured tip) or `empty`.
 - The header highlights the **top N priorities for the next capture
   cycle** (default 20) so a human can read the file like a punch list.

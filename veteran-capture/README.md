@@ -3,6 +3,8 @@
 Active capture of tacit driver knowledge: cron picks (client, driver) pairs, sends a short prompt to a veteran driver, the driver replies with a voice message, the system transcribes it and writes structured Markdown notes per client. The Markdown is the RAG source for the briefing LLM.
 
 > Full spec lives in [`../cerebro/11_veteran_capture.md`](../cerebro/11_veteran_capture.md). Read that first if you want the design rationale. This README is just the build plan.
+>
+> For a 5-minute narrative explainer of how the whole module works see [`docs/OVERVIEW.md`](docs/OVERVIEW.md). For the code-level walkthrough see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 ---
 
