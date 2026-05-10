@@ -1,0 +1,57 @@
+{
+  "capture": {
+    "client_id": "9100515642",
+    "driver_id": "855189",
+    "captured_at": "2026-05-10T09:41:47.693685Z",
+    "tips": [
+      {
+        "topic": "parking",
+        "text": "Dejar el camión de culo (marcha atrás) mirando hacia la tienda para facilitar la descarga.",
+        "confidence": "high"
+      },
+      {
+        "topic": "other",
+        "text": "Descargar primero las botellas antes que el resto de mercancía.",
+        "confidence": "high"
+      },
+      {
+        "topic": "contact_person",
+        "text": "La dependiente se llama Noelia. Es accesible y puede ayudar durante la entrega.",
+        "confidence": "high"
+      },
+      {
+        "topic": "hours",
+        "text": "Llegar antes de las 12:30 h. Si se llega después, el local estará cerrado.",
+        "confidence": "high"
+      }
+    ],
+    "raw_transcript": "Bueno, en el mal Montserrat yo diría que los únicos trucos son, para empezar recomiendo dejar el camión de culo mirando hacia la tienda, luego descargar primero las botellas, también puedes llamar a la dependiente Noelia, que es muy maja y te ayudará, eso sí, ya tienes que llegar antes de las 12 y media, si no, estará cerrado.",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [
+      {
+        "topic": "parking",
+        "text": "Dejar el camión de culo (marcha atrás) mirando hacia la tienda para facilitar la descarga.",
+        "confidence": "high"
+      },
+      {
+        "topic": "other",
+        "text": "Descargar primero las botellas antes que el resto de mercancía.",
+        "confidence": "high"
+      },
+      {
+        "topic": "contact_person",
+        "text": "La dependiente se llama Noelia. Es accesible y puede ayudar durante la entrega.",
+        "confidence": "high"
+      },
+      {
+        "topic": "hours",
+        "text": "Llegar antes de las 12:30 h. Si se llega después, el local estará cerrado.",
+        "confidence": "high"
+      }
+    ],
+    "rejected": [],
+    "notes": "sin cambios"
+  }
+}

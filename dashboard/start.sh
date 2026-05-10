@@ -8,6 +8,16 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LOG_DIR="${REPO_ROOT}/dashboard/logs"
 mkdir -p "${LOG_DIR}"
 
+# Load .env so subprocess shells (briefing in particular) see the secrets.
+# Briefing uses os.environ directly and does not parse .env on its own.
+if [[ -f "${REPO_ROOT}/.env" ]]; then
+  set -a
+  # shellcheck disable=SC1091
+  source "${REPO_ROOT}/.env"
+  set +a
+  echo "  [env] loaded ${REPO_ROOT}/.env"
+fi
+
 VETERAN_PORT=8001
 BRIEFING_PORT=8080
 WAREHOUSE_PORT=8000
