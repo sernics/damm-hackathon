@@ -1,0 +1,397 @@
+{
+  "metadata": {
+    "date": "2026-03-31",
+    "label": "baseline",
+    "n_transports": 4,
+    "n_clients": 6
+  },
+  "depot": {
+    "lat": 41.5417,
+    "lon": 2.2126,
+    "name": "DDI Mollet"
+  },
+  "clusters": [
+    {
+      "id": "11630118",
+      "truck_size": 3,
+      "color": "#1f77b4",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100736215,
+          "name": "Hotel Solana Del Ter",
+          "lat": 42.199249,
+          "lon": 2.185335,
+          "pallets": 0.101
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.185335,
+          42.199249
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 146.3,
+      "time_min": 292.6,
+      "occupation_pct": 3.4,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": [
+          {
+            "lines": [
+              {
+                "cantidad": 2.0,
+                "cliente": 9100736215,
+                "material": "0AM1634",
+                "product": "XPLICIT EDULCORANTE 1G 150U",
+                "retornable": false,
+                "size": 0.001851851851851852,
+                "stop_seq": 1,
+                "uma": "CAJ"
+              },
+              {
+                "cantidad": 1.0,
+                "cliente": 9100736215,
+                "material": "0AM5005",
+                "product": "AZUCAR 5G LA SOLANA 1500U",
+                "retornable": false,
+                "size": 0.009259259259259259,
+                "stop_seq": 1,
+                "uma": "CAJ"
+              },
+              {
+                "cantidad": 10.0,
+                "cliente": 9100736215,
+                "material": "0CF1028",
+                "product": "MALONGO EXPRESO INTENSO CAPSULAS 6G 120U",
+                "retornable": false,
+                "size": 0.06944444444444445,
+                "stop_seq": 1,
+                "uma": "CAJ"
+              },
+              {
+                "cantidad": 1.0,
+                "cliente": 9100736215,
+                "material": "0CF1028",
+                "product": "MALONGO EXPRESO INTENSO CAPSULAS 6G 120U",
+                "retornable": false,
+                "size": 0.006944444444444444,
+                "stop_seq": 1,
+                "uma": "ZPR"
+              },
+              {
+                "cantidad": 2.0,
+                "cliente": 9100736215,
+                "material": "0CF1112",
+                "product": "MALONGO DECA AQUA DESCAF ENFUND 6G 100U",
+                "retornable": false,
+                "size": 0.013888888888888888,
+                "stop_seq": 1,
+                "uma": "CAJ"
+              }
+            ],
+            "first_unload_stop_seq": 1,
+            "slot": 1,
+            "position": "front-left",
+            "occupation_pct": 10.1
+          }
+        ]
+      }
+    },
+    {
+      "id": "11627837",
+      "truck_size": 3,
+      "color": "#ff7f0e",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100736601,
+          "name": "Delight Coffee",
+          "lat": 41.4313373,
+          "lon": 2.2178629,
+          "pallets": 0.146
+        },
+        {
+          "seq": 2,
+          "cliente": 9100736469,
+          "name": "Cafeteria Nova & Gent",
+          "lat": 41.4559529,
+          "lon": 2.2189766,
+          "pallets": 0.008
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2178629,
+          41.4313373
+        ],
+        [
+          2.2189766,
+          41.4559529
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 24.57,
+      "time_min": 49.1,
+      "occupation_pct": 5.1,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": [
+          {
+            "lines": [
+              {
+                "cantidad": 2.0,
+                "cliente": 9100736469,
+                "material": "0CF1034",
+                "product": "BONKA ESSENTIA ECOLÓGICO GRANO 1KG",
+                "retornable": false,
+                "size": 0.008333333333333333,
+                "stop_seq": 2,
+                "uma": "UN"
+              },
+              {
+                "cantidad": 30.0,
+                "cliente": 9100736601,
+                "material": "0CF1136",
+                "product": "GARRIGA CREME NATURAL BOLSA 1KG 1U",
+                "retornable": false,
+                "size": 0.125,
+                "stop_seq": 1,
+                "uma": "UN"
+              },
+              {
+                "cantidad": 5.0,
+                "cliente": 9100736601,
+                "material": "0CF1136",
+                "product": "GARRIGA CREME NATURAL BOLSA 1KG 1U",
+                "retornable": false,
+                "size": 0.020833333333333332,
+                "stop_seq": 1,
+                "uma": "ZPR"
+              }
+            ],
+            "first_unload_stop_seq": 1,
+            "slot": 1,
+            "position": "front-left",
+            "occupation_pct": 15.4
+          }
+        ]
+      }
+    },
+    {
+      "id": "11627858",
+      "truck_size": 3,
+      "color": "#2ca02c",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100474233,
+          "name": "DOLC I SALAT MATARO",
+          "lat": 41.543805,
+          "lon": 2.2131250000000002,
+          "pallets": 0.027
+        },
+        {
+          "seq": 2,
+          "cliente": 9100749745,
+          "name": "Dolç i Salat Cuba",
+          "lat": 41.54217,
+          "lon": 2.212845,
+          "pallets": 0.032
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.2131250000000002,
+          41.543805
+        ],
+        [
+          2.212845,
+          41.54217
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 0.48,
+      "time_min": 1.0,
+      "occupation_pct": 2.0,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": [
+          {
+            "lines": [
+              {
+                "cantidad": 1.0,
+                "cliente": 9100749745,
+                "material": "0AM1291",
+                "product": "AZUCAR BLANCO BOLSITA 7GR ''BARES''1000U",
+                "retornable": false,
+                "size": 0.009259259259259259,
+                "stop_seq": 2,
+                "uma": "CAJ"
+              },
+              {
+                "cantidad": 2.0,
+                "cliente": 9100749745,
+                "material": "0AM1634",
+                "product": "XPLICIT EDULCORANTE 1G 150U",
+                "retornable": false,
+                "size": 0.001851851851851852,
+                "stop_seq": 2,
+                "uma": "CAJ"
+              },
+              {
+                "cantidad": 5.0,
+                "cliente": 9100749745,
+                "material": "0CF1034",
+                "product": "BONKA ESSENTIA ECOLÓGICO GRANO 1KG",
+                "retornable": false,
+                "size": 0.020833333333333332,
+                "stop_seq": 2,
+                "uma": "UN"
+              },
+              {
+                "cantidad": 1.0,
+                "cliente": 9100474233,
+                "material": "0AM1291",
+                "product": "AZUCAR BLANCO BOLSITA 7GR ''BARES''1000U",
+                "retornable": false,
+                "size": 0.009259259259259259,
+                "stop_seq": 1,
+                "uma": "CAJ"
+              },
+              {
+                "cantidad": 1.0,
+                "cliente": 9100474233,
+                "material": "0AM1634",
+                "product": "XPLICIT EDULCORANTE 1G 150U",
+                "retornable": false,
+                "size": 0.001,
+                "stop_seq": 1,
+                "uma": "CAJ"
+              },
+              {
+                "cantidad": 2.0,
+                "cliente": 9100474233,
+                "material": "0CF0355",
+                "product": "BONKA ESSENTIA DESCAFEINADO GRANO 500G",
+                "retornable": false,
+                "size": 0.004545454545454545,
+                "stop_seq": 1,
+                "uma": "UN"
+              },
+              {
+                "cantidad": 3.0,
+                "cliente": 9100474233,
+                "material": "0CF1034",
+                "product": "BONKA ESSENTIA ECOLÓGICO GRANO 1KG",
+                "retornable": false,
+                "size": 0.0125,
+                "stop_seq": 1,
+                "uma": "UN"
+              }
+            ],
+            "first_unload_stop_seq": 1,
+            "slot": 1,
+            "position": "front-left",
+            "occupation_pct": 5.9
+          }
+        ]
+      }
+    },
+    {
+      "id": "11629261",
+      "truck_size": 3,
+      "color": "#d62728",
+      "stops": [
+        {
+          "seq": 1,
+          "cliente": 9100770429,
+          "name": "ENTRE TAPAS",
+          "lat": 41.54024,
+          "lon": 2.212215,
+          "pallets": 0.292
+        }
+      ],
+      "polyline": [
+        [
+          2.2126,
+          41.5417
+        ],
+        [
+          2.212215,
+          41.54024
+        ],
+        [
+          2.2126,
+          41.5417
+        ]
+      ],
+      "distance_km": 0.33,
+      "time_min": 0.7,
+      "occupation_pct": 9.7,
+      "load_plan": {
+        "truck_size": 3,
+        "pallets": [
+          {
+            "lines": [
+              {
+                "cantidad": 60.0,
+                "cliente": 9100770429,
+                "material": "0CF1136",
+                "product": "GARRIGA CREME NATURAL BOLSA 1KG 1U",
+                "retornable": false,
+                "size": 0.25,
+                "stop_seq": 1,
+                "uma": "UN"
+              },
+              {
+                "cantidad": 10.0,
+                "cliente": 9100770429,
+                "material": "0CF1136",
+                "product": "GARRIGA CREME NATURAL BOLSA 1KG 1U",
+                "retornable": false,
+                "size": 0.041666666666666664,
+                "stop_seq": 1,
+                "uma": "UN"
+              }
+            ],
+            "first_unload_stop_seq": 1,
+            "slot": 1,
+            "position": "front-left",
+            "occupation_pct": 29.2
+          }
+        ]
+      }
+    }
+  ],
+  "kpis": {
+    "total_km": 171.7,
+    "avg_route_km": 42.9,
+    "avg_occupation_pct": 5.1,
+    "trucks_used": 4,
+    "total_pallets": 0.6,
+    "total_time_min": 343.4
+  }
+}
