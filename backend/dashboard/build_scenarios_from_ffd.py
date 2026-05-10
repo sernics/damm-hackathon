@@ -9,7 +9,7 @@ delivery day, a list of trucks; each truck is a list of client entries with
 This script joins those entries with the existing master/geocoded parquets so
 we can fill in everything the front-end expects (cliente id, lat/lon, ordered
 stops, polyline, distances, load plan lines, KPIs) without changing
-`frontend/`.
+`app/dashboard/`.
 
 Outputs (under `outputs/`):
     scenario_<YYYYMMDD>_baseline.json
@@ -29,7 +29,7 @@ from pathlib import Path
 import pandas as pd
 
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "outputs"
 FFD_FILE = ROOT / "data" / "custom" / "ffd" / "truck_plan_normalized.json"
 MASTER_FILE = OUT / "master.parquet"

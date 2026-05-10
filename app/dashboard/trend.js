@@ -10,7 +10,7 @@ async function fetchOptimized(path) {
   return promise;
 }
 
-export async function loadTrend(manifest, basePath = "../outputs/") {
+export async function loadTrend(manifest, basePath = "../../outputs/") {
   const items = await Promise.all(
     manifest.dates.map(async (entry) => {
       const data = await fetchOptimized(`${basePath}${entry.optimized}`);

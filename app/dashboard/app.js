@@ -781,7 +781,7 @@ function renderAnalyticsView() {
 async function loadDay(index) {
   state.dateIndex = index;
   const current = state.manifest.dates[state.dateIndex];
-  const base = "../outputs/";
+  const base = "../../outputs/";
   document.getElementById("kpis")?.classList.add("loading");
   document.querySelectorAll(".bottom-strip strong").forEach((el) => el.classList.add("skeleton"));
   state.snappedByCluster.clear();
@@ -962,7 +962,7 @@ function initMap() {
 }
 
 async function main() {
-  state.manifest = await loadJson("../outputs/scenario_manifest.json");
+  state.manifest = await loadJson("../../outputs/scenario_manifest.json");
   const initial = readUrlState();
   const urlIndex = initial.day
     ? state.manifest.dates.findIndex((item) => item.date === initial.day)
