@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_1d527652dcecc569bada7814d3a192e2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_1d527652dcecc569bada7814d3a192e2" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_1d527652dcecc569bada7814d3a192e2 = L.map(
+                "map_1d527652dcecc569bada7814d3a192e2",
+                {
+                    center: [41.535289, 2.2130934],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_869cb486bcbed66897daed1b74a76109 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_869cb486bcbed66897daed1b74a76109.addTo(map_1d527652dcecc569bada7814d3a192e2);
+        
+    
+            var circle_marker_3446cc43fea817549c70808253de0d0a = L.circleMarker(
+                [41.5335078, 2.2176302],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_1d527652dcecc569bada7814d3a192e2);
+        
+    
+        var popup_6852787acb9a57cb8779911fceaaa984 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_99450ddfa4fe597c5a1bb3120b40ee02 = $(`<div id="html_99450ddfa4fe597c5a1bb3120b40ee02" style="width: 100.0%; height: 100.0%;">Client: BAR BY DUMAS MOLLET<br>Cluster ID: 166<br>Cluster size: 3<br>Address: Ronda d&#x27;Orient 1, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_6852787acb9a57cb8779911fceaaa984.setContent(html_99450ddfa4fe597c5a1bb3120b40ee02);
+            
+        
+
+        circle_marker_3446cc43fea817549c70808253de0d0a.bindPopup(popup_6852787acb9a57cb8779911fceaaa984)
+        ;
+
+        
+    
+    
+            circle_marker_3446cc43fea817549c70808253de0d0a.bindTooltip(
+                `<div>
+                     BAR BY DUMAS MOLLET (cluster 166)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7778ded881c177fc0d1f338220e76a68 = L.circleMarker(
+                [41.5393484, 2.2130934],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_1d527652dcecc569bada7814d3a192e2);
+        
+    
+        var popup_a0fec54bfe601ac838837b5ca08fb9d7 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_5b1ee9777079385afc49d0238e2c7179 = $(`<div id="html_5b1ee9777079385afc49d0238e2c7179" style="width: 100.0%; height: 100.0%;">Client: BCC LOUNGE<br>Cluster ID: 166<br>Cluster size: 3<br>Address: PASAJE LA PAU S/N, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_a0fec54bfe601ac838837b5ca08fb9d7.setContent(html_5b1ee9777079385afc49d0238e2c7179);
+            
+        
+
+        circle_marker_7778ded881c177fc0d1f338220e76a68.bindPopup(popup_a0fec54bfe601ac838837b5ca08fb9d7)
+        ;
+
+        
+    
+    
+            circle_marker_7778ded881c177fc0d1f338220e76a68.bindTooltip(
+                `<div>
+                     BCC LOUNGE (cluster 166)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_54533f289fdcca7fb65a10af0e3ca90d = L.circleMarker(
+                [41.535289, 2.21273],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_1d527652dcecc569bada7814d3a192e2);
+        
+    
+        var popup_bbdf20719ec1039d824a6f71db86af27 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b61f40cb07a9640cc1a01301fcc2ab3a = $(`<div id="html_b61f40cb07a9640cc1a01301fcc2ab3a" style="width: 100.0%; height: 100.0%;">Client: PRATS PA<br>Cluster ID: 166<br>Cluster size: 3<br>Address: AVENIDA CALDERO 48, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_bbdf20719ec1039d824a6f71db86af27.setContent(html_b61f40cb07a9640cc1a01301fcc2ab3a);
+            
+        
+
+        circle_marker_54533f289fdcca7fb65a10af0e3ca90d.bindPopup(popup_bbdf20719ec1039d824a6f71db86af27)
+        ;
+
+        
+    
+    
+            circle_marker_54533f289fdcca7fb65a10af0e3ca90d.bindTooltip(
+                `<div>
+                     PRATS PA (cluster 166)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

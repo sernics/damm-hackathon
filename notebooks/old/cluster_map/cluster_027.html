@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0828d96eb5da796a19cc677b9019e918 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_0828d96eb5da796a19cc677b9019e918" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0828d96eb5da796a19cc677b9019e918 = L.map(
+                "map_0828d96eb5da796a19cc677b9019e918",
+                {
+                    center: [41.93068225, 2.25512905],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fc33f4e791bbc45ec84d6e7cc9746c3c = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fc33f4e791bbc45ec84d6e7cc9746c3c.addTo(map_0828d96eb5da796a19cc677b9019e918);
+        
+    
+            var circle_marker_a75c95a488092d6dc4412e2aed1709b5 = L.circleMarker(
+                [41.9290103, 2.2568623],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_0828d96eb5da796a19cc677b9019e918);
+        
+    
+        var popup_de052de790c5cf468769592322916c6a = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_5f3f800d9fde3c602d6262f11ae28ecb = $(`<div id="html_5f3f800d9fde3c602d6262f11ae28ecb" style="width: 100.0%; height: 100.0%;">Client: 80&#x27;S SPIRIT<br>Cluster ID: 27<br>Cluster size: 4<br>Address: PLAZA PIETAT 2, 08500 VIC, Spain</div>`)[0];
+                popup_de052de790c5cf468769592322916c6a.setContent(html_5f3f800d9fde3c602d6262f11ae28ecb);
+            
+        
+
+        circle_marker_a75c95a488092d6dc4412e2aed1709b5.bindPopup(popup_de052de790c5cf468769592322916c6a)
+        ;
+
+        
+    
+    
+            circle_marker_a75c95a488092d6dc4412e2aed1709b5.bindTooltip(
+                `<div>
+                     80'S SPIRIT (cluster 27)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e1de36fd13c9c6f7845ec55f7b9c9cc8 = L.circleMarker(
+                [41.9311045, 2.2532078],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_0828d96eb5da796a19cc677b9019e918);
+        
+    
+        var popup_ec54929fc8cbb66277759bb596b43164 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b22234d4d0fb81f082642332ab3db132 = $(`<div id="html_b22234d4d0fb81f082642332ab3db132" style="width: 100.0%; height: 100.0%;">Client: BAR CA LA LAURA<br>Cluster ID: 27<br>Cluster size: 4<br>Address: Rambla de les Davallades 21, 08500 VIC, Spain</div>`)[0];
+                popup_ec54929fc8cbb66277759bb596b43164.setContent(html_b22234d4d0fb81f082642332ab3db132);
+            
+        
+
+        circle_marker_e1de36fd13c9c6f7845ec55f7b9c9cc8.bindPopup(popup_ec54929fc8cbb66277759bb596b43164)
+        ;
+
+        
+    
+    
+            circle_marker_e1de36fd13c9c6f7845ec55f7b9c9cc8.bindTooltip(
+                `<div>
+                     BAR CA LA LAURA (cluster 27)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_17c01a31a05291cce1a8d916fa89ee4e = L.circleMarker(
+                [42.007905, 2.2869598],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_0828d96eb5da796a19cc677b9019e918);
+        
+    
+        var popup_02789e742f21e3a25ca1ea5adab42ff5 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ed9baca234302a132ef773c927eee073 = $(`<div id="html_ed9baca234302a132ef773c927eee073" style="width: 100.0%; height: 100.0%;">Client: CAN MARIO<br>Cluster ID: 27<br>Cluster size: 4<br>Address: Carrer del Pla dels Estudiants 40, 08560 MANLLEU, Spain</div>`)[0];
+                popup_02789e742f21e3a25ca1ea5adab42ff5.setContent(html_ed9baca234302a132ef773c927eee073);
+            
+        
+
+        circle_marker_17c01a31a05291cce1a8d916fa89ee4e.bindPopup(popup_02789e742f21e3a25ca1ea5adab42ff5)
+        ;
+
+        
+    
+    
+            circle_marker_17c01a31a05291cce1a8d916fa89ee4e.bindTooltip(
+                `<div>
+                     CAN MARIO (cluster 27)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3a5e6932e754dd086a9db03a571ab678 = L.circleMarker(
+                [41.93026, 2.2533958],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_0828d96eb5da796a19cc677b9019e918);
+        
+    
+        var popup_9e6df9ac50e704210898cdff16d5a34d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_175b5110eae17b18472aba74b40ad57a = $(`<div id="html_175b5110eae17b18472aba74b40ad57a" style="width: 100.0%; height: 100.0%;">Client: CASINO DE VIC<br>Cluster ID: 27<br>Cluster size: 4<br>Address: CALLE JACINT VERDAGUER 5, 08500 VIC, Spain</div>`)[0];
+                popup_9e6df9ac50e704210898cdff16d5a34d.setContent(html_175b5110eae17b18472aba74b40ad57a);
+            
+        
+
+        circle_marker_3a5e6932e754dd086a9db03a571ab678.bindPopup(popup_9e6df9ac50e704210898cdff16d5a34d)
+        ;
+
+        
+    
+    
+            circle_marker_3a5e6932e754dd086a9db03a571ab678.bindTooltip(
+                `<div>
+                     CASINO DE VIC (cluster 27)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

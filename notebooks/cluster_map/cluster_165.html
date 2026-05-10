@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c5a313098270105e3dd5430e921c4500 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c5a313098270105e3dd5430e921c4500" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c5a313098270105e3dd5430e921c4500 = L.map(
+                "map_c5a313098270105e3dd5430e921c4500",
+                {
+                    center: [41.45300255, 2.2054722],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bbf8f6fa6e77c3f9d8876ca363a8e4cc = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bbf8f6fa6e77c3f9d8876ca363a8e4cc.addTo(map_c5a313098270105e3dd5430e921c4500);
+        
+    
+            var circle_marker_abd3c6850111af4f540aabc902ed5507 = L.circleMarker(
+                [41.428794, 2.222328],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c5a313098270105e3dd5430e921c4500);
+        
+    
+        var popup_bdeaa063dae75e338198ebffd1234449 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9a98cc2799421d63dbf4309120976d9d = $(`<div id="html_9a98cc2799421d63dbf4309120976d9d" style="width: 100.0%; height: 100.0%;">Client: ENTRE TAPAS<br>Cluster ID: 165<br>Cluster size: 2<br>Address: Avinguda de Catalunya S/N, 08930 SANT ADRIÀ DE BESÒS, Spain</div>`)[0];
+                popup_bdeaa063dae75e338198ebffd1234449.setContent(html_9a98cc2799421d63dbf4309120976d9d);
+            
+        
+
+        circle_marker_abd3c6850111af4f540aabc902ed5507.bindPopup(popup_bdeaa063dae75e338198ebffd1234449)
+        ;
+
+        
+    
+    
+            circle_marker_abd3c6850111af4f540aabc902ed5507.bindTooltip(
+                `<div>
+                     ENTRE TAPAS (cluster 165)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b5935926c34dbe790f19971fb16a5d53 = L.circleMarker(
+                [41.4772111, 2.1886164],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c5a313098270105e3dd5430e921c4500);
+        
+    
+        var popup_4077fad04aec7ab34695a9c8a83709cf = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_742209b375f2787aba62f8968bedb240 = $(`<div id="html_742209b375f2787aba62f8968bedb240" style="width: 100.0%; height: 100.0%;">Client: LOS TERESITOS<br>Cluster ID: 165<br>Cluster size: 2<br>Address: Carrer Llevant 2, 08110 MONTCADA I REIXAC, Spain</div>`)[0];
+                popup_4077fad04aec7ab34695a9c8a83709cf.setContent(html_742209b375f2787aba62f8968bedb240);
+            
+        
+
+        circle_marker_b5935926c34dbe790f19971fb16a5d53.bindPopup(popup_4077fad04aec7ab34695a9c8a83709cf)
+        ;
+
+        
+    
+    
+            circle_marker_b5935926c34dbe790f19971fb16a5d53.bindTooltip(
+                `<div>
+                     LOS TERESITOS (cluster 165)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

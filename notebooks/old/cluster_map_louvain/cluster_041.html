@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_8c25394be6d90bb6c575a3e62d0e621c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_8c25394be6d90bb6c575a3e62d0e621c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_8c25394be6d90bb6c575a3e62d0e621c = L.map(
+                "map_8c25394be6d90bb6c575a3e62d0e621c",
+                {
+                    center: [42.0571713, 2.2386438],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_04f85b262902120e14288f8ee3979f98 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_04f85b262902120e14288f8ee3979f98.addTo(map_8c25394be6d90bb6c575a3e62d0e621c);
+        
+    
+            var circle_marker_c1b97b7c5c7457193e57b872a85566a0 = L.circleMarker(
+                [42.008867, 2.240445],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_8c25394be6d90bb6c575a3e62d0e621c);
+        
+    
+        var popup_e81b1ba77d8764dcc913298df36df466 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_c4b5be69f4666da66682b738a0ad663f = $(`<div id="html_c4b5be69f4666da66682b738a0ad663f" style="width: 100.0%; height: 100.0%;">Client: BAR LA PUÇA<br>Cluster ID: 41<br>Cluster size: 9<br>Address: CALLE SANT MARTI XIC 6, 08508 LES MASIES DE VOLTREGÀ, Spain</div>`)[0];
+                popup_e81b1ba77d8764dcc913298df36df466.setContent(html_c4b5be69f4666da66682b738a0ad663f);
+            
+        
+
+        circle_marker_c1b97b7c5c7457193e57b872a85566a0.bindPopup(popup_e81b1ba77d8764dcc913298df36df466)
+        ;
+
+        
+    
+    
+            circle_marker_c1b97b7c5c7457193e57b872a85566a0.bindTooltip(
+                `<div>
+                     BAR LA PUÇA (cluster 41)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ae0aad9c7e2a0bbb3a59340b2418b1db = L.circleMarker(
+                [42.010603, 2.242566],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_8c25394be6d90bb6c575a3e62d0e621c);
+        
+    
+        var popup_8e8ab6c280be2b10d10f888249360aba = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_74cad0cc27473b447fe23bcdda25dc0f = $(`<div id="html_74cad0cc27473b447fe23bcdda25dc0f" style="width: 100.0%; height: 100.0%;">Client: BAR REST.EL CENACHERO<br>Cluster ID: 41<br>Cluster size: 9<br>Address: CALLE ONZE DE SETEMBRE 29, 08508 LES MASIES DE VOLTREGÀ, Spain</div>`)[0];
+                popup_8e8ab6c280be2b10d10f888249360aba.setContent(html_74cad0cc27473b447fe23bcdda25dc0f);
+            
+        
+
+        circle_marker_ae0aad9c7e2a0bbb3a59340b2418b1db.bindPopup(popup_8e8ab6c280be2b10d10f888249360aba)
+        ;
+
+        
+    
+    
+            circle_marker_ae0aad9c7e2a0bbb3a59340b2418b1db.bindTooltip(
+                `<div>
+                     BAR REST.EL CENACHERO (cluster 41)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a138a77ca468d1ea3f6cbbd22f3db6b8 = L.circleMarker(
+                [42.0163676, 2.2451322],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_8c25394be6d90bb6c575a3e62d0e621c);
+        
+    
+        var popup_9ed3930eb600e80a4082fc6ca6fe09e9 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_34c1ffd00c9c64c6bffcb071ba28023c = $(`<div id="html_34c1ffd00c9c64c6bffcb071ba28023c" style="width: 100.0%; height: 100.0%;">Client: BAR RESTAURANT EL GOT<br>Cluster ID: 41<br>Cluster size: 9<br>Address: Carrer Barcelona 28, 08508 LES MASIES DE VOLTREGÀ, Spain</div>`)[0];
+                popup_9ed3930eb600e80a4082fc6ca6fe09e9.setContent(html_34c1ffd00c9c64c6bffcb071ba28023c);
+            
+        
+
+        circle_marker_a138a77ca468d1ea3f6cbbd22f3db6b8.bindPopup(popup_9ed3930eb600e80a4082fc6ca6fe09e9)
+        ;
+
+        
+    
+    
+            circle_marker_a138a77ca468d1ea3f6cbbd22f3db6b8.bindTooltip(
+                `<div>
+                     BAR RESTAURANT EL GOT (cluster 41)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b0439bb5de148c0e178a12b517579582 = L.circleMarker(
+                [42.101073, 2.217682],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_8c25394be6d90bb6c575a3e62d0e621c);
+        
+    
+        var popup_8e7d42c8d37784c90adfccc66dd773b6 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d9b4aa6f4652517a7e2234840c5561f9 = $(`<div id="html_d9b4aa6f4652517a7e2234840c5561f9" style="width: 100.0%; height: 100.0%;">Client: BAR SNACK<br>Cluster ID: 41<br>Cluster size: 9<br>Address: PLAZA BISAURA 2, 08580 SANT QUIRZE DE BESORA, Spain</div>`)[0];
+                popup_8e7d42c8d37784c90adfccc66dd773b6.setContent(html_d9b4aa6f4652517a7e2234840c5561f9);
+            
+        
+
+        circle_marker_b0439bb5de148c0e178a12b517579582.bindPopup(popup_8e7d42c8d37784c90adfccc66dd773b6)
+        ;
+
+        
+    
+    
+            circle_marker_b0439bb5de148c0e178a12b517579582.bindTooltip(
+                `<div>
+                     BAR SNACK (cluster 41)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_44162eef0274223bd2886a42143a7529 = L.circleMarker(
+                [42.103411, 2.218444],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_8c25394be6d90bb6c575a3e62d0e621c);
+        
+    
+        var popup_c14b4a7ac777f94b63918ca766926baa = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_90dc1a24a1937bf9dde1057a70cd31b6 = $(`<div id="html_90dc1a24a1937bf9dde1057a70cd31b6" style="width: 100.0%; height: 100.0%;">Client: CABANYA MIR<br>Cluster ID: 41<br>Cluster size: 9<br>Address: CARRETERA VIDRA KM 1, 08584 SANTA MARIA DE BESORA, Spain</div>`)[0];
+                popup_c14b4a7ac777f94b63918ca766926baa.setContent(html_90dc1a24a1937bf9dde1057a70cd31b6);
+            
+        
+
+        circle_marker_44162eef0274223bd2886a42143a7529.bindPopup(popup_c14b4a7ac777f94b63918ca766926baa)
+        ;
+
+        
+    
+    
+            circle_marker_44162eef0274223bd2886a42143a7529.bindTooltip(
+                `<div>
+                     CABANYA MIR (cluster 41)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_aefcfdd6fe433f91aac817d728432d5f = L.circleMarker(
+                [42.0571713, 2.2386438],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_8c25394be6d90bb6c575a3e62d0e621c);
+        
+    
+        var popup_82b2468c22048a0986af96f07d481ad2 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_1613ff670580cf06c7a3e873ca24aa83 = $(`<div id="html_1613ff670580cf06c7a3e873ca24aa83" style="width: 100.0%; height: 100.0%;">Client: CAL JUTGE<br>Cluster ID: 41<br>Cluster size: 9<br>Address: CALLE GRACIA 12, 08573 ORÍS, Spain</div>`)[0];
+                popup_82b2468c22048a0986af96f07d481ad2.setContent(html_1613ff670580cf06c7a3e873ca24aa83);
+            
+        
+
+        circle_marker_aefcfdd6fe433f91aac817d728432d5f.bindPopup(popup_82b2468c22048a0986af96f07d481ad2)
+        ;
+
+        
+    
+    
+            circle_marker_aefcfdd6fe433f91aac817d728432d5f.bindTooltip(
+                `<div>
+                     CAL JUTGE (cluster 41)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3e0adbb220bd7d3830096def545c0345 = L.circleMarker(
+                [42.0581855, 2.2389118],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_8c25394be6d90bb6c575a3e62d0e621c);
+        
+    
+        var popup_de9a176f8a85863afe87309b8dab5125 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_dcb1937740e8f52936814ca5c495c647 = $(`<div id="html_dcb1937740e8f52936814ca5c495c647" style="width: 100.0%; height: 100.0%;">Client: CAN BRANQUES RESTAURANT, S.<br>Cluster ID: 41<br>Cluster size: 9<br>Address: CALLE GRACIA 4, 08573 ORÍS, Spain</div>`)[0];
+                popup_de9a176f8a85863afe87309b8dab5125.setContent(html_dcb1937740e8f52936814ca5c495c647);
+            
+        
+
+        circle_marker_3e0adbb220bd7d3830096def545c0345.bindPopup(popup_de9a176f8a85863afe87309b8dab5125)
+        ;
+
+        
+    
+    
+            circle_marker_3e0adbb220bd7d3830096def545c0345.bindTooltip(
+                `<div>
+                     CAN BRANQUES RESTAURANT, S. (cluster 41)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bcd62d69db7780eb9d4aff60eb46392d = L.circleMarker(
+                [42.0152733, 2.2376471],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_8c25394be6d90bb6c575a3e62d0e621c);
+        
+    
+        var popup_2ed1cb1e31c2ca39ef2824b9ef7f52fc = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_06cefea9fd19e5c8cae92dd4b9a55382 = $(`<div id="html_06cefea9fd19e5c8cae92dd4b9a55382" style="width: 100.0%; height: 100.0%;">Client: CAN LIRO<br>Cluster ID: 41<br>Cluster size: 9<br>Address: Carrer dels Marquesos de Palmerol 2, 08512 SANT HIPÒLIT DE VOLTREGÀ, Spain</div>`)[0];
+                popup_2ed1cb1e31c2ca39ef2824b9ef7f52fc.setContent(html_06cefea9fd19e5c8cae92dd4b9a55382);
+            
+        
+
+        circle_marker_bcd62d69db7780eb9d4aff60eb46392d.bindPopup(popup_2ed1cb1e31c2ca39ef2824b9ef7f52fc)
+        ;
+
+        
+    
+    
+            circle_marker_bcd62d69db7780eb9d4aff60eb46392d.bindTooltip(
+                `<div>
+                     CAN LIRO (cluster 41)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_927a092d876f0b744b03abcc975dcaa2 = L.circleMarker(
+                [42.10904, 2.207994],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_8c25394be6d90bb6c575a3e62d0e621c);
+        
+    
+        var popup_cb920635a03b8a810d8ef48b6d0d5116 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9b51ac27a78d575a9a92641d94d1b32c = $(`<div id="html_9b51ac27a78d575a9a92641d94d1b32c" style="width: 100.0%; height: 100.0%;">Client: CARNS I EMBOTITS EMPAR<br>Cluster ID: 41<br>Cluster size: 9<br>Address: Carretera de Ribes 21, 08585 MONTESQUIU, Spain</div>`)[0];
+                popup_cb920635a03b8a810d8ef48b6d0d5116.setContent(html_9b51ac27a78d575a9a92641d94d1b32c);
+            
+        
+
+        circle_marker_927a092d876f0b744b03abcc975dcaa2.bindPopup(popup_cb920635a03b8a810d8ef48b6d0d5116)
+        ;
+
+        
+    
+    
+            circle_marker_927a092d876f0b744b03abcc975dcaa2.bindTooltip(
+                `<div>
+                     CARNS I EMBOTITS EMPAR (cluster 41)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

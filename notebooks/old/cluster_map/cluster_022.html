@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5953f2fcf319b73cc24c7a4e764fed7c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_5953f2fcf319b73cc24c7a4e764fed7c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5953f2fcf319b73cc24c7a4e764fed7c = L.map(
+                "map_5953f2fcf319b73cc24c7a4e764fed7c",
+                {
+                    center: [41.573914, 2.23515],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bd8dd2f03e8a703b00d6e4aba44ce609 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bd8dd2f03e8a703b00d6e4aba44ce609.addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+            var circle_marker_d7cc700d04f7b3fc59ba43e48d6dd4f6 = L.circleMarker(
+                [41.5727187, 2.2365079],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_1425cc8530d3ff46563fda5840ca69eb = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_a7cce189fe65ec1e580c2c1105757c3c = $(`<div id="html_a7cce189fe65ec1e580c2c1105757c3c" style="width: 100.0%; height: 100.0%;">Client: AKI MISMO<br>Cluster ID: 22<br>Cluster size: 30<br>Address: Carrer Salvador Espriu 6, 08150 PARETS DEL VALLÈS, Spain</div>`)[0];
+                popup_1425cc8530d3ff46563fda5840ca69eb.setContent(html_a7cce189fe65ec1e580c2c1105757c3c);
+            
+        
+
+        circle_marker_d7cc700d04f7b3fc59ba43e48d6dd4f6.bindPopup(popup_1425cc8530d3ff46563fda5840ca69eb)
+        ;
+
+        
+    
+    
+            circle_marker_d7cc700d04f7b3fc59ba43e48d6dd4f6.bindTooltip(
+                `<div>
+                     AKI MISMO (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_02959e18b28c75561f4097eb7c400c5f = L.circleMarker(
+                [41.5746876, 2.23515],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_6000f88663acd636498d587014a4deb1 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_66a202af8807103c25c82c1efe0d2b69 = $(`<div id="html_66a202af8807103c25c82c1efe0d2b69" style="width: 100.0%; height: 100.0%;">Client: AVITU CAFE<br>Cluster ID: 22<br>Cluster size: 30<br>Address: Carrer Raval 5, 08185 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_6000f88663acd636498d587014a4deb1.setContent(html_66a202af8807103c25c82c1efe0d2b69);
+            
+        
+
+        circle_marker_02959e18b28c75561f4097eb7c400c5f.bindPopup(popup_6000f88663acd636498d587014a4deb1)
+        ;
+
+        
+    
+    
+            circle_marker_02959e18b28c75561f4097eb7c400c5f.bindTooltip(
+                `<div>
+                     AVITU CAFE (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_15c2847ecddf3f5c158f51569c0e3006 = L.circleMarker(
+                [41.580306, 2.2528629],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_f5f4771089d22c5839ef7285adb319c4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_a6988db983287f254df164134b051b3b = $(`<div id="html_a6988db983287f254df164134b051b3b" style="width: 100.0%; height: 100.0%;">Client: BAR BRICOLAJE DEPOT<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CALLE DE LA BASSA S/N, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_f5f4771089d22c5839ef7285adb319c4.setContent(html_a6988db983287f254df164134b051b3b);
+            
+        
+
+        circle_marker_15c2847ecddf3f5c158f51569c0e3006.bindPopup(popup_f5f4771089d22c5839ef7285adb319c4)
+        ;
+
+        
+    
+    
+            circle_marker_15c2847ecddf3f5c158f51569c0e3006.bindTooltip(
+                `<div>
+                     BAR BRICOLAJE DEPOT (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_81f2c2921c13a6fe62c5a5b400291b08 = L.circleMarker(
+                [41.62902, 2.231529],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_7629d099ca3e7ab032e77eb6f4fd47d3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9eb009b2c8f9adb23146c3c36db05dc8 = $(`<div id="html_9eb009b2c8f9adb23146c3c36db05dc8" style="width: 100.0%; height: 100.0%;">Client: BAR CAFETERIA EL TAST<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CARRETERA CALDES KM 14-15, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_7629d099ca3e7ab032e77eb6f4fd47d3.setContent(html_9eb009b2c8f9adb23146c3c36db05dc8);
+            
+        
+
+        circle_marker_81f2c2921c13a6fe62c5a5b400291b08.bindPopup(popup_7629d099ca3e7ab032e77eb6f4fd47d3)
+        ;
+
+        
+    
+    
+            circle_marker_81f2c2921c13a6fe62c5a5b400291b08.bindTooltip(
+                `<div>
+                     BAR CAFETERIA EL TAST (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_55d18967d75eb4a9a9217c850f3fd0c5 = L.circleMarker(
+                [41.608204, 2.23898],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_0721fa1469b4bac09a60904d31d23907 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d0f8c863812a87c1bc7cf5515339c095 = $(`<div id="html_d0f8c863812a87c1bc7cf5515339c095" style="width: 100.0%; height: 100.0%;">Client: BAR DEL CENTRO<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CALLE ANSELM CLAVE 70, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_0721fa1469b4bac09a60904d31d23907.setContent(html_d0f8c863812a87c1bc7cf5515339c095);
+            
+        
+
+        circle_marker_55d18967d75eb4a9a9217c850f3fd0c5.bindPopup(popup_0721fa1469b4bac09a60904d31d23907)
+        ;
+
+        
+    
+    
+            circle_marker_55d18967d75eb4a9a9217c850f3fd0c5.bindTooltip(
+                `<div>
+                     BAR DEL CENTRO (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_64115532949c9120a91f3d8a91a65af9 = L.circleMarker(
+                [41.572444, 2.2319099],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_15a2087cf4f14314de1e2b5fa10a7374 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_691e8dced156be21cf05d3ca93cc72e9 = $(`<div id="html_691e8dced156be21cf05d3ca93cc72e9" style="width: 100.0%; height: 100.0%;">Client: BAR EMPORDA<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CALLE L&#x27;EMPORDA 27, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_15a2087cf4f14314de1e2b5fa10a7374.setContent(html_691e8dced156be21cf05d3ca93cc72e9);
+            
+        
+
+        circle_marker_64115532949c9120a91f3d8a91a65af9.bindPopup(popup_15a2087cf4f14314de1e2b5fa10a7374)
+        ;
+
+        
+    
+    
+            circle_marker_64115532949c9120a91f3d8a91a65af9.bindTooltip(
+                `<div>
+                     BAR EMPORDA (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_da36355b4a348b54b15391e2a12e5477 = L.circleMarker(
+                [41.574481, 2.238199],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_4deef9f265b9fe49b976aa09d595cbd2 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_8db748bba2f84ce259af9bd3ca5f55b7 = $(`<div id="html_8db748bba2f84ce259af9bd3ca5f55b7" style="width: 100.0%; height: 100.0%;">Client: BAR KEBAR<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CALLE ARAGO 13, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_4deef9f265b9fe49b976aa09d595cbd2.setContent(html_8db748bba2f84ce259af9bd3ca5f55b7);
+            
+        
+
+        circle_marker_da36355b4a348b54b15391e2a12e5477.bindPopup(popup_4deef9f265b9fe49b976aa09d595cbd2)
+        ;
+
+        
+    
+    
+            circle_marker_da36355b4a348b54b15391e2a12e5477.bindTooltip(
+                `<div>
+                     BAR KEBAR (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_38d99455c23a7dfcdba00e61afbfc668 = L.circleMarker(
+                [41.5727036, 2.2326252],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_867e1793ea731620cf57ea1840ad77db = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4b0fa183ac659aef88427a34c2d59dc9 = $(`<div id="html_4b0fa183ac659aef88427a34c2d59dc9" style="width: 100.0%; height: 100.0%;">Client: BAR LA CANTONADA<br>Cluster ID: 22<br>Cluster size: 30<br>Address: Carrer Major 31, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_867e1793ea731620cf57ea1840ad77db.setContent(html_4b0fa183ac659aef88427a34c2d59dc9);
+            
+        
+
+        circle_marker_38d99455c23a7dfcdba00e61afbfc668.bindPopup(popup_867e1793ea731620cf57ea1840ad77db)
+        ;
+
+        
+    
+    
+            circle_marker_38d99455c23a7dfcdba00e61afbfc668.bindTooltip(
+                `<div>
+                     BAR LA CANTONADA (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8447df36fed5e9708a449829a0681f28 = L.circleMarker(
+                [41.580189, 2.2365554],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_fb05e710867312b3f559e92daef077e3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_f0004ceadf02e1808f0e70e0fd7b46a4 = $(`<div id="html_f0004ceadf02e1808f0e70e0fd7b46a4" style="width: 100.0%; height: 100.0%;">Client: BAR LA ESQUINITA<br>Cluster ID: 22<br>Cluster size: 30<br>Address: Avinguda de Catalunya 102, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_fb05e710867312b3f559e92daef077e3.setContent(html_f0004ceadf02e1808f0e70e0fd7b46a4);
+            
+        
+
+        circle_marker_8447df36fed5e9708a449829a0681f28.bindPopup(popup_fb05e710867312b3f559e92daef077e3)
+        ;
+
+        
+    
+    
+            circle_marker_8447df36fed5e9708a449829a0681f28.bindTooltip(
+                `<div>
+                     BAR LA ESQUINITA (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_982cb1d5c1162fc587d11d6fe04e9cb3 = L.circleMarker(
+                [41.582023, 2.233908],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_fe7dccdc3eda458a35925addbd187553 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_7dc3f3d8c4546dfe9af53dbb73721e99 = $(`<div id="html_7dc3f3d8c4546dfe9af53dbb73721e99" style="width: 100.0%; height: 100.0%;">Client: BAR NADAL<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CARRETERA C-155 KM 14, 08185 LLIÇA DE VALL, Spain</div>`)[0];
+                popup_fe7dccdc3eda458a35925addbd187553.setContent(html_7dc3f3d8c4546dfe9af53dbb73721e99);
+            
+        
+
+        circle_marker_982cb1d5c1162fc587d11d6fe04e9cb3.bindPopup(popup_fe7dccdc3eda458a35925addbd187553)
+        ;
+
+        
+    
+    
+            circle_marker_982cb1d5c1162fc587d11d6fe04e9cb3.bindTooltip(
+                `<div>
+                     BAR NADAL (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9e2009e39b19d7868616c365e757cbf4 = L.circleMarker(
+                [41.5729887, 2.2329289],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_41d101f62bc43b8c02de239c39e9a79e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_bc38f63ebf7589342e5d925c06ce1f44 = $(`<div id="html_bc38f63ebf7589342e5d925c06ce1f44" style="width: 100.0%; height: 100.0%;">Client: BAR RESTAURANT LA PLAÇA<br>Cluster ID: 22<br>Cluster size: 30<br>Address: PLAZA VILA S/N, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_41d101f62bc43b8c02de239c39e9a79e.setContent(html_bc38f63ebf7589342e5d925c06ce1f44);
+            
+        
+
+        circle_marker_9e2009e39b19d7868616c365e757cbf4.bindPopup(popup_41d101f62bc43b8c02de239c39e9a79e)
+        ;
+
+        
+    
+    
+            circle_marker_9e2009e39b19d7868616c365e757cbf4.bindTooltip(
+                `<div>
+                     BAR RESTAURANT LA PLAÇA (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6f923c7265e7be2a359832de7bedf5e2 = L.circleMarker(
+                [41.573347, 2.235706],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_973d96f967ba572da50ab7c420ab3a84 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_7eae2c587018bdc909642e6239acebf5 = $(`<div id="html_7eae2c587018bdc909642e6239acebf5" style="width: 100.0%; height: 100.0%;">Client: BAR STARS<br>Cluster ID: 22<br>Cluster size: 30<br>Address: PLAZA MOSSEN PERE BATLLE 9, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_973d96f967ba572da50ab7c420ab3a84.setContent(html_7eae2c587018bdc909642e6239acebf5);
+            
+        
+
+        circle_marker_6f923c7265e7be2a359832de7bedf5e2.bindPopup(popup_973d96f967ba572da50ab7c420ab3a84)
+        ;
+
+        
+    
+    
+            circle_marker_6f923c7265e7be2a359832de7bedf5e2.bindTooltip(
+                `<div>
+                     BAR STARS (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_305ff309f925382efbd9f0f3ba1d9e27 = L.circleMarker(
+                [41.572317, 2.236723],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_98c8aae77dcc601826e9e111f5d4c5c4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_0c9d9311a2d6a9ab612c8089dcac8c54 = $(`<div id="html_0c9d9311a2d6a9ab612c8089dcac8c54" style="width: 100.0%; height: 100.0%;">Client: CAN LITU&#x27;S<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CALLE VICTOR CATALA 9, 08150 PARETS DEL VALLÈS, Spain</div>`)[0];
+                popup_98c8aae77dcc601826e9e111f5d4c5c4.setContent(html_0c9d9311a2d6a9ab612c8089dcac8c54);
+            
+        
+
+        circle_marker_305ff309f925382efbd9f0f3ba1d9e27.bindPopup(popup_98c8aae77dcc601826e9e111f5d4c5c4)
+        ;
+
+        
+    
+    
+            circle_marker_305ff309f925382efbd9f0f3ba1d9e27.bindTooltip(
+                `<div>
+                     CAN LITU'S (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fb9522f22380765c0a7e81fe7d6c51f4 = L.circleMarker(
+                [41.6156392, 2.2174176],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_fcc17ad36f4ceca9aaaf1f0eeba37043 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_1a71a81c70d197a0969ba2acd9164a54 = $(`<div id="html_1a71a81c70d197a0969ba2acd9164a54" style="width: 100.0%; height: 100.0%;">Client: CLUB CAL ARTIGUES<br>Cluster ID: 22<br>Cluster size: 30<br>Address: Carrer de la Ribera d&#x27;Ebre 56, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_fcc17ad36f4ceca9aaaf1f0eeba37043.setContent(html_1a71a81c70d197a0969ba2acd9164a54);
+            
+        
+
+        circle_marker_fb9522f22380765c0a7e81fe7d6c51f4.bindPopup(popup_fcc17ad36f4ceca9aaaf1f0eeba37043)
+        ;
+
+        
+    
+    
+            circle_marker_fb9522f22380765c0a7e81fe7d6c51f4.bindTooltip(
+                `<div>
+                     CLUB CAL ARTIGUES (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_66cbe40c7247c34a9f5ca9bf2f6c855e = L.circleMarker(
+                [41.572615, 2.237123],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_fa1670e961ee2524741753842abd978d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ae465af2ca3a3ede6248e85d50ccb9e9 = $(`<div id="html_ae465af2ca3a3ede6248e85d50ccb9e9" style="width: 100.0%; height: 100.0%;">Client: CLUB PETANCA PARETS<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CALLE VICTOR CATALA 2, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_fa1670e961ee2524741753842abd978d.setContent(html_ae465af2ca3a3ede6248e85d50ccb9e9);
+            
+        
+
+        circle_marker_66cbe40c7247c34a9f5ca9bf2f6c855e.bindPopup(popup_fa1670e961ee2524741753842abd978d)
+        ;
+
+        
+    
+    
+            circle_marker_66cbe40c7247c34a9f5ca9bf2f6c855e.bindTooltip(
+                `<div>
+                     CLUB PETANCA PARETS (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_84a6cf14c223c03a987c9b31f6e1a918 = L.circleMarker(
+                [41.604315, 2.240457],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_355b4dddb9c28b65531588d7960e1593 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_a8ed7a16ee6018a1c8fb1de46bc6652e = $(`<div id="html_a8ed7a16ee6018a1c8fb1de46bc6652e" style="width: 100.0%; height: 100.0%;">Client: EL GRILLAT<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CALLE ANSELM CLAVE 2, 08186 LLI#A D&#x27;AMUNT, Spain</div>`)[0];
+                popup_355b4dddb9c28b65531588d7960e1593.setContent(html_a8ed7a16ee6018a1c8fb1de46bc6652e);
+            
+        
+
+        circle_marker_84a6cf14c223c03a987c9b31f6e1a918.bindPopup(popup_355b4dddb9c28b65531588d7960e1593)
+        ;
+
+        
+    
+    
+            circle_marker_84a6cf14c223c03a987c9b31f6e1a918.bindTooltip(
+                `<div>
+                     EL GRILLAT (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0ba6b7750762bbb01ef9e9a3b1293267 = L.circleMarker(
+                [41.572625, 2.236539],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_169d0b2b6dd5fd531682f3669f7d6b02 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ace6c994fbf593e726a0cc406b6c03f8 = $(`<div id="html_ace6c994fbf593e726a0cc406b6c03f8" style="width: 100.0%; height: 100.0%;">Client: FRANKFURT LASA<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CALLE SALVADOR ESPRIU 10, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_169d0b2b6dd5fd531682f3669f7d6b02.setContent(html_ace6c994fbf593e726a0cc406b6c03f8);
+            
+        
+
+        circle_marker_0ba6b7750762bbb01ef9e9a3b1293267.bindPopup(popup_169d0b2b6dd5fd531682f3669f7d6b02)
+        ;
+
+        
+    
+    
+            circle_marker_0ba6b7750762bbb01ef9e9a3b1293267.bindTooltip(
+                `<div>
+                     FRANKFURT LASA (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1bb527f2158a962495ed6d78958a5328 = L.circleMarker(
+                [41.5862431, 2.2398562],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_0e6e092fbbbc602f5c7b794fd56e18a0 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_52deb051cb50e67c5907ea287b5de9b8 = $(`<div id="html_52deb051cb50e67c5907ea287b5de9b8" style="width: 100.0%; height: 100.0%;">Client: GRANJA BAR EL MASET<br>Cluster ID: 22<br>Cluster size: 30<br>Address: Plaça de la Vila 8, 08150 LLIÇÀ DE VALL, Spain</div>`)[0];
+                popup_0e6e092fbbbc602f5c7b794fd56e18a0.setContent(html_52deb051cb50e67c5907ea287b5de9b8);
+            
+        
+
+        circle_marker_1bb527f2158a962495ed6d78958a5328.bindPopup(popup_0e6e092fbbbc602f5c7b794fd56e18a0)
+        ;
+
+        
+    
+    
+            circle_marker_1bb527f2158a962495ed6d78958a5328.bindTooltip(
+                `<div>
+                     GRANJA BAR EL MASET (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b9578c7a5c47bb02df5aa318acbf60d7 = L.circleMarker(
+                [41.5877772625, 2.23510124375],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_58d36fc6258adec05a9838d4454b4fb3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b264a5adf3b8f8d91b2f54418cae89b4 = $(`<div id="html_b264a5adf3b8f8d91b2f54418cae89b4" style="width: 100.0%; height: 100.0%;">Client: GRANJA D&#x27;EN PEP<br>Cluster ID: 22<br>Cluster size: 30<br>Address: PLAZA VILA 15, 08185 LLI#A DE VALL, Spain</div>`)[0];
+                popup_58d36fc6258adec05a9838d4454b4fb3.setContent(html_b264a5adf3b8f8d91b2f54418cae89b4);
+            
+        
+
+        circle_marker_b9578c7a5c47bb02df5aa318acbf60d7.bindPopup(popup_58d36fc6258adec05a9838d4454b4fb3)
+        ;
+
+        
+    
+    
+            circle_marker_b9578c7a5c47bb02df5aa318acbf60d7.bindTooltip(
+                `<div>
+                     GRANJA D'EN PEP (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_388e6acff982e4ec41dd74508f0d1434 = L.circleMarker(
+                [41.556617, 2.230299],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_7681b7f98fab590a0aadb1c61b86f1a8 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_fc0b3717174c0dac7ba8bb0ad7efdce1 = $(`<div id="html_fc0b3717174c0dac7ba8bb0ad7efdce1" style="width: 100.0%; height: 100.0%;">Client: GRANOLLERS COCINAS<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CL LLOBREGAT 2 -, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_7681b7f98fab590a0aadb1c61b86f1a8.setContent(html_fc0b3717174c0dac7ba8bb0ad7efdce1);
+            
+        
+
+        circle_marker_388e6acff982e4ec41dd74508f0d1434.bindPopup(popup_7681b7f98fab590a0aadb1c61b86f1a8)
+        ;
+
+        
+    
+    
+            circle_marker_388e6acff982e4ec41dd74508f0d1434.bindTooltip(
+                `<div>
+                     GRANOLLERS COCINAS (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_691b445441a61d2e1081a86088a89332 = L.circleMarker(
+                [41.571484, 2.231797],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_9db2773b4b5ecfce70368aa8388b950a = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_f33b22510f2466649de353b55c52ce19 = $(`<div id="html_f33b22510f2466649de353b55c52ce19" style="width: 100.0%; height: 100.0%;">Client: OH LA LA<br>Cluster ID: 22<br>Cluster size: 30<br>Address: AVENIDA LLUIS COMPANYS 39, 08150 PARETS DEL VALLÈS, Spain</div>`)[0];
+                popup_9db2773b4b5ecfce70368aa8388b950a.setContent(html_f33b22510f2466649de353b55c52ce19);
+            
+        
+
+        circle_marker_691b445441a61d2e1081a86088a89332.bindPopup(popup_9db2773b4b5ecfce70368aa8388b950a)
+        ;
+
+        
+    
+    
+            circle_marker_691b445441a61d2e1081a86088a89332.bindTooltip(
+                `<div>
+                     OH LA LA (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7a2f1aa379cadf5d7388dd6e2ffa23a7 = L.circleMarker(
+                [41.6071575, 2.2269124],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_a45c3a829d562c9b3b5490aaa85e937d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b5d07a83743fe3a93f27729369e192a1 = $(`<div id="html_b5d07a83743fe3a93f27729369e192a1" style="width: 100.0%; height: 100.0%;">Client: REST. EL PASO<br>Cluster ID: 22<br>Cluster size: 30<br>Address: Camí de la Pineda 6, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_a45c3a829d562c9b3b5490aaa85e937d.setContent(html_b5d07a83743fe3a93f27729369e192a1);
+            
+        
+
+        circle_marker_7a2f1aa379cadf5d7388dd6e2ffa23a7.bindPopup(popup_a45c3a829d562c9b3b5490aaa85e937d)
+        ;
+
+        
+    
+    
+            circle_marker_7a2f1aa379cadf5d7388dd6e2ffa23a7.bindTooltip(
+                `<div>
+                     REST. EL PASO (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f2180bb0c94cc1547beee6e5939502e0 = L.circleMarker(
+                [41.568885, 2.24571],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_aebc18dbbe55b666696a0729045103e4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d23d91b0016cad0a35f22616836eb5a3 = $(`<div id="html_d23d91b0016cad0a35f22616836eb5a3" style="width: 100.0%; height: 100.0%;">Client: RESTAURANT BRUNCH<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CALLE XALOC 1, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_aebc18dbbe55b666696a0729045103e4.setContent(html_d23d91b0016cad0a35f22616836eb5a3);
+            
+        
+
+        circle_marker_f2180bb0c94cc1547beee6e5939502e0.bindPopup(popup_aebc18dbbe55b666696a0729045103e4)
+        ;
+
+        
+    
+    
+            circle_marker_f2180bb0c94cc1547beee6e5939502e0.bindTooltip(
+                `<div>
+                     RESTAURANT BRUNCH (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_27b9cb567c03a100ab7972be309eb0bb = L.circleMarker(
+                [41.5721861, 2.2354721],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_1bcc7afb4b11dc30388658547444609e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_0f875d12aea8085a682802b9b8ad011d = $(`<div id="html_0f875d12aea8085a682802b9b8ad011d" style="width: 100.0%; height: 100.0%;">Client: RESTAURANT GUST D&#x27;ASIA<br>Cluster ID: 22<br>Cluster size: 30<br>Address: Avinguda de Francesc Macià 12, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_1bcc7afb4b11dc30388658547444609e.setContent(html_0f875d12aea8085a682802b9b8ad011d);
+            
+        
+
+        circle_marker_27b9cb567c03a100ab7972be309eb0bb.bindPopup(popup_1bcc7afb4b11dc30388658547444609e)
+        ;
+
+        
+    
+    
+            circle_marker_27b9cb567c03a100ab7972be309eb0bb.bindTooltip(
+                `<div>
+                     RESTAURANT GUST D'ASIA (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_110af658e51d9611b9797cf1e5507a00 = L.circleMarker(
+                [41.5746876, 2.23515],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_683815a2d219552ea109efbcb4c609d9 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_c690af1f2468fc77389aa4494f5b15fe = $(`<div id="html_c690af1f2468fc77389aa4494f5b15fe" style="width: 100.0%; height: 100.0%;">Client: RESTAURANTE SIBLINGS<br>Cluster ID: 22<br>Cluster size: 30<br>Address: Carrer del Raval 1, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_683815a2d219552ea109efbcb4c609d9.setContent(html_c690af1f2468fc77389aa4494f5b15fe);
+            
+        
+
+        circle_marker_110af658e51d9611b9797cf1e5507a00.bindPopup(popup_683815a2d219552ea109efbcb4c609d9)
+        ;
+
+        
+    
+    
+            circle_marker_110af658e51d9611b9797cf1e5507a00.bindTooltip(
+                `<div>
+                     RESTAURANTE SIBLINGS (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8f70d71fcd4540bbd9523a74a09576be = L.circleMarker(
+                [41.562351, 2.243612],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_1cebea5020b749d919a8fe5275de84d8 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_3fc36e84fa4389003e46a2d85fb1ecb3 = $(`<div id="html_3fc36e84fa4389003e46a2d85fb1ecb3" style="width: 100.0%; height: 100.0%;">Client: RIEGOS IBERIA REGABER<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CL GARBI N£M. 3 -, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_1cebea5020b749d919a8fe5275de84d8.setContent(html_3fc36e84fa4389003e46a2d85fb1ecb3);
+            
+        
+
+        circle_marker_8f70d71fcd4540bbd9523a74a09576be.bindPopup(popup_1cebea5020b749d919a8fe5275de84d8)
+        ;
+
+        
+    
+    
+            circle_marker_8f70d71fcd4540bbd9523a74a09576be.bindTooltip(
+                `<div>
+                     RIEGOS IBERIA REGABER (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_55f6f34043992227d16e68d0dd702960 = L.circleMarker(
+                [41.573002, 2.233908],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_a3b11e0fa94a97b4d4acdb3b606eb170 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ae2c0d6b15ac1463ec6237f48063e8f7 = $(`<div id="html_ae2c0d6b15ac1463ec6237f48063e8f7" style="width: 100.0%; height: 100.0%;">Client: RSTE. EL JARDI<br>Cluster ID: 22<br>Cluster size: 30<br>Address: MAJOR 1, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_a3b11e0fa94a97b4d4acdb3b606eb170.setContent(html_ae2c0d6b15ac1463ec6237f48063e8f7);
+            
+        
+
+        circle_marker_55f6f34043992227d16e68d0dd702960.bindPopup(popup_a3b11e0fa94a97b4d4acdb3b606eb170)
+        ;
+
+        
+    
+    
+            circle_marker_55f6f34043992227d16e68d0dd702960.bindTooltip(
+                `<div>
+                     RSTE. EL JARDI (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_958c774351bdd581c7a0b58747b92d03 = L.circleMarker(
+                [41.627461, 2.233883],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_d35b3560caa94f2f82efc67c8e3a3c29 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_af59ea69f127f80a4545d16eec2961fa = $(`<div id="html_af59ea69f127f80a4545d16eec2961fa" style="width: 100.0%; height: 100.0%;">Client: RSTE. LA GRUILLA<br>Cluster ID: 22<br>Cluster size: 30<br>Address: Carretera Parets a Bigues 8, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_d35b3560caa94f2f82efc67c8e3a3c29.setContent(html_af59ea69f127f80a4545d16eec2961fa);
+            
+        
+
+        circle_marker_958c774351bdd581c7a0b58747b92d03.bindPopup(popup_d35b3560caa94f2f82efc67c8e3a3c29)
+        ;
+
+        
+    
+    
+            circle_marker_958c774351bdd581c7a0b58747b92d03.bindTooltip(
+                `<div>
+                     RSTE. LA GRUILLA (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a2a711b34a9534cb71984b35816b39a9 = L.circleMarker(
+                [41.54837, 2.20901],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_5aa2554ccd74196672dc93306c764192 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ac9a3f6dd86cbab2d17445d480ee0da2 = $(`<div id="html_ac9a3f6dd86cbab2d17445d480ee0da2" style="width: 100.0%; height: 100.0%;">Client: Restaurant Molí de Vent<br>Cluster ID: 22<br>Cluster size: 30<br>Address: Carrer del Garbí 13, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_5aa2554ccd74196672dc93306c764192.setContent(html_ac9a3f6dd86cbab2d17445d480ee0da2);
+            
+        
+
+        circle_marker_a2a711b34a9534cb71984b35816b39a9.bindPopup(popup_5aa2554ccd74196672dc93306c764192)
+        ;
+
+        
+    
+    
+            circle_marker_a2a711b34a9534cb71984b35816b39a9.bindTooltip(
+                `<div>
+                     Restaurant Molí de Vent (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf68465a4e90b7648fd091456f79ea7b = L.circleMarker(
+                [41.578505, 2.22932],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5953f2fcf319b73cc24c7a4e764fed7c);
+        
+    
+        var popup_11a1a8ced81a854876b04ea407868d20 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_47e4465797189e6d9a7df797e1b50eac = $(`<div id="html_47e4465797189e6d9a7df797e1b50eac" style="width: 100.0%; height: 100.0%;">Client: TANCAMENTS<br>Cluster ID: 22<br>Cluster size: 30<br>Address: CALLE GARRAF 5, 08185 LLI#A DE VALL, Spain</div>`)[0];
+                popup_11a1a8ced81a854876b04ea407868d20.setContent(html_47e4465797189e6d9a7df797e1b50eac);
+            
+        
+
+        circle_marker_cf68465a4e90b7648fd091456f79ea7b.bindPopup(popup_11a1a8ced81a854876b04ea407868d20)
+        ;
+
+        
+    
+    
+            circle_marker_cf68465a4e90b7648fd091456f79ea7b.bindTooltip(
+                `<div>
+                     TANCAMENTS (cluster 22)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

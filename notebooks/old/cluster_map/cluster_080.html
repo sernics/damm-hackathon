@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_116442088c15e122b10bf992b58da65d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_116442088c15e122b10bf992b58da65d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_116442088c15e122b10bf992b58da65d = L.map(
+                "map_116442088c15e122b10bf992b58da65d",
+                {
+                    center: [41.93327912926357, 2.250975403552972],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_aadfc475f29eeed0782a188ddd352ea1 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_aadfc475f29eeed0782a188ddd352ea1.addTo(map_116442088c15e122b10bf992b58da65d);
+        
+    
+            var circle_marker_8c01ada2fd3df17086b29d8507e07703 = L.circleMarker(
+                [41.934221, 2.253369],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_116442088c15e122b10bf992b58da65d);
+        
+    
+        var popup_0ff6493e4740cafe237aafed8339f116 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_6976964b547e130a09c3f20c9f4ccff0 = $(`<div id="html_6976964b547e130a09c3f20c9f4ccff0" style="width: 100.0%; height: 100.0%;">Client: BAR BIG BAO<br>Cluster ID: 80<br>Cluster size: 2<br>Address: CALLE NORD 1, 08500 VIC, Spain</div>`)[0];
+                popup_0ff6493e4740cafe237aafed8339f116.setContent(html_6976964b547e130a09c3f20c9f4ccff0);
+            
+        
+
+        circle_marker_8c01ada2fd3df17086b29d8507e07703.bindPopup(popup_0ff6493e4740cafe237aafed8339f116)
+        ;
+
+        
+    
+    
+            circle_marker_8c01ada2fd3df17086b29d8507e07703.bindTooltip(
+                `<div>
+                     BAR BIG BAO (cluster 80)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b3d96de37e206111d0cb9b58df4436c4 = L.circleMarker(
+                [41.93233725852713, 2.248581807105943],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_116442088c15e122b10bf992b58da65d);
+        
+    
+        var popup_5113ec561cbc0efdc4af6d92594c2da1 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_3db3c80d3e489c0108078879fb287dd5 = $(`<div id="html_3db3c80d3e489c0108078879fb287dd5" style="width: 100.0%; height: 100.0%;">Client: CELLER DE VIC<br>Cluster ID: 80<br>Cluster size: 2<br>Address: ESCOLA 12, 08500 VIC, Spain</div>`)[0];
+                popup_5113ec561cbc0efdc4af6d92594c2da1.setContent(html_3db3c80d3e489c0108078879fb287dd5);
+            
+        
+
+        circle_marker_b3d96de37e206111d0cb9b58df4436c4.bindPopup(popup_5113ec561cbc0efdc4af6d92594c2da1)
+        ;
+
+        
+    
+    
+            circle_marker_b3d96de37e206111d0cb9b58df4436c4.bindTooltip(
+                `<div>
+                     CELLER DE VIC (cluster 80)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_243d4941fc4ac4ff927868b0a82e24a4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_243d4941fc4ac4ff927868b0a82e24a4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_243d4941fc4ac4ff927868b0a82e24a4 = L.map(
+                "map_243d4941fc4ac4ff927868b0a82e24a4",
+                {
+                    center: [41.924101, 2.2534635],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5a3233bdcc10d9e9cfdaa7559ca5110e = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5a3233bdcc10d9e9cfdaa7559ca5110e.addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+            var circle_marker_70a690b7c6bafa54d1b340ea48a81399 = L.circleMarker(
+                [41.922158, 2.253092],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_1fce3f4e488075c0f8e04937ca954af9 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4c8644254aaaae3033b7b2f1e4b330f3 = $(`<div id="html_4c8644254aaaae3033b7b2f1e4b330f3" style="width: 100.0%; height: 100.0%;">Client: 2 PRINCIPE<br>Cluster ID: 31<br>Cluster size: 16<br>Address: PASEO GENERALITAT 37, 08500 VIC, Spain</div>`)[0];
+                popup_1fce3f4e488075c0f8e04937ca954af9.setContent(html_4c8644254aaaae3033b7b2f1e4b330f3);
+            
+        
+
+        circle_marker_70a690b7c6bafa54d1b340ea48a81399.bindPopup(popup_1fce3f4e488075c0f8e04937ca954af9)
+        ;
+
+        
+    
+    
+            circle_marker_70a690b7c6bafa54d1b340ea48a81399.bindTooltip(
+                `<div>
+                     2 PRINCIPE (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bb160f11c04872f8d5d7d46c88efeab9 = L.circleMarker(
+                [41.925209, 2.260566],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_34e7ef1c3e95c1a4d8e15ac78f9f1a2d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_26909fe481b6aa444f115a260003ddfb = $(`<div id="html_26909fe481b6aa444f115a260003ddfb" style="width: 100.0%; height: 100.0%;">Client: ALOE<br>Cluster ID: 31<br>Cluster size: 16<br>Address: MENENDEZ I PELAYO 1, 08500 VIC, Spain</div>`)[0];
+                popup_34e7ef1c3e95c1a4d8e15ac78f9f1a2d.setContent(html_26909fe481b6aa444f115a260003ddfb);
+            
+        
+
+        circle_marker_bb160f11c04872f8d5d7d46c88efeab9.bindPopup(popup_34e7ef1c3e95c1a4d8e15ac78f9f1a2d)
+        ;
+
+        
+    
+    
+            circle_marker_bb160f11c04872f8d5d7d46c88efeab9.bindTooltip(
+                `<div>
+                     ALOE (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ab34ea1aa9e6012f52a3d5030e530915 = L.circleMarker(
+                [41.9427456, 2.2515181],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_00c14f209be97555e1e5e9adbab565a9 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_dc1852eae7fdbaba38c943d50790da2b = $(`<div id="html_dc1852eae7fdbaba38c943d50790da2b" style="width: 100.0%; height: 100.0%;">Client: AURIAL PADEL<br>Cluster ID: 31<br>Cluster size: 16<br>Address: Carrer de Figueres 14, 08500 VIC, Spain</div>`)[0];
+                popup_00c14f209be97555e1e5e9adbab565a9.setContent(html_dc1852eae7fdbaba38c943d50790da2b);
+            
+        
+
+        circle_marker_ab34ea1aa9e6012f52a3d5030e530915.bindPopup(popup_00c14f209be97555e1e5e9adbab565a9)
+        ;
+
+        
+    
+    
+            circle_marker_ab34ea1aa9e6012f52a3d5030e530915.bindTooltip(
+                `<div>
+                     AURIAL PADEL (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5c9726711ffba71b1e256d3de265b38f = L.circleMarker(
+                [41.923429, 2.253515],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_95df796e4c4d86c76c1a41830e62a76e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_19354f3492efccdc3e780c3f45379a35 = $(`<div id="html_19354f3492efccdc3e780c3f45379a35" style="width: 100.0%; height: 100.0%;">Client: BAR CAFETERIA VIC<br>Cluster ID: 31<br>Cluster size: 16<br>Address: PASEO GENERALITAT 23, 08500 VIC, Spain</div>`)[0];
+                popup_95df796e4c4d86c76c1a41830e62a76e.setContent(html_19354f3492efccdc3e780c3f45379a35);
+            
+        
+
+        circle_marker_5c9726711ffba71b1e256d3de265b38f.bindPopup(popup_95df796e4c4d86c76c1a41830e62a76e)
+        ;
+
+        
+    
+    
+            circle_marker_5c9726711ffba71b1e256d3de265b38f.bindTooltip(
+                `<div>
+                     BAR CAFETERIA VIC (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_86af71a1236d44669c82536e8776c0fd = L.circleMarker(
+                [41.918615, 2.25854],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_7934895016a88de86935e5ee327c9a4d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_42e545b4fabd5bad0d74a20f69025564 = $(`<div id="html_42e545b4fabd5bad0d74a20f69025564" style="width: 100.0%; height: 100.0%;">Client: BAR GRACE<br>Cluster ID: 31<br>Cluster size: 16<br>Address: C/RAMON D&#x27;ABADAL 21, 08500 VIC, Spain</div>`)[0];
+                popup_7934895016a88de86935e5ee327c9a4d.setContent(html_42e545b4fabd5bad0d74a20f69025564);
+            
+        
+
+        circle_marker_86af71a1236d44669c82536e8776c0fd.bindPopup(popup_7934895016a88de86935e5ee327c9a4d)
+        ;
+
+        
+    
+    
+            circle_marker_86af71a1236d44669c82536e8776c0fd.bindTooltip(
+                `<div>
+                     BAR GRACE (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_023aef5622616b99f9b77e758bace7e7 = L.circleMarker(
+                [41.920862, 2.25453],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_75d879ee73304a85e9d072dce62bb769 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b8c6f9a7dfaaee5462b5cba3d6fd31e0 = $(`<div id="html_b8c6f9a7dfaaee5462b5cba3d6fd31e0" style="width: 100.0%; height: 100.0%;">Client: BAR PIRINEO<br>Cluster ID: 31<br>Cluster size: 16<br>Address: AVENIDA ESTADI 13, 08500 VIC, Spain</div>`)[0];
+                popup_75d879ee73304a85e9d072dce62bb769.setContent(html_b8c6f9a7dfaaee5462b5cba3d6fd31e0);
+            
+        
+
+        circle_marker_023aef5622616b99f9b77e758bace7e7.bindPopup(popup_75d879ee73304a85e9d072dce62bb769)
+        ;
+
+        
+    
+    
+            circle_marker_023aef5622616b99f9b77e758bace7e7.bindTooltip(
+                `<div>
+                     BAR PIRINEO (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9038a66d3b00986313fd1e57222f9880 = L.circleMarker(
+                [41.93233725852713, 2.248581807105943],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_7b498ea6490c5590642829e47f9c9253 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_8c93f892bfd021e4e7a103bfba5eea54 = $(`<div id="html_8c93f892bfd021e4e7a103bfba5eea54" style="width: 100.0%; height: 100.0%;">Client: BAR PRIEGO<br>Cluster ID: 31<br>Cluster size: 16<br>Address: CALLE ENRIC PRAT DE LA RIBA 49, 08500 VIC, Spain</div>`)[0];
+                popup_7b498ea6490c5590642829e47f9c9253.setContent(html_8c93f892bfd021e4e7a103bfba5eea54);
+            
+        
+
+        circle_marker_9038a66d3b00986313fd1e57222f9880.bindPopup(popup_7b498ea6490c5590642829e47f9c9253)
+        ;
+
+        
+    
+    
+            circle_marker_9038a66d3b00986313fd1e57222f9880.bindTooltip(
+                `<div>
+                     BAR PRIEGO (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2055c57a56c1d61670d898047f05df4c = L.circleMarker(
+                [41.919934, 2.25832],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_b38008934640ab25de9b23b09a66a651 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_cb39de7277ec0269394225d31381447d = $(`<div id="html_cb39de7277ec0269394225d31381447d" style="width: 100.0%; height: 100.0%;">Client: BAR SANTA ANNA<br>Cluster ID: 31<br>Cluster size: 16<br>Address: AVENIDA PAISOS CATALANS 82, 08500 VIC, Spain</div>`)[0];
+                popup_b38008934640ab25de9b23b09a66a651.setContent(html_cb39de7277ec0269394225d31381447d);
+            
+        
+
+        circle_marker_2055c57a56c1d61670d898047f05df4c.bindPopup(popup_b38008934640ab25de9b23b09a66a651)
+        ;
+
+        
+    
+    
+            circle_marker_2055c57a56c1d61670d898047f05df4c.bindTooltip(
+                `<div>
+                     BAR SANTA ANNA (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4f6191a197782b04eb05210dfe267d1a = L.circleMarker(
+                [41.924525, 2.253412],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_8df4e6d269b9c6bee517e8c53c19f660 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_91a806969fe1187437ad8906231ee395 = $(`<div id="html_91a806969fe1187437ad8906231ee395" style="width: 100.0%; height: 100.0%;">Client: BAR SOL NOU<br>Cluster ID: 31<br>Cluster size: 16<br>Address: PASEO GENERALITAT 8, 08500 VIC, Spain</div>`)[0];
+                popup_8df4e6d269b9c6bee517e8c53c19f660.setContent(html_91a806969fe1187437ad8906231ee395);
+            
+        
+
+        circle_marker_4f6191a197782b04eb05210dfe267d1a.bindPopup(popup_8df4e6d269b9c6bee517e8c53c19f660)
+        ;
+
+        
+    
+    
+            circle_marker_4f6191a197782b04eb05210dfe267d1a.bindTooltip(
+                `<div>
+                     BAR SOL NOU (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6c70d3418a5ab12d482d989f5c9c48a7 = L.circleMarker(
+                [41.935369, 2.259931],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_b9069caa68100c3c8ae12b4b87e291bc = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_aa3fff68a1941912967860d6fe55450e = $(`<div id="html_aa3fff68a1941912967860d6fe55450e" style="width: 100.0%; height: 100.0%;">Client: BAR TAVERNA D&#x27;PAS<br>Cluster ID: 31<br>Cluster size: 16<br>Address: CALLE SANTIAGO RUSI#OL 1, 08500 VIC, Spain</div>`)[0];
+                popup_b9069caa68100c3c8ae12b4b87e291bc.setContent(html_aa3fff68a1941912967860d6fe55450e);
+            
+        
+
+        circle_marker_6c70d3418a5ab12d482d989f5c9c48a7.bindPopup(popup_b9069caa68100c3c8ae12b4b87e291bc)
+        ;
+
+        
+    
+    
+            circle_marker_6c70d3418a5ab12d482d989f5c9c48a7.bindTooltip(
+                `<div>
+                     BAR TAVERNA D'PAS (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f315576d3bbe39a8121cc50b644bc3fe = L.circleMarker(
+                [41.9205837, 2.2507637],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_2277664d93c1768fdfe9f1f59f33a5e7 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_191d6cf1432cb13fa95772d0e1ca3224 = $(`<div id="html_191d6cf1432cb13fa95772d0e1ca3224" style="width: 100.0%; height: 100.0%;">Client: BAR ÑAM LLODO<br>Cluster ID: 31<br>Cluster size: 16<br>Address: Carrer Enric Prat de la Riba 16, 08500 VIC, Spain</div>`)[0];
+                popup_2277664d93c1768fdfe9f1f59f33a5e7.setContent(html_191d6cf1432cb13fa95772d0e1ca3224);
+            
+        
+
+        circle_marker_f315576d3bbe39a8121cc50b644bc3fe.bindPopup(popup_2277664d93c1768fdfe9f1f59f33a5e7)
+        ;
+
+        
+    
+    
+            circle_marker_f315576d3bbe39a8121cc50b644bc3fe.bindTooltip(
+                `<div>
+                     BAR ÑAM LLODO (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2d603dbaf4d77ff299c278389ee4fce2 = L.circleMarker(
+                [41.9348658, 2.2479643],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_f61a0df3a9d762fb16451c5f0952b7b0 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_523c1a65d076f6cfb36bb00fe44bc628 = $(`<div id="html_523c1a65d076f6cfb36bb00fe44bc628" style="width: 100.0%; height: 100.0%;">Client: CA LA NATI<br>Cluster ID: 31<br>Cluster size: 16<br>Address: CARRER DEL VIRREI AVILÉS 6, 08500 VIC, Spain</div>`)[0];
+                popup_f61a0df3a9d762fb16451c5f0952b7b0.setContent(html_523c1a65d076f6cfb36bb00fe44bc628);
+            
+        
+
+        circle_marker_2d603dbaf4d77ff299c278389ee4fce2.bindPopup(popup_f61a0df3a9d762fb16451c5f0952b7b0)
+        ;
+
+        
+    
+    
+            circle_marker_2d603dbaf4d77ff299c278389ee4fce2.bindTooltip(
+                `<div>
+                     CA LA NATI (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5cdd9a0f9fee9a1afac3901ac0398ee7 = L.circleMarker(
+                [41.923677, 2.251935],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_e8cabd95495b5a258cf2a8c97bf5c4ce = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d464cd1d5409cd0437bd30a81fdb9977 = $(`<div id="html_d464cd1d5409cd0437bd30a81fdb9977" style="width: 100.0%; height: 100.0%;">Client: CAFETERIA LISA<br>Cluster ID: 31<br>Cluster size: 16<br>Address: Rambla de Josep Tarradellas 11, 08500 VIC, Spain</div>`)[0];
+                popup_e8cabd95495b5a258cf2a8c97bf5c4ce.setContent(html_d464cd1d5409cd0437bd30a81fdb9977);
+            
+        
+
+        circle_marker_5cdd9a0f9fee9a1afac3901ac0398ee7.bindPopup(popup_e8cabd95495b5a258cf2a8c97bf5c4ce)
+        ;
+
+        
+    
+    
+            circle_marker_5cdd9a0f9fee9a1afac3901ac0398ee7.bindTooltip(
+                `<div>
+                     CAFETERIA LISA (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8f1c7dc47db2a9ebf67a4b47d55e694e = L.circleMarker(
+                [41.921822, 2.2489438],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_96712b9c45a527ead50d23af26a8fcb2 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_cdd7dffd4989491271d1c706d77b16f6 = $(`<div id="html_cdd7dffd4989491271d1c706d77b16f6" style="width: 100.0%; height: 100.0%;">Client: CAL OCELLAIRES<br>Cluster ID: 31<br>Cluster size: 16<br>Address: Avinguda dels Països Catalans 49, 08500 VIC, Spain</div>`)[0];
+                popup_96712b9c45a527ead50d23af26a8fcb2.setContent(html_cdd7dffd4989491271d1c706d77b16f6);
+            
+        
+
+        circle_marker_8f1c7dc47db2a9ebf67a4b47d55e694e.bindPopup(popup_96712b9c45a527ead50d23af26a8fcb2)
+        ;
+
+        
+    
+    
+            circle_marker_8f1c7dc47db2a9ebf67a4b47d55e694e.bindTooltip(
+                `<div>
+                     CAL OCELLAIRES (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_93f5f9f387ef1c4e1f5b91d416d660ad = L.circleMarker(
+                [41.93506, 2.258767],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_379986bcc14cdf924ceada5d5e59770d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_a70bdbb3121698ff2419f607370a1160 = $(`<div id="html_a70bdbb3121698ff2419f607370a1160" style="width: 100.0%; height: 100.0%;">Client: CAN BERNAT<br>Cluster ID: 31<br>Cluster size: 16<br>Address: AVENIDA SANT BERNAT CALBO 23, 08500 VIC, Spain</div>`)[0];
+                popup_379986bcc14cdf924ceada5d5e59770d.setContent(html_a70bdbb3121698ff2419f607370a1160);
+            
+        
+
+        circle_marker_93f5f9f387ef1c4e1f5b91d416d660ad.bindPopup(popup_379986bcc14cdf924ceada5d5e59770d)
+        ;
+
+        
+    
+    
+            circle_marker_93f5f9f387ef1c4e1f5b91d416d660ad.bindTooltip(
+                `<div>
+                     CAN BERNAT (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c7ce29ee1297942c4cf77525d2e139bf = L.circleMarker(
+                [41.926338, 2.255634],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_243d4941fc4ac4ff927868b0a82e24a4);
+        
+    
+        var popup_7bf33eab68b753fee9fe1ce72ed63f75 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_e2c05607b7f4fb0b334342ee85bdb8fe = $(`<div id="html_e2c05607b7f4fb0b334342ee85bdb8fe" style="width: 100.0%; height: 100.0%;">Client: CASAL DE LA GENT GRAN<br>Cluster ID: 31<br>Cluster size: 16<br>Address: CALLE SOLEDAT 13, 08500 VIC, Spain</div>`)[0];
+                popup_7bf33eab68b753fee9fe1ce72ed63f75.setContent(html_e2c05607b7f4fb0b334342ee85bdb8fe);
+            
+        
+
+        circle_marker_c7ce29ee1297942c4cf77525d2e139bf.bindPopup(popup_7bf33eab68b753fee9fe1ce72ed63f75)
+        ;
+
+        
+    
+    
+            circle_marker_c7ce29ee1297942c4cf77525d2e139bf.bindTooltip(
+                `<div>
+                     CASAL DE LA GENT GRAN (cluster 31)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

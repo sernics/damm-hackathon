@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2bbdbb20b810d162116305625180f1af {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_2bbdbb20b810d162116305625180f1af" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2bbdbb20b810d162116305625180f1af = L.map(
+                "map_2bbdbb20b810d162116305625180f1af",
+                {
+                    center: [41.6016, 2.23795625],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4718dec3c4679c3fee15a06a8564ff0f = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4718dec3c4679c3fee15a06a8564ff0f.addTo(map_2bbdbb20b810d162116305625180f1af);
+        
+    
+            var circle_marker_f2995171a64bc4a64915afbc86d82335 = L.circleMarker(
+                [41.6116458, 2.2393525],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2bbdbb20b810d162116305625180f1af);
+        
+    
+        var popup_36fa2353e17f8a5c360145456cefc2c9 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_7492fc6fccea46b14c012638ecf7b703 = $(`<div id="html_7492fc6fccea46b14c012638ecf7b703" style="width: 100.0%; height: 100.0%;">Client: Asso. Gent Gran Llissa de Munt<br>Cluster ID: 132<br>Cluster size: 4<br>Address: Carrer de Folch i Torres 102, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_36fa2353e17f8a5c360145456cefc2c9.setContent(html_7492fc6fccea46b14c012638ecf7b703);
+            
+        
+
+        circle_marker_f2995171a64bc4a64915afbc86d82335.bindPopup(popup_36fa2353e17f8a5c360145456cefc2c9)
+        ;
+
+        
+    
+    
+            circle_marker_f2995171a64bc4a64915afbc86d82335.bindTooltip(
+                `<div>
+                     Asso. Gent Gran Llissa de Munt (cluster 132)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_823609f8cd1401779a978e4926f8fc57 = L.circleMarker(
+                [41.581326, 2.222663],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2bbdbb20b810d162116305625180f1af);
+        
+    
+        var popup_02515984561ca5fa37b675df46cd365a = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9555949b8684fe744f27d19d713abc40 = $(`<div id="html_9555949b8684fe744f27d19d713abc40" style="width: 100.0%; height: 100.0%;">Client: BAR LA MIRANDA<br>Cluster ID: 132<br>Cluster size: 4<br>Address: CALLE DOCTOR FLEMING 6, 08185 LLIÇÀ DE VALL, Spain</div>`)[0];
+                popup_02515984561ca5fa37b675df46cd365a.setContent(html_9555949b8684fe744f27d19d713abc40);
+            
+        
+
+        circle_marker_823609f8cd1401779a978e4926f8fc57.bindPopup(popup_02515984561ca5fa37b675df46cd365a)
+        ;
+
+        
+    
+    
+            circle_marker_823609f8cd1401779a978e4926f8fc57.bindTooltip(
+                `<div>
+                     BAR LA MIRANDA (cluster 132)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_64671e1b79f660935a9dd2fff3e1e228 = L.circleMarker(
+                [41.6391446, 2.23656],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2bbdbb20b810d162116305625180f1af);
+        
+    
+        var popup_224b48c74e58e955d007978eb0402169 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ea2b5fe6122f32a8a9a901d5982cfe6f = $(`<div id="html_ea2b5fe6122f32a8a9a901d5982cfe6f" style="width: 100.0%; height: 100.0%;">Client: La Sala<br>Cluster ID: 132<br>Cluster size: 4<br>Address: Carrer Josep Tarradellas 31, 08187 SANTA EULÀLIA DE RONÇANA, Spain</div>`)[0];
+                popup_224b48c74e58e955d007978eb0402169.setContent(html_ea2b5fe6122f32a8a9a901d5982cfe6f);
+            
+        
+
+        circle_marker_64671e1b79f660935a9dd2fff3e1e228.bindPopup(popup_224b48c74e58e955d007978eb0402169)
+        ;
+
+        
+    
+    
+            circle_marker_64671e1b79f660935a9dd2fff3e1e228.bindTooltip(
+                `<div>
+                     La Sala (cluster 132)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f557911ab350ef4683caec9d13b2b6f1 = L.circleMarker(
+                [41.5915542, 2.2422403],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2bbdbb20b810d162116305625180f1af);
+        
+    
+        var popup_8747e7b22b77248ec33bba64effd3ea1 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_e0698665a3f1acd1b403c1232d7ba7b5 = $(`<div id="html_e0698665a3f1acd1b403c1232d7ba7b5" style="width: 100.0%; height: 100.0%;">Client: RESTAURANTE LOS ANGELES<br>Cluster ID: 132<br>Cluster size: 4<br>Address: CR GRANOLLERS SABADELL KM. 13 -, 08185 LLIÇA DE VALL, Spain</div>`)[0];
+                popup_8747e7b22b77248ec33bba64effd3ea1.setContent(html_e0698665a3f1acd1b403c1232d7ba7b5);
+            
+        
+
+        circle_marker_f557911ab350ef4683caec9d13b2b6f1.bindPopup(popup_8747e7b22b77248ec33bba64effd3ea1)
+        ;
+
+        
+    
+    
+            circle_marker_f557911ab350ef4683caec9d13b2b6f1.bindTooltip(
+                `<div>
+                     RESTAURANTE LOS ANGELES (cluster 132)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

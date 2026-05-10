@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7383310bbf964032875ecd3fecb6f545 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_7383310bbf964032875ecd3fecb6f545" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7383310bbf964032875ecd3fecb6f545 = L.map(
+                "map_7383310bbf964032875ecd3fecb6f545",
+                {
+                    center: [41.5459575, 2.248401],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6f13461f86ebe9089400196070b74f9e = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6f13461f86ebe9089400196070b74f9e.addTo(map_7383310bbf964032875ecd3fecb6f545);
+        
+    
+            var circle_marker_1ae9dee54c756470a487bf78869ff063 = L.circleMarker(
+                [41.541224, 2.263742],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_7383310bbf964032875ecd3fecb6f545);
+        
+    
+        var popup_8c3e95748932f4a14ea6df74715c6dc0 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ef6dd6b55007d20dd71b7fec528ac972 = $(`<div id="html_ef6dd6b55007d20dd71b7fec528ac972" style="width: 100.0%; height: 100.0%;">Client: BAR BODEGA ALVAREZ<br>Cluster ID: 1<br>Cluster size: 5<br>Address: BLAS INFANTE 14-16, 08170 MONTORNES DEL VALLES, Spain</div>`)[0];
+                popup_8c3e95748932f4a14ea6df74715c6dc0.setContent(html_ef6dd6b55007d20dd71b7fec528ac972);
+            
+        
+
+        circle_marker_1ae9dee54c756470a487bf78869ff063.bindPopup(popup_8c3e95748932f4a14ea6df74715c6dc0)
+        ;
+
+        
+    
+    
+            circle_marker_1ae9dee54c756470a487bf78869ff063.bindTooltip(
+                `<div>
+                     BAR BODEGA ALVAREZ (cluster 1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_74970e92e15829596ce6e20a564c68f7 = L.circleMarker(
+                [41.5459575, 2.2595215],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_7383310bbf964032875ecd3fecb6f545);
+        
+    
+        var popup_99bfd4d8cf9d587e0dbc2013248e74b7 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_68e67b33d770b5ca250614e1995aa8f6 = $(`<div id="html_68e67b33d770b5ca250614e1995aa8f6" style="width: 100.0%; height: 100.0%;">Client: BAR CULIBLANCO - CAMPO FUTBOL ATLET<br>Cluster ID: 1<br>Cluster size: 5<br>Address: Carrer del Gran Vial 3, 08170 MONTORNÈS DEL VALLÈS, Spain</div>`)[0];
+                popup_99bfd4d8cf9d587e0dbc2013248e74b7.setContent(html_68e67b33d770b5ca250614e1995aa8f6);
+            
+        
+
+        circle_marker_74970e92e15829596ce6e20a564c68f7.bindPopup(popup_99bfd4d8cf9d587e0dbc2013248e74b7)
+        ;
+
+        
+    
+    
+            circle_marker_74970e92e15829596ce6e20a564c68f7.bindTooltip(
+                `<div>
+                     BAR CULIBLANCO - CAMPO FUTBOL ATLET (cluster 1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0a3187b063df455debc788d1ca7f618f = L.circleMarker(
+                [41.549765, 2.248401],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_7383310bbf964032875ecd3fecb6f545);
+        
+    
+        var popup_34437464ac29493b0c8126fc05e8060d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_679e9b48c536e43426f3ed03bffdf31e = $(`<div id="html_679e9b48c536e43426f3ed03bffdf31e" style="width: 100.0%; height: 100.0%;">Client: BODEGA CAMELOT<br>Cluster ID: 1<br>Cluster size: 5<br>Address: PLAZA SANT ISIDRE 11, 08160 MONTMELO, Spain</div>`)[0];
+                popup_34437464ac29493b0c8126fc05e8060d.setContent(html_679e9b48c536e43426f3ed03bffdf31e);
+            
+        
+
+        circle_marker_0a3187b063df455debc788d1ca7f618f.bindPopup(popup_34437464ac29493b0c8126fc05e8060d)
+        ;
+
+        
+    
+    
+            circle_marker_0a3187b063df455debc788d1ca7f618f.bindTooltip(
+                `<div>
+                     BODEGA CAMELOT (cluster 1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_71f1f582023b331f196620d96f4f18d7 = L.circleMarker(
+                [41.550563, 2.244374],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_7383310bbf964032875ecd3fecb6f545);
+        
+    
+        var popup_f8bd9be8ca2d1790742dc092d5231023 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_8d586e9620ba8a3b561c4f4086150c27 = $(`<div id="html_8d586e9620ba8a3b561c4f4086150c27" style="width: 100.0%; height: 100.0%;">Client: CAFETERIA GRANJA LA CREPE<br>Cluster ID: 1<br>Cluster size: 5<br>Address: JOSEP TARRADELLAS 16, 08160 MONTMELO, Spain</div>`)[0];
+                popup_f8bd9be8ca2d1790742dc092d5231023.setContent(html_8d586e9620ba8a3b561c4f4086150c27);
+            
+        
+
+        circle_marker_71f1f582023b331f196620d96f4f18d7.bindPopup(popup_f8bd9be8ca2d1790742dc092d5231023)
+        ;
+
+        
+    
+    
+            circle_marker_71f1f582023b331f196620d96f4f18d7.bindTooltip(
+                `<div>
+                     CAFETERIA GRANJA LA CREPE (cluster 1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f91b9bc06a7432b6648846cb582d82e6 = L.circleMarker(
+                [41.526739, 2.230033],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_7383310bbf964032875ecd3fecb6f545);
+        
+    
+        var popup_d57400a1451bd3bc2c5af44595d5ec70 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9146d536170ef8228f3397085cd76330 = $(`<div id="html_9146d536170ef8228f3397085cd76330" style="width: 100.0%; height: 100.0%;">Client: CELLER DE CAN RODA<br>Cluster ID: 1<br>Cluster size: 5<br>Address: CALLE L&#x27;HORTA 18, 08107 MARTORELLES, Spain</div>`)[0];
+                popup_d57400a1451bd3bc2c5af44595d5ec70.setContent(html_9146d536170ef8228f3397085cd76330);
+            
+        
+
+        circle_marker_f91b9bc06a7432b6648846cb582d82e6.bindPopup(popup_d57400a1451bd3bc2c5af44595d5ec70)
+        ;
+
+        
+    
+    
+            circle_marker_f91b9bc06a7432b6648846cb582d82e6.bindTooltip(
+                `<div>
+                     CELLER DE CAN RODA (cluster 1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

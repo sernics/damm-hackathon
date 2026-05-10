@@ -1,0 +1,1185 @@
+cluster_id,cluster_size,client_name,cluster_source
+0,30,ATARASII,normalized
+0,30,BAR CAPARROS,normalized
+0,30,BAR LA LOLA,normalized
+0,30,BAR LA VERMUTERIA,normalized
+0,30,BAR MERCADO,normalized
+0,30,BAR MORANA,normalized
+0,30,CAFE DE LA CORONA,normalized
+0,30,DESEO,normalized
+0,30,EL FORNET (GRANOLLERS),normalized
+0,30,EL GLAM MOMENTS,normalized
+0,30,EL MENÚ,normalized
+0,30,EL MIRALLET,normalized
+0,30,EMPANADA CLUB,normalized
+0,30,FLECA P.BRETCHA (PL. MALUQUER),normalized
+0,30,FRANKFURT LEO BOECK GRANOLLERS,normalized
+0,30,IBERICUS GRANOLLERS,normalized
+0,30,INSTINT RESTAURANT,normalized
+0,30,KYOMI TEA,normalized
+0,30,LA CAMPERIA,normalized
+0,30,LA VERMOOD,normalized
+0,30,MODERN FOOD,normalized
+0,30,NOU PATUFET,normalized
+0,30,PA TONET,normalized
+0,30,PECADOS,normalized
+0,30,RESTAURANT EL CISNE,normalized
+0,30,RESTAURANTE EL SPOT,normalized
+0,30,TABATA,normalized
+0,30,TAPES,normalized
+0,30,UDON GRANOLLERS,normalized
+0,30,YAO SUSHI,normalized
+1,30,BAR ARAMAN,normalized
+1,30,BAR BUS STOP,normalized
+1,30,BAR KUNDALINI,normalized
+1,30,BAR LONDEN 2,normalized
+1,30,BAR PIRRI,normalized
+1,30,BAR QUINTO I TAPA,normalized
+1,30,BAR REST. MANLLEU,normalized
+1,30,BAR SEGORB NOU,normalized
+1,30,BAR TAPES I TAPETES,normalized
+1,30,BAR UNIO,normalized
+1,30,BAR VILAMIROSA,normalized
+1,30,BAR WEI,normalized
+1,30,BON PROFIT,normalized
+1,30,CAFE ANTIC,normalized
+1,30,CROISSANTERIA CAPRICI,normalized
+1,30,CROISSANTERIA NACCAR,normalized
+1,30,DÉJÀ VU,normalized
+1,30,E.S MANLLEU,normalized
+1,30,EL MOLINET,normalized
+1,30,El Racó de la Gina,normalized
+1,30,FRANFURT 86,normalized
+1,30,GIOVANNI,normalized
+1,30,GRANJA CAFETERIA ROMA,normalized
+1,30,HLT,normalized
+1,30,JAVIS 3,normalized
+1,30,LES GARGOLES DEL NORD,normalized
+1,30,REST.CAL BATLLE,normalized
+1,30,SALTING GRANOLLERS,normalized
+1,30,VIOS BAR,normalized
+1,30,XAVIER LOPEZ CUINA SENSORIAL,normalized
+2,30,2 PRINCIPE,normalized
+2,30,ALOE,normalized
+2,30,AREA TRUCK ( SHELL ),normalized
+2,30,AURIAL PADEL,normalized
+2,30,BAR AVINGUDA,normalized
+2,30,BAR CAFETERIA VIC,normalized
+2,30,BAR CAMP DE TIR,normalized
+2,30,BAR PIRINEO,normalized
+2,30,BAR PRIEGO,normalized
+2,30,BAR SANTA ANNA,normalized
+2,30,BAR SOL NOU,normalized
+2,30,BAR TAVERNA D'PAS,normalized
+2,30,BAR ÑAM LLODO,normalized
+2,30,CA LA NATI,normalized
+2,30,CAFETERIA LISA,normalized
+2,30,CAL OCELLAIRES,normalized
+2,30,CAN BERNAT,normalized
+2,30,CASAL DE LA GENT GRAN,normalized
+2,30,CLUB BASQUET VIC,normalized
+2,30,EL RETORN,normalized
+2,30,"FONTSECA, BAR",normalized
+2,30,PADEL OSONA GURB,normalized
+2,30,PARENTHESIS,normalized
+2,30,"PULIT, S.A",normalized
+2,30,RESTAURANTE SOFIA,normalized
+2,30,SAZON DE LOS APOLOS,normalized
+2,30,TACO BELL VIC,normalized
+2,30,VINS I BEGUDES REMEI,normalized
+2,30,ZONA DIESEL,normalized
+2,30,ZONA DIESEL URBAN,normalized
+3,30,ALBA AUDIOVISUALS,normalized
+3,30,ATENEU ALIANÇA,normalized
+3,30,BAR CA LA MARI,normalized
+3,30,BAR LA GRANJA,normalized
+3,30,BAR LA PRADERA,normalized
+3,30,BAR SERRA LLIÇA,normalized
+3,30,BAR TOLIN,normalized
+3,30,BAR XEICA,normalized
+3,30,CAFETERIA GAUDEIX,normalized
+3,30,CAN OLIVER BAR,normalized
+3,30,CAN SANO,normalized
+3,30,CLUB ESPORTIU LLIÇA D'AMUNT,normalized
+3,30,CULTURAL LA FABRICA,normalized
+3,30,Ca la Cisca,normalized
+3,30,EL RACO DE LA PETRA,normalized
+3,30,EL SAZON DE ROSARIO,normalized
+3,30,EL TIRO DE GRANOLLERS,normalized
+3,30,GRANJA Ca LA MARÍA,normalized
+3,30,LA LLAR DE FOC I,normalized
+3,30,LA PARDITA,normalized
+3,30,MESON 20 P KA,normalized
+3,30,Madow Shisha Lounge,normalized
+3,30,PADEL ARGELAGUES,normalized
+3,30,PADELIN,normalized
+3,30,PISCINAS LLIÇA DE MUNT,normalized
+3,30,RESTAURANTE MERITXELL,normalized
+3,30,RINCON DEL DUENDE,normalized
+3,30,RSTE. BONA TAULA,normalized
+3,30,RSTE. LA PAGESA,normalized
+3,30,SNACK BAR OASIS,normalized
+4,30,BAR CAN PLANOLES,normalized
+4,30,BAR EL TROPEZON,normalized
+4,30,BAR ESTACIO SERVEI FEIXES AULET ROD,normalized
+4,30,BAR FOMENT,normalized
+4,30,BAR KOALA,normalized
+4,30,BAR LA MOSSEGADA,normalized
+4,30,BAR LA PARADA,normalized
+4,30,BAR LES VOLTES,normalized
+4,30,BAR LOS CAZADORES MANLLEU,normalized
+4,30,BAR MERCAT,normalized
+4,30,BAR NOU,normalized
+4,30,BAR PUIG-MEALS,normalized
+4,30,BAR RESTAURANT THIANA,normalized
+4,30,BAR SANT SEBASTIA,normalized
+4,30,BAR VILLA,normalized
+4,30,CAFETERIA DULCE DALIA,normalized
+4,30,CAFETERIA PIZZERIA EL PONT,normalized
+4,30,CAMP DE FUTBOL DE RODA,normalized
+4,30,CAN JANOT RESTAURANT,normalized
+4,30,CREPERIA,normalized
+4,30,E.S. RODA ( BOTIGA ),normalized
+4,30,ESPURNA DEL TER,normalized
+4,30,FONDA URGELL,normalized
+4,30,FORN CAN QUEL,normalized
+4,30,IL PICCOLO BIONDO,normalized
+4,30,PARADOR VIC - SAU,normalized
+4,30,PIANOLA BAR,normalized
+4,30,PUB XAUXA,normalized
+4,30,Restaurant El Roquet,normalized
+4,30,Restaurant Fussimanya,normalized
+5,30,ANGEL BRUGUERA FONT,normalized
+5,30,ANTIC FORN RIERA CENTELLES,normalized
+5,30,BAR AYTA,normalized
+5,30,"BAR CAN TON, S.C.P",normalized
+5,30,BAR ELS ESTUDIS,normalized
+5,30,BAR KANGMIYU,normalized
+5,30,BAR OLIVEDA,normalized
+5,30,BODEGA CAPDEVILA,normalized
+5,30,CAMPING LA VALL,normalized
+5,30,CAN PAIROT,normalized
+5,30,CANSALADERIA MOLIST,normalized
+5,30,COLLA GRILLATS,normalized
+5,30,COMERCIAL F.LEIVA,normalized
+5,30,ESCOLA D'HOSTALERIA D'OSONA,normalized
+5,30,Els Angelets de Sobrevia,normalized
+5,30,FORN PUIGVENDRELLO,normalized
+5,30,FUTBOL STA. EULALIA,normalized
+5,30,HOSPITAL DE MANLLEU CAFETERIA,normalized
+5,30,HOSPITAL DE MANLLEU CUINA,normalized
+5,30,INDIA ''ESCLAT'',normalized
+5,30,L'ESTANYOL RESTAURANT,normalized
+5,30,LA FORJA,normalized
+5,30,MASIA LA ROCA,normalized
+5,30,NOVA OFICINA,normalized
+5,30,RESTAURANT CAL XORIGUER,normalized
+5,30,RESTAURANT LA FERRERIA,normalized
+5,30,ROSTISSERIA LA PARADA,normalized
+5,30,Restaurant bar Mundial,normalized
+5,30,SERRAT PLANES BONES,normalized
+5,30,WAYE 66,normalized
+6,30,AIRE,normalized
+6,30,AUTENTIK’S CAMPO DE FUTBOL,normalized
+6,30,BAR CASAL CAMPRODON,normalized
+6,30,BAR CLAVE,normalized
+6,30,BAR LA PENYA - 2,normalized
+6,30,BAR LA PENYA 1,normalized
+6,30,BAR PETIT,normalized
+6,30,BAR ZEMNU,normalized
+6,30,Bar Gat Negre,normalized
+6,30,Bar Troika,normalized
+6,30,CA L'ANNA,normalized
+6,30,CAL NASIET,normalized
+6,30,CASAL CIVIC TERRASSA,normalized
+6,30,Cafeteria Nova & Gent,normalized
+6,30,DIR SANT CUGAT,normalized
+6,30,Dolç i Salat Cuba,normalized
+6,30,EL DEHESA,normalized
+6,30,EL PUNT DE TROBADA,normalized
+6,30,ELS PAGESOS,normalized
+6,30,FORN CAFETERIA AVENIDA,normalized
+6,30,FORN SANT MIQUEL,normalized
+6,30,FRANKFURT REITER,normalized
+6,30,HOSTAL CAL XIC,normalized
+6,30,HOTEL RESGUARD DELS VENTS,normalized
+6,30,Hotel Solana Del Ter,normalized
+6,30,IBERICUS CENTRAL,normalized
+6,30,INNOGANDO,normalized
+6,30,La Indiana Gastro & Gelato,normalized
+6,30,Pavelló Municipal de Ripoll,normalized
+6,30,Pizzeria Daniele,normalized
+7,30,BAR DE LA BENZINERA,normalized
+7,30,BAR DE LA BENZINERA HIGIENE,normalized
+7,30,BAR EL TUPÍ,normalized
+7,30,BAR KARNAK,normalized
+7,30,BAR NURIA ST.JULIA VILATORTA,normalized
+7,30,BAR PAVELLO ST JULIA VILATORTA,normalized
+7,30,CA LA NENA,normalized
+7,30,CAFE BAR CA L'ABEL,normalized
+7,30,CAL CISTELLER,normalized
+7,30,CAL TEIXIDOR,normalized
+7,30,CELLER CALLDETENES,normalized
+7,30,COCA DEL MOSSEN,normalized
+7,30,EL RECO D'EN PERE,normalized
+7,30,FORN ANFRUNS PAVICSA,normalized
+7,30,FORN EL VERDAGUER,normalized
+7,30,FORN ESTADI,normalized
+7,30,GUSTUM AREAS 1 (LLEIDA-GIRONA),normalized
+7,30,GUSTUM AREAS 2 (GIRONA-LLEIDA),normalized
+7,30,L'ESPAI RESTAURANT,normalized
+7,30,LA COCA DE FOLGUEROLES,normalized
+7,30,LA NOVA LLIMA,normalized
+7,30,LA PIZZETA,normalized
+7,30,MAS L' ALBAREDA,normalized
+7,30,PASTISSERIA CROSSANDRA,normalized
+7,30,RESTAURANT CAN JUBANY,normalized
+7,30,RESTAURANT EL ROSER,normalized
+7,30,RESTAURANT PUIGLAGULLA,normalized
+7,30,Restaurant L'Arumí,normalized
+7,30,SUKIPA,normalized
+7,30,TRINACRIA,normalized
+12,30,ASSEMBLEA JOVE VIC,normalized
+12,30,ASSOCIACIO CULTURAL SAGALS D'OSONA,normalized
+12,30,BAR CHAPLIN,normalized
+12,30,BAR LA PISTA,normalized
+12,30,BAR LA TASCA,normalized
+12,30,BAR LA TORTUGA,normalized
+12,30,BAR STACJA PL,normalized
+12,30,BAR UE VIC,normalized
+12,30,BOCATTI BAR,normalized
+12,30,BUSVIC,normalized
+12,30,CAFETERIA VIVARI,normalized
+12,30,EL PONT GOTIC,normalized
+12,30,ENTREPA I PA,normalized
+12,30,FORN DE PA EL REMEI,normalized
+12,30,FUSSIMANYA ESTADI,normalized
+12,30,GARBI BISTROT,normalized
+12,30,HOTEL STOP,normalized
+12,30,INDIA RAMBLA,normalized
+12,30,JUDIT SERRA CORCOLL,normalized
+12,30,LA COVA DEL VERMUT,normalized
+12,30,LLAR JUVENIL,normalized
+12,30,LUCKY,normalized
+12,30,PADEL OSONA VIC,normalized
+12,30,PALACIO DE ORIENTE,normalized
+12,30,RESTAURANT CROAKS VIC,normalized
+12,30,ROCK HOUSE,normalized
+12,30,RUKU RESTAURANT,normalized
+12,30,SEGAFREDO,normalized
+12,30,VERNISSAGE,normalized
+12,30,VIC POOL,normalized
+13,30,AREA DELS PARDALS-GASOLI,normalized
+13,30,AREA VIC BP,normalized
+13,30,BAR CAFETERIA LA PONCELLA,normalized
+13,30,BAR CATALUNYA (ST.JULIA),normalized
+13,30,BAR GRACE,normalized
+13,30,BAR L'OLLA,normalized
+13,30,BAR LA PLACETA,normalized
+13,30,BAR TREBOL,normalized
+13,30,Bagel Coffee,normalized
+13,30,"CAF# DE LES LLETRES, S.C.P",normalized
+13,30,CAFETERIA SANT TOMÀS,normalized
+13,30,CANTABRIA RESTAURANT,normalized
+13,30,CANTINA IES VIC ST TOMAS,normalized
+13,30,EL 9 TONI PETIT,normalized
+13,30,EL CAPUTXI,normalized
+13,30,EL PERNILER,normalized
+13,30,FETNOSTREVIC,normalized
+13,30,FORN DEL CARME,normalized
+13,30,FORN PUJOLS,normalized
+13,30,FORN SANT ALBERT,normalized
+13,30,GRANGES LA CATALANA,normalized
+13,30,LA CABANYA CAFETERIA,normalized
+13,30,LA CABRA BAR,normalized
+13,30,Llegums Cuits Cal Marcel·lí,normalized
+13,30,"MINI BRINDIS, BAR",normalized
+13,30,PANADERIA GRANIER,normalized
+13,30,"PANIFICADORA VIC, S.A.",normalized
+13,30,PRAGMA PROFESSIONAL,normalized
+13,30,RESTAURANT ELS PERNILS,normalized
+13,30,TKBNA,normalized
+14,30,ALASKA BAR,normalized
+14,30,BAR AUDITORI TEATRE CALLDETENES,normalized
+14,30,BK VIC,normalized
+14,30,BOTING JUMPING PARK,normalized
+14,30,CAFETERIA CATALUNYA,normalized
+14,30,CAFETERIA PRADALS,normalized
+14,30,CLUB POCKET BIKE,normalized
+14,30,E.S VIC,normalized
+14,30,ELS BILLARS VIC,normalized
+14,30,FRANKFURT C'JOAN,normalized
+14,30,GARBI 1 CAFET. ALIMENTACIO,normalized
+14,30,GURBI,normalized
+14,30,HAPPYLANDIAPARK,normalized
+14,30,HOTEL BALMES,normalized
+14,30,INDOORWALL VIC,normalized
+14,30,INDUSTRIA 52,normalized
+14,30,JAUME GIL MARES,normalized
+14,30,L & C,normalized
+14,30,LA DISCO VIG,normalized
+14,30,LA TAGLIATELLA POLIGON,normalized
+14,30,MANLLEUET Cerveseria Restaurant,normalized
+14,30,MGA GP VIC,normalized
+14,30,PIZZERIA TOSCANA,normalized
+14,30,RESTAURANT UNTOK,normalized
+14,30,Restaurant el Punt,normalized
+14,30,SALA LA CABRA,normalized
+14,30,SARABÀ,normalized
+14,30,SUSHI YE,normalized
+14,30,TALLER MECANIC DAVID HOMS,normalized
+14,30,TASTIC BAR,normalized
+15,30,AAVV SANTA ROSA,normalized
+15,30,AGROBOTIGA DE GALLECS,normalized
+15,30,BAR CAN JULI,normalized
+15,30,BAR ESTACIO RENFE,normalized
+15,30,BAR GABI,normalized
+15,30,BAR L'HORTA VERMELLA,normalized
+15,30,BAR RTE.ZEFIR BEGUDES,normalized
+15,30,BAR TENNIS VIC,normalized
+15,30,BAR UNIVIC,normalized
+15,30,CAL MARCEL-LI,normalized
+15,30,CANDELA,normalized
+15,30,CRISTIAN LORENTE AINAUD,normalized
+15,30,FRANKFURT VIC**,normalized
+15,30,IVAN QUESADA MARTINEZ,normalized
+15,30,IZAKAYA,normalized
+15,30,JOAQUIN QUINTANILLA CARICOL,normalized
+15,30,JUAN JOSE MIRANDA ABRIL,normalized
+15,30,JUAN MANUEL PEREZ SIERRA,normalized
+15,30,LA DIVINA,normalized
+15,30,MIRAMARGES  JOSEP ILLAMOLA VILALTA,normalized
+15,30,Molletveer,normalized
+15,30,PITAPES BERENGUER,normalized
+15,30,"PITAPES CALDERI 3 BRANQUES VALLES ,",normalized
+15,30,RAMIREZ BERMUDEZ SERGIO,normalized
+15,30,RAUL MOLIST SANZ,normalized
+15,30,RESTAURANT NOU PAMPLONA,normalized
+15,30,RESTAURANT NOU PAMPLONA HIGIENE,normalized
+15,30,SUSANA CARRASCO PALACINO,normalized
+15,30,TOPIC,normalized
+15,30,VIC HOQUEI CLUB,normalized
+21,30,80'S SPIRIT,normalized
+21,30,BAR AVENIDA PARETS,normalized
+21,30,BAR CERVECERIA JORDI,normalized
+21,30,BAR COCO,normalized
+21,30,BAR FRANKFURT INSBRUCK,normalized
+21,30,BAR FUTBOL LOURDES,normalized
+21,30,BAR LAS COLUMNAS,normalized
+21,30,BAR LOS EXTREMEÑOS,normalized
+21,30,BAR LOS GALLEGOS,normalized
+21,30,BONATAPA,normalized
+21,30,Bar 20 PA K,normalized
+21,30,Bar Restaurant Tres Roses,normalized
+21,30,CA LA LAURA PLAÇA,normalized
+21,30,CAF# PARIS,normalized
+21,30,CAFETERIA XURRERIA 20 JA,normalized
+21,30,CAN MARIO,normalized
+21,30,CLASSIC CLUB MONTMELO,normalized
+21,30,COREFO (BAR),normalized
+21,30,EL BART,normalized
+21,30,EUROMED SA,normalized
+21,30,FRANKFURT SANTA MARTA,normalized
+21,30,JOSE PEREZ FERNANDEZ,normalized
+21,30,LA NORIA BAKERY,normalized
+21,30,LA PERGOLA,normalized
+21,30,La Tasca,normalized
+21,30,PASTISSERIA JOAN,normalized
+21,30,PIZZA VALLES,normalized
+21,30,SUPER NABILA PARETS,normalized
+21,30,VERMUTERIA Y TAPERIA CAMACHO,normalized
+21,30,VIKELS,normalized
+22,30,AKI MISMO,normalized
+22,30,AVITU CAFE,normalized
+22,30,BAR BRICOLAJE DEPOT,normalized
+22,30,BAR CAFETERIA EL TAST,normalized
+22,30,BAR DEL CENTRO,normalized
+22,30,BAR EMPORDA,normalized
+22,30,BAR KEBAR,normalized
+22,30,BAR LA CANTONADA,normalized
+22,30,BAR LA ESQUINITA,normalized
+22,30,BAR NADAL,normalized
+22,30,BAR RESTAURANT LA PLAÇA,normalized
+22,30,BAR STARS,normalized
+22,30,CAN LITU'S,normalized
+22,30,CLUB CAL ARTIGUES,normalized
+22,30,CLUB PETANCA PARETS,normalized
+22,30,EL GRILLAT,normalized
+22,30,FRANKFURT LASA,normalized
+22,30,GRANJA BAR EL MASET,normalized
+22,30,GRANJA D'EN PEP,normalized
+22,30,GRANOLLERS COCINAS,normalized
+22,30,OH LA LA,normalized
+22,30,REST. EL PASO,normalized
+22,30,RESTAURANT BRUNCH,normalized
+22,30,RESTAURANT GUST D'ASIA,normalized
+22,30,RESTAURANTE SIBLINGS,normalized
+22,30,RIEGOS IBERIA REGABER,normalized
+22,30,RSTE. EL JARDI,normalized
+22,30,RSTE. LA GRUILLA,normalized
+22,30,Restaurant Molí de Vent,normalized
+22,30,TANCAMENTS,normalized
+23,30,ANDALUS,normalized
+23,30,BAR ALEBRIJES,normalized
+23,30,BAR CHAMPANILLO,normalized
+23,30,BAR CUBO VENTALLO,normalized
+23,30,BAR DE L?ILLA,normalized
+23,30,BAR GRANJA VINZIA,normalized
+23,30,BAR LA MARTINA,normalized
+23,30,BAR VAGON 66,normalized
+23,30,CAL DIBUIXANT,normalized
+23,30,CAL JORDI BAR,normalized
+23,30,CAN BOADA RESTAURANT,normalized
+23,30,CASAL CULTURAL DE MOLLET,normalized
+23,30,ESTANCO MOLLET 3,normalized
+23,30,GIN BAR,normalized
+23,30,GIOVANNI GELATERIA,normalized
+23,30,HOPS,normalized
+23,30,ICE CUSTOM,normalized
+23,30,LA BODEGUETA DE MOLLET,normalized
+23,30,LA BONA SORT,normalized
+23,30,LA VERMUTERIA,normalized
+23,30,MANJARI,normalized
+23,30,NOU CUSTOM BAR CAFETERÍA,normalized
+23,30,PALENTINO BAR,normalized
+23,30,PEKIN RESTAURANT,normalized
+23,30,PENYA BARCELONISTA DE MOLLET,normalized
+23,30,PRATS PA (ILLA),normalized
+23,30,RAJAS TACOS KEHBAD BAR CAFETERIA,normalized
+23,30,RESTAURANT JAPONES SUSHI AKI,normalized
+23,30,RTE JAPONES YOI AJI,normalized
+23,30,TOTEM BAR,normalized
+25,30,412 COFFEE BEER,normalized
+25,30,BAR CASA PEDRO,normalized
+25,30,BAR GRANJA J.J.,normalized
+25,30,BAR LA TIETA,normalized
+25,30,BAR PICASSO,normalized
+25,30,BAR RESTAURANT GAUDI,normalized
+25,30,BRASERIA LA TEJA,normalized
+25,30,CAFETERIA ANGELA,normalized
+25,30,CAFETERIA GRANJA LA CREPE,normalized
+25,30,CAFETERIA PASTELERIA CALDERON,normalized
+25,30,CAN PRAT RESTAURANT,normalized
+25,30,CANSALADERIA CAN MAGRET,normalized
+25,30,CASA MAURA,normalized
+25,30,CELLER DE CAN RODA,normalized
+25,30,COME BIEN RESTAURANTE,normalized
+25,30,CORBION,normalized
+25,30,EL RECO DEL PLA,normalized
+25,30,ESPAI BAR,normalized
+25,30,HERMANOS PADILLA,normalized
+25,30,HOTEL IBIS,normalized
+25,30,INMOBILIARIA BENSOR,normalized
+25,30,LA BONA TECA,normalized
+25,30,LA CUPULA BAR,normalized
+25,30,LA GRANJA,normalized
+25,30,LA ROSA BAR,normalized
+25,30,MARTU CITY,normalized
+25,30,PIZZERIA KEBAB MIL.LENARI,normalized
+25,30,SA I FRESC RESTAURANT,normalized
+25,30,TINO FRANKFURT,normalized
+25,30,XURRERIA CAFETERIA GARBER,normalized
+26,30,A VOCADOS,normalized
+26,30,BAR LOCALET,normalized
+26,30,BAR MERINO,normalized
+26,30,BINGO CASINO,normalized
+26,30,BUSSINETS DE CUINA,normalized
+26,30,CA LA SETE,normalized
+26,30,CAFE SANT ROC,normalized
+26,30,CAL JIJONERO,normalized
+26,30,CASA FONDA EUROPA,normalized
+26,30,CAVANET,normalized
+26,30,CHARCUTERIA BENITA,normalized
+26,30,DATOTE AL BAGH,normalized
+26,30,Dania’s Bistro & Grill | Granollers,normalized
+26,30,EL REFUGI D´EN CUCH,normalized
+26,30,FRUTOS SECOS LA CLOSCA,normalized
+26,30,GRANJA GROC,normalized
+26,30,Granollers Indian Restaurante,normalized
+26,30,HOLLY'S,normalized
+26,30,KUMAR DONNER KEBAB PIZZERIA,normalized
+26,30,LA GRANJA ( DEGUSTACIO ),normalized
+26,30,LA ROCA VILLAGE RTE PASARELA (GVC),normalized
+26,30,LA SEDA GRANOLLERS,normalized
+26,30,PALO SANTO COCKTAIL BAR,normalized
+26,30,PITAPES RESTAURANT GRANOLLES,normalized
+26,30,PURE COFFEE,normalized
+26,30,Platillos,normalized
+26,30,RSTE. EL CELLER DE CAN ROS,normalized
+26,30,SUSHI HE GRANOLLERS,normalized
+26,30,TRES TASSES,normalized
+26,30,TSURUTA RAMEN,normalized
+28,30,BAR EL RECONET,normalized
+28,30,BAR GARCIA,normalized
+28,30,BAR LA RAMBLA,normalized
+28,30,BAR MILANA BRASERIA,normalized
+28,30,BAR NEVADA II,normalized
+28,30,BAR RESTAURANT PAVEPIC,normalized
+28,30,BAR RESTAURANT TROYA,normalized
+28,30,BAR RESTAURANTE MERLY´S,normalized
+28,30,BAR XARANA GRANOLLERS,normalized
+28,30,BAR ZHOU,normalized
+28,30,CAFE#L'ESTONA,normalized
+28,30,CAFETERIA FORN LA FLAIRE,normalized
+28,30,CAFETERIA LA CANTONADA,normalized
+28,30,CAL JOAN,normalized
+28,30,CASA CHUECOS,normalized
+28,30,DONNER POMPEU FABRA,normalized
+28,30,EL RACO DE LES MORERES,normalized
+28,30,FRUTAS Y VERDURAS NAONY'S,normalized
+28,30,KARMA´S,normalized
+28,30,LA BAGUETINA,normalized
+28,30,NUNA´S,normalized
+28,30,PADEL INDOOR GRANOLLERS,normalized
+28,30,PUNTO,normalized
+28,30,RESTAURANTE MELARA,normalized
+28,30,RSTE. PEIX D'OR,normalized
+28,30,SALA NAU B1,normalized
+28,30,SALON GRANOLLERS MACIA - CIRSA,normalized
+28,30,TROBADA,normalized
+28,30,UBOX 2015,normalized
+28,30,VINOUS,normalized
+34,30,BAR CLEMEN'S,normalized
+34,30,BAR COPACABANA,normalized
+34,30,BAR EL VERMUTILLO,normalized
+34,30,BAR LA TABERNA,normalized
+34,30,BAR LA TACITA DE PLATA,normalized
+34,30,BAR LOS AMIGOS,normalized
+34,30,BAR PAREDES 5,normalized
+34,30,BAR PAREDES I,normalized
+34,30,BAR RESTAURANTE ITACA,normalized
+34,30,BAR RESTAURANTE MORDISQUITO,normalized
+34,30,BAR RUMY,normalized
+34,30,BAR TALGO,normalized
+34,30,BAR TAST GRANOLLERS,normalized
+34,30,BAR TIMANFAYA,normalized
+34,30,BAR TIMANFAYA II,normalized
+34,30,BK GRANOLLERS RONDA SUD,normalized
+34,30,CAL FORNER,normalized
+34,30,COROMINES Coffee & Bakery Brunch,normalized
+34,30,FORN DE PA R. RIUS,normalized
+34,30,FORN EL SAGA,normalized
+34,30,GRANBARA,normalized
+34,30,HG CERVECERIA,normalized
+34,30,PAREDES 4,normalized
+34,30,RECTORIA DE PALAU,normalized
+34,30,RESTAURANTE MINT,normalized
+34,30,RESTAURANTE SANT SADURNI,normalized
+34,30,SALA GRANOLLERS (TORRES) – CIRSA,normalized
+34,30,TEATRE AUDITORI (CATERING),normalized
+34,30,XICS DE GRANOLLERS,normalized
+34,30,bar cafeteria yaki,normalized
+35,30,ANATOLIA KEBAB,normalized
+35,30,BAR ATLANTIDA,normalized
+35,30,BAR BIG BAO,normalized
+35,30,BAR BOHEMI,normalized
+35,30,BAR CA LA LAURA,normalized
+35,30,BAR RESTAURANT GIRASOL,normalized
+35,30,CA LA MEI,normalized
+35,30,CAFE VIC,normalized
+35,30,CAFETERIA CIRCUIT D'OSONA,normalized
+35,30,CASINO DE VIC,normalized
+35,30,CELLER DE VIC,normalized
+35,30,DIVICNUS GASTROBAR,normalized
+35,30,EL 33,normalized
+35,30,EL CALIU RESTAURANT (VIC),normalized
+35,30,EL PORTAL VIC,normalized
+35,30,IMPEVIC EDIFICI EL SUCRE,normalized
+35,30,INSOLIT,normalized
+35,30,L'ORIGEN,normalized
+35,30,LA GRANJA BAR,normalized
+35,30,LA TAVERNA D'EN NORTON,normalized
+35,30,LE PETIT KOALA,normalized
+35,30,PIZZERIA BRASERIA LA FLAMA,normalized
+35,30,PLANES BONES,normalized
+35,30,RACO DE L'IBERIC**,normalized
+35,30,RESTAURANT CASA MEXICO,normalized
+35,30,SAKURA II,normalized
+35,30,SNACK (VIC),normalized
+35,30,Samsara Buffet lliure,normalized
+35,30,THE NEW ORLEANS,normalized
+35,30,Vilar Riba - Vic,normalized
+36,30,' EL NOU' TOÓ RICO,normalized
+36,30,ARTICAT(FANTASIAS Y SONRISAS),normalized
+36,30,BAR JALEY BAKERY,normalized
+36,30,"BAR L,OREIG (HOTEL CAN CAMPA)",normalized
+36,30,BAR MAJOR 47,normalized
+36,30,BAR PLAZA GRAN,normalized
+36,30,BOKAO,normalized
+36,30,BRASERIA CAMPINS,normalized
+36,30,BRUNCH 4.12 MUSIC,normalized
+36,30,CAFETERIA ZURICH,normalized
+36,30,CAL TETE SANT FOST,normalized
+36,30,DELS CASTANYERS RESTAURANT,normalized
+36,30,FAMILIAR BAR RESTAURANTE,normalized
+36,30,FLECA LA FLORIDA,normalized
+36,30,FRANKFURT II VELEZ,normalized
+36,30,Forn La Miranda coffe & Beer,normalized
+36,30,GRANJA VINALLONGA,normalized
+36,30,LA BRUIXETA,normalized
+36,30,LA GIRALDA,normalized
+36,30,LOS CUESTAS,normalized
+36,30,MERCAT DEL CARME BAR,normalized
+36,30,MERENDERO CAN XEC,normalized
+36,30,OASIS,normalized
+36,30,PASTELERIA CAFETERIA ELENA,normalized
+36,30,RACÓ DE SANT FOST,normalized
+36,30,RESTAURANTE MARCOS,normalized
+36,30,SANLUQUEÑOS BAR,normalized
+36,30,SUPERMERCADO GASOLINERA DISCAU,normalized
+36,30,SUPERMERCAT MAJOR,normalized
+36,30,VALLES DONER KEBAB,normalized
+37,30,BAR CAMP FUTBOL ST VICENÇ TORELLO,normalized
+37,30,BAR CASAL ST. VICEN#,normalized
+37,30,BAR EL CAFETO,normalized
+37,30,BAR MONTSERRAT,normalized
+37,30,BAR RACO JUVENIL,normalized
+37,30,BAR TORNEM-HI,normalized
+37,30,BAR TSE-TSE,normalized
+37,30,BAR XINO XANO,normalized
+37,30,BIG BAG,normalized
+37,30,CA L'ANGEL BAR,normalized
+37,30,CAFE LA PLAÇA,normalized
+37,30,CAFETERIA BUGATTI,normalized
+37,30,CASAL VILASECA,normalized
+37,30,CASANOVA DEL CASTELL,normalized
+37,30,DESIG,normalized
+37,30,EL BISTROT DEL FIRAL,normalized
+37,30,EL CASTELL DE BESORA,normalized
+37,30,EL GAT BAR,normalized
+37,30,ELS ENLLETATS,normalized
+37,30,FORN PUJADES,normalized
+37,30,LA PEDREGADA,normalized
+37,30,LA TAVERNA,normalized
+37,30,Latitud 42,normalized
+37,30,MARINA BAR,normalized
+37,30,PADEL INDOOR TORELLO,normalized
+37,30,PUERTO DULCE,normalized
+37,30,RESTAURANT AL GRA,normalized
+37,30,RESTAURANT CAL PAGES,normalized
+37,30,RESTAURANT LA BISAURA,normalized
+37,30,SPORT BAR (SANT QUIRZE),normalized
+39,30,AMBIGU,normalized
+39,30,ANDRADES JIMENEZ MANUEL,normalized
+39,30,ANTONIO DIAZ AGUILA,normalized
+39,30,BAR 28,normalized
+39,30,BAR CAFETERIA RICOMA,normalized
+39,30,BAR ISLA CRISTINA,normalized
+39,30,BAR LA CUCA,normalized
+39,30,BAR LOS HERMANOS.,normalized
+39,30,BAR SALON DEPORTIVO,normalized
+39,30,Bar Baudilio,normalized
+39,30,Bar Tapas Bike,normalized
+39,30,CAFE BAR LA FONT,normalized
+39,30,CAN SALA,normalized
+39,30,CARLOS JUNCA SÁNCHEZ,normalized
+39,30,CHURROS CRUZ,normalized
+39,30,DISTRIDAM,normalized
+39,30,EL MORDISKITO MONTORNES,normalized
+39,30,GRANJA SANTIAGO,normalized
+39,30,JJ BAR,normalized
+39,30,JOSE MARIA SORIA JURADO,normalized
+39,30,JOSE QUILES CARRERAS,normalized
+39,30,LA PLAÇA BAR,normalized
+39,30,LLUIS CORS BOIX,normalized
+39,30,MIREIA ESTEVEZ CABANILLAS,normalized
+39,30,MONTSERRAT PEREZ HERRERA,normalized
+39,30,NOU HOLIDAYS,normalized
+39,30,RSTE. LA CABAÑA,normalized
+39,30,RTE. CA LA POLI,normalized
+39,30,SANTOS QUILES HORTAL,normalized
+39,30,WOOD & COFFEE,normalized
+49,30,(RESTAURANT) SPORT & HEALTH OXIGEN,normalized
+49,30,ALORA,normalized
+49,30,BAR ALASKA,normalized
+49,30,BAR BOTE,normalized
+49,30,BAR CAMPO FUTBOL MONTMELO,normalized
+49,30,BAR MARIA,normalized
+49,30,BAR OLIMPIC MOLLET,normalized
+49,30,BODEGA CAMELOT,normalized
+49,30,Bar Els 4 Vents,normalized
+49,30,Bar Restaurante L'Arpa,normalized
+49,30,CASA TOI,normalized
+49,30,CRISTINA BAR,normalized
+49,30,EL LORO CHARLY RESTAURANT,normalized
+49,30,FLECA BRETCHA (HOSPITAL),normalized
+49,30,FORN L'ANTIC,normalized
+49,30,FORN VALERO,normalized
+49,30,HOTEL CIUTAT DE GRANOLLERS,normalized
+49,30,LES TRES COPES RESTAURANT,normalized
+49,30,MONTSENY GRANJA BAR,normalized
+49,30,NOU TOÓ RICO (MONTMELÓ),normalized
+49,30,PADEL SPORTS & HEALTH OXIGEN,normalized
+49,30,PEPE.COM,normalized
+49,30,RESTAURANT 69KDIRES,normalized
+49,30,RESTAURANTE BUENA SUERTE,normalized
+49,30,RESTAURANTE RAMASSA,normalized
+49,30,RESTAURANTE XAP,normalized
+49,30,RUSTIK GASTRO BAR,normalized
+49,30,TAPETES BAR,normalized
+49,30,TENTACION BAR (2007),normalized
+49,30,Venecia,normalized
+50,30,B&B,normalized
+50,30,BAR FUSINA,normalized
+50,30,BAR LAURA,normalized
+50,30,BAR REST EL TAST,normalized
+50,30,"BOTANIC & FRUITS, S.L.",normalized
+50,30,Bar La Parada c/ bisbe morgades,normalized
+50,30,CAFE PASTISSERIA BRUGUER,normalized
+50,30,CAFE SAMSARA,normalized
+50,30,CAFETERIA ATREZZO,normalized
+50,30,CAFETERIA SANT JORDI,normalized
+50,30,CAL GAT CAFETERIA RESTAURANT,normalized
+50,30,CARBO,normalized
+50,30,CASA TEVA,normalized
+50,30,CINEMES SUCRE,normalized
+50,30,CITY ARMS,normalized
+50,30,COFFEE & BAKERY CAN PAU,normalized
+50,30,EL MOLI,normalized
+50,30,El Celler d'en Miquel,normalized
+50,30,FORN CATALUNYA,normalized
+50,30,GRANJA XOCOLATERIA''LA CLAU,normalized
+50,30,L'INDIÀ CAFETERIA,normalized
+50,30,LA BONA TAULA,normalized
+50,30,LA CAFE,normalized
+50,30,LA CIUTAT DELS SANTS,normalized
+50,30,LA MANDUCA,normalized
+50,30,PUNT DONER KEBAB,normalized
+50,30,RESTAURANT EL XIC,normalized
+50,30,TAJ MAHAL,normalized
+50,30,TRESONA XXI,normalized
+50,30,Vacanal Jubany - Hamburgueseria,normalized
+58,30,BAR  EL NOU TUNEL,normalized
+58,30,BAR CAFETERIA EL DOMI,normalized
+58,30,BAR CAFETERIA KALESSY,normalized
+58,30,BAR EL VERMUTILLO II,normalized
+58,30,BAR LA CANTINA,normalized
+58,30,BAR LAMIA,normalized
+58,30,BAR LAS TAPAS,normalized
+58,30,BAR RESTAURANT CAN CHEN,normalized
+58,30,BAR RESTAURANTE CAL DAVID,normalized
+58,30,BAR TRIANA,normalized
+58,30,BAR VITA,normalized
+58,30,BAR YUMEI II,normalized
+58,30,CAFE LEO,normalized
+58,30,CAN BIN RESTAURANTE,normalized
+58,30,EL RACO DE LA VIKI,normalized
+58,30,FLECA P.BRETCHA (CAN BASSA),normalized
+58,30,FORN DE PA MARGARIDA,normalized
+58,30,FORN LA CARMEN,normalized
+58,30,FRANKFURT LA PLAÇA,normalized
+58,30,GRANA BAR BY DUMAS,normalized
+58,30,GRANJA LA NOU,normalized
+58,30,HOTEL ATENEA VALLES,normalized
+58,30,IMPERIAL,normalized
+58,30,INDOORWALL GRANOLLERS,normalized
+58,30,RESTAURANTE ANATOLIA,normalized
+58,30,RESTAURANTE EL FOGON,normalized
+58,30,RESTAURANTE VII,normalized
+58,30,RTE AYOPAYA,normalized
+58,30,TAVERNA TATXIN TATXIN,normalized
+58,30,TEATRE AUDITORI DE GRANOLLERS-BAR,normalized
+60,30,755_SUBLIME,normalized
+60,30,ALAIA COFFE BAR,normalized
+60,30,BACROM,normalized
+60,30,BAR ACROPOLIS,normalized
+60,30,BAR ALMANSA,normalized
+60,30,BAR CA LA XIANG,normalized
+60,30,BAR EL DOFI,normalized
+60,30,BAR FRAYMAN,normalized
+60,30,BAR GALICIA,normalized
+60,30,BAR LOS ARCES,normalized
+60,30,BAR NOMAD,normalized
+60,30,BAR RESTAURANTE FRETES,normalized
+60,30,BAR SAGITARIO,normalized
+60,30,BOCA JUNIOR,normalized
+60,30,BROTHERS,normalized
+60,30,CAFETERIA ESCLAT,normalized
+60,30,CAN RAJOLER,normalized
+60,30,CTRO.ELS TIL.LERS,normalized
+60,30,CUENCA BAR,normalized
+60,30,EL JARDI DE GALLECS,normalized
+60,30,ENERGY BAR  & RESTAURANTE,normalized
+60,30,EUREST COLECTIVIDADES (MERCK),normalized
+60,30,GRACIELA PANADERIA-CAFETERIA,normalized
+60,30,LA FLECA D'EN GREC,normalized
+60,30,LLEVANTPARK SL,normalized
+60,30,MAFALDA,normalized
+60,30,PETIT CAFE,normalized
+60,30,RACO DEL SEMI CACHOPO,normalized
+60,30,RESTAURANTE EUROPEO CONGOST,normalized
+60,30,SABOR MANABITA (COSTAVERDE),normalized
+62,30,BAR CAFETERIA LOS DOS 961,normalized
+62,30,BAR CAN CERVANTES,normalized
+62,30,BAR EPORA 2,normalized
+62,30,BAR INDELALBA,normalized
+62,30,BAR JALEY (PARETS),normalized
+62,30,BAR JUAQUIN,normalized
+62,30,BAR LOS CAZADORES (GRANOLLERS),normalized
+62,30,BAR RESTAURANTE A PICOS,normalized
+62,30,BAR SAN ANTONIO,normalized
+62,30,BONA TAPA,normalized
+62,30,CAFETERIA JALEY,normalized
+62,30,CAFETERIA LUISIANA,normalized
+62,30,CAFETERIA PANADERIA + QUE PA,normalized
+62,30,CAMPO FUTBOL PARETS,normalized
+62,30,CAN MOREU,normalized
+62,30,CELLER DEL FERRER,normalized
+62,30,COFFEE YAGUNA,normalized
+62,30,FORNO DI CAFFE VIVALDI,normalized
+62,30,FRANKFURT JAVIS II,normalized
+62,30,GRUP TESI,normalized
+62,30,LA PLANCHA ÑAM ÑAM,normalized
+62,30,LAS PISTAS BAR,normalized
+62,30,MUSIC CLUB RADIKAL,normalized
+62,30,NETSTAL IBERICA SA,normalized
+62,30,PAPUA COLL DE LA MANYA,normalized
+62,30,PUB EVENING,normalized
+62,30,RESTAURANTE EL SOL,normalized
+62,30,RESTAURANTE PALOU,normalized
+62,30,ROCA UMBERT FABRICA DELS ARTS,normalized
+62,30,TAPAS KEBAB,normalized
+65,30,"AUTORACING MOLLET, S.L.",normalized
+65,30,BAR BRANNINGAM,normalized
+65,30,BAR BY DUNAS MOLLET,normalized
+65,30,BAR EBANO,normalized
+65,30,BAR MEJIAS,normalized
+65,30,BAR NIKOL,normalized
+65,30,BAR PHILADELPHIA,normalized
+65,30,BAR PRUNERES,normalized
+65,30,BAR RESTAURANTE NEORIS,normalized
+65,30,BAR TABERNA PARAISO RIM,normalized
+65,30,CA LA MARI ROSTISERIA,normalized
+65,30,CAFETERIA UMAMI,normalized
+65,30,CAFÉ PLAÇA,normalized
+65,30,Confidencial,normalized
+65,30,DISTRIBUIDORA DE PRODUCTOS NATURALE,normalized
+65,30,EL REFUGIO,normalized
+65,30,EUROPA BAR,normalized
+65,30,GRANJA ESTEL,normalized
+65,30,JULIS BAR,normalized
+65,30,LA GOLOSA BAR,normalized
+65,30,LA PERA BAR,normalized
+65,30,LA PRUNA,normalized
+65,30,LA TAVERNA DE CAN PANTIQUET,normalized
+65,30,MARFA BAR,normalized
+65,30,MARIETA RESTAURANT,normalized
+65,30,ORRIOLS FORN DE PA,normalized
+65,30,TALLERS CAN MULA,normalized
+65,30,TASTY DONNER KEBAB,normalized
+65,30,WONCA BURGUER,normalized
+65,30,ZAMORA BAR,normalized
+67,30,ALHAMBRA 57,normalized
+67,30,BAR BISHOP,normalized
+67,30,BAR GRANADA,normalized
+67,30,BAR KARAI,normalized
+67,30,BAR POR EJEMPLO,normalized
+67,30,Bar 4 Puertas,normalized
+67,30,CAL TAPA GASTROBAR,normalized
+67,30,CANTINA RENFE SANT FOST,normalized
+67,30,CHUS RESTAURANT,normalized
+67,30,EL GARBI BAR,normalized
+67,30,EL RACO DEL MERCAT,normalized
+67,30,ESTUDIANTIL BAR,normalized
+67,30,EVA RESTAURANT,normalized
+67,30,FRANKFURT MOLLET SL,normalized
+67,30,FUSSION,normalized
+67,30,GRANJA CORAL,normalized
+67,30,HOLA K TAL,normalized
+67,30,LA BELLA CALABRIA - PIZZERIA RESTAU,normalized
+67,30,LA TASCA BAR,normalized
+67,30,MANEL BAR,normalized
+67,30,MING BAR RESTAURANTE,normalized
+67,30,OH PALADAR,normalized
+67,30,PA I CAFETERIA L'AVIA ESTACION,normalized
+67,30,PAQUI FORN DE PA,normalized
+67,30,PLAZA DONER KEBAB,normalized
+67,30,RECO DE LAURA,normalized
+67,30,RTE CHINO TA HAO MEN,normalized
+67,30,TREBOL BRUNCH,normalized
+67,30,VENECIA BAR,normalized
+67,30,XURRERIA,normalized
+69,30,AQUI MATEIX,normalized
+69,30,BAR AMISTAD,normalized
+69,30,BAR CAN MOI,normalized
+69,30,BAR EL TACO,normalized
+69,30,BAR LA CAVERNA,normalized
+69,30,BAR LA GAVINA,normalized
+69,30,BAR LA PLAÇA LES FRANQUESES,normalized
+69,30,BAR MIRADOR,normalized
+69,30,BAR OLIMPIC,normalized
+69,30,BAR PAREDES 4,normalized
+69,30,BON QUALITAT,normalized
+69,30,Bar Plata,normalized
+69,30,Bar libra,normalized
+69,30,CAFE ORIENT EXPRESS,normalized
+69,30,CAFETERIA DEGUSTACION LA CANTONADA,normalized
+69,30,CAN MANEL,normalized
+69,30,CARNICERIA RODRIGUEZ,normalized
+69,30,Casal Avis Extremadura,normalized
+69,30,DDI PROVEA SL (BARCELONA),normalized
+69,30,EL BAR DE LA ISA,normalized
+69,30,FLECA BRETCHA (CORRO D'AVALL),normalized
+69,30,FLECA P.BRETCHA (BELLAVISTA),normalized
+69,30,FRANKFURT ARIES,normalized
+69,30,LA TASKA DE CARMEN,normalized
+69,30,LAPONIA CAFE,normalized
+69,30,PASTISSERIA CAN GANDUXER,normalized
+69,30,RESTAURANTE GRAN MURALLA,normalized
+69,30,RSTE. CHINO GRAN MUNDO,normalized
+69,30,RSTE. MESON BELLAVISTA,normalized
+69,30,TAPES GRANOLLERS PICA VINS,normalized
+70,30,BAR BODEGA ALVAREZ,normalized
+70,30,BAR CAFETERIA ATLAS,normalized
+70,30,BAR CULIBLANCO - CAMPO FUTBOL ATLET,normalized
+70,30,BAR EL GARAJE,normalized
+70,30,BAR JOAN,normalized
+70,30,BAR LA GRALLA,normalized
+70,30,BAR LA TACITA,normalized
+70,30,BAR LINARES,normalized
+70,30,BAR RESTAURANTE XIAN,normalized
+70,30,BAR RTE DOCTÑE,normalized
+70,30,BAR YUMEI,normalized
+70,30,BAR CABALLERO (OCAÑA),normalized
+70,30,BK GRANOLLERS,normalized
+70,30,Bar Refugio,normalized
+70,30,CAL QUIM,normalized
+70,30,CIRCUITO DE CATALUNYA,normalized
+70,30,CLUB PADEL MONTMELO,normalized
+70,30,EPICUS BAR,normalized
+70,30,EZEQUIEL GUARDIOLA DOÑA,normalized
+70,30,KIWI,normalized
+70,30,"L,ESTACIO DE SERVEI",normalized
+70,30,MIXU#S CAT CAFE,normalized
+70,30,PARADIS GRANJA,normalized
+70,30,PIZZERIA MAYOR,normalized
+70,30,QUATREPAMS,normalized
+70,30,RAIGUER III,normalized
+70,30,RESTAURANTE EL CAU,normalized
+70,30,RESTAURANTE LA GRESCA,normalized
+70,30,SERGIO MORENO LIEBANA,normalized
+70,30,SHINGARI SUSHI BAR,normalized
+73,30,BAR CAN BORRELL,normalized
+73,30,BAR DE TAPES,normalized
+73,30,BAR ESPERANZA,normalized
+73,30,BAR LA BONA SORT ( CAN BORELL ),normalized
+73,30,BAR TRANSIT,normalized
+73,30,Bar El Parque,normalized
+73,30,Bar la Cantonada,normalized
+73,30,Bar restaurante Nacha,normalized
+73,30,CAFETERIA TAHOMA,normalized
+73,30,CERVESERIA CIUTAT,normalized
+73,30,EL RINCON DEL SOCIO,normalized
+73,30,ESTANC MOLLET 2,normalized
+73,30,EXTREMEÑOS BAR,normalized
+73,30,FAMILY GRANJA BAR,normalized
+73,30,FORN DE PA EMY,normalized
+73,30,HALCON BAR,normalized
+73,30,HOMER BAR GRANJA,normalized
+73,30,INDUSTRIAS QUIMICAS DEL VALLES,normalized
+73,30,KAPHIY BRUNCH,normalized
+73,30,LA GAMBA BAR,normalized
+73,30,NOU CAPRICCIO,normalized
+73,30,NOVA PALMERA,normalized
+73,30,NUEVO VITORINO,normalized
+73,30,PA I CAFETERIA DE L'AVIA,normalized
+73,30,PARAISO BAR,normalized
+73,30,PUNT DE TROBADA,normalized
+73,30,RESTAURANT KENFIR,normalized
+73,30,RSTE. L'OLIVE,normalized
+73,30,RSTE. YOLANDA,normalized
+73,30,TREBOL CERVECERIA,normalized
+10,29,"AGROBOTIGA RODA, SL",normalized
+10,29,BAR LA PUÇA,normalized
+10,29,BAR REST.EL CENACHERO,normalized
+10,29,BAR RESTAURANT EL GOT,normalized
+10,29,BAR SNACK,normalized
+10,29,CABANYA MIR,normalized
+10,29,CAL JUTGE,normalized
+10,29,"CAN BRANQUES RESTAURANT, S.",normalized
+10,29,CAN LIRO,normalized
+10,29,CARNS I EMBOTITS EMPAR,normalized
+10,29,CLUB DARDS BESORA,normalized
+10,29,DROGUERIA JUNYENT,normalized
+10,29,EL BARETU,normalized
+10,29,EL REBOST DE L'ISABEL,normalized
+10,29,EL SERRADET BAR,normalized
+10,29,ELS FOGONS DE LA NEUS,normalized
+10,29,ENGRUNA POUSA,normalized
+10,29,FORN CAN COMA,normalized
+10,29,GLOBAL ART COOKING,normalized
+10,29,HOSPITAL DE VIC CAFETERIA,normalized
+10,29,HOSPITAL DE VIC CUINA,normalized
+10,29,HOSTAL NOU,normalized
+10,29,L'AURO,normalized
+10,29,L'OLLA ROSTIDORIA,normalized
+10,29,LLAVORS I CEREALS FONT,normalized
+10,29,PISCINES SANT QUIRZE,normalized
+10,29,RESTAURANT DORCA,normalized
+10,29,RESTAURANT EL SANTUARI,normalized
+10,29,RESTAURANT ELS AVETS,normalized
+53,29,BAR ALIANÇA,normalized
+53,29,BAR CAFETERIA LLIÇÀ D’AMUNT,normalized
+53,29,BAR LA CANYA - 3,normalized
+53,29,BAR LA PETRA II,normalized
+53,29,BAR LA TAHONA,normalized
+53,29,BAR PARC DEL TENES,normalized
+53,29,BAR ROMERO,normalized
+53,29,BAR TONYSA,normalized
+53,29,BAR ZONA ZERO,normalized
+53,29,CAFETERIA LONDONET,normalized
+53,29,CARNICERIA CANADELL,normalized
+53,29,CHACHI'S BAR,normalized
+53,29,CULTURAL CAN ROVIRA,normalized
+53,29,Casal de la Gent Gran de Palaudàrie,normalized
+53,29,DAHLIA PASTISSERIA,normalized
+53,29,DIVERSUS GASTRONOMIA,normalized
+53,29,FLECA BRETCHA (LLIÇA DE MUNT),normalized
+53,29,FRANFURT 151,normalized
+53,29,FRANKFURT LA CANYA,normalized
+53,29,HOSTAL SERRA,normalized
+53,29,KAIA,normalized
+53,29,LA TAVERNA DEL ULTIMO HEAVY,normalized
+53,29,LOS EXTREMEÑOS,normalized
+53,29,MAISON DU GRAIN (LLISA AMUNT),normalized
+53,29,MAISON DU GRAIN (STA EULALIA),normalized
+53,29,PISCINAS LES CREMADES,normalized
+53,29,Restaurante Adela de Lliçà d'Amunt,normalized
+53,29,THE JOSE'S BAR PARETS,normalized
+53,29,TRIVI´S BAR,normalized
+57,29,ASSOCIACIO DIABLES DEL PONT VELL,normalized
+57,29,BAR CAMP FUTBOL ST PERE TORELLO,normalized
+57,29,BAR CANIGO,normalized
+57,29,BAR COOPERATIVA,normalized
+57,29,BAR DOBLE Z,normalized
+57,29,BAR EL CASAL,normalized
+57,29,BAR NO HO SE,normalized
+57,29,BAR PUNT DE TROBADA,normalized
+57,29,BAR XANIA,normalized
+57,29,BAR XICRA,normalized
+57,29,BRASSERIA EL TRIANGLE COHO,normalized
+57,29,CAFE DE L'ESGLESIA,normalized
+57,29,CAL NAN,normalized
+57,29,CARLOS OLMOS MONZON,normalized
+57,29,CASAL GENT GRAN ST.VICENÇ TORELLO,normalized
+57,29,DCAFE,normalized
+57,29,FERRO,normalized
+57,29,FONDA VILASECA,normalized
+57,29,FOOD TRUCK,normalized
+57,29,FORN ANTIGA CASA PRAT,normalized
+57,29,FRANKFURT ES-3,normalized
+57,29,HORDES SPT,normalized
+57,29,JORDI FERNANDEZ GODOY,normalized
+57,29,KBCIK,normalized
+57,29,LA LLAVOR,normalized
+57,29,PENSIO EL TREVOL,normalized
+57,29,PRIMER EXPRESS,normalized
+57,29,SANTUARI DE BELLMUNT,normalized
+57,29,SUPERMERCAT ROVIRA,normalized
+117,7,Delight Coffee,normalized
+117,7,FRANCISCO JOSE SANCHEZ ORTEGA,normalized
+117,7,JUAN JAVIER PONCE,normalized
+117,7,MARC ANGLADA PORTET,normalized
+117,7,MARIA LUISA MUÑOZ CARO,normalized
+117,7,SONIA FRANCAS SANTIAGO,normalized
+117,7,Somni d'estiu bar,normalized
+135,7,BAR RESTAURANTE LE VIS#N,normalized
+135,7,BAR?JOAN?PRIM,normalized
+135,7,ESPORTS CLUB GRANOLLERS,normalized
+135,7,FLECA P.BRETCHA (C/ GIRONA),normalized
+135,7,GARDEN PIZZA (GRANOLLERS),normalized
+135,7,RESTAURANT 'LES ARCADES',normalized
+135,7,XAVISAN,normalized
+141,7,ANDALUCIA BAR RTE.(C.11 SETEMBRE),normalized
+141,7,BAR CORALEX,normalized
+141,7,BAR CRISTASOL  (Kebab Esquina),normalized
+141,7,BK MOLLET,normalized
+141,7,CABAÑA DEL TIO TOM BAR,normalized
+141,7,CORDOBES BAR,normalized
+141,7,RENFE NORD CANTINA,normalized
+106,5,AUTENTIK'S,normalized
+106,5,CLUB DE GOLF SANT CUGAT,normalized
+106,5,CLUB PADEL MIR,normalized
+106,5,Club Tennis Barcino,normalized
+106,5,VALERO VALLES,normalized
+146,5,CACHITO PAN,normalized
+146,5,GRAN EMPERADOR RESTAURANTE CHINO,normalized
+146,5,RIVOLI CERVECERIA,normalized
+146,5,SOL Y LUNA,normalized
+146,5,XARRUP BAR,normalized
+103,4,ALFREDO PARODI FURHMAN,normalized
+103,4,Roberto Ferrando Martínez,normalized
+103,4,VENDES MAGATZEM,normalized
+103,4,XAVIER FERRANDIZ RIBA,normalized
+132,4,Asso. Gent Gran Llissa de Munt,normalized
+132,4,BAR LA MIRANDA,normalized
+132,4,La Sala,normalized
+132,4,RESTAURANTE LOS ANGELES,normalized
+18,3,BAR MALENO II,normalized
+18,3,BAR RUI,normalized
+18,3,RESTAURANT NOU CAP MANY,normalized
+90,3,CAFETERIA CAL ELVIRA,normalized
+90,3,CLUB DE FUTBOL MARTORELLES,normalized
+90,3,LA FLOR MARISQUERIA,normalized
+144,3,BAR EL TUBO,normalized
+144,3,Centre Vallès,normalized
+144,3,FLECA BRETCHA (PSG. MONTANYA),normalized
+148,3,BAR PLAZA PUEBLO,normalized
+148,3,Forn de Pa Gaba,normalized
+148,3,RESTAURANTE INJA,normalized
+156,3,Bar Castillo,normalized
+156,3,LA PINYA BAR,normalized
+156,3,Pool,normalized
+161,3,Bar Tissana,normalized
+161,3,JAUME COSTA,normalized
+161,3,TANCAMENTS USART-COMA,normalized
+166,3,BAR BY DUMAS MOLLET,normalized
+166,3,BCC LOUNGE,normalized
+166,3,PRATS PA,normalized
+43,2,PENYA ELS BARTOMEUS,normalized
+43,2,PEÑA PERE ANTON,normalized
+61,2,BAR LOS CAZADORES,normalized
+61,2,Kisema,normalized
+89,2,B-VIKY,normalized
+89,2,BAR FLORIDA,normalized
+104,2,Bar Restaurant Can Parlet,normalized
+104,2,Iris café,normalized
+121,2,ESTANCO MONTCADA,normalized
+121,2,FELIUBADALO,normalized
+122,2,DOLC I SALAT MATARO,normalized
+122,2,EL 9 LLAC,normalized
+125,2,OBSEQUIOS EVENTOS TURIA,normalized
+125,2,OSONA CUINA,normalized
+126,2,903100 PLASTICOS TA-TAY,normalized
+126,2,El Racó d'en Joan,normalized
+140,2,"BAR ""LA OCA""",normalized
+140,2,BAR CAN MONIC,normalized
+150,2,DAVID FORN DE PA I PASTISSERIA,normalized
+150,2,U.D. MOLLETENSE,normalized
+155,2,BRACAFE,normalized
+155,2,TENTACION II,normalized
+158,2,COLLA DELS MORATS,normalized
+158,2,COLLA DELS TORRATS,normalized
+165,2,ENTRE TAPAS,normalized
+165,2,LOS TERESITOS,normalized
+167,1,ANA MARIA FONT COLL,normalized
+168,1,CASAL AVIS MASIA CAN CARRANCA JUNTA,normalized
+169,1,CASTELLERS DE MOLLET,normalized
+170,1,CHATARRAS MOLICAL  SL,normalized
+171,1,COOPERATIVA GUISSONA,normalized
+172,1,Comercial  Bebidas Burj SL,normalized
+173,1,DAVID SEGOVIA ARMERO,normalized
+174,1,EL SERRAT DEL FIGAR#,normalized
+175,1,FLECA DIVINA PASTORA,normalized
+176,1,"FRIT RAVICH, S.L.",normalized
+177,1,Federació Catalana de Patinatge (FC,normalized
+178,1,GUERMAN KAZANNIKOV KAZANNIKOV,normalized
+179,1,HEBRON,normalized
+180,1,JOSE ESCABIAS OSORIO,normalized
+181,1,JULIO ALEJANDRO SANCHEZ FERNANDEZ,normalized
+182,1,LOVIC OSONA,normalized
+183,1,MATADERO FRIGORIFICO AVINYO,normalized
+184,1,OBSEQUIOS EVENTOS DEPORTIVOS DAMM,normalized
+185,1,OSCAR REDONDO LORENZO,normalized
+186,1,RESTAURANT food hub,normalized
+187,1,ZONA ACAMPADA CIRCUIT CATALUNYA,normalized
