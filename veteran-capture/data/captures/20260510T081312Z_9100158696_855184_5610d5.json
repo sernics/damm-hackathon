@@ -1,0 +1,57 @@
+{
+  "capture": {
+    "client_id": "9100158696",
+    "driver_id": "855184",
+    "captured_at": "2026-05-10T08:13:12.337804Z",
+    "tips": [
+      {
+        "topic": "parking",
+        "text": "Acércate por la izquierda del local y deja el camión en segunda fila; según el conductor no hay problema para descargar ahí.",
+        "confidence": "high"
+      },
+      {
+        "topic": "access",
+        "text": "Descarga primero las cajas del lateral del camión antes de bajar el resto de la mercancía.",
+        "confidence": "high"
+      },
+      {
+        "topic": "empties",
+        "text": "Deja los cascos vacíos en el mismo punto de descarga (lateral izquierdo del local) antes de continuar la ruta.",
+        "confidence": "high"
+      },
+      {
+        "topic": "other",
+        "text": "El siguiente cliente de la ruta está a unos 200 metros cruzando la calle; se puede ir andando desde aquí.",
+        "confidence": "medium"
+      }
+    ],
+    "raw_transcript": "Bueno, esta carrera la verdad que es bastante sencilla, el truco es acercarse a la izquierda del local, ahí dejas el camión en segunda fila que no pasa nada, descarga primero las cajas del lateral y luego puedes dejar ahí ya las cajas vacías e ir andando al siguiente local que está como a 200 metros cruzando la calle y nada, cualquier cosa me dices.",
+    "audio_seconds": null
+  },
+  "moderation": {
+    "accepted": [
+      {
+        "topic": "parking",
+        "text": "Acércate por la izquierda del local y deja el camión en segunda fila; según el conductor no hay problema para descargar ahí.",
+        "confidence": "high"
+      },
+      {
+        "topic": "access",
+        "text": "Descarga primero las cajas del lateral del camión antes de bajar el resto de la mercancía.",
+        "confidence": "high"
+      },
+      {
+        "topic": "empties",
+        "text": "Deja los cascos vacíos en el mismo punto de descarga (lateral izquierdo del local) antes de continuar la ruta.",
+        "confidence": "high"
+      },
+      {
+        "topic": "other",
+        "text": "El siguiente cliente de la ruta está a unos 200 metros cruzando la calle; se puede ir andando desde aquí.",
+        "confidence": "medium"
+      }
+    ],
+    "rejected": [],
+    "notes": "sin cambios"
+  }
+}
