@@ -7,13 +7,9 @@ from typing import Any
 from . import config
 
 
-def load_order(path: Path) -> dict[str, Any]:
+def load_route(path: Path) -> dict[str, Any]:
     with open(path) as f:
         return json.load(f)
-
-
-def load_order_from_dict(data: dict[str, Any]) -> dict[str, Any]:
-    return data
 
 
 def find_tips_file(client_name: str, tips_dir: Path | None = None) -> Path | None:
@@ -29,11 +25,7 @@ def find_tips_file(client_name: str, tips_dir: Path | None = None) -> Path | Non
     return None
 
 
-def load_tips(client_name: str, tips_dir: Path | None = None) -> str:
-    path = find_tips_file(client_name, tips_dir)
-    if path is None:
-        return ""
-    text = path.read_text(encoding="utf-8")
+def _strip_frontmatter(text: str) -> str:
     lines = text.split("\n")
     in_frontmatter = False
     body_lines: list[str] = []
@@ -46,13 +38,32 @@ def load_tips(client_name: str, tips_dir: Path | None = None) -> str:
     return "\n".join(body_lines).strip()
 
 
+def load_tips(client_name: str, tips_dir: Path | None = None) -> str:
+    path = find_tips_file(client_name, tips_dir)
+    if path is None:
+        return ""
+    return _strip_frontmatter(path.read_text(encoding="utf-8"))
+
+
+def collect_all_tips(stops: list[dict[str, Any]]) -> str:
+    sections: list[str] = []
+    for stop in stops:
+        client = stop.get("client_name", "")
+        tips = load_tips(client)
+        if tips:
+            sections.append(f"### {client}\n\n{tips}")
+        else:
+            sections.append(f"### {client}\n\n(No tips available.)")
+    return "\n\n".join(sections)
+
+
 def load_system_prompt() -> str:
     return config.SYSTEM_PROMPT_PATH.read_text(encoding="utf-8").strip()
 
 
-def build_user_message(order: dict[str, Any], tips_markdown: str) -> str:
+def build_user_message(route: dict[str, Any], all_tips: str) -> str:
     template = config.USER_TEMPLATE_PATH.read_text(encoding="utf-8")
-    order_json_str = json.dumps(order, ensure_ascii=False, indent=2)
-    message = template.replace("{{ order_json }}", order_json_str)
-    message = message.replace("{{ veteran_tips_markdown }}", tips_markdown or "(No tips available for this client.)")
+    route_json_str = json.dumps(route, ensure_ascii=False, indent=2)
+    message = template.replace("{{ route_json }}", route_json_str)
+    message = message.replace("{{ all_tips }}", all_tips)
     return message

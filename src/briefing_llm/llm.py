@@ -5,16 +5,16 @@ from typing import Any
 import anthropic
 
 from . import config
-from .loader import build_user_message, load_system_prompt, load_tips
+from .loader import build_user_message, collect_all_tips, load_system_prompt
 
 
 def generate_briefing(
-    order: dict[str, Any],
+    route: dict[str, Any],
     *,
     language: str = "es",
 ) -> str:
-    client_name = order.get("client_name", "")
-    tips_markdown = load_tips(client_name)
+    stops = route.get("stops", [])
+    all_tips = collect_all_tips(stops)
     system_prompt = load_system_prompt()
 
     if language == "ca":
@@ -23,7 +23,7 @@ def generate_briefing(
             "Produce the full briefing in Catalan (Catalan from Catalonia)."
         )
 
-    user_message = build_user_message(order, tips_markdown)
+    user_message = build_user_message(route, all_tips)
 
     client = anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
     response = client.messages.create(
