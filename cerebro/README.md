@@ -22,6 +22,7 @@ All relevant information has been extracted from the source materials (CSVs, PDF
 | [`07_evidence.md`](07_evidence.md) | Documentary proof of the route<->load decoupling (Hoja Carga vs Hoja Ruta) + photo notes |
 | [`08_solution_sketch.md`](08_solution_sketch.md) | Architecture draft: ETL -> routing -> packing -> visualisation |
 | [`09_data_quality.md`](09_data_quality.md) | **Read before any ETL.** Traps, quirks, dedupe rules, accent issues |
+| [`10_briefing_llm.md`](10_briefing_llm.md) | Person B: briefing LLM (RAG), API contract, folder layout, MVP checklist |
 | [`GLOSSARY.md`](GLOSSARY.md) | Every code and abbreviation we ran into |
 | [`ASSUMPTIONS.md`](ASSUMPTIONS.md) | Every assumption we made when no source confirmed it, in one place |
 | [`QUESTIONS.md`](QUESTIONS.md) | Open questions — `[BLOCKER]` / `[IMPORTANT]` / `[NICE]` |

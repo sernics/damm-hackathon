@@ -1,0 +1,40 @@
+# Hackathon InterHack BCN 2026
+
+# Damm Challenge
+
+
+# Damm Smart Truck - AI Driver Briefing
+
+Generates compact route cheat-sheets for delivery drivers using veteran tips and LLM intelligence.
+
+Drivers get a practical summary clipped next to the delivery notes, including parking tips, access instructions, timing warnings that are written like advice from an experienced colleague.
+
+## Setup
+
+```bash
+uv sync
+export ANTHROPIC_API_KEY="your-key"
+python main.py
+```
+
+Open http://127.0.0.1:8080, pick a date, select a route, generate.
+
+## How it works
+
+1. Reads daily orders from `dataset/daily_client_orders.csv`
+2. Matches clients against veteran tips in `dataset/veteran_notes/manifest.json`
+3. Sends only the relevant tips to Claude Haiku
+4. Returns a compact cheat-sheet in Spanish or Catalan
+
+## Project structure
+
+```
+src/briefing_llm/
+  app.py        # FastAPI endpoints
+  llm.py        # Anthropic API call
+  loader.py     # CSV + manifest data loading
+  config.py     # Settings (env vars)
+  prompts/      # System and user prompt templates
+  static/       # Web frontend
+dataset/        # Orders CSV + veteran notes
+```
