@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b71edfb3aba45c53de2f2fba66447191 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b71edfb3aba45c53de2f2fba66447191" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b71edfb3aba45c53de2f2fba66447191 = L.map(
+                "map_b71edfb3aba45c53de2f2fba66447191",
+                {
+                    center: [41.5994174, 2.288827],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_21205eda3ed02c18a94386f1dda78312 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_21205eda3ed02c18a94386f1dda78312.addTo(map_b71edfb3aba45c53de2f2fba66447191);
+        
+    
+            var circle_marker_d91a8729640fe0bfa99fccebe56ff361 = L.circleMarker(
+                [41.613915, 2.288827],
+                {"bubblingMouseEvents": true, "color": "#EA580C", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#EA580C", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_b71edfb3aba45c53de2f2fba66447191);
+        
+    
+        var popup_2f97dc91158ea7c3b6646216e9664f43 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_30f463605a74ef362680a98b1509e5e8 = $(`<div id="html_30f463605a74ef362680a98b1509e5e8" style="width: 100.0%; height: 100.0%;">Client: BAR MALENO II<br>Cluster ID: 18<br>Cluster size: 3<br>Address: RAMON LLULL 18, 08401 GRANOLLERS, Spain</div>`)[0];
+                popup_2f97dc91158ea7c3b6646216e9664f43.setContent(html_30f463605a74ef362680a98b1509e5e8);
+            
+        
+
+        circle_marker_d91a8729640fe0bfa99fccebe56ff361.bindPopup(popup_2f97dc91158ea7c3b6646216e9664f43)
+        ;
+
+        
+    
+    
+            circle_marker_d91a8729640fe0bfa99fccebe56ff361.bindTooltip(
+                `<div>
+                     BAR MALENO II (cluster 18)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_123998dd0a4a2a7256ec4d9d5344f5e5 = L.circleMarker(
+                [41.5994174, 2.2898581],
+                {"bubblingMouseEvents": true, "color": "#EA580C", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#EA580C", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_b71edfb3aba45c53de2f2fba66447191);
+        
+    
+        var popup_f3c24aa469014d1b08cbb70a97185e73 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_afff16070744fc09703725b79865ce92 = $(`<div id="html_afff16070744fc09703725b79865ce92" style="width: 100.0%; height: 100.0%;">Client: BAR RUI<br>Cluster ID: 18<br>Cluster size: 3<br>Address: PLAZA JOSEP SERRAT I BONASTRE 18, 08402 GRANOLLERS, Spain</div>`)[0];
+                popup_f3c24aa469014d1b08cbb70a97185e73.setContent(html_afff16070744fc09703725b79865ce92);
+            
+        
+
+        circle_marker_123998dd0a4a2a7256ec4d9d5344f5e5.bindPopup(popup_f3c24aa469014d1b08cbb70a97185e73)
+        ;
+
+        
+    
+    
+            circle_marker_123998dd0a4a2a7256ec4d9d5344f5e5.bindTooltip(
+                `<div>
+                     BAR RUI (cluster 18)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_79eaec704ceedd7637cf7a2300d4cbe1 = L.circleMarker(
+                [41.594034, 2.265173],
+                {"bubblingMouseEvents": true, "color": "#EA580C", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#EA580C", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_b71edfb3aba45c53de2f2fba66447191);
+        
+    
+        var popup_7cc0554387792f9841ea3634e6dc2916 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_1d9560dfc52b030f3ebc139ea04245f5 = $(`<div id="html_1d9560dfc52b030f3ebc139ea04245f5" style="width: 100.0%; height: 100.0%;">Client: RESTAURANT NOU CAP MANY<br>Cluster ID: 18<br>Cluster size: 3<br>Address: CALLE GALILEU GALILEI 16, 08403 GRANOLLERS, Spain</div>`)[0];
+                popup_7cc0554387792f9841ea3634e6dc2916.setContent(html_1d9560dfc52b030f3ebc139ea04245f5);
+            
+        
+
+        circle_marker_79eaec704ceedd7637cf7a2300d4cbe1.bindPopup(popup_7cc0554387792f9841ea3634e6dc2916)
+        ;
+
+        
+    
+    
+            circle_marker_79eaec704ceedd7637cf7a2300d4cbe1.bindTooltip(
+                `<div>
+                     RESTAURANT NOU CAP MANY (cluster 18)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_964e85d8ceeef5763d5d26f7ca60f9fb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_964e85d8ceeef5763d5d26f7ca60f9fb" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_964e85d8ceeef5763d5d26f7ca60f9fb = L.map(
+                "map_964e85d8ceeef5763d5d26f7ca60f9fb",
+                {
+                    center: [41.5386243, 2.2134723],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d24ac4f4918bc26f4fa7485361598a4e = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_d24ac4f4918bc26f4fa7485361598a4e.addTo(map_964e85d8ceeef5763d5d26f7ca60f9fb);
+        
+    
+            var circle_marker_35ee58d8cde72d0d66338049f357c1bd = L.circleMarker(
+                [41.5401113, 2.2166876],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_964e85d8ceeef5763d5d26f7ca60f9fb);
+        
+    
+        var popup_84c9dcd3e9aea43e5ff74ff86e4879e0 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ce63e34831c90906933f1fff926c9c81 = $(`<div id="html_ce63e34831c90906933f1fff926c9c81" style="width: 100.0%; height: 100.0%;">Client: BAR EBANO<br>Cluster ID: 24<br>Cluster size: 3<br>Address: CALLE ANSELM CLAVE 19-21, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_84c9dcd3e9aea43e5ff74ff86e4879e0.setContent(html_ce63e34831c90906933f1fff926c9c81);
+            
+        
+
+        circle_marker_35ee58d8cde72d0d66338049f357c1bd.bindPopup(popup_84c9dcd3e9aea43e5ff74ff86e4879e0)
+        ;
+
+        
+    
+    
+            circle_marker_35ee58d8cde72d0d66338049f357c1bd.bindTooltip(
+                `<div>
+                     BAR EBANO (cluster 24)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5743c6d66e4f1797a7742a30f0815c09 = L.circleMarker(
+                [41.5386243, 2.2134723],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_964e85d8ceeef5763d5d26f7ca60f9fb);
+        
+    
+        var popup_07878f40e7aab554304fbc54f933e218 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_376ab4815a3caace101ed9b4b1bd63f3 = $(`<div id="html_376ab4815a3caace101ed9b4b1bd63f3" style="width: 100.0%; height: 100.0%;">Client: CAFETERIA UMAMI<br>Cluster ID: 24<br>Cluster size: 3<br>Address: Plaça de Prat de la Riba 18, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_07878f40e7aab554304fbc54f933e218.setContent(html_376ab4815a3caace101ed9b4b1bd63f3);
+            
+        
+
+        circle_marker_5743c6d66e4f1797a7742a30f0815c09.bindPopup(popup_07878f40e7aab554304fbc54f933e218)
+        ;
+
+        
+    
+    
+            circle_marker_5743c6d66e4f1797a7742a30f0815c09.bindTooltip(
+                `<div>
+                     CAFETERIA UMAMI (cluster 24)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_235eee930964b7b7ec5f33228b1bf919 = L.circleMarker(
+                [41.538483, 2.213333],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_964e85d8ceeef5763d5d26f7ca60f9fb);
+        
+    
+        var popup_8ea60dfc9a1eb8322b9730b8932d79fa = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4becbd4f7fa225c780ac739b4afcd8d4 = $(`<div id="html_4becbd4f7fa225c780ac739b4afcd8d4" style="width: 100.0%; height: 100.0%;">Client: CAL DIBUIXANT<br>Cluster ID: 24<br>Cluster size: 3<br>Address: PLAZA PRAT DE LA RIBA 21, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_8ea60dfc9a1eb8322b9730b8932d79fa.setContent(html_4becbd4f7fa225c780ac739b4afcd8d4);
+            
+        
+
+        circle_marker_235eee930964b7b7ec5f33228b1bf919.bindPopup(popup_8ea60dfc9a1eb8322b9730b8932d79fa)
+        ;
+
+        
+    
+    
+            circle_marker_235eee930964b7b7ec5f33228b1bf919.bindTooltip(
+                `<div>
+                     CAL DIBUIXANT (cluster 24)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6cbafaa8f3f353ff647320dad72257d9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_6cbafaa8f3f353ff647320dad72257d9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6cbafaa8f3f353ff647320dad72257d9 = L.map(
+                "map_6cbafaa8f3f353ff647320dad72257d9",
+                {
+                    center: [41.55248555, 2.2698641999999998],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_80acebf0cb6f62baebbbe42e45d25ae9 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_80acebf0cb6f62baebbbe42e45d25ae9.addTo(map_6cbafaa8f3f353ff647320dad72257d9);
+        
+    
+            var circle_marker_e05862222c1fc932425c05c8936d82b4 = L.circleMarker(
+                [41.539883, 2.267595],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_6cbafaa8f3f353ff647320dad72257d9);
+        
+    
+        var popup_34e21314b85c2a02064632db4de786cc = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_99b66f3152acab8c9c332c39f74756b7 = $(`<div id="html_99b66f3152acab8c9c332c39f74756b7" style="width: 100.0%; height: 100.0%;">Client: PENYA ELS BARTOMEUS<br>Cluster ID: 43<br>Cluster size: 2<br>Address: PLAZA JOAQUIM MIR 1, 08170 MONTORNES DEL VALLES, Spain</div>`)[0];
+                popup_34e21314b85c2a02064632db4de786cc.setContent(html_99b66f3152acab8c9c332c39f74756b7);
+            
+        
+
+        circle_marker_e05862222c1fc932425c05c8936d82b4.bindPopup(popup_34e21314b85c2a02064632db4de786cc)
+        ;
+
+        
+    
+    
+            circle_marker_e05862222c1fc932425c05c8936d82b4.bindTooltip(
+                `<div>
+                     PENYA ELS BARTOMEUS (cluster 43)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fcd33c0506a165d67019c148850ebaab = L.circleMarker(
+                [41.5650881, 2.2721334],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_6cbafaa8f3f353ff647320dad72257d9);
+        
+    
+        var popup_991df3b33a5fc357f93a70f6477931fb = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_819423bb9ad954ad474328bba70911dd = $(`<div id="html_819423bb9ad954ad474328bba70911dd" style="width: 100.0%; height: 100.0%;">Client: PEÑA PERE ANTON<br>Cluster ID: 43<br>Cluster size: 2<br>Address: CAN PARELLADA SN, 08170 MONTORNÈS DEL VALLÈS, Spain</div>`)[0];
+                popup_991df3b33a5fc357f93a70f6477931fb.setContent(html_819423bb9ad954ad474328bba70911dd);
+            
+        
+
+        circle_marker_fcd33c0506a165d67019c148850ebaab.bindPopup(popup_991df3b33a5fc357f93a70f6477931fb)
+        ;
+
+        
+    
+    
+            circle_marker_fcd33c0506a165d67019c148850ebaab.bindTooltip(
+                `<div>
+                     PEÑA PERE ANTON (cluster 43)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

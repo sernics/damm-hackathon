@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_92e5be13f229ac737c59d19d7102f6fd {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_92e5be13f229ac737c59d19d7102f6fd" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_92e5be13f229ac737c59d19d7102f6fd = L.map(
+                "map_92e5be13f229ac737c59d19d7102f6fd",
+                {
+                    center: [41.936175, 2.253052],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_fafbc501ddc182d34a5fd52656054865 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_fafbc501ddc182d34a5fd52656054865.addTo(map_92e5be13f229ac737c59d19d7102f6fd);
+        
+    
+            var circle_marker_772c503d8b76124eb4a7458f415fbac5 = L.circleMarker(
+                [41.93233725852713, 2.248581807105943],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_92e5be13f229ac737c59d19d7102f6fd);
+        
+    
+        var popup_f1af6dc53ff7750794fca2e2451f9864 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b80708ea242f560b4099d93208ebaa30 = $(`<div id="html_b80708ea242f560b4099d93208ebaa30" style="width: 100.0%; height: 100.0%;">Client: ALASKA BAR<br>Cluster ID: 36<br>Cluster size: 5<br>Address: Carrer de Manuel Serra i Moret 4, 08500 VIC, Spain</div>`)[0];
+                popup_f1af6dc53ff7750794fca2e2451f9864.setContent(html_b80708ea242f560b4099d93208ebaa30);
+            
+        
+
+        circle_marker_772c503d8b76124eb4a7458f415fbac5.bindPopup(popup_f1af6dc53ff7750794fca2e2451f9864)
+        ;
+
+        
+    
+    
+            circle_marker_772c503d8b76124eb4a7458f415fbac5.bindTooltip(
+                `<div>
+                     ALASKA BAR (cluster 36)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fb6539c350dba13e69ad448e36037795 = L.circleMarker(
+                [41.9543606, 2.2787408],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_92e5be13f229ac737c59d19d7102f6fd);
+        
+    
+        var popup_c3c85d36f75fde469eec5f0115fdb83e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_16aee589acf68b956c83692ada9d1afd = $(`<div id="html_16aee589acf68b956c83692ada9d1afd" style="width: 100.0%; height: 100.0%;">Client: AREA TRUCK ( SHELL )<br>Cluster ID: 36<br>Cluster size: 5<br>Address: CARRER SUSQUEDA 18, 08500 VIC, Spain</div>`)[0];
+                popup_c3c85d36f75fde469eec5f0115fdb83e.setContent(html_16aee589acf68b956c83692ada9d1afd);
+            
+        
+
+        circle_marker_fb6539c350dba13e69ad448e36037795.bindPopup(popup_c3c85d36f75fde469eec5f0115fdb83e)
+        ;
+
+        
+    
+    
+            circle_marker_fb6539c350dba13e69ad448e36037795.bindTooltip(
+                `<div>
+                     AREA TRUCK ( SHELL ) (cluster 36)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ece168cb96715f7f676e0c3f1f815bc2 = L.circleMarker(
+                [41.9242917, 2.2519606],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_92e5be13f229ac737c59d19d7102f6fd);
+        
+    
+        var popup_f9df923b58000bdae0adffa43ddf0b13 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ded5a343473c4f752059a1b74cf73212 = $(`<div id="html_ded5a343473c4f752059a1b74cf73212" style="width: 100.0%; height: 100.0%;">Client: BAR CHAPLIN<br>Cluster ID: 36<br>Cluster size: 5<br>Address: RAMBLA JOSEP TARRADELLAS 1-3, 08500 VIC, Spain</div>`)[0];
+                popup_f9df923b58000bdae0adffa43ddf0b13.setContent(html_ded5a343473c4f752059a1b74cf73212);
+            
+        
+
+        circle_marker_ece168cb96715f7f676e0c3f1f815bc2.bindPopup(popup_f9df923b58000bdae0adffa43ddf0b13)
+        ;
+
+        
+    
+    
+            circle_marker_ece168cb96715f7f676e0c3f1f815bc2.bindTooltip(
+                `<div>
+                     BAR CHAPLIN (cluster 36)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_62be900ee0131c22bdaa1661b44afd4e = L.circleMarker(
+                [41.936175, 2.261355],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_92e5be13f229ac737c59d19d7102f6fd);
+        
+    
+        var popup_30dda0e820de12347453498e00980249 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b4570e1b34fed204300d04aa4151842e = $(`<div id="html_b4570e1b34fed204300d04aa4151842e" style="width: 100.0%; height: 100.0%;">Client: BAR REST EL TAST<br>Cluster ID: 36<br>Cluster size: 5<br>Address: RAMON SALA I SAÇALA 15, 08500 VIC, Spain</div>`)[0];
+                popup_30dda0e820de12347453498e00980249.setContent(html_b4570e1b34fed204300d04aa4151842e);
+            
+        
+
+        circle_marker_62be900ee0131c22bdaa1661b44afd4e.bindPopup(popup_30dda0e820de12347453498e00980249)
+        ;
+
+        
+    
+    
+            circle_marker_62be900ee0131c22bdaa1661b44afd4e.bindTooltip(
+                `<div>
+                     BAR REST EL TAST (cluster 36)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_085096c23fe67ee46201d7a98a3053ec = L.circleMarker(
+                [41.943396, 2.253052],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_92e5be13f229ac737c59d19d7102f6fd);
+        
+    
+        var popup_bfbc8a94eb91c7bb3aa1f9d7652fe045 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_a7720630e06bcb37194ac720093c9c4b = $(`<div id="html_a7720630e06bcb37194ac720093c9c4b" style="width: 100.0%; height: 100.0%;">Client: CAFETERIA PRADALS<br>Cluster ID: 36<br>Cluster size: 5<br>Address: CTRA. SANT HIPÒLIT 61, 08500 VIC, Spain</div>`)[0];
+                popup_bfbc8a94eb91c7bb3aa1f9d7652fe045.setContent(html_a7720630e06bcb37194ac720093c9c4b);
+            
+        
+
+        circle_marker_085096c23fe67ee46201d7a98a3053ec.bindPopup(popup_bfbc8a94eb91c7bb3aa1f9d7652fe045)
+        ;
+
+        
+    
+    
+            circle_marker_085096c23fe67ee46201d7a98a3053ec.bindTooltip(
+                `<div>
+                     CAFETERIA PRADALS (cluster 36)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

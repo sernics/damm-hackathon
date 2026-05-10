@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_01199cc5a5cfa731e80efa0b89b50f9c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_01199cc5a5cfa731e80efa0b89b50f9c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_01199cc5a5cfa731e80efa0b89b50f9c = L.map(
+                "map_01199cc5a5cfa731e80efa0b89b50f9c",
+                {
+                    center: [41.6166654, 2.2955963],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_60572d7e12381873da33de1fd617198c = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_60572d7e12381873da33de1fd617198c.addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+            var circle_marker_2b7ce5f639d239fe2bc71d18a6d04245 = L.circleMarker(
+                [41.613692, 2.290712],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_60b602427a66bfa24ee5c81f52f35967 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_221c0364274c5a2766d91b143b3d4d14 = $(`<div id="html_221c0364274c5a2766d91b143b3d4d14" style="width: 100.0%; height: 100.0%;">Client: BAR ALASKA<br>Cluster ID: 17<br>Cluster size: 13<br>Address: CALLE FRANCESC RIBAS 1, 08402 GRANOLLERS, Spain</div>`)[0];
+                popup_60b602427a66bfa24ee5c81f52f35967.setContent(html_221c0364274c5a2766d91b143b3d4d14);
+            
+        
+
+        circle_marker_2b7ce5f639d239fe2bc71d18a6d04245.bindPopup(popup_60b602427a66bfa24ee5c81f52f35967)
+        ;
+
+        
+    
+    
+            circle_marker_2b7ce5f639d239fe2bc71d18a6d04245.bindTooltip(
+                `<div>
+                     BAR ALASKA (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5669988f3b723eac7ca5fe797af291d3 = L.circleMarker(
+                [41.621979, 2.299136],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_dc106b562d55115636060d37ea6b7914 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_61b7b3a7ef8bf5b218c168be6d01b8ed = $(`<div id="html_61b7b3a7ef8bf5b218c168be6d01b8ed" style="width: 100.0%; height: 100.0%;">Client: BAR CAN MOI<br>Cluster ID: 17<br>Cluster size: 13<br>Address: PASEO ANDALUSIA 103, 08521 BELLAVISTA, Spain</div>`)[0];
+                popup_dc106b562d55115636060d37ea6b7914.setContent(html_61b7b3a7ef8bf5b218c168be6d01b8ed);
+            
+        
+
+        circle_marker_5669988f3b723eac7ca5fe797af291d3.bindPopup(popup_dc106b562d55115636060d37ea6b7914)
+        ;
+
+        
+    
+    
+            circle_marker_5669988f3b723eac7ca5fe797af291d3.bindTooltip(
+                `<div>
+                     BAR CAN MOI (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a58aa0df6681da626651943fcbeb33e6 = L.circleMarker(
+                [41.621632, 2.299051],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_5f09525f456a256af13e6849039f6759 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_6fcd6d9fbb3d8c09918e7caed64fd39b = $(`<div id="html_6fcd6d9fbb3d8c09918e7caed64fd39b" style="width: 100.0%; height: 100.0%;">Client: BAR EPORA 2<br>Cluster ID: 17<br>Cluster size: 13<br>Address: Passeig Andalusia 5, 08521 BELLAVISTA, Spain</div>`)[0];
+                popup_5f09525f456a256af13e6849039f6759.setContent(html_6fcd6d9fbb3d8c09918e7caed64fd39b);
+            
+        
+
+        circle_marker_a58aa0df6681da626651943fcbeb33e6.bindPopup(popup_5f09525f456a256af13e6849039f6759)
+        ;
+
+        
+    
+    
+            circle_marker_a58aa0df6681da626651943fcbeb33e6.bindTooltip(
+                `<div>
+                     BAR EPORA 2 (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e8dcb303086b6a6323f6e4b8238420e5 = L.circleMarker(
+                [41.637318, 2.311531],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_e1a61ea7a9af05cd33fcc403af11c977 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b60ec2109b6c86ce55e5ccf18a0a4dfe = $(`<div id="html_b60ec2109b6c86ce55e5ccf18a0a4dfe" style="width: 100.0%; height: 100.0%;">Client: BAR LA CAVERNA<br>Cluster ID: 17<br>Cluster size: 13<br>Address: ARAGON 12, 08520 FRANQUESES DEL VALLES (LES), Spain</div>`)[0];
+                popup_e1a61ea7a9af05cd33fcc403af11c977.setContent(html_b60ec2109b6c86ce55e5ccf18a0a4dfe);
+            
+        
+
+        circle_marker_e8dcb303086b6a6323f6e4b8238420e5.bindPopup(popup_e1a61ea7a9af05cd33fcc403af11c977)
+        ;
+
+        
+    
+    
+            circle_marker_e8dcb303086b6a6323f6e4b8238420e5.bindTooltip(
+                `<div>
+                     BAR LA CAVERNA (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0ff86ea1f5d75380b238be9a3476d737 = L.circleMarker(
+                [41.616853, 2.294996],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_77eb77a599282852529ca8a2286bb42b = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9863917db91c2113bd029b113ccd0bdf = $(`<div id="html_9863917db91c2113bd029b113ccd0bdf" style="width: 100.0%; height: 100.0%;">Client: BAR LA PLAÇA LES FRANQUESES<br>Cluster ID: 17<br>Cluster size: 13<br>Address: PLAZA ESPANYA 10, 08521 BELLAVISTA, Spain</div>`)[0];
+                popup_77eb77a599282852529ca8a2286bb42b.setContent(html_9863917db91c2113bd029b113ccd0bdf);
+            
+        
+
+        circle_marker_0ff86ea1f5d75380b238be9a3476d737.bindPopup(popup_77eb77a599282852529ca8a2286bb42b)
+        ;
+
+        
+    
+    
+            circle_marker_0ff86ea1f5d75380b238be9a3476d737.bindTooltip(
+                `<div>
+                     BAR LA PLAÇA LES FRANQUESES (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de0bf9bc12272f708ec39e71af6bf6e0 = L.circleMarker(
+                [41.603062, 2.300884],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_6b4b5660e50193b6f8ad36ff48892ee7 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_95f22d9f2e5b82aaeb0660f8f6fe1384 = $(`<div id="html_95f22d9f2e5b82aaeb0660f8f6fe1384" style="width: 100.0%; height: 100.0%;">Client: BAR MERINO<br>Cluster ID: 17<br>Cluster size: 13<br>Address: BAILEN 31, 08430 ROCA DEL VALLES (LA), Spain</div>`)[0];
+                popup_6b4b5660e50193b6f8ad36ff48892ee7.setContent(html_95f22d9f2e5b82aaeb0660f8f6fe1384);
+            
+        
+
+        circle_marker_de0bf9bc12272f708ec39e71af6bf6e0.bindPopup(popup_6b4b5660e50193b6f8ad36ff48892ee7)
+        ;
+
+        
+    
+    
+            circle_marker_de0bf9bc12272f708ec39e71af6bf6e0.bindTooltip(
+                `<div>
+                     BAR MERINO (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ecca4255ba8a36f90a67c955ff13719a = L.circleMarker(
+                [41.618981, 2.300908],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_0acb07b2013de228377b0c11a704bdc2 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ee7841036803f104ea887d6c18ecd024 = $(`<div id="html_ee7841036803f104ea887d6c18ecd024" style="width: 100.0%; height: 100.0%;">Client: BAR MIRADOR<br>Cluster ID: 17<br>Cluster size: 13<br>Address: BARCELONA 110, 08521 LES FRANQUESES DEL VALLES, Spain</div>`)[0];
+                popup_0acb07b2013de228377b0c11a704bdc2.setContent(html_ee7841036803f104ea887d6c18ecd024);
+            
+        
+
+        circle_marker_ecca4255ba8a36f90a67c955ff13719a.bindPopup(popup_0acb07b2013de228377b0c11a704bdc2)
+        ;
+
+        
+    
+    
+            circle_marker_ecca4255ba8a36f90a67c955ff13719a.bindTooltip(
+                `<div>
+                     BAR MIRADOR (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3ea017f2689094c742c4a2a8c4bfb85f = L.circleMarker(
+                [41.645286, 2.299086],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_7169e011dc949fb44a562aaca0fa1e9f = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_f41df0dcdc3a017d52a04940001925a3 = $(`<div id="html_f41df0dcdc3a017d52a04940001925a3" style="width: 100.0%; height: 100.0%;">Client: BAR PAREDES 4<br>Cluster ID: 17<br>Cluster size: 13<br>Address: PASEO ANDALUSIA 9, 08521 LES FRANQUESES DEL VALLÈS, Spain</div>`)[0];
+                popup_7169e011dc949fb44a562aaca0fa1e9f.setContent(html_f41df0dcdc3a017d52a04940001925a3);
+            
+        
+
+        circle_marker_3ea017f2689094c742c4a2a8c4bfb85f.bindPopup(popup_7169e011dc949fb44a562aaca0fa1e9f)
+        ;
+
+        
+    
+    
+            circle_marker_3ea017f2689094c742c4a2a8c4bfb85f.bindTooltip(
+                `<div>
+                     BAR PAREDES 4 (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4ddf536f3e7ac85dc5c75d69d6323702 = L.circleMarker(
+                [41.6104581, 2.2940159],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_bfb3185346ee08cfffc392c66a04e4b5 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_7ad0572e62c196ab865e6aa7b3fad4d1 = $(`<div id="html_7ad0572e62c196ab865e6aa7b3fad4d1" style="width: 100.0%; height: 100.0%;">Client: Bar Els 4 Vents<br>Cluster ID: 17<br>Cluster size: 13<br>Address: Passeig de la Muntanya 154, 08402 GRANOLLERS, Spain</div>`)[0];
+                popup_bfb3185346ee08cfffc392c66a04e4b5.setContent(html_7ad0572e62c196ab865e6aa7b3fad4d1);
+            
+        
+
+        circle_marker_4ddf536f3e7ac85dc5c75d69d6323702.bindPopup(popup_bfb3185346ee08cfffc392c66a04e4b5)
+        ;
+
+        
+    
+    
+            circle_marker_4ddf536f3e7ac85dc5c75d69d6323702.bindTooltip(
+                `<div>
+                     Bar Els 4 Vents (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_47dab5a9d0bc81c963aa1e6dec2f50e3 = L.circleMarker(
+                [41.613491, 2.294324],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_6a7fd5610f1fef2c945ae70d7b7b94fd = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9dc3f8a59a87fbb099f221c55772f636 = $(`<div id="html_9dc3f8a59a87fbb099f221c55772f636" style="width: 100.0%; height: 100.0%;">Client: Bar Restaurante L&#x27;Arpa<br>Cluster ID: 17<br>Cluster size: 13<br>Address: Carrer Bertran de Seva 1, 08402 GRANOLLERS, Spain</div>`)[0];
+                popup_6a7fd5610f1fef2c945ae70d7b7b94fd.setContent(html_9dc3f8a59a87fbb099f221c55772f636);
+            
+        
+
+        circle_marker_47dab5a9d0bc81c963aa1e6dec2f50e3.bindPopup(popup_6a7fd5610f1fef2c945ae70d7b7b94fd)
+        ;
+
+        
+    
+    
+            circle_marker_47dab5a9d0bc81c963aa1e6dec2f50e3.bindTooltip(
+                `<div>
+                     Bar Restaurante L'Arpa (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_daa8e7732a0e1603222470d38c1f6afc = L.circleMarker(
+                [41.6166654, 2.2955963],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_d2a0ebd747dd04c77b6228a9e55a6f72 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_1c4a1dc43818cce95283b8dda4e0e80c = $(`<div id="html_1c4a1dc43818cce95283b8dda4e0e80c" style="width: 100.0%; height: 100.0%;">Client: Bar libra<br>Cluster ID: 17<br>Cluster size: 13<br>Address: Carrer Provença 29, 08521 BELLAVISTA, Spain</div>`)[0];
+                popup_d2a0ebd747dd04c77b6228a9e55a6f72.setContent(html_1c4a1dc43818cce95283b8dda4e0e80c);
+            
+        
+
+        circle_marker_daa8e7732a0e1603222470d38c1f6afc.bindPopup(popup_d2a0ebd747dd04c77b6228a9e55a6f72)
+        ;
+
+        
+    
+    
+            circle_marker_daa8e7732a0e1603222470d38c1f6afc.bindTooltip(
+                `<div>
+                     Bar libra (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b0c7f2d2623830f45d76513a9b124d5c = L.circleMarker(
+                [36.7208677, -4.40228],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_eab14eb21236e571250e40c888fba1b5 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d2b06138740d0f26f81e8001546501bb = $(`<div id="html_d2b06138740d0f26f81e8001546501bb" style="width: 100.0%; height: 100.0%;">Client: CAFETERIA DEGUSTACION LA CANTONADA<br>Cluster ID: 17<br>Cluster size: 13<br>Address: PASEO ANDALUSIA 24, 08521 BELLAVISTA, Spain</div>`)[0];
+                popup_eab14eb21236e571250e40c888fba1b5.setContent(html_d2b06138740d0f26f81e8001546501bb);
+            
+        
+
+        circle_marker_b0c7f2d2623830f45d76513a9b124d5c.bindPopup(popup_eab14eb21236e571250e40c888fba1b5)
+        ;
+
+        
+    
+    
+            circle_marker_b0c7f2d2623830f45d76513a9b124d5c.bindTooltip(
+                `<div>
+                     CAFETERIA DEGUSTACION LA CANTONADA (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ace34ef90ff04e07af717af0fcc46f9e = L.circleMarker(
+                [41.3484641, 2.0338876],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_01199cc5a5cfa731e80efa0b89b50f9c);
+        
+    
+        var popup_62c94e36af6fdf44ee6f502eb1858a87 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_320afc4bca3a7c89adb9ff6602cc60ad = $(`<div id="html_320afc4bca3a7c89adb9ff6602cc60ad" style="width: 100.0%; height: 100.0%;">Client: CARNICERIA RODRIGUEZ<br>Cluster ID: 17<br>Cluster size: 13<br>Address: Carrer Rosselló 22, 08521 BELLAVISTA, Spain</div>`)[0];
+                popup_62c94e36af6fdf44ee6f502eb1858a87.setContent(html_320afc4bca3a7c89adb9ff6602cc60ad);
+            
+        
+
+        circle_marker_ace34ef90ff04e07af717af0fcc46f9e.bindPopup(popup_62c94e36af6fdf44ee6f502eb1858a87)
+        ;
+
+        
+    
+    
+            circle_marker_ace34ef90ff04e07af717af0fcc46f9e.bindTooltip(
+                `<div>
+                     CARNICERIA RODRIGUEZ (cluster 17)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

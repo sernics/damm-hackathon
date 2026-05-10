@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5227633e80668ffa0c4903cd84030fc2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_5227633e80668ffa0c4903cd84030fc2" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5227633e80668ffa0c4903cd84030fc2 = L.map(
+                "map_5227633e80668ffa0c4903cd84030fc2",
+                {
+                    center: [42.050215, 2.252188],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_08f63cac35c9a4473d26e4f859cc98d3 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_08f63cac35c9a4473d26e4f859cc98d3.addTo(map_5227633e80668ffa0c4903cd84030fc2);
+        
+    
+            var circle_marker_91d506c40442c5fc6d09707d599af1b2 = L.circleMarker(
+                [42.050215, 2.256173],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5227633e80668ffa0c4903cd84030fc2);
+        
+    
+        var popup_bdf9c94a9df6d0086b5489492237d1e4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_13a3f77bf3628fb0d030dacc4c7e9f72 = $(`<div id="html_13a3f77bf3628fb0d030dacc4c7e9f72" style="width: 100.0%; height: 100.0%;">Client: BAR NO HO SE<br>Cluster ID: 78<br>Cluster size: 3<br>Address: CALLE NURIA 14, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_bdf9c94a9df6d0086b5489492237d1e4.setContent(html_13a3f77bf3628fb0d030dacc4c7e9f72);
+            
+        
+
+        circle_marker_91d506c40442c5fc6d09707d599af1b2.bindPopup(popup_bdf9c94a9df6d0086b5489492237d1e4)
+        ;
+
+        
+    
+    
+            circle_marker_91d506c40442c5fc6d09707d599af1b2.bindTooltip(
+                `<div>
+                     BAR NO HO SE (cluster 78)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_893ca728bfa0229020c46af5b4fb9d5a = L.circleMarker(
+                [42.052349, 2.252188],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5227633e80668ffa0c4903cd84030fc2);
+        
+    
+        var popup_10bdc38e875ad6010e3262e2bac82d27 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_32d9e25a880a78d1cb69e1d8c8fcd9b8 = $(`<div id="html_32d9e25a880a78d1cb69e1d8c8fcd9b8" style="width: 100.0%; height: 100.0%;">Client: BAR TORNEM-HI<br>Cluster ID: 78<br>Cluster size: 3<br>Address: CALLE GIRONA 33, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_10bdc38e875ad6010e3262e2bac82d27.setContent(html_32d9e25a880a78d1cb69e1d8c8fcd9b8);
+            
+        
+
+        circle_marker_893ca728bfa0229020c46af5b4fb9d5a.bindPopup(popup_10bdc38e875ad6010e3262e2bac82d27)
+        ;
+
+        
+    
+    
+            circle_marker_893ca728bfa0229020c46af5b4fb9d5a.bindTooltip(
+                `<div>
+                     BAR TORNEM-HI (cluster 78)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b4030854d2231027a643a1e5440ee005 = L.circleMarker(
+                [42.013517, 2.238254],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_5227633e80668ffa0c4903cd84030fc2);
+        
+    
+        var popup_2a9a1ee2edd88b1cdc937366cbaf15e9 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_640d296b2d8b3ea2924626941423611e = $(`<div id="html_640d296b2d8b3ea2924626941423611e" style="width: 100.0%; height: 100.0%;">Client: BAR XINO XANO<br>Cluster ID: 78<br>Cluster size: 3<br>Address: CALLE PUIG-ROVI 31, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_2a9a1ee2edd88b1cdc937366cbaf15e9.setContent(html_640d296b2d8b3ea2924626941423611e);
+            
+        
+
+        circle_marker_b4030854d2231027a643a1e5440ee005.bindPopup(popup_2a9a1ee2edd88b1cdc937366cbaf15e9)
+        ;
+
+        
+    
+    
+            circle_marker_b4030854d2231027a643a1e5440ee005.bindTooltip(
+                `<div>
+                     BAR XINO XANO (cluster 78)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

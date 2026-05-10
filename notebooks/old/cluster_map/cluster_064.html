@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_b52e84b4c1bee94daae006073097486c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_b52e84b4c1bee94daae006073097486c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_b52e84b4c1bee94daae006073097486c = L.map(
+                "map_b52e84b4c1bee94daae006073097486c",
+                {
+                    center: [42.048714399999994, 2.2632455],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_666d80342d2271e401ae4ac5c51ab735 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_666d80342d2271e401ae4ac5c51ab735.addTo(map_b52e84b4c1bee94daae006073097486c);
+        
+    
+            var circle_marker_1993b0b3036fc9c8bd2ba78c9cfd36df = L.circleMarker(
+                [42.0450403, 2.2677302],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_b52e84b4c1bee94daae006073097486c);
+        
+    
+        var popup_b6abd45ff64b187552a0595af7d03b95 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_0edb969ff8315c7e64824c4da639eb48 = $(`<div id="html_0edb969ff8315c7e64824c4da639eb48" style="width: 100.0%; height: 100.0%;">Client: BAR DOBLE Z<br>Cluster ID: 64<br>Cluster size: 6<br>Address: Carrer de Manlleu 7, 08570 TORELLO, Spain</div>`)[0];
+                popup_b6abd45ff64b187552a0595af7d03b95.setContent(html_0edb969ff8315c7e64824c4da639eb48);
+            
+        
+
+        circle_marker_1993b0b3036fc9c8bd2ba78c9cfd36df.bindPopup(popup_b6abd45ff64b187552a0595af7d03b95)
+        ;
+
+        
+    
+    
+            circle_marker_1993b0b3036fc9c8bd2ba78c9cfd36df.bindTooltip(
+                `<div>
+                     BAR DOBLE Z (cluster 64)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4e3d91df3c43e395cc35343a353313aa = L.circleMarker(
+                [42.047152, 2.263698],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_b52e84b4c1bee94daae006073097486c);
+        
+    
+        var popup_ead1ab5b93cd680bddd4a4ceff502d46 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_3967708acf5dc8f9d61c97e821882c00 = $(`<div id="html_3967708acf5dc8f9d61c97e821882c00" style="width: 100.0%; height: 100.0%;">Client: BAR EL CASAL<br>Cluster ID: 64<br>Cluster size: 6<br>Address: PLAZA NOVA 14, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_ead1ab5b93cd680bddd4a4ceff502d46.setContent(html_3967708acf5dc8f9d61c97e821882c00);
+            
+        
+
+        circle_marker_4e3d91df3c43e395cc35343a353313aa.bindPopup(popup_ead1ab5b93cd680bddd4a4ceff502d46)
+        ;
+
+        
+    
+    
+            circle_marker_4e3d91df3c43e395cc35343a353313aa.bindTooltip(
+                `<div>
+                     BAR EL CASAL (cluster 64)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1a53cc1fb0990a377c6837ba62a94b38 = L.circleMarker(
+                [42.050286, 2.254721],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_b52e84b4c1bee94daae006073097486c);
+        
+    
+        var popup_fed7a229b7f6cd1a975b3a160913cb62 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_6467d9cc2a58861f1666163ca82ec05a = $(`<div id="html_6467d9cc2a58861f1666163ca82ec05a" style="width: 100.0%; height: 100.0%;">Client: BAR XANIA<br>Cluster ID: 64<br>Cluster size: 6<br>Address: CALLE MONTESQUIU 41, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_fed7a229b7f6cd1a975b3a160913cb62.setContent(html_6467d9cc2a58861f1666163ca82ec05a);
+            
+        
+
+        circle_marker_1a53cc1fb0990a377c6837ba62a94b38.bindPopup(popup_fed7a229b7f6cd1a975b3a160913cb62)
+        ;
+
+        
+    
+    
+            circle_marker_1a53cc1fb0990a377c6837ba62a94b38.bindTooltip(
+                `<div>
+                     BAR XANIA (cluster 64)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_720b4468ae97e85aa7b2422df0ac66cf = L.circleMarker(
+                [42.0502768, 2.2484512],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_b52e84b4c1bee94daae006073097486c);
+        
+    
+        var popup_24d1ea3b45487e1e040bfc6681e89220 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_94c170f92ebccb150aafc412729f90e5 = $(`<div id="html_94c170f92ebccb150aafc412729f90e5" style="width: 100.0%; height: 100.0%;">Client: BRASSERIA EL TRIANGLE COHO<br>Cluster ID: 64<br>Cluster size: 6<br>Address: MATABOSCH C DEL TER 200, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_24d1ea3b45487e1e040bfc6681e89220.setContent(html_94c170f92ebccb150aafc412729f90e5);
+            
+        
+
+        circle_marker_720b4468ae97e85aa7b2422df0ac66cf.bindPopup(popup_24d1ea3b45487e1e040bfc6681e89220)
+        ;
+
+        
+    
+    
+            circle_marker_720b4468ae97e85aa7b2422df0ac66cf.bindTooltip(
+                `<div>
+                     BRASSERIA EL TRIANGLE COHO (cluster 64)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f019cf47656b85433cfdc7e684628bb1 = L.circleMarker(
+                [42.046584, 2.262793],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_b52e84b4c1bee94daae006073097486c);
+        
+    
+        var popup_968dd825d63e56df07f54253fd0162de = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_1c28a4657ab9b593574736db01cea226 = $(`<div id="html_1c28a4657ab9b593574736db01cea226" style="width: 100.0%; height: 100.0%;">Client: CA L&#x27;ANGEL BAR<br>Cluster ID: 64<br>Cluster size: 6<br>Address: Plaça els Països Catalans 1, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_968dd825d63e56df07f54253fd0162de.setContent(html_1c28a4657ab9b593574736db01cea226);
+            
+        
+
+        circle_marker_f019cf47656b85433cfdc7e684628bb1.bindPopup(popup_968dd825d63e56df07f54253fd0162de)
+        ;
+
+        
+    
+    
+            circle_marker_f019cf47656b85433cfdc7e684628bb1.bindTooltip(
+                `<div>
+                     CA L'ANGEL BAR (cluster 64)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b4f73e91b0d7e2fad2f1de73ee3432e2 = L.circleMarker(
+                [42.062189, 2.273413],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_b52e84b4c1bee94daae006073097486c);
+        
+    
+        var popup_54c774d41cdd37fcf459df39438ecd38 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_e25eebeb540c9f3aa97d09c0577147a8 = $(`<div id="html_e25eebeb540c9f3aa97d09c0577147a8" style="width: 100.0%; height: 100.0%;">Client: CASAL GENT GRAN ST.VICENÇ TORELLO<br>Cluster ID: 64<br>Cluster size: 6<br>Address: PLAZA CAL FERRER 14, 08571 SANT VICENÇ DE TORELLÓ, Spain</div>`)[0];
+                popup_54c774d41cdd37fcf459df39438ecd38.setContent(html_e25eebeb540c9f3aa97d09c0577147a8);
+            
+        
+
+        circle_marker_b4f73e91b0d7e2fad2f1de73ee3432e2.bindPopup(popup_54c774d41cdd37fcf459df39438ecd38)
+        ;
+
+        
+    
+    
+            circle_marker_b4f73e91b0d7e2fad2f1de73ee3432e2.bindTooltip(
+                `<div>
+                     CASAL GENT GRAN ST.VICENÇ TORELLO (cluster 64)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

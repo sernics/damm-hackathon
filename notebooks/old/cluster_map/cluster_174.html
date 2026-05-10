@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_612591244f03f6874fcdd9d7d4374e6f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_612591244f03f6874fcdd9d7d4374e6f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_612591244f03f6874fcdd9d7d4374e6f = L.map(
+                "map_612591244f03f6874fcdd9d7d4374e6f",
+                {
+                    center: [41.871949, 2.284815],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1ab78a4d8e9ab30556d627cd9d3dd6ac = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1ab78a4d8e9ab30556d627cd9d3dd6ac.addTo(map_612591244f03f6874fcdd9d7d4374e6f);
+        
+    
+            var circle_marker_adeaf5d2d7fe9cd84c14e1a057fdef3b = L.circleMarker(
+                [41.871949, 2.284815],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_612591244f03f6874fcdd9d7d4374e6f);
+        
+    
+        var popup_026f1f169b3599b1c6f2f773a2ddbc44 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_59bb7d488e6c1d9da0cecd7552b1e9ba = $(`<div id="html_59bb7d488e6c1d9da0cecd7552b1e9ba" style="width: 100.0%; height: 100.0%;">Client: EL SERRAT DEL FIGAR#<br>Cluster ID: 174<br>Cluster size: 1<br>Address: CARRETERA BALENYA KM 1,3, 08552 TARADELL, Spain</div>`)[0];
+                popup_026f1f169b3599b1c6f2f773a2ddbc44.setContent(html_59bb7d488e6c1d9da0cecd7552b1e9ba);
+            
+        
+
+        circle_marker_adeaf5d2d7fe9cd84c14e1a057fdef3b.bindPopup(popup_026f1f169b3599b1c6f2f773a2ddbc44)
+        ;
+
+        
+    
+    
+            circle_marker_adeaf5d2d7fe9cd84c14e1a057fdef3b.bindTooltip(
+                `<div>
+                     EL SERRAT DEL FIGAR# (cluster 174)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

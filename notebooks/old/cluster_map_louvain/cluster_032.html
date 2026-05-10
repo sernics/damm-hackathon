@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_41bd270c93b77c92cd85c0f0d0858d66 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_41bd270c93b77c92cd85c0f0d0858d66" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_41bd270c93b77c92cd85c0f0d0858d66 = L.map(
+                "map_41bd270c93b77c92cd85c0f0d0858d66",
+                {
+                    center: [41.934421, 2.255464],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_020c7a580955c279da582913d8c54192 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_020c7a580955c279da582913d8c54192.addTo(map_41bd270c93b77c92cd85c0f0d0858d66);
+        
+    
+            var circle_marker_889241d479e802324ff920801da3c38b = L.circleMarker(
+                [41.935397, 2.261667],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_41bd270c93b77c92cd85c0f0d0858d66);
+        
+    
+        var popup_7d8783241d7427e9f47cd34d68669ce9 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_a1627dffd5543ea16d6b38a05157a35f = $(`<div id="html_a1627dffd5543ea16d6b38a05157a35f" style="width: 100.0%; height: 100.0%;">Client: BAR AVINGUDA<br>Cluster ID: 32<br>Cluster size: 7<br>Address: AVENIDA SANT BERNAT CALBO 42, 08500 VIC, Spain</div>`)[0];
+                popup_7d8783241d7427e9f47cd34d68669ce9.setContent(html_a1627dffd5543ea16d6b38a05157a35f);
+            
+        
+
+        circle_marker_889241d479e802324ff920801da3c38b.bindPopup(popup_7d8783241d7427e9f47cd34d68669ce9)
+        ;
+
+        
+    
+    
+            circle_marker_889241d479e802324ff920801da3c38b.bindTooltip(
+                `<div>
+                     BAR AVINGUDA (cluster 32)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fe315896872dae566ca4c40bf94a4a34 = L.circleMarker(
+                [41.934421, 2.255464],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_41bd270c93b77c92cd85c0f0d0858d66);
+        
+    
+        var popup_3396e7d01d375132d4d999b431c2de5f = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_e2f699a12aed2aa9d9ed8de97ad550dd = $(`<div id="html_e2f699a12aed2aa9d9ed8de97ad550dd" style="width: 100.0%; height: 100.0%;">Client: BAR CAMP DE TIR<br>Cluster ID: 32<br>Cluster size: 7<br>Address: Carretera de Manlleu km 4, 08503 GURB, Spain</div>`)[0];
+                popup_3396e7d01d375132d4d999b431c2de5f.setContent(html_e2f699a12aed2aa9d9ed8de97ad550dd);
+            
+        
+
+        circle_marker_fe315896872dae566ca4c40bf94a4a34.bindPopup(popup_3396e7d01d375132d4d999b431c2de5f)
+        ;
+
+        
+    
+    
+            circle_marker_fe315896872dae566ca4c40bf94a4a34.bindTooltip(
+                `<div>
+                     BAR CAMP DE TIR (cluster 32)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e732cfda05979cf30248cfbf2b0553ed = L.circleMarker(
+                [41.9331258, 2.241895],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_41bd270c93b77c92cd85c0f0d0858d66);
+        
+    
+        var popup_2a0c2e876e2eb54bf347fa8630365813 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_64d3543ec8da5eac9d86f2637e5d16bc = $(`<div id="html_64d3543ec8da5eac9d86f2637e5d16bc" style="width: 100.0%; height: 100.0%;">Client: BAR STACJA PL<br>Cluster ID: 32<br>Cluster size: 7<br>Address: Avinguda d&#x27;Olímpia 7, 08500 VIC, Spain</div>`)[0];
+                popup_2a0c2e876e2eb54bf347fa8630365813.setContent(html_64d3543ec8da5eac9d86f2637e5d16bc);
+            
+        
+
+        circle_marker_e732cfda05979cf30248cfbf2b0553ed.bindPopup(popup_2a0c2e876e2eb54bf347fa8630365813)
+        ;
+
+        
+    
+    
+            circle_marker_e732cfda05979cf30248cfbf2b0553ed.bindTooltip(
+                `<div>
+                     BAR STACJA PL (cluster 32)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7b4107c905b748aaa0143ce11f44d2ee = L.circleMarker(
+                [41.932284, 2.25546],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_41bd270c93b77c92cd85c0f0d0858d66);
+        
+    
+        var popup_6685d9774e4a0d35b77e9a26b86186f4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_f2b5932612b3d16d793592f17d9de29b = $(`<div id="html_f2b5932612b3d16d793592f17d9de29b" style="width: 100.0%; height: 100.0%;">Client: BK VIC<br>Cluster ID: 32<br>Cluster size: 7<br>Address: MANLLEU 30-32, 08500 VIC, Spain</div>`)[0];
+                popup_6685d9774e4a0d35b77e9a26b86186f4.setContent(html_f2b5932612b3d16d793592f17d9de29b);
+            
+        
+
+        circle_marker_7b4107c905b748aaa0143ce11f44d2ee.bindPopup(popup_6685d9774e4a0d35b77e9a26b86186f4)
+        ;
+
+        
+    
+    
+            circle_marker_7b4107c905b748aaa0143ce11f44d2ee.bindTooltip(
+                `<div>
+                     BK VIC (cluster 32)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f3e1f383cf02e82a87dca97ce45d6066 = L.circleMarker(
+                [41.94402, 2.2596812],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_41bd270c93b77c92cd85c0f0d0858d66);
+        
+    
+        var popup_aaff584a786cac98b4f63a59ff5d6454 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_bf795751907a7162902f4ff43bb28539 = $(`<div id="html_bf795751907a7162902f4ff43bb28539" style="width: 100.0%; height: 100.0%;">Client: BOTANIC &amp; FRUITS, S.L.<br>Cluster ID: 32<br>Cluster size: 7<br>Address: Carrer Santiago Ramon y Cajal 93, 08500 VIC, Spain</div>`)[0];
+                popup_aaff584a786cac98b4f63a59ff5d6454.setContent(html_bf795751907a7162902f4ff43bb28539);
+            
+        
+
+        circle_marker_f3e1f383cf02e82a87dca97ce45d6066.bindPopup(popup_aaff584a786cac98b4f63a59ff5d6454)
+        ;
+
+        
+    
+    
+            circle_marker_f3e1f383cf02e82a87dca97ce45d6066.bindTooltip(
+                `<div>
+                     BOTANIC & FRUITS, S.L. (cluster 32)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

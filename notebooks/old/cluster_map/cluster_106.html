@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_532191adb8684f4c7c1180a148a27bcb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_532191adb8684f4c7c1180a148a27bcb" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_532191adb8684f4c7c1180a148a27bcb = L.map(
+                "map_532191adb8684f4c7c1180a148a27bcb",
+                {
+                    center: [41.475000818333335, 2.0798454466666665],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_433ada48c5ad6bdc3e7dccfd48caff56 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_433ada48c5ad6bdc3e7dccfd48caff56.addTo(map_532191adb8684f4c7c1180a148a27bcb);
+        
+    
+            var circle_marker_dbae8de2c765bb2cabc12f7fddb744c3 = L.circleMarker(
+                [41.372586, 2.067349],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_532191adb8684f4c7c1180a148a27bcb);
+        
+    
+        var popup_a2632c4fd57992830bba6bac819f0502 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_70d5066b8cafabf5f9ffe1e351d64eb3 = $(`<div id="html_70d5066b8cafabf5f9ffe1e351d64eb3" style="width: 100.0%; height: 100.0%;">Client: AUTENTIK&#x27;S<br>Cluster ID: 106<br>Cluster size: 5<br>Address: Carrer de Fructuós Gelabert 1, 08970 SANT JOAN DESPI, Spain</div>`)[0];
+                popup_a2632c4fd57992830bba6bac819f0502.setContent(html_70d5066b8cafabf5f9ffe1e351d64eb3);
+            
+        
+
+        circle_marker_dbae8de2c765bb2cabc12f7fddb744c3.bindPopup(popup_a2632c4fd57992830bba6bac819f0502)
+        ;
+
+        
+    
+    
+            circle_marker_dbae8de2c765bb2cabc12f7fddb744c3.bindTooltip(
+                `<div>
+                     AUTENTIK'S (cluster 106)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_46c7eeb305d05d815657d41c7768b8b9 = L.circleMarker(
+                [41.475000818333335, 2.0798454466666665],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_532191adb8684f4c7c1180a148a27bcb);
+        
+    
+        var popup_63ed1f3c81147af5f883d7c9c6eea1ef = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_edf542ec73be9198a5f7294e4e82c520 = $(`<div id="html_edf542ec73be9198a5f7294e4e82c520" style="width: 100.0%; height: 100.0%;">Client: CLUB DE GOLF SANT CUGAT<br>Cluster ID: 106<br>Cluster size: 5<br>Address: Carrer de Villà 79, 08173 SANT CUGAT DEL VALLÈS, Spain</div>`)[0];
+                popup_63ed1f3c81147af5f883d7c9c6eea1ef.setContent(html_edf542ec73be9198a5f7294e4e82c520);
+            
+        
+
+        circle_marker_46c7eeb305d05d815657d41c7768b8b9.bindPopup(popup_63ed1f3c81147af5f883d7c9c6eea1ef)
+        ;
+
+        
+    
+    
+            circle_marker_46c7eeb305d05d815657d41c7768b8b9.bindTooltip(
+                `<div>
+                     CLUB DE GOLF SANT CUGAT (cluster 106)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_04a4059f9cc1070a62d898291036090c = L.circleMarker(
+                [41.488576, 2.193954],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_532191adb8684f4c7c1180a148a27bcb);
+        
+    
+        var popup_435889af9471b9b6d4b6a5bc26865438 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_7f35945b26e4b0ed83199108b8205e5e = $(`<div id="html_7f35945b26e4b0ed83199108b8205e5e" style="width: 100.0%; height: 100.0%;">Client: CLUB PADEL MIR<br>Cluster ID: 106<br>Cluster size: 5<br>Address: CARRETERA BV-5001 KM 8,8, 08110 MONTCADA I REIXAC, Spain</div>`)[0];
+                popup_435889af9471b9b6d4b6a5bc26865438.setContent(html_7f35945b26e4b0ed83199108b8205e5e);
+            
+        
+
+        circle_marker_04a4059f9cc1070a62d898291036090c.bindPopup(popup_435889af9471b9b6d4b6a5bc26865438)
+        ;
+
+        
+    
+    
+            circle_marker_04a4059f9cc1070a62d898291036090c.bindTooltip(
+                `<div>
+                     CLUB PADEL MIR (cluster 106)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_82d5e0a7199aa5554ccbf5370de4cb8d = L.circleMarker(
+                [41.4082961, 2.1384114],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_532191adb8684f4c7c1180a148a27bcb);
+        
+    
+        var popup_5d9b373092f56e6001d9c6c09807e602 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_0d0f08b2da5d0d3e06115c3fe7644de5 = $(`<div id="html_0d0f08b2da5d0d3e06115c3fe7644de5" style="width: 100.0%; height: 100.0%;">Client: Club Tennis Barcino<br>Cluster ID: 106<br>Cluster size: 5<br>Address: Plaça de Narcisa Freixas 2, 08022 BARCELONA, Spain</div>`)[0];
+                popup_5d9b373092f56e6001d9c6c09807e602.setContent(html_0d0f08b2da5d0d3e06115c3fe7644de5);
+            
+        
+
+        circle_marker_82d5e0a7199aa5554ccbf5370de4cb8d.bindPopup(popup_5d9b373092f56e6001d9c6c09807e602)
+        ;
+
+        
+    
+    
+            circle_marker_82d5e0a7199aa5554ccbf5370de4cb8d.bindTooltip(
+                `<div>
+                     Club Tennis Barcino (cluster 106)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fbcac1f16a2ba15819f3197f0c025b9b = L.circleMarker(
+                [41.538702, 2.043297],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_532191adb8684f4c7c1180a148a27bcb);
+        
+    
+        var popup_25e9b3ee52ef10b667c8dd146ff48a9d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ae0ef7aea5fcf822e3c29b0232e0a8d9 = $(`<div id="html_ae0ef7aea5fcf822e3c29b0232e0a8d9" style="width: 100.0%; height: 100.0%;">Client: VALERO VALLES<br>Cluster ID: 106<br>Cluster size: 5<br>Address: CALLE FRANÇA 16, 08228 TERRASSA, Spain</div>`)[0];
+                popup_25e9b3ee52ef10b667c8dd146ff48a9d.setContent(html_ae0ef7aea5fcf822e3c29b0232e0a8d9);
+            
+        
+
+        circle_marker_fbcac1f16a2ba15819f3197f0c025b9b.bindPopup(popup_25e9b3ee52ef10b667c8dd146ff48a9d)
+        ;
+
+        
+    
+    
+            circle_marker_fbcac1f16a2ba15819f3197f0c025b9b.bindTooltip(
+                `<div>
+                     VALERO VALLES (cluster 106)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

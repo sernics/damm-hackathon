@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_4be0969e89384358623a17e26cf0a884 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_4be0969e89384358623a17e26cf0a884" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_4be0969e89384358623a17e26cf0a884 = L.map(
+                "map_4be0969e89384358623a17e26cf0a884",
+                {
+                    center: [41.6161686, 2.2329289],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_3020b4f3f0553c0871023257131a8e47 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_3020b4f3f0553c0871023257131a8e47.addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+            var circle_marker_66c9deb00d947b765dd3bf198c09bbd3 = L.circleMarker(
+                [41.662351, -4.767047],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_4730aba96678c99953f6c83bcf8ce8a4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_0de5fc807b0614e0719183a8dbee057b = $(`<div id="html_0de5fc807b0614e0719183a8dbee057b" style="width: 100.0%; height: 100.0%;">Client: ALBA AUDIOVISUALS<br>Cluster ID: 20<br>Cluster size: 15<br>Address: CALLE METALURGIA S/N, 08186 LLIÇA D´AMUNT, Spain</div>`)[0];
+                popup_4730aba96678c99953f6c83bcf8ce8a4.setContent(html_0de5fc807b0614e0719183a8dbee057b);
+            
+        
+
+        circle_marker_66c9deb00d947b765dd3bf198c09bbd3.bindPopup(popup_4730aba96678c99953f6c83bcf8ce8a4)
+        ;
+
+        
+    
+    
+            circle_marker_66c9deb00d947b765dd3bf198c09bbd3.bindTooltip(
+                `<div>
+                     ALBA AUDIOVISUALS (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9334a458c2e68a13b95da7287bd06b71 = L.circleMarker(
+                [41.673337, 2.214795],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_4f34d07d9426316a5b423ed504003423 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_01e22f982fa74ae9bd9214ac7545357d = $(`<div id="html_01e22f982fa74ae9bd9214ac7545357d" style="width: 100.0%; height: 100.0%;">Client: BAR CA LA MARI<br>Cluster ID: 20<br>Cluster size: 15<br>Address: Prat de la Riba 74, 08415 BIGUES I RIELLS, Spain</div>`)[0];
+                popup_4f34d07d9426316a5b423ed504003423.setContent(html_01e22f982fa74ae9bd9214ac7545357d);
+            
+        
+
+        circle_marker_9334a458c2e68a13b95da7287bd06b71.bindPopup(popup_4f34d07d9426316a5b423ed504003423)
+        ;
+
+        
+    
+    
+            circle_marker_9334a458c2e68a13b95da7287bd06b71.bindTooltip(
+                `<div>
+                     BAR CA LA MARI (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9c1394ca5460305369c7ee10cc236d26 = L.circleMarker(
+                [41.62902, 2.231529],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_053130cc56594cf0a2b99144b1d1de01 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_0a2ce7c98635d09741b314464ff20dc0 = $(`<div id="html_0a2ce7c98635d09741b314464ff20dc0" style="width: 100.0%; height: 100.0%;">Client: BAR CAFETERIA EL TAST<br>Cluster ID: 20<br>Cluster size: 15<br>Address: CARRETERA CALDES KM 14-15, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_053130cc56594cf0a2b99144b1d1de01.setContent(html_0a2ce7c98635d09741b314464ff20dc0);
+            
+        
+
+        circle_marker_9c1394ca5460305369c7ee10cc236d26.bindPopup(popup_053130cc56594cf0a2b99144b1d1de01)
+        ;
+
+        
+    
+    
+            circle_marker_9c1394ca5460305369c7ee10cc236d26.bindTooltip(
+                `<div>
+                     BAR CAFETERIA EL TAST (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_290f9ca8497181d24a635dbf200ce97b = L.circleMarker(
+                [41.608204, 2.23898],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_757984835869d7e3ecf1c2559457f218 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_bf69c58c8a056a1b2bf026e2153c4e8c = $(`<div id="html_bf69c58c8a056a1b2bf026e2153c4e8c" style="width: 100.0%; height: 100.0%;">Client: BAR DEL CENTRO<br>Cluster ID: 20<br>Cluster size: 15<br>Address: CALLE ANSELM CLAVE 70, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_757984835869d7e3ecf1c2559457f218.setContent(html_bf69c58c8a056a1b2bf026e2153c4e8c);
+            
+        
+
+        circle_marker_290f9ca8497181d24a635dbf200ce97b.bindPopup(popup_757984835869d7e3ecf1c2559457f218)
+        ;
+
+        
+    
+    
+            circle_marker_290f9ca8497181d24a635dbf200ce97b.bindTooltip(
+                `<div>
+                     BAR DEL CENTRO (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d7e76b2b16bd9e331db932e34720a8a1 = L.circleMarker(
+                [41.5807984, 2.2366202],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_de296c83abc867632f0b67c48cb3e09a = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_6df96a199d74d0a7569b3f8b70462a07 = $(`<div id="html_6df96a199d74d0a7569b3f8b70462a07" style="width: 100.0%; height: 100.0%;">Client: BAR LA GRANJA<br>Cluster ID: 20<br>Cluster size: 15<br>Address: AVENIDA CANTALLOPS S/N, 08185 LLIÇÀ DE VALL, Spain</div>`)[0];
+                popup_de296c83abc867632f0b67c48cb3e09a.setContent(html_6df96a199d74d0a7569b3f8b70462a07);
+            
+        
+
+        circle_marker_d7e76b2b16bd9e331db932e34720a8a1.bindPopup(popup_de296c83abc867632f0b67c48cb3e09a)
+        ;
+
+        
+    
+    
+            circle_marker_d7e76b2b16bd9e331db932e34720a8a1.bindTooltip(
+                `<div>
+                     BAR LA GRANJA (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de733262cd9137acd91f4d280eec0424 = L.circleMarker(
+                [41.6523952, 2.229264],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_d8692c5f5213223b508ce088576f62ce = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_e24599315b8ffb1d49e70b1142afff51 = $(`<div id="html_e24599315b8ffb1d49e70b1142afff51" style="width: 100.0%; height: 100.0%;">Client: BAR LA PETRA II<br>Cluster ID: 20<br>Cluster size: 15<br>Address: CARRER MARE DE DEU DE LA SALUT 3, 08187 SANTA EULÀLIA DE RONÇANA, Spain</div>`)[0];
+                popup_d8692c5f5213223b508ce088576f62ce.setContent(html_e24599315b8ffb1d49e70b1142afff51);
+            
+        
+
+        circle_marker_de733262cd9137acd91f4d280eec0424.bindPopup(popup_d8692c5f5213223b508ce088576f62ce)
+        ;
+
+        
+    
+    
+            circle_marker_de733262cd9137acd91f4d280eec0424.bindTooltip(
+                `<div>
+                     BAR LA PETRA II (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0d285caa51ae5c156a2ad3b7a59bd1cb = L.circleMarker(
+                [41.582023, 2.233908],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_6b702e9e35dabd474a4abc1f3cb37def = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_6bd3860c624dc8db010f37c38321f702 = $(`<div id="html_6bd3860c624dc8db010f37c38321f702" style="width: 100.0%; height: 100.0%;">Client: BAR NADAL<br>Cluster ID: 20<br>Cluster size: 15<br>Address: CARRETERA C-155 KM 14, 08185 LLIÇA DE VALL, Spain</div>`)[0];
+                popup_6b702e9e35dabd474a4abc1f3cb37def.setContent(html_6bd3860c624dc8db010f37c38321f702);
+            
+        
+
+        circle_marker_0d285caa51ae5c156a2ad3b7a59bd1cb.bindPopup(popup_6b702e9e35dabd474a4abc1f3cb37def)
+        ;
+
+        
+    
+    
+            circle_marker_0d285caa51ae5c156a2ad3b7a59bd1cb.bindTooltip(
+                `<div>
+                     BAR NADAL (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fe0032aa8a80944e61661f73265e0bcf = L.circleMarker(
+                [41.5729887, 2.2329289],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_c7b8d0523cea3399dde19c554981daa3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_0a71b47d59d0c5d9135a078b90374563 = $(`<div id="html_0a71b47d59d0c5d9135a078b90374563" style="width: 100.0%; height: 100.0%;">Client: BAR RESTAURANT LA PLAÇA<br>Cluster ID: 20<br>Cluster size: 15<br>Address: PLAZA VILA S/N, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_c7b8d0523cea3399dde19c554981daa3.setContent(html_0a71b47d59d0c5d9135a078b90374563);
+            
+        
+
+        circle_marker_fe0032aa8a80944e61661f73265e0bcf.bindPopup(popup_c7b8d0523cea3399dde19c554981daa3)
+        ;
+
+        
+    
+    
+            circle_marker_fe0032aa8a80944e61661f73265e0bcf.bindTooltip(
+                `<div>
+                     BAR RESTAURANT LA PLAÇA (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_06f70ee257492414ad8db50430bdddac = L.circleMarker(
+                [41.61695, 2.217386],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_94183c76365649c5ce8b75e7206f3d35 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9fd71abe04a3040f87df9b5505ff92d6 = $(`<div id="html_9fd71abe04a3040f87df9b5505ff92d6" style="width: 100.0%; height: 100.0%;">Client: BAR SERRA LLIÇA<br>Cluster ID: 20<br>Cluster size: 15<br>Address: CALLE RIBERA D&#x27;EBRE 81, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_94183c76365649c5ce8b75e7206f3d35.setContent(html_9fd71abe04a3040f87df9b5505ff92d6);
+            
+        
+
+        circle_marker_06f70ee257492414ad8db50430bdddac.bindPopup(popup_94183c76365649c5ce8b75e7206f3d35)
+        ;
+
+        
+    
+    
+            circle_marker_06f70ee257492414ad8db50430bdddac.bindTooltip(
+                `<div>
+                     BAR SERRA LLIÇA (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b84fad37720fac6a8c849d2c71e8f417 = L.circleMarker(
+                [41.582219, 2.237567],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_d0e923ec9a8184b49627609908be9e8e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_aec0ce7fe54cb28fbdbe1f192295d3be = $(`<div id="html_aec0ce7fe54cb28fbdbe1f192295d3be" style="width: 100.0%; height: 100.0%;">Client: BAR TOLIN<br>Cluster ID: 20<br>Cluster size: 15<br>Address: AVENIDA CATALUNYA 14, 08185 LLIÇA DE VALL, Spain</div>`)[0];
+                popup_d0e923ec9a8184b49627609908be9e8e.setContent(html_aec0ce7fe54cb28fbdbe1f192295d3be);
+            
+        
+
+        circle_marker_b84fad37720fac6a8c849d2c71e8f417.bindPopup(popup_d0e923ec9a8184b49627609908be9e8e)
+        ;
+
+        
+    
+    
+            circle_marker_b84fad37720fac6a8c849d2c71e8f417.bindTooltip(
+                `<div>
+                     BAR TOLIN (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c10f7940fee033fdd934b2e746a77c6f = L.circleMarker(
+                [41.61838, 2.215756],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_e804848cc72ef89916ecd276ae697d60 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4d4f959090c2b1bde8792b951c35b454 = $(`<div id="html_4d4f959090c2b1bde8792b951c35b454" style="width: 100.0%; height: 100.0%;">Client: BAR ZONA ZERO<br>Cluster ID: 20<br>Cluster size: 15<br>Address: CALLE MATARRANYA 2, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_e804848cc72ef89916ecd276ae697d60.setContent(html_4d4f959090c2b1bde8792b951c35b454);
+            
+        
+
+        circle_marker_c10f7940fee033fdd934b2e746a77c6f.bindPopup(popup_e804848cc72ef89916ecd276ae697d60)
+        ;
+
+        
+    
+    
+            circle_marker_c10f7940fee033fdd934b2e746a77c6f.bindTooltip(
+                `<div>
+                     BAR ZONA ZERO (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f040b93fce835b31312d46a2163c316e = L.circleMarker(
+                [41.6744354, 2.2098212],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_8858f38c058f66f2cf428978414c3ca4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_aa074b6d6c88544e6bc2efc3e27f7b97 = $(`<div id="html_aa074b6d6c88544e6bc2efc3e27f7b97" style="width: 100.0%; height: 100.0%;">Client: CAFETERIA GAUDEIX<br>Cluster ID: 20<br>Cluster size: 15<br>Address: CALLE DEL CASAL 1, 08415 BIGUES I RIELLS, Spain</div>`)[0];
+                popup_8858f38c058f66f2cf428978414c3ca4.setContent(html_aa074b6d6c88544e6bc2efc3e27f7b97);
+            
+        
+
+        circle_marker_f040b93fce835b31312d46a2163c316e.bindPopup(popup_8858f38c058f66f2cf428978414c3ca4)
+        ;
+
+        
+    
+    
+            circle_marker_f040b93fce835b31312d46a2163c316e.bindTooltip(
+                `<div>
+                     CAFETERIA GAUDEIX (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c12836e14c419447747b40a8ba14fb65 = L.circleMarker(
+                [41.6161686, 2.2373753],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_3b86db394ac62637ec3b2bc5e1e32fe5 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_922cb9916e5118e1e713f8d67f46a6b3 = $(`<div id="html_922cb9916e5118e1e713f8d67f46a6b3" style="width: 100.0%; height: 100.0%;">Client: CAFETERIA LONDONET<br>Cluster ID: 20<br>Cluster size: 15<br>Address: Carrer d&#x27;Anselm Clavé 60, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_3b86db394ac62637ec3b2bc5e1e32fe5.setContent(html_922cb9916e5118e1e713f8d67f46a6b3);
+            
+        
+
+        circle_marker_c12836e14c419447747b40a8ba14fb65.bindPopup(popup_3b86db394ac62637ec3b2bc5e1e32fe5)
+        ;
+
+        
+    
+    
+            circle_marker_c12836e14c419447747b40a8ba14fb65.bindTooltip(
+                `<div>
+                     CAFETERIA LONDONET (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_98952060e0e27d9266799521f4d02b2d = L.circleMarker(
+                [41.61124, 2.240124],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_7f12127a11ea67986cf2455acb6232c6 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_76bb50141074dc1b02b3c8a4a652aaab = $(`<div id="html_76bb50141074dc1b02b3c8a4a652aaab" style="width: 100.0%; height: 100.0%;">Client: CARNICERIA CANADELL<br>Cluster ID: 20<br>Cluster size: 15<br>Address: FOLCH I TORRES 95, 08186 LLIÇA D´AMUNT, Spain</div>`)[0];
+                popup_7f12127a11ea67986cf2455acb6232c6.setContent(html_76bb50141074dc1b02b3c8a4a652aaab);
+            
+        
+
+        circle_marker_98952060e0e27d9266799521f4d02b2d.bindPopup(popup_7f12127a11ea67986cf2455acb6232c6)
+        ;
+
+        
+    
+    
+            circle_marker_98952060e0e27d9266799521f4d02b2d.bindTooltip(
+                `<div>
+                     CARNICERIA CANADELL (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_569007d90cba2b9e8e95a6ffab3f0e6c = L.circleMarker(
+                [41.5862431, 2.2398562],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_4be0969e89384358623a17e26cf0a884);
+        
+    
+        var popup_4d45edb1a426f2dd80542ae77638c787 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_6c49f6841700a6af4136db0573fcdaf9 = $(`<div id="html_6c49f6841700a6af4136db0573fcdaf9" style="width: 100.0%; height: 100.0%;">Client: CHACHI&#x27;S BAR<br>Cluster ID: 20<br>Cluster size: 15<br>Address: Plaça de la Vila S/N, 08185 LLIÇÀ DE VALL, Spain</div>`)[0];
+                popup_4d45edb1a426f2dd80542ae77638c787.setContent(html_6c49f6841700a6af4136db0573fcdaf9);
+            
+        
+
+        circle_marker_569007d90cba2b9e8e95a6ffab3f0e6c.bindPopup(popup_4d45edb1a426f2dd80542ae77638c787)
+        ;
+
+        
+    
+    
+            circle_marker_569007d90cba2b9e8e95a6ffab3f0e6c.bindTooltip(
+                `<div>
+                     CHACHI'S BAR (cluster 20)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

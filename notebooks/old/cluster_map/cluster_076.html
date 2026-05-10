@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c751778e4d622601ddbbddf6dadd4d9c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c751778e4d622601ddbbddf6dadd4d9c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c751778e4d622601ddbbddf6dadd4d9c = L.map(
+                "map_c751778e4d622601ddbbddf6dadd4d9c",
+                {
+                    center: [41.5442014, 2.217975],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_43a60456f61e2224598f3a4986d71be9 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_43a60456f61e2224598f3a4986d71be9.addTo(map_c751778e4d622601ddbbddf6dadd4d9c);
+        
+    
+            var circle_marker_15770814d20aae74dc3b351a77af8ca3 = L.circleMarker(
+                [41.548025, 2.220474],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c751778e4d622601ddbbddf6dadd4d9c);
+        
+    
+        var popup_7c9b7fcda1ce435c5ba9afee6898c4e3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_810922bafd92c6f7615cfa9d5d2d51b1 = $(`<div id="html_810922bafd92c6f7615cfa9d5d2d51b1" style="width: 100.0%; height: 100.0%;">Client: ALHAMBRA 57<br>Cluster ID: 76<br>Cluster size: 5<br>Address: AVENIDA ANTONI GAUDI 57, 08100 MOLLET DEL VALLÈS, Spain</div>`)[0];
+                popup_7c9b7fcda1ce435c5ba9afee6898c4e3.setContent(html_810922bafd92c6f7615cfa9d5d2d51b1);
+            
+        
+
+        circle_marker_15770814d20aae74dc3b351a77af8ca3.bindPopup(popup_7c9b7fcda1ce435c5ba9afee6898c4e3)
+        ;
+
+        
+    
+    
+            circle_marker_15770814d20aae74dc3b351a77af8ca3.bindTooltip(
+                `<div>
+                     ALHAMBRA 57 (cluster 76)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e18d502ace468f2e05221832e03dcbce = L.circleMarker(
+                [41.54407, 2.217721],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c751778e4d622601ddbbddf6dadd4d9c);
+        
+    
+        var popup_18152bdddce5ec46d04bd23280d53760 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_f4145823b866bb839f32e4f4719443af = $(`<div id="html_f4145823b866bb839f32e4f4719443af" style="width: 100.0%; height: 100.0%;">Client: BAR FRAYMAN<br>Cluster ID: 76<br>Cluster size: 5<br>Address: CALLE ENRIC MORERA 27, 08100 MOLLET DEL VALLÈS, Spain</div>`)[0];
+                popup_18152bdddce5ec46d04bd23280d53760.setContent(html_f4145823b866bb839f32e4f4719443af);
+            
+        
+
+        circle_marker_e18d502ace468f2e05221832e03dcbce.bindPopup(popup_18152bdddce5ec46d04bd23280d53760)
+        ;
+
+        
+    
+    
+            circle_marker_e18d502ace468f2e05221832e03dcbce.bindTooltip(
+                `<div>
+                     BAR FRAYMAN (cluster 76)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9f90a35eb2ef301c4cf1d64799352019 = L.circleMarker(
+                [41.5446936, 2.217975],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c751778e4d622601ddbbddf6dadd4d9c);
+        
+    
+        var popup_3b4be0b5c2fc956e5ad0f5fe89a9c234 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_fa2763825063613893fbcd0f5d63ad6e = $(`<div id="html_fa2763825063613893fbcd0f5d63ad6e" style="width: 100.0%; height: 100.0%;">Client: BAR NOMAD<br>Cluster ID: 76<br>Cluster size: 5<br>Address: Avinguda d&#x27;Antoni Gaudí 12, 08100 Mollet del Vallès, Spain</div>`)[0];
+                popup_3b4be0b5c2fc956e5ad0f5fe89a9c234.setContent(html_fa2763825063613893fbcd0f5d63ad6e);
+            
+        
+
+        circle_marker_9f90a35eb2ef301c4cf1d64799352019.bindPopup(popup_3b4be0b5c2fc956e5ad0f5fe89a9c234)
+        ;
+
+        
+    
+    
+            circle_marker_9f90a35eb2ef301c4cf1d64799352019.bindTooltip(
+                `<div>
+                     BAR NOMAD (cluster 76)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bbafe081e9e4a7603591948d239f03cd = L.circleMarker(
+                [41.5399187, 2.2118764],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c751778e4d622601ddbbddf6dadd4d9c);
+        
+    
+        var popup_82cc701ddc129b7fb1c3042b25355b8e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_5741964a7b2ce8429a796b3005a1564b = $(`<div id="html_5741964a7b2ce8429a796b3005a1564b" style="width: 100.0%; height: 100.0%;">Client: BRACAFE<br>Cluster ID: 76<br>Cluster size: 5<br>Address: CALLE GAIETA VINZIA 11, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_82cc701ddc129b7fb1c3042b25355b8e.setContent(html_5741964a7b2ce8429a796b3005a1564b);
+            
+        
+
+        circle_marker_bbafe081e9e4a7603591948d239f03cd.bindPopup(popup_82cc701ddc129b7fb1c3042b25355b8e)
+        ;
+
+        
+    
+    
+            circle_marker_bbafe081e9e4a7603591948d239f03cd.bindTooltip(
+                `<div>
+                     BRACAFE (cluster 76)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_304a08a9fe51db366619a9dc737570ec = L.circleMarker(
+                [41.5442014, 2.2214794],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c751778e4d622601ddbbddf6dadd4d9c);
+        
+    
+        var popup_a128c9bbac431fd9c0800f603bea204d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_21b481fb8c2f08a81f88a7c4a80d4f6c = $(`<div id="html_21b481fb8c2f08a81f88a7c4a80d4f6c" style="width: 100.0%; height: 100.0%;">Client: Bar 4 Puertas<br>Cluster ID: 76<br>Cluster size: 5<br>Address: Carrer de Can Flequer 17, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_a128c9bbac431fd9c0800f603bea204d.setContent(html_21b481fb8c2f08a81f88a7c4a80d4f6c);
+            
+        
+
+        circle_marker_304a08a9fe51db366619a9dc737570ec.bindPopup(popup_a128c9bbac431fd9c0800f603bea204d)
+        ;
+
+        
+    
+    
+            circle_marker_304a08a9fe51db366619a9dc737570ec.bindTooltip(
+                `<div>
+                     Bar 4 Puertas (cluster 76)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

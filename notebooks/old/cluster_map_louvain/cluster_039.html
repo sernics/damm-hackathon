@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_59e13f123a0d0db5d45c11046e6fdd7b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_59e13f123a0d0db5d45c11046e6fdd7b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_59e13f123a0d0db5d45c11046e6fdd7b = L.map(
+                "map_59e13f123a0d0db5d45c11046e6fdd7b",
+                {
+                    center: [42.0021369, 2.2879627],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bd5b2413d563326e7c2f7062a41780f6 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bd5b2413d563326e7c2f7062a41780f6.addTo(map_59e13f123a0d0db5d45c11046e6fdd7b);
+        
+    
+            var circle_marker_572f557c8b61194b32f713b6c15014f0 = L.circleMarker(
+                [41.9999811, 2.2841159],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_59e13f123a0d0db5d45c11046e6fdd7b);
+        
+    
+        var popup_86ff522528f6746e10a7c8c8a902600c = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_50f0db919d73e0314fd9e3ba4bdb8055 = $(`<div id="html_50f0db919d73e0314fd9e3ba4bdb8055" style="width: 100.0%; height: 100.0%;">Client: ANGEL BRUGUERA FONT<br>Cluster ID: 39<br>Cluster size: 7<br>Address: LUGAR BRUGUERA S/N, 08560 MANLLEU, Spain</div>`)[0];
+                popup_86ff522528f6746e10a7c8c8a902600c.setContent(html_50f0db919d73e0314fd9e3ba4bdb8055);
+            
+        
+
+        circle_marker_572f557c8b61194b32f713b6c15014f0.bindPopup(popup_86ff522528f6746e10a7c8c8a902600c)
+        ;
+
+        
+    
+    
+            circle_marker_572f557c8b61194b32f713b6c15014f0.bindTooltip(
+                `<div>
+                     ANGEL BRUGUERA FONT (cluster 39)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1119330a43fb82cbfcf1dcc209d41e78 = L.circleMarker(
+                [42.007475, 2.290126],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_59e13f123a0d0db5d45c11046e6fdd7b);
+        
+    
+        var popup_92628cc0415c59a82718d7e5292f2c4e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_92b6bed449748ea37990d6ad0adf60d6 = $(`<div id="html_92b6bed449748ea37990d6ad0adf60d6" style="width: 100.0%; height: 100.0%;">Client: BAR AYTA<br>Cluster ID: 39<br>Cluster size: 7<br>Address: CALLE SANTA MARIA DE CORCO 23, 08560 MANLLEU, Spain</div>`)[0];
+                popup_92628cc0415c59a82718d7e5292f2c4e.setContent(html_92b6bed449748ea37990d6ad0adf60d6);
+            
+        
+
+        circle_marker_1119330a43fb82cbfcf1dcc209d41e78.bindPopup(popup_92628cc0415c59a82718d7e5292f2c4e)
+        ;
+
+        
+    
+    
+            circle_marker_1119330a43fb82cbfcf1dcc209d41e78.bindTooltip(
+                `<div>
+                     BAR AYTA (cluster 39)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e1ef8693363c09d27be2f2b5392940e1 = L.circleMarker(
+                [42.002045, 2.2840376],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_59e13f123a0d0db5d45c11046e6fdd7b);
+        
+    
+        var popup_6e7918bef477c7b75dda41e82197158f = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_88442f31a5a9f7ef890dc0a815a8902b = $(`<div id="html_88442f31a5a9f7ef890dc0a815a8902b" style="width: 100.0%; height: 100.0%;">Client: BAR EL TROPEZON<br>Cluster ID: 39<br>Cluster size: 7<br>Address: Carrer Doctor Fleming 46, 08560 MANLLEU, Spain</div>`)[0];
+                popup_6e7918bef477c7b75dda41e82197158f.setContent(html_88442f31a5a9f7ef890dc0a815a8902b);
+            
+        
+
+        circle_marker_e1ef8693363c09d27be2f2b5392940e1.bindPopup(popup_6e7918bef477c7b75dda41e82197158f)
+        ;
+
+        
+    
+    
+            circle_marker_e1ef8693363c09d27be2f2b5392940e1.bindTooltip(
+                `<div>
+                     BAR EL TROPEZON (cluster 39)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5b97313d364dcfe71c4cfdb0b9edb55a = L.circleMarker(
+                [42.0021369, 2.2941505],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_59e13f123a0d0db5d45c11046e6fdd7b);
+        
+    
+        var popup_ff54a1a08ad0e50dbd84ea58f029d157 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b1a29bdfdf0c83dd79bd150c92eecfea = $(`<div id="html_b1a29bdfdf0c83dd79bd150c92eecfea" style="width: 100.0%; height: 100.0%;">Client: BAR OLIVEDA<br>Cluster ID: 39<br>Cluster size: 7<br>Address: CARRETERA RODA 18, 08560 MANLLEU, Spain</div>`)[0];
+                popup_ff54a1a08ad0e50dbd84ea58f029d157.setContent(html_b1a29bdfdf0c83dd79bd150c92eecfea);
+            
+        
+
+        circle_marker_5b97313d364dcfe71c4cfdb0b9edb55a.bindPopup(popup_ff54a1a08ad0e50dbd84ea58f029d157)
+        ;
+
+        
+    
+    
+            circle_marker_5b97313d364dcfe71c4cfdb0b9edb55a.bindTooltip(
+                `<div>
+                     BAR OLIVEDA (cluster 39)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4a4c5f4fc5cb6f233759f5a62883a874 = L.circleMarker(
+                [42.007021, 2.289888],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_59e13f123a0d0db5d45c11046e6fdd7b);
+        
+    
+        var popup_cc57339d99753974ba5a96481f16f61c = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_7cde888560ba785cf141c7d2ad5afe90 = $(`<div id="html_7cde888560ba785cf141c7d2ad5afe90" style="width: 100.0%; height: 100.0%;">Client: BAR SEGORB NOU<br>Cluster ID: 39<br>Cluster size: 7<br>Address: CALLE SOGORB 73, 08560 MANLLEU, Spain</div>`)[0];
+                popup_cc57339d99753974ba5a96481f16f61c.setContent(html_7cde888560ba785cf141c7d2ad5afe90);
+            
+        
+
+        circle_marker_4a4c5f4fc5cb6f233759f5a62883a874.bindPopup(popup_cc57339d99753974ba5a96481f16f61c)
+        ;
+
+        
+    
+    
+            circle_marker_4a4c5f4fc5cb6f233759f5a62883a874.bindTooltip(
+                `<div>
+                     BAR SEGORB NOU (cluster 39)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_31d8e8fcac1631592826247393c62743 = L.circleMarker(
+                [42.0034372, 2.2879627],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_59e13f123a0d0db5d45c11046e6fdd7b);
+        
+    
+        var popup_dfa08e10bb49addb5e7e801e2c16e08e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b411f4e6a0ddafffe812e954908aabba = $(`<div id="html_b411f4e6a0ddafffe812e954908aabba" style="width: 100.0%; height: 100.0%;">Client: Bar Tissana<br>Cluster ID: 39<br>Cluster size: 7<br>Address: Carrer de Ripoll 20, 08560 MANLLEU, Spain</div>`)[0];
+                popup_dfa08e10bb49addb5e7e801e2c16e08e.setContent(html_b411f4e6a0ddafffe812e954908aabba);
+            
+        
+
+        circle_marker_31d8e8fcac1631592826247393c62743.bindPopup(popup_dfa08e10bb49addb5e7e801e2c16e08e)
+        ;
+
+        
+    
+    
+            circle_marker_31d8e8fcac1631592826247393c62743.bindTooltip(
+                `<div>
+                     Bar Tissana (cluster 39)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eeedd5d2af5c7c15214ccb309e55fe51 = L.circleMarker(
+                [42.002098, 2.283213],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_59e13f123a0d0db5d45c11046e6fdd7b);
+        
+    
+        var popup_21071f1d01d9a3e37f67235abd1b36b4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b01a293e7144fa2e21126921855827ae = $(`<div id="html_b01a293e7144fa2e21126921855827ae" style="width: 100.0%; height: 100.0%;">Client: CANSALADERIA MOLIST<br>Cluster ID: 39<br>Cluster size: 7<br>Address: CALLE DOCTOR FLEMING 20, 08560 MANLLEU, Spain</div>`)[0];
+                popup_21071f1d01d9a3e37f67235abd1b36b4.setContent(html_b01a293e7144fa2e21126921855827ae);
+            
+        
+
+        circle_marker_eeedd5d2af5c7c15214ccb309e55fe51.bindPopup(popup_21071f1d01d9a3e37f67235abd1b36b4)
+        ;
+
+        
+    
+    
+            circle_marker_eeedd5d2af5c7c15214ccb309e55fe51.bindTooltip(
+                `<div>
+                     CANSALADERIA MOLIST (cluster 39)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

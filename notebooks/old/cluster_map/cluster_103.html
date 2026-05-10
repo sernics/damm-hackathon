@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2fe553c068e4391d15501e5aee8124d7 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_2fe553c068e4391d15501e5aee8124d7" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2fe553c068e4391d15501e5aee8124d7 = L.map(
+                "map_2fe553c068e4391d15501e5aee8124d7",
+                {
+                    center: [41.5374332, 2.2113804],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_c2f34ff281dc89646512c0a2674c75f0 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_c2f34ff281dc89646512c0a2674c75f0.addTo(map_2fe553c068e4391d15501e5aee8124d7);
+        
+    
+            var circle_marker_934faefc22d57e3193c85d5957069cb2 = L.circleMarker(
+                [41.5403022, 2.2096674],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2fe553c068e4391d15501e5aee8124d7);
+        
+    
+        var popup_e5c62c7502394b7755407366f67aee1b = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_1bea2dd589b27d677283394d74e20e1a = $(`<div id="html_1bea2dd589b27d677283394d74e20e1a" style="width: 100.0%; height: 100.0%;">Client: ALFREDO PARODI FURHMAN<br>Cluster ID: 103<br>Cluster size: 4<br>Address: RAMBLA NOVA 33-35, 08100 MOLLET DEL VALLÈS, Spain</div>`)[0];
+                popup_e5c62c7502394b7755407366f67aee1b.setContent(html_1bea2dd589b27d677283394d74e20e1a);
+            
+        
+
+        circle_marker_934faefc22d57e3193c85d5957069cb2.bindPopup(popup_e5c62c7502394b7755407366f67aee1b)
+        ;
+
+        
+    
+    
+            circle_marker_934faefc22d57e3193c85d5957069cb2.bindTooltip(
+                `<div>
+                     ALFREDO PARODI FURHMAN (cluster 103)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_507d077318ea796d3b35a1b7fa7083b1 = L.circleMarker(
+                [41.2715237, 1.9778551],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2fe553c068e4391d15501e5aee8124d7);
+        
+    
+        var popup_669f07c6d37360fdc9358e3f433b3498 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_e5e44c34f49f9ddd383fe91a136424cc = $(`<div id="html_e5e44c34f49f9ddd383fe91a136424cc" style="width: 100.0%; height: 100.0%;">Client: Roberto Ferrando Martínez<br>Cluster ID: 103<br>Cluster size: 4<br>Address: Passeig del Pitort 103, 08860 CASTELLDEFELS, Spain</div>`)[0];
+                popup_669f07c6d37360fdc9358e3f433b3498.setContent(html_e5e44c34f49f9ddd383fe91a136424cc);
+            
+        
+
+        circle_marker_507d077318ea796d3b35a1b7fa7083b1.bindPopup(popup_669f07c6d37360fdc9358e3f433b3498)
+        ;
+
+        
+    
+    
+            circle_marker_507d077318ea796d3b35a1b7fa7083b1.bindTooltip(
+                `<div>
+                     Roberto Ferrando Martínez (cluster 103)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_9019e1bd3413e12d34738038ddde4336 = L.circleMarker(
+                [41.535518, 2.237087],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2fe553c068e4391d15501e5aee8124d7);
+        
+    
+        var popup_f5226babeb3796955db88db32cce9f8d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_fa344c7da4285d684c3ef64da61919a0 = $(`<div id="html_fa344c7da4285d684c3ef64da61919a0" style="width: 100.0%; height: 100.0%;">Client: VENDES MAGATZEM<br>Cluster ID: 103<br>Cluster size: 4<br>Address: CAN FENOSA 1-2 -, 08107 MARTORELLES, Spain</div>`)[0];
+                popup_f5226babeb3796955db88db32cce9f8d.setContent(html_fa344c7da4285d684c3ef64da61919a0);
+            
+        
+
+        circle_marker_9019e1bd3413e12d34738038ddde4336.bindPopup(popup_f5226babeb3796955db88db32cce9f8d)
+        ;
+
+        
+    
+    
+            circle_marker_9019e1bd3413e12d34738038ddde4336.bindTooltip(
+                `<div>
+                     VENDES MAGATZEM (cluster 103)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f0413b0c99339472e1d5bc1c6a162881 = L.circleMarker(
+                [41.5393484, 2.2130934],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_2fe553c068e4391d15501e5aee8124d7);
+        
+    
+        var popup_1242cf0c88656c375fd5bb636ccdcd25 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_bde400d4afc7e7af261348f72e658d8b = $(`<div id="html_bde400d4afc7e7af261348f72e658d8b" style="width: 100.0%; height: 100.0%;">Client: XAVIER FERRANDIZ RIBA<br>Cluster ID: 103<br>Cluster size: 4<br>Address: CALLE MOLI DE CAN BASSA S/N, 08100 MOLLET DEL VALLÈS, Spain</div>`)[0];
+                popup_1242cf0c88656c375fd5bb636ccdcd25.setContent(html_bde400d4afc7e7af261348f72e658d8b);
+            
+        
+
+        circle_marker_f0413b0c99339472e1d5bc1c6a162881.bindPopup(popup_1242cf0c88656c375fd5bb636ccdcd25)
+        ;
+
+        
+    
+    
+            circle_marker_f0413b0c99339472e1d5bc1c6a162881.bindTooltip(
+                `<div>
+                     XAVIER FERRANDIZ RIBA (cluster 103)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

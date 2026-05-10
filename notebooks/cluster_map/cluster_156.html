@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3663de412f57325b4c52fa1ffb16a539 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3663de412f57325b4c52fa1ffb16a539" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3663de412f57325b4c52fa1ffb16a539 = L.map(
+                "map_3663de412f57325b4c52fa1ffb16a539",
+                {
+                    center: [41.5381711, 2.2113157],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bcbc2626c194964b0d47be7fc48d978a = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bcbc2626c194964b0d47be7fc48d978a.addTo(map_3663de412f57325b4c52fa1ffb16a539);
+        
+    
+            var circle_marker_d78225aed25602c1782fb1e90f272546 = L.circleMarker(
+                [41.5409278, 2.2081578],
+                {"bubblingMouseEvents": true, "color": "#0891B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0891B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_3663de412f57325b4c52fa1ffb16a539);
+        
+    
+        var popup_cfc9ecbd87fe5f417a7bf8d834751334 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_203e20f0a7974ae999e0a1f5ac0a1bfe = $(`<div id="html_203e20f0a7974ae999e0a1f5ac0a1bfe" style="width: 100.0%; height: 100.0%;">Client: Bar Castillo<br>Cluster ID: 156<br>Cluster size: 3<br>Address: Carrer de Sant Jordi 56, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_cfc9ecbd87fe5f417a7bf8d834751334.setContent(html_203e20f0a7974ae999e0a1f5ac0a1bfe);
+            
+        
+
+        circle_marker_d78225aed25602c1782fb1e90f272546.bindPopup(popup_cfc9ecbd87fe5f417a7bf8d834751334)
+        ;
+
+        
+    
+    
+            circle_marker_d78225aed25602c1782fb1e90f272546.bindTooltip(
+                `<div>
+                     Bar Castillo (cluster 156)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b6b1c8aa13264d778ae0b58a018f7053 = L.circleMarker(
+                [41.5381711, 2.2113157],
+                {"bubblingMouseEvents": true, "color": "#0891B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0891B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_3663de412f57325b4c52fa1ffb16a539);
+        
+    
+        var popup_de8033d021812a2c926293d17529cb3b = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_93fc82ba353c4c98bf6f70da380b82ec = $(`<div id="html_93fc82ba353c4c98bf6f70da380b82ec" style="width: 100.0%; height: 100.0%;">Client: LA PINYA BAR<br>Cluster ID: 156<br>Cluster size: 3<br>Address: AVENIDA JAUME I 3-5, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_de8033d021812a2c926293d17529cb3b.setContent(html_93fc82ba353c4c98bf6f70da380b82ec);
+            
+        
+
+        circle_marker_b6b1c8aa13264d778ae0b58a018f7053.bindPopup(popup_de8033d021812a2c926293d17529cb3b)
+        ;
+
+        
+    
+    
+            circle_marker_b6b1c8aa13264d778ae0b58a018f7053.bindTooltip(
+                `<div>
+                     LA PINYA BAR (cluster 156)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_05f58b9aff2a3fe4aab83faa499c14f2 = L.circleMarker(
+                [41.5373051, 2.2120439],
+                {"bubblingMouseEvents": true, "color": "#0891B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0891B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_3663de412f57325b4c52fa1ffb16a539);
+        
+    
+        var popup_b7dabb651a9c3a32485bbc29d9ee7a0b = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ed1d20d72ed39394a1c2d66b8cf3404c = $(`<div id="html_ed1d20d72ed39394a1c2d66b8cf3404c" style="width: 100.0%; height: 100.0%;">Client: Pool<br>Cluster ID: 156<br>Cluster size: 3<br>Address: Passatge Sant Miquel 10, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_b7dabb651a9c3a32485bbc29d9ee7a0b.setContent(html_ed1d20d72ed39394a1c2d66b8cf3404c);
+            
+        
+
+        circle_marker_05f58b9aff2a3fe4aab83faa499c14f2.bindPopup(popup_b7dabb651a9c3a32485bbc29d9ee7a0b)
+        ;
+
+        
+    
+    
+            circle_marker_05f58b9aff2a3fe4aab83faa499c14f2.bindTooltip(
+                `<div>
+                     Pool (cluster 156)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

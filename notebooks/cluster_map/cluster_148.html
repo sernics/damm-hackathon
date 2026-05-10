@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d943528e318e39206b9c5a867f646165 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_d943528e318e39206b9c5a867f646165" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d943528e318e39206b9c5a867f646165 = L.map(
+                "map_d943528e318e39206b9c5a867f646165",
+                {
+                    center: [41.542545, 2.266659],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_29ae24b59f6d14671558ab7651606f09 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_29ae24b59f6d14671558ab7651606f09.addTo(map_d943528e318e39206b9c5a867f646165);
+        
+    
+            var circle_marker_31ac8c117156403bef0af3bdef30cbc0 = L.circleMarker(
+                [41.5526116, 2.266659],
+                {"bubblingMouseEvents": true, "color": "#EA580C", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#EA580C", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_d943528e318e39206b9c5a867f646165);
+        
+    
+        var popup_88e2140282f5d00733b9cf7024d7a1bb = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_fba7b522d93d7fd3db3b26c400dd6be7 = $(`<div id="html_fba7b522d93d7fd3db3b26c400dd6be7" style="width: 100.0%; height: 100.0%;">Client: BAR PLAZA PUEBLO<br>Cluster ID: 148<br>Cluster size: 3<br>Address: Plaça del Poble 14, 08170 MONTORNÈS DEL VALLÈS, Spain</div>`)[0];
+                popup_88e2140282f5d00733b9cf7024d7a1bb.setContent(html_fba7b522d93d7fd3db3b26c400dd6be7);
+            
+        
+
+        circle_marker_31ac8c117156403bef0af3bdef30cbc0.bindPopup(popup_88e2140282f5d00733b9cf7024d7a1bb)
+        ;
+
+        
+    
+    
+            circle_marker_31ac8c117156403bef0af3bdef30cbc0.bindTooltip(
+                `<div>
+                     BAR PLAZA PUEBLO (cluster 148)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b6617feab92288e6e03687af308bac95 = L.circleMarker(
+                [41.523428, 2.230063],
+                {"bubblingMouseEvents": true, "color": "#EA580C", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#EA580C", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_d943528e318e39206b9c5a867f646165);
+        
+    
+        var popup_e455295aab33a1650657497240f6e9f6 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_7e97fed5e1698e1c80099b715a9d0194 = $(`<div id="html_7e97fed5e1698e1c80099b715a9d0194" style="width: 100.0%; height: 100.0%;">Client: Forn de Pa Gaba<br>Cluster ID: 148<br>Cluster size: 3<br>Address: Avinguda Catalunya 3, 08105 SANT FOST DE CAMPSENTELLES, Spain</div>`)[0];
+                popup_e455295aab33a1650657497240f6e9f6.setContent(html_7e97fed5e1698e1c80099b715a9d0194);
+            
+        
+
+        circle_marker_b6617feab92288e6e03687af308bac95.bindPopup(popup_e455295aab33a1650657497240f6e9f6)
+        ;
+
+        
+    
+    
+            circle_marker_b6617feab92288e6e03687af308bac95.bindTooltip(
+                `<div>
+                     Forn de Pa Gaba (cluster 148)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec73a9fb54e3818b0b014fba91f1b695 = L.circleMarker(
+                [41.542545, 2.2670557],
+                {"bubblingMouseEvents": true, "color": "#EA580C", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#EA580C", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_d943528e318e39206b9c5a867f646165);
+        
+    
+        var popup_9f352a6ceaf39dfb0e158c5bf160ce51 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_8e7b3f27be3f4fa1a12ced88b4f0a825 = $(`<div id="html_8e7b3f27be3f4fa1a12ced88b4f0a825" style="width: 100.0%; height: 100.0%;">Client: RESTAURANTE INJA<br>Cluster ID: 148<br>Cluster size: 3<br>Address: CARRETERA SANT ADRIA DEL BESOS-L 17, 08170 MONTORNÈS DEL VALLÈS, Spain</div>`)[0];
+                popup_9f352a6ceaf39dfb0e158c5bf160ce51.setContent(html_8e7b3f27be3f4fa1a12ced88b4f0a825);
+            
+        
+
+        circle_marker_ec73a9fb54e3818b0b014fba91f1b695.bindPopup(popup_9f352a6ceaf39dfb0e158c5bf160ce51)
+        ;
+
+        
+    
+    
+            circle_marker_ec73a9fb54e3818b0b014fba91f1b695.bindTooltip(
+                `<div>
+                     RESTAURANTE INJA (cluster 148)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

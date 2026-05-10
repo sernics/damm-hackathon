@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_08a7927dd411be0d958c3dcfd2db1f32 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_08a7927dd411be0d958c3dcfd2db1f32" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_08a7927dd411be0d958c3dcfd2db1f32 = L.map(
+                "map_08a7927dd411be0d958c3dcfd2db1f32",
+                {
+                    center: [41.54548875, 2.2089238],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6e9491096df4a30047e51d62f614b199 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6e9491096df4a30047e51d62f614b199.addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+            var circle_marker_6d8c4a3a7b2bbfee2a04dce3975d571c = L.circleMarker(
+                [41.547238, 2.2054979],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_2de19dba73a4dbad99f5a03e7a9b1cd3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_994b25ab22822abb0b238c6000e157b2 = $(`<div id="html_994b25ab22822abb0b238c6000e157b2" style="width: 100.0%; height: 100.0%;">Client: BAR CAN BORRELL<br>Cluster ID: 73<br>Cluster size: 30<br>Address: SALVADOR ESPRIU 32, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_2de19dba73a4dbad99f5a03e7a9b1cd3.setContent(html_994b25ab22822abb0b238c6000e157b2);
+            
+        
+
+        circle_marker_6d8c4a3a7b2bbfee2a04dce3975d571c.bindPopup(popup_2de19dba73a4dbad99f5a03e7a9b1cd3)
+        ;
+
+        
+    
+    
+            circle_marker_6d8c4a3a7b2bbfee2a04dce3975d571c.bindTooltip(
+                `<div>
+                     BAR CAN BORRELL (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ed3cfbfb89d0306865a7e289c9584d2e = L.circleMarker(
+                [41.545072, 2.2056984],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_b35574e1cec468976cac95ac63b262dd = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_89075f904063a2fa8977364351fbdde5 = $(`<div id="html_89075f904063a2fa8977364351fbdde5" style="width: 100.0%; height: 100.0%;">Client: BAR DE TAPES<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Avinguda de Caldes de Montbui 17, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_b35574e1cec468976cac95ac63b262dd.setContent(html_89075f904063a2fa8977364351fbdde5);
+            
+        
+
+        circle_marker_ed3cfbfb89d0306865a7e289c9584d2e.bindPopup(popup_b35574e1cec468976cac95ac63b262dd)
+        ;
+
+        
+    
+    
+            circle_marker_ed3cfbfb89d0306865a7e289c9584d2e.bindTooltip(
+                `<div>
+                     BAR DE TAPES (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cb75947d74daaad3635b843db7e5e292 = L.circleMarker(
+                [41.5483739, 2.2074409],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_0a1b52b2efe31cdda30c484999b62f36 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_8c6e4491026c15ff98aca0198aa0ea3a = $(`<div id="html_8c6e4491026c15ff98aca0198aa0ea3a" style="width: 100.0%; height: 100.0%;">Client: BAR ESPERANZA<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de Gallecs 75, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_0a1b52b2efe31cdda30c484999b62f36.setContent(html_8c6e4491026c15ff98aca0198aa0ea3a);
+            
+        
+
+        circle_marker_cb75947d74daaad3635b843db7e5e292.bindPopup(popup_0a1b52b2efe31cdda30c484999b62f36)
+        ;
+
+        
+    
+    
+            circle_marker_cb75947d74daaad3635b843db7e5e292.bindTooltip(
+                `<div>
+                     BAR ESPERANZA (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a996a8f986d7f4a70d297b41a7f11c4f = L.circleMarker(
+                [41.546887, 2.208399],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_258d8893cc6df98b52270dc012a5afe1 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_64ffd991e5ffffbe6c730ed6524b7092 = $(`<div id="html_64ffd991e5ffffbe6c730ed6524b7092" style="width: 100.0%; height: 100.0%;">Client: BAR LA BONA SORT ( CAN BORELL )<br>Cluster ID: 73<br>Cluster size: 30<br>Address: CALLE GALLECS 50, 08100 MOLLET DEL VALLÈS, Spain</div>`)[0];
+                popup_258d8893cc6df98b52270dc012a5afe1.setContent(html_64ffd991e5ffffbe6c730ed6524b7092);
+            
+        
+
+        circle_marker_a996a8f986d7f4a70d297b41a7f11c4f.bindPopup(popup_258d8893cc6df98b52270dc012a5afe1)
+        ;
+
+        
+    
+    
+            circle_marker_a996a8f986d7f4a70d297b41a7f11c4f.bindTooltip(
+                `<div>
+                     BAR LA BONA SORT ( CAN BORELL ) (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3255df4c758d9c2684a059e22256f8a6 = L.circleMarker(
+                [41.5447327, 2.2175533],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_d47e0a87afdb5c19eb6c35d084f1c73d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ed88b22da18d40969884984a3c715416 = $(`<div id="html_ed88b22da18d40969884984a3c715416" style="width: 100.0%; height: 100.0%;">Client: BAR TRANSIT<br>Cluster ID: 73<br>Cluster size: 30<br>Address: ANTONI GAUDI 9, 08100 MOLLET DEL VALLÈS, Spain</div>`)[0];
+                popup_d47e0a87afdb5c19eb6c35d084f1c73d.setContent(html_ed88b22da18d40969884984a3c715416);
+            
+        
+
+        circle_marker_3255df4c758d9c2684a059e22256f8a6.bindPopup(popup_d47e0a87afdb5c19eb6c35d084f1c73d)
+        ;
+
+        
+    
+    
+            circle_marker_3255df4c758d9c2684a059e22256f8a6.bindTooltip(
+                `<div>
+                     BAR TRANSIT (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_44ebdfd32f775ce3e066b76bb9eb3688 = L.circleMarker(
+                [41.5452446, 2.2112416],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_8f200cb465bd8b1cb4ffb890411f7d23 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_e8da947fd33a8513aba687dc5db09a63 = $(`<div id="html_e8da947fd33a8513aba687dc5db09a63" style="width: 100.0%; height: 100.0%;">Client: Bar El Parque<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de Magallanes 16, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_8f200cb465bd8b1cb4ffb890411f7d23.setContent(html_e8da947fd33a8513aba687dc5db09a63);
+            
+        
+
+        circle_marker_44ebdfd32f775ce3e066b76bb9eb3688.bindPopup(popup_8f200cb465bd8b1cb4ffb890411f7d23)
+        ;
+
+        
+    
+    
+            circle_marker_44ebdfd32f775ce3e066b76bb9eb3688.bindTooltip(
+                `<div>
+                     Bar El Parque (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1665775cbf96446d04af6977da82b150 = L.circleMarker(
+                [41.5727036, 2.2326252],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_bb38183f0dd44a381b23731375a994b6 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_fd60ebf586c1f861b5c0c0782738e55d = $(`<div id="html_fd60ebf586c1f861b5c0c0782738e55d" style="width: 100.0%; height: 100.0%;">Client: Bar la Cantonada<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer Major 31, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_bb38183f0dd44a381b23731375a994b6.setContent(html_fd60ebf586c1f861b5c0c0782738e55d);
+            
+        
+
+        circle_marker_1665775cbf96446d04af6977da82b150.bindPopup(popup_bb38183f0dd44a381b23731375a994b6)
+        ;
+
+        
+    
+    
+            circle_marker_1665775cbf96446d04af6977da82b150.bindTooltip(
+                `<div>
+                     Bar la Cantonada (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_55f7cd6ffa59d740aa4105331ba4b5dc = L.circleMarker(
+                [41.5475361, 2.2076759],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_43a7cc5a55a2bc716bcd69f1f7e00676 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_52ab7a963bf688b527ea66d4980a9add = $(`<div id="html_52ab7a963bf688b527ea66d4980a9add" style="width: 100.0%; height: 100.0%;">Client: Bar restaurante Nacha<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de Salvador Espriu 7, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_43a7cc5a55a2bc716bcd69f1f7e00676.setContent(html_52ab7a963bf688b527ea66d4980a9add);
+            
+        
+
+        circle_marker_55f7cd6ffa59d740aa4105331ba4b5dc.bindPopup(popup_43a7cc5a55a2bc716bcd69f1f7e00676)
+        ;
+
+        
+    
+    
+            circle_marker_55f7cd6ffa59d740aa4105331ba4b5dc.bindTooltip(
+                `<div>
+                     Bar restaurante Nacha (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0971228b9e4ca947cde82b7b44e038ca = L.circleMarker(
+                [41.548026, 2.207937],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_ddbad82c63892122d61825f494ab09d8 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ff9145581cd9c2cf3645a5862cb9f4e4 = $(`<div id="html_ff9145581cd9c2cf3645a5862cb9f4e4" style="width: 100.0%; height: 100.0%;">Client: CAFETERIA TAHOMA<br>Cluster ID: 73<br>Cluster size: 30<br>Address: CALLE GALLECS 58, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_ddbad82c63892122d61825f494ab09d8.setContent(html_ff9145581cd9c2cf3645a5862cb9f4e4);
+            
+        
+
+        circle_marker_0971228b9e4ca947cde82b7b44e038ca.bindPopup(popup_ddbad82c63892122d61825f494ab09d8)
+        ;
+
+        
+    
+    
+            circle_marker_0971228b9e4ca947cde82b7b44e038ca.bindTooltip(
+                `<div>
+                     CAFETERIA TAHOMA (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f15b8726d17a478970ed9bacc0695e16 = L.circleMarker(
+                [41.5482436, 2.2055453],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_f5a26e757a96f86681fc7a42457bbfe2 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_dd03098b7cc947fbfed1caa0ce99d390 = $(`<div id="html_dd03098b7cc947fbfed1caa0ce99d390" style="width: 100.0%; height: 100.0%;">Client: CERVESERIA CIUTAT<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de Francesc Ferrer i Guàr 15, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_f5a26e757a96f86681fc7a42457bbfe2.setContent(html_dd03098b7cc947fbfed1caa0ce99d390);
+            
+        
+
+        circle_marker_f15b8726d17a478970ed9bacc0695e16.bindPopup(popup_f5a26e757a96f86681fc7a42457bbfe2)
+        ;
+
+        
+    
+    
+            circle_marker_f15b8726d17a478970ed9bacc0695e16.bindTooltip(
+                `<div>
+                     CERVESERIA CIUTAT (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8762c95448a00118aae55e48478c2303 = L.circleMarker(
+                [41.546887, 2.208399],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_a18859e7733d8f40bc8b1e38ec976051 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_2a5552ba60ab3538ca48bcd3b32d3abd = $(`<div id="html_2a5552ba60ab3538ca48bcd3b32d3abd" style="width: 100.0%; height: 100.0%;">Client: EL RINCON DEL SOCIO<br>Cluster ID: 73<br>Cluster size: 30<br>Address: CALLE GALLECS 50, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_a18859e7733d8f40bc8b1e38ec976051.setContent(html_2a5552ba60ab3538ca48bcd3b32d3abd);
+            
+        
+
+        circle_marker_8762c95448a00118aae55e48478c2303.bindPopup(popup_a18859e7733d8f40bc8b1e38ec976051)
+        ;
+
+        
+    
+    
+            circle_marker_8762c95448a00118aae55e48478c2303.bindTooltip(
+                `<div>
+                     EL RINCON DEL SOCIO (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c32887b32af6b713d30ede3e68e3e7d9 = L.circleMarker(
+                [41.544893, 2.206331],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_3b0c69d0ea2a85d60ad1622310b54d54 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_3f067734919a39a1e06f2cfbbbb2e2d5 = $(`<div id="html_3f067734919a39a1e06f2cfbbbb2e2d5" style="width: 100.0%; height: 100.0%;">Client: ESTANC MOLLET 2<br>Cluster ID: 73<br>Cluster size: 30<br>Address: CALLE AGRICULTURA 37, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_3b0c69d0ea2a85d60ad1622310b54d54.setContent(html_3f067734919a39a1e06f2cfbbbb2e2d5);
+            
+        
+
+        circle_marker_c32887b32af6b713d30ede3e68e3e7d9.bindPopup(popup_3b0c69d0ea2a85d60ad1622310b54d54)
+        ;
+
+        
+    
+    
+            circle_marker_c32887b32af6b713d30ede3e68e3e7d9.bindTooltip(
+                `<div>
+                     ESTANC MOLLET 2 (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec2a8aaab2018bc24a0bd446e631bc71 = L.circleMarker(
+                [41.5435383, 2.209294],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_9ae496caa594806cce3a92a4ab6669bb = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d4e3268d523968a9533ba0fe9b9c199b = $(`<div id="html_d4e3268d523968a9533ba0fe9b9c199b" style="width: 100.0%; height: 100.0%;">Client: EXTREMEÑOS BAR<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de Borrell 16, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_9ae496caa594806cce3a92a4ab6669bb.setContent(html_d4e3268d523968a9533ba0fe9b9c199b);
+            
+        
+
+        circle_marker_ec2a8aaab2018bc24a0bd446e631bc71.bindPopup(popup_9ae496caa594806cce3a92a4ab6669bb)
+        ;
+
+        
+    
+    
+            circle_marker_ec2a8aaab2018bc24a0bd446e631bc71.bindTooltip(
+                `<div>
+                     EXTREMEÑOS BAR (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_21deba534c4c49a5b85791736886122e = L.circleMarker(
+                [41.5393929, 2.2108804],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_4ddd4cff8c954454ac5f092d46f08277 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_65f0baa711bca68caa67e005e04c1a49 = $(`<div id="html_65f0baa711bca68caa67e005e04c1a49" style="width: 100.0%; height: 100.0%;">Client: FAMILY GRANJA BAR<br>Cluster ID: 73<br>Cluster size: 30<br>Address: FRANCESC CAMBO 21 -, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_4ddd4cff8c954454ac5f092d46f08277.setContent(html_65f0baa711bca68caa67e005e04c1a49);
+            
+        
+
+        circle_marker_21deba534c4c49a5b85791736886122e.bindPopup(popup_4ddd4cff8c954454ac5f092d46f08277)
+        ;
+
+        
+    
+    
+            circle_marker_21deba534c4c49a5b85791736886122e.bindTooltip(
+                `<div>
+                     FAMILY GRANJA BAR (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2169c3060fe8a5b83275b599ba1bc3d2 = L.circleMarker(
+                [41.5448735, 2.2053181],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_850278ae07bccdd6c658f6f7d53dd51e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_33a8cffda2cd105d1759be1ee8226d53 = $(`<div id="html_33a8cffda2cd105d1759be1ee8226d53" style="width: 100.0%; height: 100.0%;">Client: FORN DE PA EMY<br>Cluster ID: 73<br>Cluster size: 30<br>Address: CALLE AGRICULTURA 18, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_850278ae07bccdd6c658f6f7d53dd51e.setContent(html_33a8cffda2cd105d1759be1ee8226d53);
+            
+        
+
+        circle_marker_2169c3060fe8a5b83275b599ba1bc3d2.bindPopup(popup_850278ae07bccdd6c658f6f7d53dd51e)
+        ;
+
+        
+    
+    
+            circle_marker_2169c3060fe8a5b83275b599ba1bc3d2.bindTooltip(
+                `<div>
+                     FORN DE PA EMY (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_739f63cdf20c30d7104310b01da37523 = L.circleMarker(
+                [41.5396122, 2.2099801],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_60f0aec865e73b306b91a080166548b1 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_6054a4aaca8be952482c2b63a5741254 = $(`<div id="html_6054a4aaca8be952482c2b63a5741254" style="width: 100.0%; height: 100.0%;">Client: HALCON BAR<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Rambla Nova 93, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_60f0aec865e73b306b91a080166548b1.setContent(html_6054a4aaca8be952482c2b63a5741254);
+            
+        
+
+        circle_marker_739f63cdf20c30d7104310b01da37523.bindPopup(popup_60f0aec865e73b306b91a080166548b1)
+        ;
+
+        
+    
+    
+            circle_marker_739f63cdf20c30d7104310b01da37523.bindTooltip(
+                `<div>
+                     HALCON BAR (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7fe1a2aeec096c92cc866511381b6bca = L.circleMarker(
+                [41.5458365, 2.2069974],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_d11db34b4896c49a05c7104c9fb40912 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_edf93677804458349992e68412e3385e = $(`<div id="html_edf93677804458349992e68412e3385e" style="width: 100.0%; height: 100.0%;">Client: HOMER BAR GRANJA<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de Jaume Coll 3, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_d11db34b4896c49a05c7104c9fb40912.setContent(html_edf93677804458349992e68412e3385e);
+            
+        
+
+        circle_marker_7fe1a2aeec096c92cc866511381b6bca.bindPopup(popup_d11db34b4896c49a05c7104c9fb40912)
+        ;
+
+        
+    
+    
+            circle_marker_7fe1a2aeec096c92cc866511381b6bca.bindTooltip(
+                `<div>
+                     HOMER BAR GRANJA (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_620c610844648a093084507f89fcb9bb = L.circleMarker(
+                [41.5393484, 2.2130934],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_7fd6e81d77bf80c75e4d6f71823ef3bf = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_8a4a818ce2e6d5653af9d17db9a4000d = $(`<div id="html_8a4a818ce2e6d5653af9d17db9a4000d" style="width: 100.0%; height: 100.0%;">Client: INDUSTRIAS QUIMICAS DEL VALLES<br>Cluster ID: 73<br>Cluster size: 30<br>Address: CALLE RAFAEL CASANOVAS 81, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_7fd6e81d77bf80c75e4d6f71823ef3bf.setContent(html_8a4a818ce2e6d5653af9d17db9a4000d);
+            
+        
+
+        circle_marker_620c610844648a093084507f89fcb9bb.bindPopup(popup_7fd6e81d77bf80c75e4d6f71823ef3bf)
+        ;
+
+        
+    
+    
+            circle_marker_620c610844648a093084507f89fcb9bb.bindTooltip(
+                `<div>
+                     INDUSTRIAS QUIMICAS DEL VALLES (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7a3c3478926618b586442751656e2f6d = L.circleMarker(
+                [41.5402135, 2.2117422],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_fc310f9caf888b52b17deffdfb85e646 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4759e5cbf6cf18f6d73d4648485554cd = $(`<div id="html_4759e5cbf6cf18f6d73d4648485554cd" style="width: 100.0%; height: 100.0%;">Client: KAPHIY BRUNCH<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de Gaietà Vínzia 20, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_fc310f9caf888b52b17deffdfb85e646.setContent(html_4759e5cbf6cf18f6d73d4648485554cd);
+            
+        
+
+        circle_marker_7a3c3478926618b586442751656e2f6d.bindPopup(popup_fc310f9caf888b52b17deffdfb85e646)
+        ;
+
+        
+    
+    
+            circle_marker_7a3c3478926618b586442751656e2f6d.bindTooltip(
+                `<div>
+                     KAPHIY BRUNCH (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7e6baa7d500a009204a4da64bcb9b83c = L.circleMarker(
+                [41.5439659, 2.2091274],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_303542a7de9393240841b2e3f48854e0 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b824b612a5359b7e70dd120d455fb8da = $(`<div id="html_b824b612a5359b7e70dd120d455fb8da" style="width: 100.0%; height: 100.0%;">Client: LA GAMBA BAR<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de Sant Joan 26, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_303542a7de9393240841b2e3f48854e0.setContent(html_b824b612a5359b7e70dd120d455fb8da);
+            
+        
+
+        circle_marker_7e6baa7d500a009204a4da64bcb9b83c.bindPopup(popup_303542a7de9393240841b2e3f48854e0)
+        ;
+
+        
+    
+    
+            circle_marker_7e6baa7d500a009204a4da64bcb9b83c.bindTooltip(
+                `<div>
+                     LA GAMBA BAR (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8ff9e903f4be77cb7c55f414022649e1 = L.circleMarker(
+                [41.5473369, 2.2059142],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_00800b516446dbed752a33d9b17bbc82 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_dd46a7fdd373e3d09f5bbec7d8cfc15d = $(`<div id="html_dd46a7fdd373e3d09f5bbec7d8cfc15d" style="width: 100.0%; height: 100.0%;">Client: NOU CAPRICCIO<br>Cluster ID: 73<br>Cluster size: 30<br>Address: CALLE SALVADOR ESPRIU 30, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_00800b516446dbed752a33d9b17bbc82.setContent(html_dd46a7fdd373e3d09f5bbec7d8cfc15d);
+            
+        
+
+        circle_marker_8ff9e903f4be77cb7c55f414022649e1.bindPopup(popup_00800b516446dbed752a33d9b17bbc82)
+        ;
+
+        
+    
+    
+            circle_marker_8ff9e903f4be77cb7c55f414022649e1.bindTooltip(
+                `<div>
+                     NOU CAPRICCIO (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_073e652f3aea040419d7fa5f2e5c3c37 = L.circleMarker(
+                [41.5460003, 2.2087202],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_55ed39c0787f0c43556281098b92a636 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_8b6a6c6b4301a2f14d113beb53526c10 = $(`<div id="html_8b6a6c6b4301a2f14d113beb53526c10" style="width: 100.0%; height: 100.0%;">Client: NOVA PALMERA<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de Gallecs 47, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_55ed39c0787f0c43556281098b92a636.setContent(html_8b6a6c6b4301a2f14d113beb53526c10);
+            
+        
+
+        circle_marker_073e652f3aea040419d7fa5f2e5c3c37.bindPopup(popup_55ed39c0787f0c43556281098b92a636)
+        ;
+
+        
+    
+    
+            circle_marker_073e652f3aea040419d7fa5f2e5c3c37.bindTooltip(
+                `<div>
+                     NOVA PALMERA (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_753923529077d873e58a87af615b4d43 = L.circleMarker(
+                [41.542748, 2.217555],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_9d3099efcf4fe60403a7b4ec842a293e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_f9a06c110f46c35232240cc8cf5e48ab = $(`<div id="html_f9a06c110f46c35232240cc8cf5e48ab" style="width: 100.0%; height: 100.0%;">Client: NUEVO VITORINO<br>Cluster ID: 73<br>Cluster size: 30<br>Address: CAN MOLLET 1, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_9d3099efcf4fe60403a7b4ec842a293e.setContent(html_f9a06c110f46c35232240cc8cf5e48ab);
+            
+        
+
+        circle_marker_753923529077d873e58a87af615b4d43.bindPopup(popup_9d3099efcf4fe60403a7b4ec842a293e)
+        ;
+
+        
+    
+    
+            circle_marker_753923529077d873e58a87af615b4d43.bindTooltip(
+                `<div>
+                     NUEVO VITORINO (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_18bf34cc9a79b7c0b6b7174fe301a12c = L.circleMarker(
+                [41.5418518, 2.2095623],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_5b46e9a6f2ce30ec08b06c338024a7c0 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_fde36adbf96fc79eeb76c38779c0bcbf = $(`<div id="html_fde36adbf96fc79eeb76c38779c0bcbf" style="width: 100.0%; height: 100.0%;">Client: PA I CAFETERIA DE L&#x27;AVIA<br>Cluster ID: 73<br>Cluster size: 30<br>Address: CALLE GAIETA VINZIA 60, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_5b46e9a6f2ce30ec08b06c338024a7c0.setContent(html_fde36adbf96fc79eeb76c38779c0bcbf);
+            
+        
+
+        circle_marker_18bf34cc9a79b7c0b6b7174fe301a12c.bindPopup(popup_5b46e9a6f2ce30ec08b06c338024a7c0)
+        ;
+
+        
+    
+    
+            circle_marker_18bf34cc9a79b7c0b6b7174fe301a12c.bindTooltip(
+                `<div>
+                     PA I CAFETERIA DE L'AVIA (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_eebbf2a1ae1920443c2a1c55eefc4020 = L.circleMarker(
+                [41.5434164, 2.2076969],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_d281194a29bec814653c710c87f2809e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_3f39dbf0a358006e080aa7d55639b15c = $(`<div id="html_3f39dbf0a358006e080aa7d55639b15c" style="width: 100.0%; height: 100.0%;">Client: PARAISO BAR<br>Cluster ID: 73<br>Cluster size: 30<br>Address: AVENIDA CALDES DE MONTBUI 18, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_d281194a29bec814653c710c87f2809e.setContent(html_3f39dbf0a358006e080aa7d55639b15c);
+            
+        
+
+        circle_marker_eebbf2a1ae1920443c2a1c55eefc4020.bindPopup(popup_d281194a29bec814653c710c87f2809e)
+        ;
+
+        
+    
+    
+            circle_marker_eebbf2a1ae1920443c2a1c55eefc4020.bindTooltip(
+                `<div>
+                     PARAISO BAR (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d438b6d6ab42cfbc5e2f672101509ece = L.circleMarker(
+                [41.545883, 2.2198936],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_320b3379eafbabb419a30ceb96de6e67 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_01dc05da6351bde742c937184c744d70 = $(`<div id="html_01dc05da6351bde742c937184c744d70" style="width: 100.0%; height: 100.0%;">Client: PUNT DE TROBADA<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de Can Pantiquet 18, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_320b3379eafbabb419a30ceb96de6e67.setContent(html_01dc05da6351bde742c937184c744d70);
+            
+        
+
+        circle_marker_d438b6d6ab42cfbc5e2f672101509ece.bindPopup(popup_320b3379eafbabb419a30ceb96de6e67)
+        ;
+
+        
+    
+    
+            circle_marker_d438b6d6ab42cfbc5e2f672101509ece.bindTooltip(
+                `<div>
+                     PUNT DE TROBADA (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_951956e0ec4b9380f1cc61401bd8e4fe = L.circleMarker(
+                [41.547942, 2.2194241],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_32cda6a84c5cb8369bb1cfb95e5d2f55 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_078138860e8e1e7d957892d5e8253fec = $(`<div id="html_078138860e8e1e7d957892d5e8253fec" style="width: 100.0%; height: 100.0%;">Client: RESTAURANT KENFIR<br>Cluster ID: 73<br>Cluster size: 30<br>Address: CALLE JOAQUIM MIR 57, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_32cda6a84c5cb8369bb1cfb95e5d2f55.setContent(html_078138860e8e1e7d957892d5e8253fec);
+            
+        
+
+        circle_marker_951956e0ec4b9380f1cc61401bd8e4fe.bindPopup(popup_32cda6a84c5cb8369bb1cfb95e5d2f55)
+        ;
+
+        
+    
+    
+            circle_marker_951956e0ec4b9380f1cc61401bd8e4fe.bindTooltip(
+                `<div>
+                     RESTAURANT KENFIR (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d58e3bf66651e7aeda20e2e5303f9a29 = L.circleMarker(
+                [41.5536075, 2.2301146],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_7fba8a0feafc0dd48a634df3db0d0ba3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ae305ece503e4c27c26e6a251542f0fd = $(`<div id="html_ae305ece503e4c27c26e6a251542f0fd" style="width: 100.0%; height: 100.0%;">Client: RSTE. L&#x27;OLIVE<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de Claudi Arañó i Arañó 17, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_7fba8a0feafc0dd48a634df3db0d0ba3.setContent(html_ae305ece503e4c27c26e6a251542f0fd);
+            
+        
+
+        circle_marker_d58e3bf66651e7aeda20e2e5303f9a29.bindPopup(popup_7fba8a0feafc0dd48a634df3db0d0ba3)
+        ;
+
+        
+    
+    
+            circle_marker_d58e3bf66651e7aeda20e2e5303f9a29.bindTooltip(
+                `<div>
+                     RSTE. L'OLIVE (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6ef5fca39300df476de35e3cf2dc94c3 = L.circleMarker(
+                [41.5446079, 2.217888],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_db7f0ba015da300d2ddbf946c31500c1 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_aa3e04b4a32ded61c22e3d635c5d7ba3 = $(`<div id="html_aa3e04b4a32ded61c22e3d635c5d7ba3" style="width: 100.0%; height: 100.0%;">Client: RSTE. YOLANDA<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Antoni Gaudi 10, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_db7f0ba015da300d2ddbf946c31500c1.setContent(html_aa3e04b4a32ded61c22e3d635c5d7ba3);
+            
+        
+
+        circle_marker_6ef5fca39300df476de35e3cf2dc94c3.bindPopup(popup_db7f0ba015da300d2ddbf946c31500c1)
+        ;
+
+        
+    
+    
+            circle_marker_6ef5fca39300df476de35e3cf2dc94c3.bindTooltip(
+                `<div>
+                     RSTE. YOLANDA (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4da7301ac57cb8c20e7a29b91baadfd0 = L.circleMarker(
+                [41.5457329, 2.207969],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_08a7927dd411be0d958c3dcfd2db1f32);
+        
+    
+        var popup_82923078d8655212088411e979a865d2 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_22162c715d53c53870a19005a852b255 = $(`<div id="html_22162c715d53c53870a19005a852b255" style="width: 100.0%; height: 100.0%;">Client: TREBOL CERVECERIA<br>Cluster ID: 73<br>Cluster size: 30<br>Address: Carrer de l&#x27;Agricultura 11, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_82923078d8655212088411e979a865d2.setContent(html_22162c715d53c53870a19005a852b255);
+            
+        
+
+        circle_marker_4da7301ac57cb8c20e7a29b91baadfd0.bindPopup(popup_82923078d8655212088411e979a865d2)
+        ;
+
+        
+    
+    
+            circle_marker_4da7301ac57cb8c20e7a29b91baadfd0.bindTooltip(
+                `<div>
+                     TREBOL CERVECERIA (cluster 73)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

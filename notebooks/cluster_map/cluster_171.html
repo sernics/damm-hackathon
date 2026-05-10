@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9fde8e34818929c8ee38ae46e105c0ed {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_9fde8e34818929c8ee38ae46e105c0ed" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9fde8e34818929c8ee38ae46e105c0ed = L.map(
+                "map_9fde8e34818929c8ee38ae46e105c0ed",
+                {
+                    center: [41.9366846, 2.2548685],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1362ab243c6939f16a20bc85041f55eb = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1362ab243c6939f16a20bc85041f55eb.addTo(map_9fde8e34818929c8ee38ae46e105c0ed);
+        
+    
+            var circle_marker_16753447dc0c37a6308b3cdb11d03015 = L.circleMarker(
+                [41.9366846, 2.2548685],
+                {"bubblingMouseEvents": true, "color": "#DC2626", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#DC2626", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_9fde8e34818929c8ee38ae46e105c0ed);
+        
+    
+        var popup_227eba2c11bd241730b14481faa508be = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_93dab2e8f5c080176fdcfbd2fd4ba429 = $(`<div id="html_93dab2e8f5c080176fdcfbd2fd4ba429" style="width: 100.0%; height: 100.0%;">Client: COOPERATIVA GUISSONA<br>Cluster ID: 171<br>Cluster size: 1<br>Address: Carretera de Manlleu s/n, 08500 VIC, Spain</div>`)[0];
+                popup_227eba2c11bd241730b14481faa508be.setContent(html_93dab2e8f5c080176fdcfbd2fd4ba429);
+            
+        
+
+        circle_marker_16753447dc0c37a6308b3cdb11d03015.bindPopup(popup_227eba2c11bd241730b14481faa508be)
+        ;
+
+        
+    
+    
+            circle_marker_16753447dc0c37a6308b3cdb11d03015.bindTooltip(
+                `<div>
+                     COOPERATIVA GUISSONA (cluster 171)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c72d27a38b1401e2db9c0f5c7adb0147 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c72d27a38b1401e2db9c0f5c7adb0147" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c72d27a38b1401e2db9c0f5c7adb0147 = L.map(
+                "map_c72d27a38b1401e2db9c0f5c7adb0147",
+                {
+                    center: [41.86314, 2.22897],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5cbffb3643265f8b58b43cfab9b6e3c3 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5cbffb3643265f8b58b43cfab9b6e3c3.addTo(map_c72d27a38b1401e2db9c0f5c7adb0147);
+        
+    
+            var circle_marker_f660a1bbb0c09c3dfbccba9fe13e79a5 = L.circleMarker(
+                [41.796716, 2.218901],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c72d27a38b1401e2db9c0f5c7adb0147);
+        
+    
+        var popup_686ae42f193101adeb106f5ba16eb210 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_3917185710883e05cf35a8a4bfc71d9f = $(`<div id="html_3917185710883e05cf35a8a4bfc71d9f" style="width: 100.0%; height: 100.0%;">Client: ANTIC FORN RIERA CENTELLES<br>Cluster ID: 42<br>Cluster size: 5<br>Address: CALLE SOCOS 20, 08540 CENTELLES, Spain</div>`)[0];
+                popup_686ae42f193101adeb106f5ba16eb210.setContent(html_3917185710883e05cf35a8a4bfc71d9f);
+            
+        
+
+        circle_marker_f660a1bbb0c09c3dfbccba9fe13e79a5.bindPopup(popup_686ae42f193101adeb106f5ba16eb210)
+        ;
+
+        
+    
+    
+            circle_marker_f660a1bbb0c09c3dfbccba9fe13e79a5.bindTooltip(
+                `<div>
+                     ANTIC FORN RIERA CENTELLES (cluster 42)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_954abef2080b6eb432b70f7ff79da1b3 = L.circleMarker(
+                [41.911287, 2.18659],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c72d27a38b1401e2db9c0f5c7adb0147);
+        
+    
+        var popup_eb228dfc78b32e8f7bb97f6632a79a48 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_43de362fec4975888e8b6f1067d5f054 = $(`<div id="html_43de362fec4975888e8b6f1067d5f054" style="width: 100.0%; height: 100.0%;">Client: BAR CAN TON, S.C.P<br>Cluster ID: 42<br>Cluster size: 5<br>Address: CALLE MAJOR 33, 08505 SANTA EULÀLIA DE RIUPRIMER, Spain</div>`)[0];
+                popup_eb228dfc78b32e8f7bb97f6632a79a48.setContent(html_43de362fec4975888e8b6f1067d5f054);
+            
+        
+
+        circle_marker_954abef2080b6eb432b70f7ff79da1b3.bindPopup(popup_eb228dfc78b32e8f7bb97f6632a79a48)
+        ;
+
+        
+    
+    
+            circle_marker_954abef2080b6eb432b70f7ff79da1b3.bindTooltip(
+                `<div>
+                     BAR CAN TON, S.C.P (cluster 42)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b8ed352086008ea5000c1995006a3feb = L.circleMarker(
+                [41.887016, 2.2354564],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c72d27a38b1401e2db9c0f5c7adb0147);
+        
+    
+        var popup_ecc7b78647111da3905e50fe195d8b48 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_7726708ce1f93d67af0317e8c8590276 = $(`<div id="html_7726708ce1f93d67af0317e8c8590276" style="width: 100.0%; height: 100.0%;">Client: BAR ELS ESTUDIS<br>Cluster ID: 42<br>Cluster size: 5<br>Address: PLAZA AJUNTAMENT S/N, 08522 MALLA, Spain</div>`)[0];
+                popup_ecc7b78647111da3905e50fe195d8b48.setContent(html_7726708ce1f93d67af0317e8c8590276);
+            
+        
+
+        circle_marker_b8ed352086008ea5000c1995006a3feb.bindPopup(popup_ecc7b78647111da3905e50fe195d8b48)
+        ;
+
+        
+    
+    
+            circle_marker_b8ed352086008ea5000c1995006a3feb.bindTooltip(
+                `<div>
+                     BAR ELS ESTUDIS (cluster 42)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cf9f7798273df57840b470665a9ee8de = L.circleMarker(
+                [41.853765, 2.22897],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c72d27a38b1401e2db9c0f5c7adb0147);
+        
+    
+        var popup_372fdc5081a105e2597eba89dd726175 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4ea85889f8ff451038b73691d0ce67c7 = $(`<div id="html_4ea85889f8ff451038b73691d0ce67c7" style="width: 100.0%; height: 100.0%;">Client: BODEGA CAPDEVILA<br>Cluster ID: 42<br>Cluster size: 5<br>Address: CALLE DOCTOR BAYES 2, 08551 TONA, Spain</div>`)[0];
+                popup_372fdc5081a105e2597eba89dd726175.setContent(html_4ea85889f8ff451038b73691d0ce67c7);
+            
+        
+
+        circle_marker_cf9f7798273df57840b470665a9ee8de.bindPopup(popup_372fdc5081a105e2597eba89dd726175)
+        ;
+
+        
+    
+    
+            circle_marker_cf9f7798273df57840b470665a9ee8de.bindTooltip(
+                `<div>
+                     BODEGA CAPDEVILA (cluster 42)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e75c75205f76773d598f1211c7cac00 = L.circleMarker(
+                [41.86314, 2.294464],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_c72d27a38b1401e2db9c0f5c7adb0147);
+        
+    
+        var popup_5b81c3b26fdab1f3c80dae893d156e46 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_be4f76f04c1455e190631efb1d3c8187 = $(`<div id="html_be4f76f04c1455e190631efb1d3c8187" style="width: 100.0%; height: 100.0%;">Client: CAMPING LA VALL<br>Cluster ID: 42<br>Cluster size: 5<br>Address: Camí la Vallmitjana s/n, 08552 TARADELL, Spain</div>`)[0];
+                popup_5b81c3b26fdab1f3c80dae893d156e46.setContent(html_be4f76f04c1455e190631efb1d3c8187);
+            
+        
+
+        circle_marker_6e75c75205f76773d598f1211c7cac00.bindPopup(popup_5b81c3b26fdab1f3c80dae893d156e46)
+        ;
+
+        
+    
+    
+            circle_marker_6e75c75205f76773d598f1211c7cac00.bindTooltip(
+                `<div>
+                     CAMPING LA VALL (cluster 42)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

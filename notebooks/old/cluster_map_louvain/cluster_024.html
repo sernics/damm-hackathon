@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_980352a62be7f1b18c7036d63e59b0bd {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_980352a62be7f1b18c7036d63e59b0bd" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_980352a62be7f1b18c7036d63e59b0bd = L.map(
+                "map_980352a62be7f1b18c7036d63e59b0bd",
+                {
+                    center: [41.6108773, 2.2394306],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_658b2278e52120f092be7e3ba5605d3b = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_658b2278e52120f092be7e3ba5605d3b.addTo(map_980352a62be7f1b18c7036d63e59b0bd);
+        
+    
+            var circle_marker_130fe375ef5a96697c31c5876fff816c = L.circleMarker(
+                [41.6108773, 2.2394306],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_980352a62be7f1b18c7036d63e59b0bd);
+        
+    
+        var popup_57c94dbdd9b49a5f1d4992e07935bbfe = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ce4413b895f8949e0defcf8d111bd89d = $(`<div id="html_ce4413b895f8949e0defcf8d111bd89d" style="width: 100.0%; height: 100.0%;">Client: ATENEU ALIANÇA<br>Cluster ID: 24<br>Cluster size: 7<br>Address: Carrer l&#x27;Aliança 17, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_57c94dbdd9b49a5f1d4992e07935bbfe.setContent(html_ce4413b895f8949e0defcf8d111bd89d);
+            
+        
+
+        circle_marker_130fe375ef5a96697c31c5876fff816c.bindPopup(popup_57c94dbdd9b49a5f1d4992e07935bbfe)
+        ;
+
+        
+    
+    
+            circle_marker_130fe375ef5a96697c31c5876fff816c.bindTooltip(
+                `<div>
+                     ATENEU ALIANÇA (cluster 24)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_342bed98392b6c0daa443cd144fc7f4f = L.circleMarker(
+                [41.6116458, 2.2393525],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_980352a62be7f1b18c7036d63e59b0bd);
+        
+    
+        var popup_d8031c3fb01da5e52d6238b673d8d33a = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_55320c7bce4accdf843cdeb48da28ed2 = $(`<div id="html_55320c7bce4accdf843cdeb48da28ed2" style="width: 100.0%; height: 100.0%;">Client: Asso. Gent Gran Llissa de Munt<br>Cluster ID: 24<br>Cluster size: 7<br>Address: Carrer de Folch i Torres 102, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_d8031c3fb01da5e52d6238b673d8d33a.setContent(html_55320c7bce4accdf843cdeb48da28ed2);
+            
+        
+
+        circle_marker_342bed98392b6c0daa443cd144fc7f4f.bindPopup(popup_d8031c3fb01da5e52d6238b673d8d33a)
+        ;
+
+        
+    
+    
+            circle_marker_342bed98392b6c0daa443cd144fc7f4f.bindTooltip(
+                `<div>
+                     Asso. Gent Gran Llissa de Munt (cluster 24)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5136f1154b0e932bde2a9e1ea1287dfb = L.circleMarker(
+                [41.6108773, 2.2394306],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_980352a62be7f1b18c7036d63e59b0bd);
+        
+    
+        var popup_091792b7ad6400386d6552f403dbd322 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_1e632e530d244d69042b3eddfbd70571 = $(`<div id="html_1e632e530d244d69042b3eddfbd70571" style="width: 100.0%; height: 100.0%;">Client: BAR ALIANÇA<br>Cluster ID: 24<br>Cluster size: 7<br>Address: Carrer l&#x27;Aliança 17, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_091792b7ad6400386d6552f403dbd322.setContent(html_1e632e530d244d69042b3eddfbd70571);
+            
+        
+
+        circle_marker_5136f1154b0e932bde2a9e1ea1287dfb.bindPopup(popup_091792b7ad6400386d6552f403dbd322)
+        ;
+
+        
+    
+    
+            circle_marker_5136f1154b0e932bde2a9e1ea1287dfb.bindTooltip(
+                `<div>
+                     BAR ALIANÇA (cluster 24)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_84407ac6eb891eadf5406c05798860f8 = L.circleMarker(
+                [41.610956, 2.240413],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_980352a62be7f1b18c7036d63e59b0bd);
+        
+    
+        var popup_d155c1e233a528095764f55ca770d097 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_f5025dc93c96f012f3318fcc8eb37cbb = $(`<div id="html_f5025dc93c96f012f3318fcc8eb37cbb" style="width: 100.0%; height: 100.0%;">Client: BAR CAFETERIA LLIÇÀ D’AMUNT<br>Cluster ID: 24<br>Cluster size: 7<br>Address: CALLE L&#x27;ALIANÇA 7, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_d155c1e233a528095764f55ca770d097.setContent(html_f5025dc93c96f012f3318fcc8eb37cbb);
+            
+        
+
+        circle_marker_84407ac6eb891eadf5406c05798860f8.bindPopup(popup_d155c1e233a528095764f55ca770d097)
+        ;
+
+        
+    
+    
+            circle_marker_84407ac6eb891eadf5406c05798860f8.bindTooltip(
+                `<div>
+                     BAR CAFETERIA LLIÇÀ D’AMUNT (cluster 24)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8cb8ef7c027ddf5be67b9ce860cb4774 = L.circleMarker(
+                [41.607504, 2.239886],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_980352a62be7f1b18c7036d63e59b0bd);
+        
+    
+        var popup_305a588e91bfc60b1d8d4659f471a37f = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_39b4bac01da219a5f84fbbcb04e0f125 = $(`<div id="html_39b4bac01da219a5f84fbbcb04e0f125" style="width: 100.0%; height: 100.0%;">Client: BAR LA CANYA - 3<br>Cluster ID: 24<br>Cluster size: 7<br>Address: CALLE RAFAEL CASANOVA 6, 08186 LLIÇÀ D&#x27;AMUNT, Spain</div>`)[0];
+                popup_305a588e91bfc60b1d8d4659f471a37f.setContent(html_39b4bac01da219a5f84fbbcb04e0f125);
+            
+        
+
+        circle_marker_8cb8ef7c027ddf5be67b9ce860cb4774.bindPopup(popup_305a588e91bfc60b1d8d4659f471a37f)
+        ;
+
+        
+    
+    
+            circle_marker_8cb8ef7c027ddf5be67b9ce860cb4774.bindTooltip(
+                `<div>
+                     BAR LA CANYA - 3 (cluster 24)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_0330042f2aa0506225a561c98db5723c = L.circleMarker(
+                [41.581326, 2.222663],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_980352a62be7f1b18c7036d63e59b0bd);
+        
+    
+        var popup_20f2b5af89652c916a95eddde7f8bc7f = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_76d20b7edae9fc70ae158f033549b4f3 = $(`<div id="html_76d20b7edae9fc70ae158f033549b4f3" style="width: 100.0%; height: 100.0%;">Client: BAR LA MIRANDA<br>Cluster ID: 24<br>Cluster size: 7<br>Address: CALLE DOCTOR FLEMING 6, 08185 LLIÇÀ DE VALL, Spain</div>`)[0];
+                popup_20f2b5af89652c916a95eddde7f8bc7f.setContent(html_76d20b7edae9fc70ae158f033549b4f3);
+            
+        
+
+        circle_marker_0330042f2aa0506225a561c98db5723c.bindPopup(popup_20f2b5af89652c916a95eddde7f8bc7f)
+        ;
+
+        
+    
+    
+            circle_marker_0330042f2aa0506225a561c98db5723c.bindTooltip(
+                `<div>
+                     BAR LA MIRANDA (cluster 24)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_508282163c5d0ea21ed477b250a719cf = L.circleMarker(
+                [41.612253, 2.240698],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_980352a62be7f1b18c7036d63e59b0bd);
+        
+    
+        var popup_77e214830e741ffa94d9e1c9e501b9b0 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9b697160be64df1a8527cfedff8f5a98 = $(`<div id="html_9b697160be64df1a8527cfedff8f5a98" style="width: 100.0%; height: 100.0%;">Client: BAR PARC DEL TENES<br>Cluster ID: 24<br>Cluster size: 7<br>Address: PAISOS CATALANS SN, 08186 LLIÇA D´AMUNT, Spain</div>`)[0];
+                popup_77e214830e741ffa94d9e1c9e501b9b0.setContent(html_9b697160be64df1a8527cfedff8f5a98);
+            
+        
+
+        circle_marker_508282163c5d0ea21ed477b250a719cf.bindPopup(popup_77e214830e741ffa94d9e1c9e501b9b0)
+        ;
+
+        
+    
+    
+            circle_marker_508282163c5d0ea21ed477b250a719cf.bindTooltip(
+                `<div>
+                     BAR PARC DEL TENES (cluster 24)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

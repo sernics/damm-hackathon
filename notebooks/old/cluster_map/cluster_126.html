@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_cf0eda5d9985880aa03db44b58c43d02 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_cf0eda5d9985880aa03db44b58c43d02" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_cf0eda5d9985880aa03db44b58c43d02 = L.map(
+                "map_cf0eda5d9985880aa03db44b58c43d02",
+                {
+                    center: [41.54980705, 2.26716105],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_af87b48ce164c0df94c127ca6a94aa35 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_af87b48ce164c0df94c127ca6a94aa35.addTo(map_cf0eda5d9985880aa03db44b58c43d02);
+        
+    
+            var circle_marker_ddb6d8ae5026aef6ab7f4b770d145b28 = L.circleMarker(
+                [41.542545, 2.2670557],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_cf0eda5d9985880aa03db44b58c43d02);
+        
+    
+        var popup_cff2584ffb0f6845f19d82e2bba8254e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_a2fe3060910bc4cda3d42559e6411b3c = $(`<div id="html_a2fe3060910bc4cda3d42559e6411b3c" style="width: 100.0%; height: 100.0%;">Client: 903100 PLASTICOS TA-TAY<br>Cluster ID: 126<br>Cluster size: 2<br>Address: CTRA. SANT ADRIA A LA ROCA, KM. 15,, 08170 MONTORNÈS DEL VALLÈS, Spain</div>`)[0];
+                popup_cff2584ffb0f6845f19d82e2bba8254e.setContent(html_a2fe3060910bc4cda3d42559e6411b3c);
+            
+        
+
+        circle_marker_ddb6d8ae5026aef6ab7f4b770d145b28.bindPopup(popup_cff2584ffb0f6845f19d82e2bba8254e)
+        ;
+
+        
+    
+    
+            circle_marker_ddb6d8ae5026aef6ab7f4b770d145b28.bindTooltip(
+                `<div>
+                     903100 PLASTICOS TA-TAY (cluster 126)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bcce0b1a5d293bca049bee7bd458bef5 = L.circleMarker(
+                [41.5570691, 2.2672664],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_cf0eda5d9985880aa03db44b58c43d02);
+        
+    
+        var popup_78b423076ff7734e73110aec3d930080 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_45c425560c7950610ee03648ed3c3508 = $(`<div id="html_45c425560c7950610ee03648ed3c3508" style="width: 100.0%; height: 100.0%;">Client: El Racó d&#x27;en Joan<br>Cluster ID: 126<br>Cluster size: 2<br>Address: Carrer de Carles Riba 3, 08170 MONTORNÈS DEL VALLÈS, Spain</div>`)[0];
+                popup_78b423076ff7734e73110aec3d930080.setContent(html_45c425560c7950610ee03648ed3c3508);
+            
+        
+
+        circle_marker_bcce0b1a5d293bca049bee7bd458bef5.bindPopup(popup_78b423076ff7734e73110aec3d930080)
+        ;
+
+        
+    
+    
+            circle_marker_bcce0b1a5d293bca049bee7bd458bef5.bindTooltip(
+                `<div>
+                     El Racó d'en Joan (cluster 126)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

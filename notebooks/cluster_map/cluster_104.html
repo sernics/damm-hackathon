@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_87d81baaad27ad26f5da62bf0c4e234c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_87d81baaad27ad26f5da62bf0c4e234c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_87d81baaad27ad26f5da62bf0c4e234c = L.map(
+                "map_87d81baaad27ad26f5da62bf0c4e234c",
+                {
+                    center: [41.99881795, 2.2869673500000003],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a6f9498df0b5c4ee95afd16f7b93fe23 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a6f9498df0b5c4ee95afd16f7b93fe23.addTo(map_87d81baaad27ad26f5da62bf0c4e234c);
+        
+    
+            var circle_marker_a929a812fc192882da0cc9d9b1ef55a6 = L.circleMarker(
+                [42.3303463, 2.3117865],
+                {"bubblingMouseEvents": true, "color": "#7C3AED", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7C3AED", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_87d81baaad27ad26f5da62bf0c4e234c);
+        
+    
+        var popup_e1cb8c9b382d018a7cca45f494b6db21 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_6ba0084e3c792cd2b534ab44ad694cce = $(`<div id="html_6ba0084e3c792cd2b534ab44ad694cce" style="width: 100.0%; height: 100.0%;">Client: Bar Restaurant Can Parlet<br>Cluster ID: 104<br>Cluster size: 2<br>Address: Carrer de la Canal 9, 17869 VILALLONGA DE TER, Spain</div>`)[0];
+                popup_e1cb8c9b382d018a7cca45f494b6db21.setContent(html_6ba0084e3c792cd2b534ab44ad694cce);
+            
+        
+
+        circle_marker_a929a812fc192882da0cc9d9b1ef55a6.bindPopup(popup_e1cb8c9b382d018a7cca45f494b6db21)
+        ;
+
+        
+    
+    
+            circle_marker_a929a812fc192882da0cc9d9b1ef55a6.bindTooltip(
+                `<div>
+                     Bar Restaurant Can Parlet (cluster 104)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_18fe4209ba61a3cf1a0151bb0e20bcf8 = L.circleMarker(
+                [41.6672896, 2.2621482],
+                {"bubblingMouseEvents": true, "color": "#7C3AED", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#7C3AED", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_87d81baaad27ad26f5da62bf0c4e234c);
+        
+    
+        var popup_be33c60b5f6bb8cb05346409d368a58c = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_f83d420ade7bd170f39b360d45113597 = $(`<div id="html_f83d420ade7bd170f39b360d45113597" style="width: 100.0%; height: 100.0%;">Client: Iris café<br>Cluster ID: 104<br>Cluster size: 2<br>Address: Passeig de l&#x27;Ametlla 19, 08480 L&#x27;AMETLLA DEL VALLÈS, Spain</div>`)[0];
+                popup_be33c60b5f6bb8cb05346409d368a58c.setContent(html_f83d420ade7bd170f39b360d45113597);
+            
+        
+
+        circle_marker_18fe4209ba61a3cf1a0151bb0e20bcf8.bindPopup(popup_be33c60b5f6bb8cb05346409d368a58c)
+        ;
+
+        
+    
+    
+            circle_marker_18fe4209ba61a3cf1a0151bb0e20bcf8.bindTooltip(
+                `<div>
+                     Iris café (cluster 104)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

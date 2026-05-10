@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_25d29fd8571a8bcbdc8ef26076c6c415 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_25d29fd8571a8bcbdc8ef26076c6c415" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_25d29fd8571a8bcbdc8ef26076c6c415 = L.map(
+                "map_25d29fd8571a8bcbdc8ef26076c6c415",
+                {
+                    center: [42.050215, 2.2643391],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6001f4f0fee4da54943ff0b77871cf71 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_6001f4f0fee4da54943ff0b77871cf71.addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+            var circle_marker_cad3bed8c5ed0e6642023e4198a3d8a3 = L.circleMarker(
+                [41.986921, 2.31231],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_25851ff88fe3176583b63fb3a47531e0 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_8bbbe6f3089d72e3295558f613e29dcf = $(`<div id="html_8bbbe6f3089d72e3295558f613e29dcf" style="width: 100.0%; height: 100.0%;">Client: ASSOCIACIO DIABLES DEL PONT VELL<br>Cluster ID: 57<br>Cluster size: 29<br>Address: Avinguda Tecla Sala 40, 08510 RODA DE TER, Spain</div>`)[0];
+                popup_25851ff88fe3176583b63fb3a47531e0.setContent(html_8bbbe6f3089d72e3295558f613e29dcf);
+            
+        
+
+        circle_marker_cad3bed8c5ed0e6642023e4198a3d8a3.bindPopup(popup_25851ff88fe3176583b63fb3a47531e0)
+        ;
+
+        
+    
+    
+            circle_marker_cad3bed8c5ed0e6642023e4198a3d8a3.bindTooltip(
+                `<div>
+                     ASSOCIACIO DIABLES DEL PONT VELL (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d1e1335777d20d6521d246c811e9a63d = L.circleMarker(
+                [42.072149, 2.291302],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_1e3ab4898526f3bd0d8f6f17ef3bd3e5 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_a8f2ebdb5a07b045f88ec14742ad501f = $(`<div id="html_a8f2ebdb5a07b045f88ec14742ad501f" style="width: 100.0%; height: 100.0%;">Client: BAR CAMP FUTBOL ST PERE TORELLO<br>Cluster ID: 57<br>Cluster size: 29<br>Address: Carretera BV-5224 1, 08572 SANT PERE DE TORELLÓ, Spain</div>`)[0];
+                popup_1e3ab4898526f3bd0d8f6f17ef3bd3e5.setContent(html_a8f2ebdb5a07b045f88ec14742ad501f);
+            
+        
+
+        circle_marker_d1e1335777d20d6521d246c811e9a63d.bindPopup(popup_1e3ab4898526f3bd0d8f6f17ef3bd3e5)
+        ;
+
+        
+    
+    
+            circle_marker_d1e1335777d20d6521d246c811e9a63d.bindTooltip(
+                `<div>
+                     BAR CAMP FUTBOL ST PERE TORELLO (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a6fd18411aa8e7b6fb38a0a1ec29ba36 = L.circleMarker(
+                [42.0507703, 2.2565465],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_51dbdaf4ab9026f3eda11f99862b7724 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_3d0b88d21a30f9f616d37d6da126500b = $(`<div id="html_3d0b88d21a30f9f616d37d6da126500b" style="width: 100.0%; height: 100.0%;">Client: BAR CANIGO<br>Cluster ID: 57<br>Cluster size: 29<br>Address: Carrer de Canigó 41, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_51dbdaf4ab9026f3eda11f99862b7724.setContent(html_3d0b88d21a30f9f616d37d6da126500b);
+            
+        
+
+        circle_marker_a6fd18411aa8e7b6fb38a0a1ec29ba36.bindPopup(popup_51dbdaf4ab9026f3eda11f99862b7724)
+        ;
+
+        
+    
+    
+            circle_marker_a6fd18411aa8e7b6fb38a0a1ec29ba36.bindTooltip(
+                `<div>
+                     BAR CANIGO (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6b80072b7fce70cc200bc58927e7dbfe = L.circleMarker(
+                [42.075069, 2.295053],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_db7c0b9ae8d84d50b81d7d7cee5ddbf2 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_de3fe2b09f4edbed421f1c142b10a90e = $(`<div id="html_de3fe2b09f4edbed421f1c142b10a90e" style="width: 100.0%; height: 100.0%;">Client: BAR COOPERATIVA<br>Cluster ID: 57<br>Cluster size: 29<br>Address: AVENIDA JOAN MARAGALL 2, 08572 SANT PERE DE TORELLÓ, Spain</div>`)[0];
+                popup_db7c0b9ae8d84d50b81d7d7cee5ddbf2.setContent(html_de3fe2b09f4edbed421f1c142b10a90e);
+            
+        
+
+        circle_marker_6b80072b7fce70cc200bc58927e7dbfe.bindPopup(popup_db7c0b9ae8d84d50b81d7d7cee5ddbf2)
+        ;
+
+        
+    
+    
+            circle_marker_6b80072b7fce70cc200bc58927e7dbfe.bindTooltip(
+                `<div>
+                     BAR COOPERATIVA (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3783aa034787e9fa9a49b2821e8cfc54 = L.circleMarker(
+                [42.0450403, 2.2677302],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_4263f156e04814383152c9a05a4f55fe = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b506bfd88258a5333d08aa58db25795c = $(`<div id="html_b506bfd88258a5333d08aa58db25795c" style="width: 100.0%; height: 100.0%;">Client: BAR DOBLE Z<br>Cluster ID: 57<br>Cluster size: 29<br>Address: Carrer de Manlleu 7, 08570 TORELLO, Spain</div>`)[0];
+                popup_4263f156e04814383152c9a05a4f55fe.setContent(html_b506bfd88258a5333d08aa58db25795c);
+            
+        
+
+        circle_marker_3783aa034787e9fa9a49b2821e8cfc54.bindPopup(popup_4263f156e04814383152c9a05a4f55fe)
+        ;
+
+        
+    
+    
+            circle_marker_3783aa034787e9fa9a49b2821e8cfc54.bindTooltip(
+                `<div>
+                     BAR DOBLE Z (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1e033f355211890c8a15b9ee5c8be368 = L.circleMarker(
+                [42.047152, 2.263698],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_05ee7a78a4a4367ce7bf375b1a988d7c = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_5ce2a572a313b31db7b614caa98660e7 = $(`<div id="html_5ce2a572a313b31db7b614caa98660e7" style="width: 100.0%; height: 100.0%;">Client: BAR EL CASAL<br>Cluster ID: 57<br>Cluster size: 29<br>Address: PLAZA NOVA 14, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_05ee7a78a4a4367ce7bf375b1a988d7c.setContent(html_5ce2a572a313b31db7b614caa98660e7);
+            
+        
+
+        circle_marker_1e033f355211890c8a15b9ee5c8be368.bindPopup(popup_05ee7a78a4a4367ce7bf375b1a988d7c)
+        ;
+
+        
+    
+    
+            circle_marker_1e033f355211890c8a15b9ee5c8be368.bindTooltip(
+                `<div>
+                     BAR EL CASAL (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_548d1085436b98a7233c7084910001a4 = L.circleMarker(
+                [42.050215, 2.256173],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_8b894af3485016a2d0c605f583a854f8 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_98b1b811bcd2b36d9b0ba279a97551fe = $(`<div id="html_98b1b811bcd2b36d9b0ba279a97551fe" style="width: 100.0%; height: 100.0%;">Client: BAR NO HO SE<br>Cluster ID: 57<br>Cluster size: 29<br>Address: CALLE NURIA 14, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_8b894af3485016a2d0c605f583a854f8.setContent(html_98b1b811bcd2b36d9b0ba279a97551fe);
+            
+        
+
+        circle_marker_548d1085436b98a7233c7084910001a4.bindPopup(popup_8b894af3485016a2d0c605f583a854f8)
+        ;
+
+        
+    
+    
+            circle_marker_548d1085436b98a7233c7084910001a4.bindTooltip(
+                `<div>
+                     BAR NO HO SE (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5baa4a9723166a62cc25c0c8a8c8dc16 = L.circleMarker(
+                [42.0456668, 2.2699203],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_cc1dbdab42263db6414513f3c90fe1c0 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_374598565dd0481d63d466dc2c412c00 = $(`<div id="html_374598565dd0481d63d466dc2c412c00" style="width: 100.0%; height: 100.0%;">Client: BAR PUNT DE TROBADA<br>Cluster ID: 57<br>Cluster size: 29<br>Address: PLAZA JOANOT MARTORELL 1, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_cc1dbdab42263db6414513f3c90fe1c0.setContent(html_374598565dd0481d63d466dc2c412c00);
+            
+        
+
+        circle_marker_5baa4a9723166a62cc25c0c8a8c8dc16.bindPopup(popup_cc1dbdab42263db6414513f3c90fe1c0)
+        ;
+
+        
+    
+    
+            circle_marker_5baa4a9723166a62cc25c0c8a8c8dc16.bindTooltip(
+                `<div>
+                     BAR PUNT DE TROBADA (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_efbb7bb2b5fd2b3c2d274443ba3cf067 = L.circleMarker(
+                [42.050286, 2.254721],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_bbb804075cc754b57b5987b14b744e69 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4065e833764ccdad15bae81370397ebc = $(`<div id="html_4065e833764ccdad15bae81370397ebc" style="width: 100.0%; height: 100.0%;">Client: BAR XANIA<br>Cluster ID: 57<br>Cluster size: 29<br>Address: CALLE MONTESQUIU 41, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_bbb804075cc754b57b5987b14b744e69.setContent(html_4065e833764ccdad15bae81370397ebc);
+            
+        
+
+        circle_marker_efbb7bb2b5fd2b3c2d274443ba3cf067.bindPopup(popup_bbb804075cc754b57b5987b14b744e69)
+        ;
+
+        
+    
+    
+            circle_marker_efbb7bb2b5fd2b3c2d274443ba3cf067.bindTooltip(
+                `<div>
+                     BAR XANIA (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_af57ee3f14b1ade58c3a3920f37bea4c = L.circleMarker(
+                [42.074246, 2.29724],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_216cc414b47fe6c5159a1322525531a4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_6eb8c0fb2aec6fd1c0f56de9773bb1b7 = $(`<div id="html_6eb8c0fb2aec6fd1c0f56de9773bb1b7" style="width: 100.0%; height: 100.0%;">Client: BAR XICRA<br>Cluster ID: 57<br>Cluster size: 29<br>Address: CALLE JOSEP VILANOVA 6, 08572 SANT PERE DE TORELLÓ, Spain</div>`)[0];
+                popup_216cc414b47fe6c5159a1322525531a4.setContent(html_6eb8c0fb2aec6fd1c0f56de9773bb1b7);
+            
+        
+
+        circle_marker_af57ee3f14b1ade58c3a3920f37bea4c.bindPopup(popup_216cc414b47fe6c5159a1322525531a4)
+        ;
+
+        
+    
+    
+            circle_marker_af57ee3f14b1ade58c3a3920f37bea4c.bindTooltip(
+                `<div>
+                     BAR XICRA (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_81e40daa626704d05600458785411994 = L.circleMarker(
+                [42.0502768, 2.2484512],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_9d1c9eea3496719e93d2ad056fba88d5 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_8f87933abeb2084931270e028390230d = $(`<div id="html_8f87933abeb2084931270e028390230d" style="width: 100.0%; height: 100.0%;">Client: BRASSERIA EL TRIANGLE COHO<br>Cluster ID: 57<br>Cluster size: 29<br>Address: MATABOSCH C DEL TER 200, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_9d1c9eea3496719e93d2ad056fba88d5.setContent(html_8f87933abeb2084931270e028390230d);
+            
+        
+
+        circle_marker_81e40daa626704d05600458785411994.bindPopup(popup_9d1c9eea3496719e93d2ad056fba88d5)
+        ;
+
+        
+    
+    
+            circle_marker_81e40daa626704d05600458785411994.bindTooltip(
+                `<div>
+                     BRASSERIA EL TRIANGLE COHO (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8b6f770dd5cd06f9115524f3fa56712a = L.circleMarker(
+                [42.046868, 2.262668],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_c4d7d8718969584f40bfd3fbf6c5cb46 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d4fbb1a63823d2b65971ef7c435ed11b = $(`<div id="html_d4fbb1a63823d2b65971ef7c435ed11b" style="width: 100.0%; height: 100.0%;">Client: CAFE DE L&#x27;ESGLESIA<br>Cluster ID: 57<br>Cluster size: 29<br>Address: CALLE MOSSEN PARASSOLS 1, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_c4d7d8718969584f40bfd3fbf6c5cb46.setContent(html_d4fbb1a63823d2b65971ef7c435ed11b);
+            
+        
+
+        circle_marker_8b6f770dd5cd06f9115524f3fa56712a.bindPopup(popup_c4d7d8718969584f40bfd3fbf6c5cb46)
+        ;
+
+        
+    
+    
+            circle_marker_8b6f770dd5cd06f9115524f3fa56712a.bindTooltip(
+                `<div>
+                     CAFE DE L'ESGLESIA (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e489e5386c674f2904d671f00fb3c9d3 = L.circleMarker(
+                [42.048832, 2.263831],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_f2100b2af08b6db5020c14d6d3cfbd2d = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ebdf4d11994d1f59dd60ded10beaafe4 = $(`<div id="html_ebdf4d11994d1f59dd60ded10beaafe4" style="width: 100.0%; height: 100.0%;">Client: CAL NAN<br>Cluster ID: 57<br>Cluster size: 29<br>Address: CALLE ENRIC PRAT DE LA RIBA 7, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_f2100b2af08b6db5020c14d6d3cfbd2d.setContent(html_ebdf4d11994d1f59dd60ded10beaafe4);
+            
+        
+
+        circle_marker_e489e5386c674f2904d671f00fb3c9d3.bindPopup(popup_f2100b2af08b6db5020c14d6d3cfbd2d)
+        ;
+
+        
+    
+    
+            circle_marker_e489e5386c674f2904d671f00fb3c9d3.bindTooltip(
+                `<div>
+                     CAL NAN (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b8cf0ace9c660383d1822c087e68b5b0 = L.circleMarker(
+                [41.3625095, 2.1068011],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_c44cc0791a6bc36712fdcfb3c7cc7157 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_2b32b8ffa388821a4a6255224dbe21be = $(`<div id="html_2b32b8ffa388821a4a6255224dbe21be" style="width: 100.0%; height: 100.0%;">Client: CARLOS OLMOS MONZON<br>Cluster ID: 57<br>Cluster size: 29<br>Address: Carrer de les Esquadres 26, 08901 L&#x27;HOSPITALET DE LLOBREGAT, Spain</div>`)[0];
+                popup_c44cc0791a6bc36712fdcfb3c7cc7157.setContent(html_2b32b8ffa388821a4a6255224dbe21be);
+            
+        
+
+        circle_marker_b8cf0ace9c660383d1822c087e68b5b0.bindPopup(popup_c44cc0791a6bc36712fdcfb3c7cc7157)
+        ;
+
+        
+    
+    
+            circle_marker_b8cf0ace9c660383d1822c087e68b5b0.bindTooltip(
+                `<div>
+                     CARLOS OLMOS MONZON (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_58238ae90bf15982bf3049511d39a516 = L.circleMarker(
+                [42.062189, 2.273413],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_27468b0405bae3277ff0c700fdd407e0 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4905686867ddb21bec9a57ecb9e78c46 = $(`<div id="html_4905686867ddb21bec9a57ecb9e78c46" style="width: 100.0%; height: 100.0%;">Client: CASAL GENT GRAN ST.VICENÇ TORELLO<br>Cluster ID: 57<br>Cluster size: 29<br>Address: PLAZA CAL FERRER 14, 08571 SANT VICENÇ DE TORELLÓ, Spain</div>`)[0];
+                popup_27468b0405bae3277ff0c700fdd407e0.setContent(html_4905686867ddb21bec9a57ecb9e78c46);
+            
+        
+
+        circle_marker_58238ae90bf15982bf3049511d39a516.bindPopup(popup_27468b0405bae3277ff0c700fdd407e0)
+        ;
+
+        
+    
+    
+            circle_marker_58238ae90bf15982bf3049511d39a516.bindTooltip(
+                `<div>
+                     CASAL GENT GRAN ST.VICENÇ TORELLO (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c84d0088f0082d7f1c34deab899492c8 = L.circleMarker(
+                [42.049022, 2.253543],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_d2b802dca9d2c89283847f17c6418b41 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ac33b513a78fe31fbb2f172ce3e3b620 = $(`<div id="html_ac33b513a78fe31fbb2f172ce3e3b620" style="width: 100.0%; height: 100.0%;">Client: DCAFE<br>Cluster ID: 57<br>Cluster size: 29<br>Address: CALLE TER 66, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_d2b802dca9d2c89283847f17c6418b41.setContent(html_ac33b513a78fe31fbb2f172ce3e3b620);
+            
+        
+
+        circle_marker_c84d0088f0082d7f1c34deab899492c8.bindPopup(popup_d2b802dca9d2c89283847f17c6418b41)
+        ;
+
+        
+    
+    
+            circle_marker_c84d0088f0082d7f1c34deab899492c8.bindTooltip(
+                `<div>
+                     DCAFE (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_70a0f1b7437df1199680629d69458945 = L.circleMarker(
+                [42.0502768, 2.2484512],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_838498fc20abadd6025360cb440dfab3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_2075f0ff69e919eeef5340c09ade13b3 = $(`<div id="html_2075f0ff69e919eeef5340c09ade13b3" style="width: 100.0%; height: 100.0%;">Client: FERRO<br>Cluster ID: 57<br>Cluster size: 29<br>Address: Carrer del Ter 172, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_838498fc20abadd6025360cb440dfab3.setContent(html_2075f0ff69e919eeef5340c09ade13b3);
+            
+        
+
+        circle_marker_70a0f1b7437df1199680629d69458945.bindPopup(popup_838498fc20abadd6025360cb440dfab3)
+        ;
+
+        
+    
+    
+            circle_marker_70a0f1b7437df1199680629d69458945.bindTooltip(
+                `<div>
+                     FERRO (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b476a05d951ece5e6f23af6667b65f38 = L.circleMarker(
+                [42.0642954, 2.2505389],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_cce1ae1324732577a91ad3b7eff02397 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_9bcdbdb3df2c463d933bedb9071f31f5 = $(`<div id="html_9bcdbdb3df2c463d933bedb9071f31f5" style="width: 100.0%; height: 100.0%;">Client: FONDA VILASECA<br>Cluster ID: 57<br>Cluster size: 29<br>Address: Carrer de Vila-Seca 12, 08571 Vila-seca, Spain</div>`)[0];
+                popup_cce1ae1324732577a91ad3b7eff02397.setContent(html_9bcdbdb3df2c463d933bedb9071f31f5);
+            
+        
+
+        circle_marker_b476a05d951ece5e6f23af6667b65f38.bindPopup(popup_cce1ae1324732577a91ad3b7eff02397)
+        ;
+
+        
+    
+    
+            circle_marker_b476a05d951ece5e6f23af6667b65f38.bindTooltip(
+                `<div>
+                     FONDA VILASECA (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_840e64307ed485884a7a0336603bc350 = L.circleMarker(
+                [41.5621407, 2.2222997],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_2ade7805ad0e28d73a642698589c265e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4d6b1858738e31e5fd74d7f8aaff7860 = $(`<div id="html_4d6b1858738e31e5fd74d7f8aaff7860" style="width: 100.0%; height: 100.0%;">Client: FOOD TRUCK<br>Cluster ID: 57<br>Cluster size: 29<br>Address: CARRER SANT JAUME 134, 08150 PARETS DEL VALLES, Spain</div>`)[0];
+                popup_2ade7805ad0e28d73a642698589c265e.setContent(html_4d6b1858738e31e5fd74d7f8aaff7860);
+            
+        
+
+        circle_marker_840e64307ed485884a7a0336603bc350.bindPopup(popup_2ade7805ad0e28d73a642698589c265e)
+        ;
+
+        
+    
+    
+            circle_marker_840e64307ed485884a7a0336603bc350.bindTooltip(
+                `<div>
+                     FOOD TRUCK (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_422684f69bd0b807ea1aa32489b8a168 = L.circleMarker(
+                [42.075184, 2.296201],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_c025efa9d95c6b1b4c8057a898d55ed5 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_166c1cbb331d3a7658fe6f476e70b868 = $(`<div id="html_166c1cbb331d3a7658fe6f476e70b868" style="width: 100.0%; height: 100.0%;">Client: FORN ANTIGA CASA PRAT<br>Cluster ID: 57<br>Cluster size: 29<br>Address: Carrer del Bisbe Castanyer 15, 08572 SANT PERE DE TORELLÓ, Spain</div>`)[0];
+                popup_c025efa9d95c6b1b4c8057a898d55ed5.setContent(html_166c1cbb331d3a7658fe6f476e70b868);
+            
+        
+
+        circle_marker_422684f69bd0b807ea1aa32489b8a168.bindPopup(popup_c025efa9d95c6b1b4c8057a898d55ed5)
+        ;
+
+        
+    
+    
+            circle_marker_422684f69bd0b807ea1aa32489b8a168.bindTooltip(
+                `<div>
+                     FORN ANTIGA CASA PRAT (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_586cea1cc2c1ba5932e8a0bb1c77ee06 = L.circleMarker(
+                [42.075218, 2.29677],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_2f99cfc81f965a0971235bfbeeea9416 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_474e7415d86673242bb043ee48533f84 = $(`<div id="html_474e7415d86673242bb043ee48533f84" style="width: 100.0%; height: 100.0%;">Client: FRANKFURT ES-3<br>Cluster ID: 57<br>Cluster size: 29<br>Address: CALLE VERDAGUER 2, 08572 SANT PERE DE TORELLÓ, Spain</div>`)[0];
+                popup_2f99cfc81f965a0971235bfbeeea9416.setContent(html_474e7415d86673242bb043ee48533f84);
+            
+        
+
+        circle_marker_586cea1cc2c1ba5932e8a0bb1c77ee06.bindPopup(popup_2f99cfc81f965a0971235bfbeeea9416)
+        ;
+
+        
+    
+    
+            circle_marker_586cea1cc2c1ba5932e8a0bb1c77ee06.bindTooltip(
+                `<div>
+                     FRANKFURT ES-3 (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c571de1ff67599d9aafdd26600c03f12 = L.circleMarker(
+                [42.0736365, 2.2981884],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_63fc8ee9faf2f502dd27916f1c195c8a = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_82ea1c8a1f8d070b15257ab4f512546c = $(`<div id="html_82ea1c8a1f8d070b15257ab4f512546c" style="width: 100.0%; height: 100.0%;">Client: HORDES SPT<br>Cluster ID: 57<br>Cluster size: 29<br>Address: Carrer Josep Vilanova 27, 08572 SANT PERE DE TORELLÓ, Spain</div>`)[0];
+                popup_63fc8ee9faf2f502dd27916f1c195c8a.setContent(html_82ea1c8a1f8d070b15257ab4f512546c);
+            
+        
+
+        circle_marker_c571de1ff67599d9aafdd26600c03f12.bindPopup(popup_63fc8ee9faf2f502dd27916f1c195c8a)
+        ;
+
+        
+    
+    
+            circle_marker_c571de1ff67599d9aafdd26600c03f12.bindTooltip(
+                `<div>
+                     HORDES SPT (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e3360279f0bd8427802c78db71ccc71a = L.circleMarker(
+                [42.0478304, 2.2643391],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_a298ee7898e6e6919c7e7b87ed1fb22e = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_3d74afadc34d9fd172731fcfd0e3ac5c = $(`<div id="html_3d74afadc34d9fd172731fcfd0e3ac5c" style="width: 100.0%; height: 100.0%;">Client: JORDI FERNANDEZ GODOY<br>Cluster ID: 57<br>Cluster size: 29<br>Address: PIRINEO 97, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_a298ee7898e6e6919c7e7b87ed1fb22e.setContent(html_3d74afadc34d9fd172731fcfd0e3ac5c);
+            
+        
+
+        circle_marker_e3360279f0bd8427802c78db71ccc71a.bindPopup(popup_a298ee7898e6e6919c7e7b87ed1fb22e)
+        ;
+
+        
+    
+    
+            circle_marker_e3360279f0bd8427802c78db71ccc71a.bindTooltip(
+                `<div>
+                     JORDI FERNANDEZ GODOY (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e62fa38b99f61c47601058d22a45c6a8 = L.circleMarker(
+                [42.052305, 2.254183],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_cbbf6beb339bf27a10cd16c71ae2719f = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_750e5cd1c693f01b8b937a3f1efbcf5a = $(`<div id="html_750e5cd1c693f01b8b937a3f1efbcf5a" style="width: 100.0%; height: 100.0%;">Client: KBCIK<br>Cluster ID: 57<br>Cluster size: 29<br>Address: PLAZA LA SARDANA 6, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_cbbf6beb339bf27a10cd16c71ae2719f.setContent(html_750e5cd1c693f01b8b937a3f1efbcf5a);
+            
+        
+
+        circle_marker_e62fa38b99f61c47601058d22a45c6a8.bindPopup(popup_cbbf6beb339bf27a10cd16c71ae2719f)
+        ;
+
+        
+    
+    
+            circle_marker_e62fa38b99f61c47601058d22a45c6a8.bindTooltip(
+                `<div>
+                     KBCIK (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7a11a6be327cde4a57e14a1431441d3c = L.circleMarker(
+                [42.0475064, 2.263752],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_9a4e72eef62714dcf25cb3f427defa47 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_b1de1d6393ac6597e38096744e1e2ff4 = $(`<div id="html_b1de1d6393ac6597e38096744e1e2ff4" style="width: 100.0%; height: 100.0%;">Client: LA LLAVOR<br>Cluster ID: 57<br>Cluster size: 29<br>Address: Plaça Nova 8, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_9a4e72eef62714dcf25cb3f427defa47.setContent(html_b1de1d6393ac6597e38096744e1e2ff4);
+            
+        
+
+        circle_marker_7a11a6be327cde4a57e14a1431441d3c.bindPopup(popup_9a4e72eef62714dcf25cb3f427defa47)
+        ;
+
+        
+    
+    
+            circle_marker_7a11a6be327cde4a57e14a1431441d3c.bindTooltip(
+                `<div>
+                     LA LLAVOR (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d977a28ef0ad3b9d4bf2ef1e32b71a1a = L.circleMarker(
+                [42.046312, 2.265631],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_b6aca755f24a0c5d87263585204f3ea1 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_e26dcf3f18d7dcb828a60e1b6d7733e0 = $(`<div id="html_e26dcf3f18d7dcb828a60e1b6d7733e0" style="width: 100.0%; height: 100.0%;">Client: PENSIO EL TREVOL<br>Cluster ID: 57<br>Cluster size: 29<br>Address: CALLE SANT BARTOMEU 34, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_b6aca755f24a0c5d87263585204f3ea1.setContent(html_e26dcf3f18d7dcb828a60e1b6d7733e0);
+            
+        
+
+        circle_marker_d977a28ef0ad3b9d4bf2ef1e32b71a1a.bindPopup(popup_b6aca755f24a0c5d87263585204f3ea1)
+        ;
+
+        
+    
+    
+            circle_marker_d977a28ef0ad3b9d4bf2ef1e32b71a1a.bindTooltip(
+                `<div>
+                     PENSIO EL TREVOL (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6e67e8d11e42aa5bd9d1ae904e580ed8 = L.circleMarker(
+                [42.0479743, 2.2657815],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_32bed2c3da378cd54377be97ac4fcfcf = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_586d347de5b373f3a344008aa5d92d82 = $(`<div id="html_586d347de5b373f3a344008aa5d92d82" style="width: 100.0%; height: 100.0%;">Client: PRIMER EXPRESS<br>Cluster ID: 57<br>Cluster size: 29<br>Address: Carrer dels Estudis 6, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_32bed2c3da378cd54377be97ac4fcfcf.setContent(html_586d347de5b373f3a344008aa5d92d82);
+            
+        
+
+        circle_marker_6e67e8d11e42aa5bd9d1ae904e580ed8.bindPopup(popup_32bed2c3da378cd54377be97ac4fcfcf)
+        ;
+
+        
+    
+    
+            circle_marker_6e67e8d11e42aa5bd9d1ae904e580ed8.bindTooltip(
+                `<div>
+                     PRIMER EXPRESS (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bb2fc6b737cdcc5b6a850f60739de8be = L.circleMarker(
+                [42.0754755, 2.2955862],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_f0d94a28b2a826fddec2180a4433cb83 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_4e72f2139cf9553854dfa4cbb3ea2bc8 = $(`<div id="html_4e72f2139cf9553854dfa4cbb3ea2bc8" style="width: 100.0%; height: 100.0%;">Client: SANTUARI DE BELLMUNT<br>Cluster ID: 57<br>Cluster size: 29<br>Address: LUGAR SANTUARI DE BELLMUNT 1, 08572 SANT PERE DE TORELLÓ, Spain</div>`)[0];
+                popup_f0d94a28b2a826fddec2180a4433cb83.setContent(html_4e72f2139cf9553854dfa4cbb3ea2bc8);
+            
+        
+
+        circle_marker_bb2fc6b737cdcc5b6a850f60739de8be.bindPopup(popup_f0d94a28b2a826fddec2180a4433cb83)
+        ;
+
+        
+    
+    
+            circle_marker_bb2fc6b737cdcc5b6a850f60739de8be.bindTooltip(
+                `<div>
+                     SANTUARI DE BELLMUNT (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_3aa5526fc0645737532504ef9fc92ab3 = L.circleMarker(
+                [42.0478304, 2.2643391],
+                {"bubblingMouseEvents": true, "color": "#65A30D", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#65A30D", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_25d29fd8571a8bcbdc8ef26076c6c415);
+        
+    
+        var popup_7984c7c8e0671626048f9d3a46c93c7a = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_37053e0eac95599a92141ef57d52132a = $(`<div id="html_37053e0eac95599a92141ef57d52132a" style="width: 100.0%; height: 100.0%;">Client: SUPERMERCAT ROVIRA<br>Cluster ID: 57<br>Cluster size: 29<br>Address: CALLE EL CANIGO 68, 08570 TORELLÓ, Spain</div>`)[0];
+                popup_7984c7c8e0671626048f9d3a46c93c7a.setContent(html_37053e0eac95599a92141ef57d52132a);
+            
+        
+
+        circle_marker_3aa5526fc0645737532504ef9fc92ab3.bindPopup(popup_7984c7c8e0671626048f9d3a46c93c7a)
+        ;
+
+        
+    
+    
+            circle_marker_3aa5526fc0645737532504ef9fc92ab3.bindTooltip(
+                `<div>
+                     SUPERMERCAT ROVIRA (cluster 57)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

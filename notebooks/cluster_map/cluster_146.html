@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d7a5a8a76f9b7e88c62b31787b246b9e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_d7a5a8a76f9b7e88c62b31787b246b9e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_d7a5a8a76f9b7e88c62b31787b246b9e = L.map(
+                "map_d7a5a8a76f9b7e88c62b31787b246b9e",
+                {
+                    center: [41.545615, 2.20806],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f8f1d13356052ec7188119d74ada075d = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f8f1d13356052ec7188119d74ada075d.addTo(map_d7a5a8a76f9b7e88c62b31787b246b9e);
+        
+    
+            var circle_marker_857a8261aea6483e07c48148d3d578f9 = L.circleMarker(
+                [41.535578, 2.213208],
+                {"bubblingMouseEvents": true, "color": "#0891B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0891B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_d7a5a8a76f9b7e88c62b31787b246b9e);
+        
+    
+        var popup_9d5edea4ae71cfe88a3b25856d0da991 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_373fee0ee8e6e5784966bb6db7861af7 = $(`<div id="html_373fee0ee8e6e5784966bb6db7861af7" style="width: 100.0%; height: 100.0%;">Client: CACHITO PAN<br>Cluster ID: 146<br>Cluster size: 5<br>Address: AVENIDA CALDES 27, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_9d5edea4ae71cfe88a3b25856d0da991.setContent(html_373fee0ee8e6e5784966bb6db7861af7);
+            
+        
+
+        circle_marker_857a8261aea6483e07c48148d3d578f9.bindPopup(popup_9d5edea4ae71cfe88a3b25856d0da991)
+        ;
+
+        
+    
+    
+            circle_marker_857a8261aea6483e07c48148d3d578f9.bindTooltip(
+                `<div>
+                     CACHITO PAN (cluster 146)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_38bfbadf5918ea824ac20ca8a7c6103d = L.circleMarker(
+                [41.5484192, 2.2077722],
+                {"bubblingMouseEvents": true, "color": "#0891B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0891B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_d7a5a8a76f9b7e88c62b31787b246b9e);
+        
+    
+        var popup_8d90da5d2c1e6afc1fff4babbbc8bac2 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_80c3dd6f3ba7f177ea60cb8d3bec80c9 = $(`<div id="html_80c3dd6f3ba7f177ea60cb8d3bec80c9" style="width: 100.0%; height: 100.0%;">Client: GRAN EMPERADOR RESTAURANTE CHINO<br>Cluster ID: 146<br>Cluster size: 5<br>Address: CALLE GALLECS 64, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_8d90da5d2c1e6afc1fff4babbbc8bac2.setContent(html_80c3dd6f3ba7f177ea60cb8d3bec80c9);
+            
+        
+
+        circle_marker_38bfbadf5918ea824ac20ca8a7c6103d.bindPopup(popup_8d90da5d2c1e6afc1fff4babbbc8bac2)
+        ;
+
+        
+    
+    
+            circle_marker_38bfbadf5918ea824ac20ca8a7c6103d.bindTooltip(
+                `<div>
+                     GRAN EMPERADOR RESTAURANTE CHINO (cluster 146)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a91c8c8bf240ead1e55d3ac3acec7296 = L.circleMarker(
+                [41.526917, 2.233278],
+                {"bubblingMouseEvents": true, "color": "#0891B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0891B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_d7a5a8a76f9b7e88c62b31787b246b9e);
+        
+    
+        var popup_828c67ed9e78c9fdecff931506c87ce9 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ac0f68c1b2af19b5ca89879325bd04f0 = $(`<div id="html_ac0f68c1b2af19b5ca89879325bd04f0" style="width: 100.0%; height: 100.0%;">Client: RIVOLI CERVECERIA<br>Cluster ID: 146<br>Cluster size: 5<br>Address: AGRICULTURA 9, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_828c67ed9e78c9fdecff931506c87ce9.setContent(html_ac0f68c1b2af19b5ca89879325bd04f0);
+            
+        
+
+        circle_marker_a91c8c8bf240ead1e55d3ac3acec7296.bindPopup(popup_828c67ed9e78c9fdecff931506c87ce9)
+        ;
+
+        
+    
+    
+            circle_marker_a91c8c8bf240ead1e55d3ac3acec7296.bindTooltip(
+                `<div>
+                     RIVOLI CERVECERIA (cluster 146)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f43274e8715f8e25827f6d3279646e6c = L.circleMarker(
+                [41.545615, 2.205411],
+                {"bubblingMouseEvents": true, "color": "#0891B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0891B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_d7a5a8a76f9b7e88c62b31787b246b9e);
+        
+    
+        var popup_253f937a5f25cca09e8f702c80f644d4 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_57124bc4959420ae2959beb5edb7a8c2 = $(`<div id="html_57124bc4959420ae2959beb5edb7a8c2" style="width: 100.0%; height: 100.0%;">Client: SOL Y LUNA<br>Cluster ID: 146<br>Cluster size: 5<br>Address: AVENIDA CALDES DE MONTBUI 21, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_253f937a5f25cca09e8f702c80f644d4.setContent(html_57124bc4959420ae2959beb5edb7a8c2);
+            
+        
+
+        circle_marker_f43274e8715f8e25827f6d3279646e6c.bindPopup(popup_253f937a5f25cca09e8f702c80f644d4)
+        ;
+
+        
+    
+    
+            circle_marker_f43274e8715f8e25827f6d3279646e6c.bindTooltip(
+                `<div>
+                     SOL Y LUNA (cluster 146)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_baeb2c4dc36dd6dd70a544bca8a80797 = L.circleMarker(
+                [41.5467073, 2.20806],
+                {"bubblingMouseEvents": true, "color": "#0891B2", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0891B2", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_d7a5a8a76f9b7e88c62b31787b246b9e);
+        
+    
+        var popup_e8f5c257a3802f44629d40ce4e7c745b = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d0cbaf88658b9c1b0ef53d6084497809 = $(`<div id="html_d0cbaf88658b9c1b0ef53d6084497809" style="width: 100.0%; height: 100.0%;">Client: XARRUP BAR<br>Cluster ID: 146<br>Cluster size: 5<br>Address: Avinguda de Rivoli 24, 08100 MOLLET DEL VALLES, Spain</div>`)[0];
+                popup_e8f5c257a3802f44629d40ce4e7c745b.setContent(html_d0cbaf88658b9c1b0ef53d6084497809);
+            
+        
+
+        circle_marker_baeb2c4dc36dd6dd70a544bca8a80797.bindPopup(popup_e8f5c257a3802f44629d40ce4e7c745b)
+        ;
+
+        
+    
+    
+            circle_marker_baeb2c4dc36dd6dd70a544bca8a80797.bindTooltip(
+                `<div>
+                     XARRUP BAR (cluster 146)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>

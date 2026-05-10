@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_660093517a4cc4155c2d623d9f34bf20 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_660093517a4cc4155c2d623d9f34bf20" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_660093517a4cc4155c2d623d9f34bf20 = L.map(
+                "map_660093517a4cc4155c2d623d9f34bf20",
+                {
+                    center: [41.39214, 2.15599],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bbd98af431237e432d3bc0e75ebaf5a9 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_bbd98af431237e432d3bc0e75ebaf5a9.addTo(map_660093517a4cc4155c2d623d9f34bf20);
+        
+    
+            var circle_marker_f9043ebfcccee1ed3a7e7945b08f8a14 = L.circleMarker(
+                [41.39214, 2.15599],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_660093517a4cc4155c2d623d9f34bf20);
+        
+    
+        var popup_9a4cb639cdc39eee9cd521f19832eceb = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_d137d9776922a6a14b74d5efaa469096 = $(`<div id="html_d137d9776922a6a14b74d5efaa469096" style="width: 100.0%; height: 100.0%;">Client: OBSEQUIOS EVENTOS DEPORTIVOS DAMM<br>Cluster ID: 184<br>Cluster size: 1<br>Address: ROSELLON, 515, 08025 BARCELONA, Spain</div>`)[0];
+                popup_9a4cb639cdc39eee9cd521f19832eceb.setContent(html_d137d9776922a6a14b74d5efaa469096);
+            
+        
+
+        circle_marker_f9043ebfcccee1ed3a7e7945b08f8a14.bindPopup(popup_9a4cb639cdc39eee9cd521f19832eceb)
+        ;
+
+        
+    
+    
+            circle_marker_f9043ebfcccee1ed3a7e7945b08f8a14.bindTooltip(
+                `<div>
+                     OBSEQUIOS EVENTOS DEPORTIVOS DAMM (cluster 184)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
