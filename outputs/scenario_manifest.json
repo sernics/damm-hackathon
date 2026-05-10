@@ -2,6 +2,120 @@
   "defaultDate": "2026-02-27",
   "dates": [
     {
+      "date": "2026-01-30",
+      "label": "Jan 30, 2026",
+      "baseline": "scenario_20260130_baseline.json",
+      "optimized": "scenario_20260130_optimized.json"
+    },
+    {
+      "date": "2026-02-02",
+      "label": "Feb 02, 2026",
+      "baseline": "scenario_20260202_baseline.json",
+      "optimized": "scenario_20260202_optimized.json"
+    },
+    {
+      "date": "2026-02-03",
+      "label": "Feb 03, 2026",
+      "baseline": "scenario_20260203_baseline.json",
+      "optimized": "scenario_20260203_optimized.json"
+    },
+    {
+      "date": "2026-02-04",
+      "label": "Feb 04, 2026",
+      "baseline": "scenario_20260204_baseline.json",
+      "optimized": "scenario_20260204_optimized.json"
+    },
+    {
+      "date": "2026-02-05",
+      "label": "Feb 05, 2026",
+      "baseline": "scenario_20260205_baseline.json",
+      "optimized": "scenario_20260205_optimized.json"
+    },
+    {
+      "date": "2026-02-06",
+      "label": "Feb 06, 2026",
+      "baseline": "scenario_20260206_baseline.json",
+      "optimized": "scenario_20260206_optimized.json"
+    },
+    {
+      "date": "2026-02-09",
+      "label": "Feb 09, 2026",
+      "baseline": "scenario_20260209_baseline.json",
+      "optimized": "scenario_20260209_optimized.json"
+    },
+    {
+      "date": "2026-02-10",
+      "label": "Feb 10, 2026",
+      "baseline": "scenario_20260210_baseline.json",
+      "optimized": "scenario_20260210_optimized.json"
+    },
+    {
+      "date": "2026-02-11",
+      "label": "Feb 11, 2026",
+      "baseline": "scenario_20260211_baseline.json",
+      "optimized": "scenario_20260211_optimized.json"
+    },
+    {
+      "date": "2026-02-12",
+      "label": "Feb 12, 2026",
+      "baseline": "scenario_20260212_baseline.json",
+      "optimized": "scenario_20260212_optimized.json"
+    },
+    {
+      "date": "2026-02-13",
+      "label": "Feb 13, 2026",
+      "baseline": "scenario_20260213_baseline.json",
+      "optimized": "scenario_20260213_optimized.json"
+    },
+    {
+      "date": "2026-02-16",
+      "label": "Feb 16, 2026",
+      "baseline": "scenario_20260216_baseline.json",
+      "optimized": "scenario_20260216_optimized.json"
+    },
+    {
+      "date": "2026-02-17",
+      "label": "Feb 17, 2026",
+      "baseline": "scenario_20260217_baseline.json",
+      "optimized": "scenario_20260217_optimized.json"
+    },
+    {
+      "date": "2026-02-18",
+      "label": "Feb 18, 2026",
+      "baseline": "scenario_20260218_baseline.json",
+      "optimized": "scenario_20260218_optimized.json"
+    },
+    {
+      "date": "2026-02-19",
+      "label": "Feb 19, 2026",
+      "baseline": "scenario_20260219_baseline.json",
+      "optimized": "scenario_20260219_optimized.json"
+    },
+    {
+      "date": "2026-02-20",
+      "label": "Feb 20, 2026",
+      "baseline": "scenario_20260220_baseline.json",
+      "optimized": "scenario_20260220_optimized.json"
+    },
+    {
+      "date": "2026-02-23",
+      "label": "Feb 23, 2026",
+      "baseline": "scenario_20260223_baseline.json",
+      "optimized": "scenario_20260223_optimized.json"
+    },
+    {
+      "date": "2026-02-24",
+      "label": "Feb 24, 2026",
+      "baseline": "scenario_20260224_baseline.json",
+      "optimized": "scenario_20260224_optimized.json"
+    },
+    {
+      "date": "2026-02-25",
+      "label": "Feb 25, 2026",
+      "baseline": "scenario_20260225_baseline.json",
+      "optimized": "scenario_20260225_optimized.json"
+    },
+    {
       "date": "2026-02-26",
       "label": "Feb 26, 2026",
       "baseline": "scenario_20260226_baseline.json",
@@ -18,6 +132,132 @@
       "label": "Mar 02, 2026",
       "baseline": "scenario_20260302_baseline.json",
       "optimized": "scenario_20260302_optimized.json"
+    },
+    {
+      "date": "2026-03-03",
+      "label": "Mar 03, 2026",
+      "baseline": "scenario_20260303_baseline.json",
+      "optimized": "scenario_20260303_optimized.json"
+    },
+    {
+      "date": "2026-03-04",
+      "label": "Mar 04, 2026",
+      "baseline": "scenario_20260304_baseline.json",
+      "optimized": "scenario_20260304_optimized.json"
+    },
+    {
+      "date": "2026-03-05",
+      "label": "Mar 05, 2026",
+      "baseline": "scenario_20260305_baseline.json",
+      "optimized": "scenario_20260305_optimized.json"
+    },
+    {
+      "date": "2026-03-06",
+      "label": "Mar 06, 2026",
+      "baseline": "scenario_20260306_baseline.json",
+      "optimized": "scenario_20260306_optimized.json"
+    },
+    {
+      "date": "2026-03-09",
+      "label": "Mar 09, 2026",
+      "baseline": "scenario_20260309_baseline.json",
+      "optimized": "scenario_20260309_optimized.json"
+    },
+    {
+      "date": "2026-03-10",
+      "label": "Mar 10, 2026",
+      "baseline": "scenario_20260310_baseline.json",
+      "optimized": "scenario_20260310_optimized.json"
+    },
+    {
+      "date": "2026-03-11",
+      "label": "Mar 11, 2026",
+      "baseline": "scenario_20260311_baseline.json",
+      "optimized": "scenario_20260311_optimized.json"
+    },
+    {
+      "date": "2026-03-12",
+      "label": "Mar 12, 2026",
+      "baseline": "scenario_20260312_baseline.json",
+      "optimized": "scenario_20260312_optimized.json"
+    },
+    {
+      "date": "2026-03-13",
+      "label": "Mar 13, 2026",
+      "baseline": "scenario_20260313_baseline.json",
+      "optimized": "scenario_20260313_optimized.json"
+    },
+    {
+      "date": "2026-03-16",
+      "label": "Mar 16, 2026",
+      "baseline": "scenario_20260316_baseline.json",
+      "optimized": "scenario_20260316_optimized.json"
+    },
+    {
+      "date": "2026-03-17",
+      "label": "Mar 17, 2026",
+      "baseline": "scenario_20260317_baseline.json",
+      "optimized": "scenario_20260317_optimized.json"
+    },
+    {
+      "date": "2026-03-18",
+      "label": "Mar 18, 2026",
+      "baseline": "scenario_20260318_baseline.json",
+      "optimized": "scenario_20260318_optimized.json"
+    },
+    {
+      "date": "2026-03-19",
+      "label": "Mar 19, 2026",
+      "baseline": "scenario_20260319_baseline.json",
+      "optimized": "scenario_20260319_optimized.json"
+    },
+    {
+      "date": "2026-03-20",
+      "label": "Mar 20, 2026",
+      "baseline": "scenario_20260320_baseline.json",
+      "optimized": "scenario_20260320_optimized.json"
+    },
+    {
+      "date": "2026-03-23",
+      "label": "Mar 23, 2026",
+      "baseline": "scenario_20260323_baseline.json",
+      "optimized": "scenario_20260323_optimized.json"
+    },
+    {
+      "date": "2026-03-24",
+      "label": "Mar 24, 2026",
+      "baseline": "scenario_20260324_baseline.json",
+      "optimized": "scenario_20260324_optimized.json"
+    },
+    {
+      "date": "2026-03-25",
+      "label": "Mar 25, 2026",
+      "baseline": "scenario_20260325_baseline.json",
+      "optimized": "scenario_20260325_optimized.json"
+    },
+    {
+      "date": "2026-03-26",
+      "label": "Mar 26, 2026",
+      "baseline": "scenario_20260326_baseline.json",
+      "optimized": "scenario_20260326_optimized.json"
+    },
+    {
+      "date": "2026-03-27",
+      "label": "Mar 27, 2026",
+      "baseline": "scenario_20260327_baseline.json",
+      "optimized": "scenario_20260327_optimized.json"
+    },
+    {
+      "date": "2026-03-30",
+      "label": "Mar 30, 2026",
+      "baseline": "scenario_20260330_baseline.json",
+      "optimized": "scenario_20260330_optimized.json"
+    },
+    {
+      "date": "2026-03-31",
+      "label": "Mar 31, 2026",
+      "baseline": "scenario_20260331_baseline.json",
+      "optimized": "scenario_20260331_optimized.json"
     }
   ]
 }
