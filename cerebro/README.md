@@ -23,6 +23,7 @@ All relevant information has been extracted from the source materials (CSVs, PDF
 | [`08_solution_sketch.md`](08_solution_sketch.md) | Architecture draft: ETL -> routing -> packing -> visualisation |
 | [`09_data_quality.md`](09_data_quality.md) | **Read before any ETL.** Traps, quirks, dedupe rules, accent issues |
 | [`10_mentor_session_2.md`](10_mentor_session_2.md) | Findings from the second mentor session — joint objective, partitions, license categories, park-and-walk pattern |
+| [`10_briefing_llm.md`](10_briefing_llm.md) | Person B: briefing LLM (RAG), API contract, folder layout, MVP checklist |
 | [`11_veteran_capture.md`](11_veteran_capture.md) | Spec for the audio-to-Markdown veteran-knowledge capture system that feeds the briefing LLM via RAG |
 | [`GLOSSARY.md`](GLOSSARY.md) | Every code and abbreviation we ran into |
 | [`ASSUMPTIONS.md`](ASSUMPTIONS.md) | Every assumption we made when no source confirmed it, in one place |

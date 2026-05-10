@@ -1,0 +1,9 @@
+Produce the route cheat-sheet for the driver. Use only the data below.
+
+## ROUTE
+
+{{ route_json }}
+
+## VETERAN TIPS PER CLIENT
+
+{{ all_tips }}
