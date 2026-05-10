@@ -98,14 +98,16 @@
 
     .route-id { font-weight: 600; font-variant-numeric: tabular-nums; }
 
-    .client-list { display: flex; flex-wrap: wrap; gap: 0.2rem 0.4rem; }
+    .client-list { display: flex; flex-wrap: wrap; gap: 0.25rem; }
 
     .client-tag {
+      display: inline-block;
       font-size: 0.72rem;
-      padding: 0.1rem 0.35rem;
+      padding: 0.12rem 0.4rem;
       border-radius: 3px;
       background: #f3f3f3;
       color: #777;
+      white-space: nowrap;
     }
 
     .client-tag.has-tips {
@@ -332,8 +334,8 @@ async function onDateChange() {
       clients += '<span class="' + cls + '">' + esc(c.name) + '</span>';
     });
 
-    html += '<tr class="' + rowClass + '" data-route="' + esc(r.route_id) + '">' +
-      '<td class="route-id">' + esc(r.route_id) + '</td>' +
+    html += '<tr class="' + rowClass + '" data-route="' + r.route_id + '">' +
+      '<td class="route-id">Truck ' + esc(r.route_id) + '</td>' +
       '<td>' + r.num_stops + '</td>' +
       '<td><span class="' + badgeClass + '">' + r.tips_count + '</span></td>' +
       '<td><div class="client-list">' + clients + '</div></td>' +
@@ -398,7 +400,7 @@ async function generateBriefing() {
     var data = await resp.json();
     if (!resp.ok) { showError(data.detail || "Server error"); return; }
 
-    document.getElementById("res-route").textContent = "Route " + data.route_id + " -- " + date;
+    document.getElementById("res-route").textContent = "Truck " + data.route_id + " -- " + date;
     document.getElementById("res-lang").textContent = data.language === "es" ? "Castellano" : "Catala";
     document.getElementById("res-briefing").innerHTML = formatBriefing(data.briefing);
     document.getElementById("result").style.display = "block";

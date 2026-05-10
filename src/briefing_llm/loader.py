@@ -1,13 +1,12 @@
 from __future__ import annotations
 
-import ast
-import csv
 import json
 from typing import Any
 
 from . import config
 
 _manifest_cache: dict[str, dict[str, Any]] | None = None
+_truck_plan_cache: dict[str, Any] | None = None
 
 
 def _load_manifest() -> dict[str, dict[str, Any]]:
@@ -22,6 +21,15 @@ def _load_manifest() -> dict[str, dict[str, Any]]:
         if name:
             _manifest_cache[name] = entry
     return _manifest_cache
+
+
+def _load_truck_plan() -> dict[str, Any]:
+    global _truck_plan_cache
+    if _truck_plan_cache is not None:
+        return _truck_plan_cache
+    with open(config.TRUCK_PLAN_PATH, encoding="utf-8") as f:
+        _truck_plan_cache = json.load(f)
+    return _truck_plan_cache
 
 
 def get_client_info(client_name: str) -> dict[str, Any] | None:
@@ -54,59 +62,34 @@ def get_client_address(client_name: str) -> str:
     return info.get("address", "")
 
 
-def _parse_transport_ids(raw: str) -> list[str]:
-    try:
-        parsed = ast.literal_eval(raw)
-        if isinstance(parsed, list):
-            return [str(x) for x in parsed]
-    except (ValueError, SyntaxError):
-        pass
-    return [raw.strip("[]' ")]
-
-
-def load_all_routes() -> list[dict[str, Any]]:
-    routes: dict[str, dict[str, Any]] = {}
-    with open(config.ORDERS_CSV, encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            date = row["order_date"]
-            transport_ids = _parse_transport_ids(row["transport_ids"])
-            primary_id = transport_ids[0]
-            key = f"{date}|{primary_id}"
-
-            if key not in routes:
-                routes[key] = {
-                    "route_id": primary_id,
-                    "route_date": date,
-                    "stops": [],
-                }
-
-            client_name = row["client_name"]
-            address = get_client_address(client_name)
-            has_tips = client_has_tips(client_name)
-
-            routes[key]["stops"].append({
-                "stop_number": len(routes[key]["stops"]) + 1,
-                "client_name": client_name,
-                "address": address,
-                "has_tips": has_tips,
-            })
-
-    return sorted(routes.values(), key=lambda r: (r["route_date"], r["route_id"]))
+def get_available_dates() -> list[str]:
+    plan = _load_truck_plan()
+    return sorted(plan.keys())
 
 
 def load_routes_for_date(date: str) -> list[dict[str, Any]]:
-    all_routes = load_all_routes()
-    return [r for r in all_routes if r["route_date"] == date]
+    plan = _load_truck_plan()
+    raw_routes = plan.get(date, [])
+    routes: list[dict[str, Any]] = []
 
+    for idx, stop_list in enumerate(raw_routes):
+        stops = []
+        for i, s in enumerate(stop_list):
+            client_name = s.get("client_name", "")
+            stops.append({
+                "stop_number": i + 1,
+                "client_name": client_name,
+                "address": get_client_address(client_name),
+                "has_tips": client_has_tips(client_name),
+            })
 
-def get_available_dates() -> list[str]:
-    dates: set[str] = set()
-    with open(config.ORDERS_CSV, encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            dates.add(row["order_date"])
-    return sorted(dates)
+        routes.append({
+            "route_id": str(idx + 1),
+            "route_date": date,
+            "stops": stops,
+        })
+
+    return routes
 
 
 def collect_all_tips(stops: list[dict[str, Any]]) -> str:
