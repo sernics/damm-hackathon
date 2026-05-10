@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
@@ -12,7 +12,9 @@ from . import config
 from .llm import generate_briefing
 from .loader import get_available_dates, load_routes_for_date
 
-STATIC_DIR = Path(__file__).parent / "static"
+_REPO_ROOT = Path(__file__).resolve().parents[2]
+FRONTEND_DIR = _REPO_ROOT / "app" / "frontend"
+BRIEFING_STATIC_DIR = Path(__file__).parent / "static"
 
 app = FastAPI(
     title="AI Driver Briefing",
@@ -20,12 +22,14 @@ app = FastAPI(
     version="0.3.0",
 )
 
-app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
-
 
 @app.get("/")
-def index() -> FileResponse:
-    return FileResponse(STATIC_DIR / "index.html")
+def briefing_ui() -> FileResponse:
+    """Driver briefing (uses /dates, /routes, POST /briefing)."""
+    return FileResponse(
+        BRIEFING_STATIC_DIR / "index.html",
+        headers={"Cache-Control": "no-store"},
+    )
 
 
 @app.get("/health")
@@ -93,3 +97,12 @@ def create_briefing(request: BriefingRequest) -> BriefingResponse:
         language=request.language,
         num_stops=len(route["stops"]),
     )
+
+
+@app.get("/fleet", include_in_schema=False)
+def fleet_redirect_slash() -> RedirectResponse:
+    return RedirectResponse(url="/fleet/", status_code=307)
+
+
+# 3D fleet viewer: open http://127.0.0.1:8080/fleet/ (trailing slash). JSON: /fleet/data/fleet_plan.json
+app.mount("/fleet", StaticFiles(directory=str(FRONTEND_DIR), html=True), name="fleet_frontend")
