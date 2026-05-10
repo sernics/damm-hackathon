@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ab9849664c2e0e9f8656630cdc638695 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_ab9849664c2e0e9f8656630cdc638695" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ab9849664c2e0e9f8656630cdc638695 = L.map(
+                "map_ab9849664c2e0e9f8656630cdc638695",
+                {
+                    center: [41.509611, 2.2178629],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 11,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b867c4cad0ebed97dddc20f0a8865c41 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_b867c4cad0ebed97dddc20f0a8865c41.addTo(map_ab9849664c2e0e9f8656630cdc638695);
+        
+    
+            var circle_marker_b8ac83073dce006281cd1ac0b543636b = L.circleMarker(
+                [41.4313373, 2.2178629],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_ab9849664c2e0e9f8656630cdc638695);
+        
+    
+        var popup_ac88f716b590364b4acd14912b584279 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_5d60644a14bddaddcd1279cd65b62c6c = $(`<div id="html_5d60644a14bddaddcd1279cd65b62c6c" style="width: 100.0%; height: 100.0%;">Client: Delight Coffee<br>Cluster ID: 117<br>Cluster size: 7<br>Address: Avinguda de Catalunya 51, 08930 BARCELONA, Spain</div>`)[0];
+                popup_ac88f716b590364b4acd14912b584279.setContent(html_5d60644a14bddaddcd1279cd65b62c6c);
+            
+        
+
+        circle_marker_b8ac83073dce006281cd1ac0b543636b.bindPopup(popup_ac88f716b590364b4acd14912b584279)
+        ;
+
+        
+    
+    
+            circle_marker_b8ac83073dce006281cd1ac0b543636b.bindTooltip(
+                `<div>
+                     Delight Coffee (cluster 117)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e8aa12971cdd4fb8a3dac052fea46137 = L.circleMarker(
+                [41.447979, 2.226439],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_ab9849664c2e0e9f8656630cdc638695);
+        
+    
+        var popup_856f7c3044b72aafb8cd6c5f473ff8b3 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_eb6dad304f165c3c3b2c2d5f6f1cd99f = $(`<div id="html_eb6dad304f165c3c3b2c2d5f6f1cd99f" style="width: 100.0%; height: 100.0%;">Client: FRANCISCO JOSE SANCHEZ ORTEGA<br>Cluster ID: 117<br>Cluster size: 7<br>Address: CALLE PERE MARTELL 80, 08917 BADALONA, Spain</div>`)[0];
+                popup_856f7c3044b72aafb8cd6c5f473ff8b3.setContent(html_eb6dad304f165c3c3b2c2d5f6f1cd99f);
+            
+        
+
+        circle_marker_e8aa12971cdd4fb8a3dac052fea46137.bindPopup(popup_856f7c3044b72aafb8cd6c5f473ff8b3)
+        ;
+
+        
+    
+    
+            circle_marker_e8aa12971cdd4fb8a3dac052fea46137.bindTooltip(
+                `<div>
+                     FRANCISCO JOSE SANCHEZ ORTEGA (cluster 117)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_931ec4793cb9c3ca3f6786f7b6939c5c = L.circleMarker(
+                [41.509611, 2.195485],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_ab9849664c2e0e9f8656630cdc638695);
+        
+    
+        var popup_52ecb05df301088a9a12072cba3833d8 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_da138f4286c1fe0c91bdf76231c8ca8b = $(`<div id="html_da138f4286c1fe0c91bdf76231c8ca8b" style="width: 100.0%; height: 100.0%;">Client: JUAN JAVIER PONCE<br>Cluster ID: 117<br>Cluster size: 7<br>Address: PASEO PINTOR SERT 19, 08120 LA LLAGOSTA, Spain</div>`)[0];
+                popup_52ecb05df301088a9a12072cba3833d8.setContent(html_da138f4286c1fe0c91bdf76231c8ca8b);
+            
+        
+
+        circle_marker_931ec4793cb9c3ca3f6786f7b6939c5c.bindPopup(popup_52ecb05df301088a9a12072cba3833d8)
+        ;
+
+        
+    
+    
+            circle_marker_931ec4793cb9c3ca3f6786f7b6939c5c.bindTooltip(
+                `<div>
+                     JUAN JAVIER PONCE (cluster 117)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e79c114a18812c808cd5cc99f0841784 = L.circleMarker(
+                [41.988853, 2.309788],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_ab9849664c2e0e9f8656630cdc638695);
+        
+    
+        var popup_d37c0a93fa959abb6cc555fa556a06a5 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_5207a9263fcea715ceda0732a07c0c1a = $(`<div id="html_5207a9263fcea715ceda0732a07c0c1a" style="width: 100.0%; height: 100.0%;">Client: MARC ANGLADA PORTET<br>Cluster ID: 117<br>Cluster size: 7<br>Address: CALLE JAUME I 22, 08510 RODA DE TER, Spain</div>`)[0];
+                popup_d37c0a93fa959abb6cc555fa556a06a5.setContent(html_5207a9263fcea715ceda0732a07c0c1a);
+            
+        
+
+        circle_marker_e79c114a18812c808cd5cc99f0841784.bindPopup(popup_d37c0a93fa959abb6cc555fa556a06a5)
+        ;
+
+        
+    
+    
+            circle_marker_e79c114a18812c808cd5cc99f0841784.bindTooltip(
+                `<div>
+                     MARC ANGLADA PORTET (cluster 117)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_b2ef67beb2b99c6ae21324637aebc2bb = L.circleMarker(
+                [41.5487496, 2.2080131],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_ab9849664c2e0e9f8656630cdc638695);
+        
+    
+        var popup_27fc29d58173901a444a063f1d9d97cd = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_ee1d220538121c6708f88fa4b3f37c9f = $(`<div id="html_ee1d220538121c6708f88fa4b3f37c9f" style="width: 100.0%; height: 100.0%;">Client: MARIA LUISA MUÑOZ CARO<br>Cluster ID: 117<br>Cluster size: 7<br>Address: CALLE FRANCESC FERRER I GUARDIA 9, 08100 MOLLET DEL VALLÈS, Spain</div>`)[0];
+                popup_27fc29d58173901a444a063f1d9d97cd.setContent(html_ee1d220538121c6708f88fa4b3f37c9f);
+            
+        
+
+        circle_marker_b2ef67beb2b99c6ae21324637aebc2bb.bindPopup(popup_27fc29d58173901a444a063f1d9d97cd)
+        ;
+
+        
+    
+    
+            circle_marker_b2ef67beb2b99c6ae21324637aebc2bb.bindTooltip(
+                `<div>
+                     MARIA LUISA MUÑOZ CARO (cluster 117)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e99dedb00689451dd72fee0beb924e13 = L.circleMarker(
+                [41.568615, 2.231564],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_ab9849664c2e0e9f8656630cdc638695);
+        
+    
+        var popup_11ce9bf768d1ae289aec73eedd34c720 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_dcba16a01f4e325a84e401cc5a80e172 = $(`<div id="html_dcba16a01f4e325a84e401cc5a80e172" style="width: 100.0%; height: 100.0%;">Client: SONIA FRANCAS SANTIAGO<br>Cluster ID: 117<br>Cluster size: 7<br>Address: CALLE DOCTOR FERRAN 3, 08160 MONTMELÓ, Spain</div>`)[0];
+                popup_11ce9bf768d1ae289aec73eedd34c720.setContent(html_dcba16a01f4e325a84e401cc5a80e172);
+            
+        
+
+        circle_marker_e99dedb00689451dd72fee0beb924e13.bindPopup(popup_11ce9bf768d1ae289aec73eedd34c720)
+        ;
+
+        
+    
+    
+            circle_marker_e99dedb00689451dd72fee0beb924e13.bindTooltip(
+                `<div>
+                     SONIA FRANCAS SANTIAGO (cluster 117)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7890c13bf9cade30dbbd17e6e4b6f9b1 = L.circleMarker(
+                [41.4382361, 2.2166687],
+                {"bubblingMouseEvents": true, "color": "#2563EB", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#2563EB", "fillOpacity": 0.85, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7, "stroke": true, "weight": 2}
+            ).addTo(map_ab9849664c2e0e9f8656630cdc638695);
+        
+    
+        var popup_eb5b2fcfa9861fb710528f5dd76f43a6 = L.popup({
+  "maxWidth": 420,
+});
+
+        
+            
+                var html_0d5977918267042fc98352c91a24cc83 = $(`<div id="html_0d5977918267042fc98352c91a24cc83" style="width: 100.0%; height: 100.0%;">Client: Somni d&#x27;estiu bar<br>Cluster ID: 117<br>Cluster size: 7<br>Address: Carrer d&#x27;Europa 1, 08913 BADALONA, Spain</div>`)[0];
+                popup_eb5b2fcfa9861fb710528f5dd76f43a6.setContent(html_0d5977918267042fc98352c91a24cc83);
+            
+        
+
+        circle_marker_7890c13bf9cade30dbbd17e6e4b6f9b1.bindPopup(popup_eb5b2fcfa9861fb710528f5dd76f43a6)
+        ;
+
+        
+    
+    
+            circle_marker_7890c13bf9cade30dbbd17e6e4b6f9b1.bindTooltip(
+                `<div>
+                     Somni d'estiu bar (cluster 117)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+</script>
+</html>
