@@ -10,9 +10,10 @@ ANTHROPIC_API_KEY: str = os.environ.get("ANTHROPIC_API_KEY", "")
 MODEL = os.environ.get("BRIEFING_MODEL", "claude-haiku-4-5-20251001")
 MAX_TOKENS = int(os.environ.get("BRIEFING_MAX_TOKENS", "1024"))
 
-DATA_DIR = Path(os.environ.get("BRIEFING_DATA_DIR", PROJECT_ROOT / "data" / "briefing-llm-template"))
-TIPS_DIR = DATA_DIR / "tips"
-PROMPTS_DIR = DATA_DIR / "prompts"
+DATASET_DIR = PROJECT_ROOT / "dataset"
+ORDERS_CSV = DATASET_DIR / "daily_client_orders.csv"
+MANIFEST_PATH = DATASET_DIR / "veteran_notes" / "manifest.json"
 
+PROMPTS_DIR = PROJECT_ROOT / "data" / "briefing-llm-template" / "prompts"
 SYSTEM_PROMPT_PATH = PROMPTS_DIR / "system.sample.txt"
 USER_TEMPLATE_PATH = PROMPTS_DIR / "user.placeholder.txt"
